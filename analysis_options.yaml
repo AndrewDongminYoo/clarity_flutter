@@ -1,1 +1,16 @@
 include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - lib/src/models/generated/**
+  errors:
+    constant_identifier_names: ignore
+    directives_ordering: ignore
+    lines_longer_than_80_chars: ignore
+
+linter:
+  rules:
+    always_use_package_imports: false
+    dangling_library_doc_comments: true
+    prefer_relative_imports: true
+    unnecessary_breaks: true

@@ -1,18 +1,37 @@
 name: clarity_flutter
-description: A Very Good Project created by Very Good CLI.
-version: 0.1.0+1
-publish_to: none
-
+description: Official Microsoft Clarity Flutter SDK; add free, privacy-conscious session replay, heatmaps & interaction analytics to Flutter mobile apps.
+homepage: https://clarity.microsoft.com/mobile-apps
+version: 1.7.0
 environment:
   sdk: ^3.9.0
   flutter: ^3.35.0
 
 dependencies:
+  # needed for network connectivity status
+  connectivity_plus: ^7.0.0
+  # needed for device information
+  device_info_plus: ^12.3.0
+  # needed because protobuf depends on it, and generated code imports it directly
+  fixnum: ^1.1.1
   flutter:
     sdk: flutter
+  # needed for image encoding as png
+  image: ^4.7.2
+  # needed for json annotations to generate json converters for data classes
+  json_annotation: ^4.9.0
+  # needed for package name, this version supports down to flutter 3.6
+  package_info_plus: ^9.0.0
+  # needed to fetch cache path on device to store files
+  # bumps min flutter version to 3.19
+  path_provider: ^2.1.5
+  protobuf: ^6.0.0
+  # needed for getting memory info
+  system_info2: ^4.1.0
 
 dev_dependencies:
+  build_runner: ^2.10.4
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
-  mocktail: ^1.0.4
+  json_serializable: ^6.11.3
   very_good_analysis: ^10.0.0
