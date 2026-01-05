@@ -15,7 +15,5 @@
     }
   ],
   "useGitignore": true,
-  "words": [
-    "clarity_flutter"
-  ]
+  "words": ["clarity_flutter"]
 }
