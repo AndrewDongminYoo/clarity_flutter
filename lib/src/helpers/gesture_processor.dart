@@ -2,13 +2,13 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:math';
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/clarity_constants.dart';
 import 'package:clarity_flutter/src/models/display/display_frame.dart';
 import 'package:clarity_flutter/src/models/ingest/ingest.dart';

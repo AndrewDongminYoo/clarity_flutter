@@ -2,10 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/rendering.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/masking.dart';
 import 'package:clarity_flutter/src/observers/clarity_gesture_observer.dart';
 import 'package:clarity_flutter/src/utils/dev_utils.dart';

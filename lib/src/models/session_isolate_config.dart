@@ -2,13 +2,13 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:isolate';
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/services.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/clarity_flutter.dart';
 
 class SessionIsolateConfig {

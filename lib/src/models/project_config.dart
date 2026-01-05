@@ -2,10 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:convert';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/low_end_devices_config.dart';
 import 'package:clarity_flutter/src/models/masking.dart';
 import 'package:clarity_flutter/src/models/network_config.dart';

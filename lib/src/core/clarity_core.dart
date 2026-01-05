@@ -4,20 +4,20 @@ library;
 
 // ignore_for_file: deprecated_member_use_from_same_package
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:async';
 import 'dart:io';
 import 'dart:ui';
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-// Package imports:
+// 📦 Package imports:
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/clarity_constants.dart';
 import 'package:clarity_flutter/src/helpers/services/ingest_service.dart';
 import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';

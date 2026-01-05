@@ -2,7 +2,7 @@
 /// Licensed under the MIT License.
 library;
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/display/display_command.dart';
 import 'package:clarity_flutter/src/models/display/image_command.dart';
 import 'package:clarity_flutter/src/models/display/rect.dart';

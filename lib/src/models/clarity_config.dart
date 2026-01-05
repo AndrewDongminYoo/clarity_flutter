@@ -4,7 +4,7 @@ library;
 
 // ignore_for_file: deprecated_member_use_from_same_package
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 /// Configuration for initializing Clarity in your Flutter app.

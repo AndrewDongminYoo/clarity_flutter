@@ -2,10 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:math';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/clarity_constants.dart';
 import 'package:clarity_flutter/src/models/session/page_metadata.dart';
 

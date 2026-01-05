@@ -4,16 +4,16 @@ library;
 
 // ignore_for_file: deprecated_member_use_from_same_package
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:async';
 import 'dart:isolate';
 import 'dart:math';
 import 'dart:ui';
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/services.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:clarity_flutter/src/clarity_constants.dart';
 import 'package:clarity_flutter/src/helpers/gesture_processor.dart';

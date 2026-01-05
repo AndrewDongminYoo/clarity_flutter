@@ -1,8 +1,8 @@
-// Package imports:
+// 📦 Package imports:
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:system_info2/system_info2.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/clarity_constants.dart';
 import 'package:clarity_flutter/src/models/project_config.dart';
 import 'package:clarity_flutter/src/registries/environment_registry.dart';

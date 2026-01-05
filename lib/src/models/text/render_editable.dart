@@ -2,10 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/rendering.dart' as rendering;
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/masking.dart';
 import 'package:clarity_flutter/src/models/text/box_constraints.dart';
 import 'package:clarity_flutter/src/models/text/inline_span.dart';

@@ -2,13 +2,13 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:ui';
 
-// Package imports:
+// 📦 Package imports:
 import 'package:meta/meta.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/utils/asset_utils.dart';
 import 'package:clarity_flutter/src/utils/dev_utils.dart';
 

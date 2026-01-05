@@ -12,10 +12,10 @@
 // ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
 // ignore_for_file: non_constant_identifier_names
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:core' as $core;
 
-// Package imports:
+// 📦 Package imports:
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class SamplingType extends $pb.ProtobufEnum {

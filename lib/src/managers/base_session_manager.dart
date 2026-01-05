@@ -2,10 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:ui';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/mixins/callback_handler.dart';
 import 'package:clarity_flutter/src/mixins/event_queue_handler.dart';
 import 'package:clarity_flutter/src/mixins/isolate_handler.dart';

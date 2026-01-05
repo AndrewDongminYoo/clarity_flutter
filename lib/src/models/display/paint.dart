@@ -2,10 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:ui' as ui;
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/display/color4f.dart';
 import 'package:clarity_flutter/src/models/display/color_filter.dart';
 import 'package:clarity_flutter/src/models/display/mask_filter.dart';

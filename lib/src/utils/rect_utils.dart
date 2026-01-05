@@ -2,7 +2,7 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:ui';
 
 double tolerance = 0.5;

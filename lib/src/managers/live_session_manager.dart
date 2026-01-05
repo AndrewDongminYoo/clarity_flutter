@@ -2,11 +2,11 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:async';
 import 'dart:ui';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/helpers/live_player_service.dart';
 import 'package:clarity_flutter/src/managers/base_session_manager.dart';
 import 'package:clarity_flutter/src/models/events/session_event.dart';

@@ -2,7 +2,7 @@
 /// Licensed under the MIT License.
 library;
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/events/session_event.dart';
 import 'package:clarity_flutter/src/models/ingest/base_mutation_event.dart';
 import 'package:clarity_flutter/src/utils/data_utils.dart';

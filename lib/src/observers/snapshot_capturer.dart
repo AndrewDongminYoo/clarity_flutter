@@ -2,15 +2,15 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:async';
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/helpers/snapshot_painting_context.dart';
 import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
 import 'package:clarity_flutter/src/managers/base_session_manager.dart';

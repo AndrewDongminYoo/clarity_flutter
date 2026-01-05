@@ -2,12 +2,12 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:async';
 import 'dart:isolate';
 import 'dart:math';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/clarity_constants.dart';
 import 'package:clarity_flutter/src/helpers/services/telemetry_service.dart';
 import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';

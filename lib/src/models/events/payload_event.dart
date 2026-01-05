@@ -2,7 +2,7 @@
 /// Licensed under the MIT License.
 library;
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/events/event.dart';
 import 'package:clarity_flutter/src/models/session/payload_metadata.dart';
 

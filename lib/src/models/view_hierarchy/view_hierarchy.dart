@@ -2,7 +2,7 @@
 /// Licensed under the MIT License.
 library;
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
 import 'package:clarity_flutter/src/models/iproto_model.dart';
 import 'package:clarity_flutter/src/models/view_hierarchy/view_node.dart';

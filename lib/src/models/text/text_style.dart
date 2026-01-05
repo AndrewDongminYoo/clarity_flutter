@@ -2,13 +2,13 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:ui' as ui;
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/rendering.dart' as rendering;
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/display/color4f.dart';
 import 'package:clarity_flutter/src/models/display/paint.dart';
 import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;

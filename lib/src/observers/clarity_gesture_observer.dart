@@ -2,14 +2,14 @@
 /// Licensed under the MIT License.
 library;
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
 import 'package:clarity_flutter/src/mixins/callback_handler.dart';
 import 'package:clarity_flutter/src/models/capture/user_gesture.dart';

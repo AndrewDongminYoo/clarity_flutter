@@ -2,10 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/foundation.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/utils/dev_utils.dart';
 
 class Logger {

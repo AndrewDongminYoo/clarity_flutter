@@ -2,7 +2,7 @@
 /// Licensed under the MIT License.
 library;
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/telemetry/telemetry_item.dart';
 
 @pragma('vm:deeply-immutable')

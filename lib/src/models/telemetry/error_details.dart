@@ -5,10 +5,10 @@ library;
 //https://dart.dev/language/concurrency#performance-and-isolate-groups
 //https://github.com/dart-lang/sdk/blob/main/runtime/docs/deeply_immutable.md
 
-// Package imports:
+// 📦 Package imports:
 import 'package:meta/meta.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:clarity_flutter/src/clarity_constants.dart';
 import 'package:clarity_flutter/src/models/session/page_metadata.dart';

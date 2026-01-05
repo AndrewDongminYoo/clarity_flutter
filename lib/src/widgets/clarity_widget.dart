@@ -2,11 +2,11 @@
 /// Licensed under the MIT License.
 library;
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/core/clarity_core.dart';
 import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
 import 'package:clarity_flutter/src/models/clarity_config.dart';

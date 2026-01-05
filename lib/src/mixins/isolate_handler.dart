@@ -2,11 +2,11 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:async';
 import 'dart:isolate';
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart';
 
 mixin IsolateHandler {

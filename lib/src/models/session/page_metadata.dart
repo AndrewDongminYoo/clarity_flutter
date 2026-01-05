@@ -2,10 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// Package imports:
+// 📦 Package imports:
 import 'package:json_annotation/json_annotation.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/session/session_metadata.dart';
 
 part '../generated/page_metadata.g.dart';

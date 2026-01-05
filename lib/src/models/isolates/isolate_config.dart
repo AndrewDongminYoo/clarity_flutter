@@ -2,10 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:isolate';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/registries/environment_registry.dart';
 
 abstract class IsolateConfig {

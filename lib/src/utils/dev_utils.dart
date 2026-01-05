@@ -2,18 +2,18 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/file_store.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/gesture_event.dart';
 import 'package:clarity_flutter/src/registries/environment_registry.dart';

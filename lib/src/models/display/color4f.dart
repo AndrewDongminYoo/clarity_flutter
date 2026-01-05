@@ -4,10 +4,10 @@ library;
 
 // ignore_for_file: deprecated_member_use
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:ui' as ui;
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
 import 'package:clarity_flutter/src/models/iproto_model.dart';
 

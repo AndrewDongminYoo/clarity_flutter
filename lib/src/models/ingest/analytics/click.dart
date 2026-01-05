@@ -2,10 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:ui';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/events/session_event.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/gesture_event.dart';
 import 'package:clarity_flutter/src/models/view_hierarchy/view_node.dart';

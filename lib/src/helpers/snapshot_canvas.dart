@@ -5,14 +5,14 @@ library;
 // ignore_for_file: deprecated_member_use
 //  for support of lower versions
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/rendering.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/capture/native_image_wrapper.dart';
 import 'package:clarity_flutter/src/models/capture/snapshot.dart';
 import 'package:clarity_flutter/src/models/display/display.dart';

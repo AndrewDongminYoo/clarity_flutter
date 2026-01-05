@@ -2,16 +2,16 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:typed_data';
 
-// Flutter imports:
+// 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart' as cupertino;
 
-// Package imports:
+// 📦 Package imports:
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
 import 'package:clarity_flutter/src/managers/base_session_manager.dart';
 import 'package:clarity_flutter/src/mixins/callback_handler.dart';

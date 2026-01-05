@@ -2,12 +2,12 @@
 /// Licensed under the MIT License.
 library;
 
-// Dart imports:
+// 🎯 Dart imports:
 import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
 
-// Package imports:
+// 📦 Package imports:
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 

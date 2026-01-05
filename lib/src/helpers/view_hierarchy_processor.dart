@@ -1,4 +1,4 @@
-// Project imports:
+// 🌎 Project imports:
 import 'package:clarity_flutter/src/models/view_hierarchy/view_hierarchy.dart';
 import 'package:clarity_flutter/src/models/view_hierarchy/view_node.dart';
 
