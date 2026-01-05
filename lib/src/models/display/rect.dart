@@ -1,0 +1,22 @@
+/// Copyright (c) Microsoft Corporation.
+/// Licensed under the MIT License.
+library;
+
+import 'dart:ui' as ui;
+import '../generated/MutationPayload.pb.dart' as mutation_payload;
+import '../iproto_model.dart';
+
+class Rect implements IProtoModel<mutation_payload.Rect> {
+  Rect(this.left, this.top, this.right, this.bottom);
+
+  Rect.fromDartRect(ui.Rect rect) : this(rect.left, rect.top, rect.right, rect.bottom);
+  double left;
+  double top;
+  double right;
+  double bottom;
+
+  @override
+  mutation_payload.Rect toProtobufInstance() {
+    return mutation_payload.Rect(left: left, top: top, right: right, bottom: bottom);
+  }
+}
