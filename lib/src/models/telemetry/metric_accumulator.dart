@@ -2,10 +2,12 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:math' as math;
 
-import '../../clarity_constants.dart';
-import '../../registries/host_info.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/registries/host_info.dart';
 
 class MetricAccumulator {
   MetricAccumulator(this.key);

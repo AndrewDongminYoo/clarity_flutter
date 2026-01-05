@@ -2,9 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-import '../iproto_model.dart';
-import 'view_node.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+// Project imports:
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
+import 'package:clarity_flutter/src/models/view_hierarchy/view_node.dart';
 
 class ViewHierarchy implements IProtoModel<mutation_payload.ViewHierarchy> {
   ViewHierarchy(this.timestamp, this.root);

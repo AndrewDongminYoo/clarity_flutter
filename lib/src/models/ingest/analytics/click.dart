@@ -2,12 +2,14 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:ui';
 
-import '../../../utils/data_utils.dart';
-import '../../view_hierarchy/view_node.dart';
-import 'gesture_event.dart';
-import '../../events/session_event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/gesture_event.dart';
+import 'package:clarity_flutter/src/models/view_hierarchy/view_node.dart';
+import 'package:clarity_flutter/src/utils/data_utils.dart';
 
 class Click extends GestureEvent {
   Click(int timestamp, double absX, double absY, this.viewId)

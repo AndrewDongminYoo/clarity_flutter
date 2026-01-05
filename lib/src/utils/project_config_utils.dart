@@ -1,10 +1,12 @@
+// Package imports:
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:system_info2/system_info2.dart';
 
-import '../clarity_constants.dart';
-import '../models/project_config.dart';
-import '../registries/environment_registry.dart';
-import 'log_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/models/project_config.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class ProjectConfigUtils {
   ProjectConfigUtils._();

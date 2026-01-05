@@ -2,9 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-import '../../events/session_event.dart';
-import '../../../utils/data_utils.dart';
-import 'analytics_event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/analytics_event.dart';
+import 'package:clarity_flutter/src/utils/data_utils.dart';
 
 class VariableEvent extends AnalyticsEvent {
   VariableEvent(int timestamp, this.variables) : super(timestamp, EventType.Variable);

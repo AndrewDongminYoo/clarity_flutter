@@ -2,10 +2,11 @@
 /// Licensed under the MIT License.
 library;
 
-import 'paint_command.dart';
-import 'display_command.dart';
-import 'point.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+// Project imports:
+import 'package:clarity_flutter/src/models/display/display_command.dart';
+import 'package:clarity_flutter/src/models/display/paint_command.dart';
+import 'package:clarity_flutter/src/models/display/point.dart';
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
 
 class DrawLine extends PaintCommand {
   DrawLine(this.point1, this.point2, int paintHashcode) : super(paintHashcode, CommandType.DrawLine);

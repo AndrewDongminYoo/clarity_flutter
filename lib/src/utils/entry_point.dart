@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import 'log_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class EntryPoint {
   EntryPoint._();

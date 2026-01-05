@@ -2,13 +2,16 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 
-import '../models/telemetry/telemetry.dart';
-import '../utils/entry_point.dart';
-import '../utils/log_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/utils/entry_point.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 mixin TelemetryHandler {
   bool currentlyProcessing = false;

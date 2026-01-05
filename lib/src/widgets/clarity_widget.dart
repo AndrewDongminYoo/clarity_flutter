@@ -2,15 +2,17 @@
 /// Licensed under the MIT License.
 library;
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../core/clarity_core.dart';
-import '../helpers/telemetry_tracker.dart';
-import '../models/telemetry/telemetry.dart';
-import '../utils/entry_point.dart';
-import '../utils/log_utils.dart';
-import '../models/clarity_config.dart';
+// Project imports:
+import 'package:clarity_flutter/src/core/clarity_core.dart';
+import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/models/clarity_config.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/utils/entry_point.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 /// A widget that enables Clarity's features for your Flutter app.
 ///

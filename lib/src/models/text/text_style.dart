@@ -2,13 +2,17 @@
 /// Licensed under the MIT License.
 library;
 
-import 'package:flutter/rendering.dart' as rendering;
+// Dart imports:
 import 'dart:ui' as ui;
 
-import '../display/color4f.dart';
-import '../display/paint.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
-import '../iproto_model.dart';
+// Flutter imports:
+import 'package:flutter/rendering.dart' as rendering;
+
+// Project imports:
+import 'package:clarity_flutter/src/models/display/color4f.dart';
+import 'package:clarity_flutter/src/models/display/paint.dart';
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
 
 class TextStyle implements IProtoModel<mutation_payload.TextStyle> {
   TextStyle(

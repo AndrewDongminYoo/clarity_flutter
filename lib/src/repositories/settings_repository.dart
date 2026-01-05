@@ -2,14 +2,16 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
-import '../registries/environment_registry.dart';
-import '../utils/log_utils.dart';
-import '../models/session/page_metadata.dart';
-import '../models/file_store.dart';
-import '../clarity_constants.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/models/file_store.dart';
+import 'package:clarity_flutter/src/models/session/page_metadata.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class SettingsRepository {
   SettingsRepository()

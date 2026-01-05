@@ -4,8 +4,9 @@ library;
 
 // ignore_for_file: constant_identifier_names
 
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
-import '../iproto_model.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
 
 abstract class DisplayCommand implements IProtoModel<mutation_payload.DisplayCommandV2> {
   DisplayCommand(this.type);

@@ -2,10 +2,13 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:typed_data';
-import '../../utils/asset_utils.dart';
-import '../iproto_model.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+
+// Project imports:
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
+import 'package:clarity_flutter/src/utils/asset_utils.dart';
 
 class Image implements IProtoModel<mutation_payload.Image> {
   Image(this.data, this.dartHashCode, this.size);

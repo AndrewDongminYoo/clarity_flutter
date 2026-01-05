@@ -2,34 +2,36 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:async';
 import 'dart:isolate';
 
-import '../clarity_constants.dart';
-import '../helpers/services/telemetry_service.dart';
-import '../helpers/telemetry_tracker.dart';
-import '../mixins/event_queue_handler.dart';
-import '../mixins/callback_handler.dart';
-import '../mixins/isolate_handler.dart';
-import '../mixins/telemetry_queue_handler.dart';
-import '../models/events/control_event.dart';
-import '../models/events/event.dart';
-import '../models/events/payload_event.dart';
-import '../models/isolates/worker_isolate.dart';
-import '../models/session/page_metadata.dart';
-import '../models/telemetry/telemetry.dart';
-import '../registries/environment_registry.dart';
-import '../repositories/session_repository.dart';
-import '../utils/http_utils.dart';
-import '../utils/log_utils.dart';
-import '../helpers/services/ingest_service.dart';
-import '../models/ingest/asset.dart';
-import '../models/ingest/asset_check.dart';
-import '../models/session/payload_metadata.dart';
-import '../models/session/session_metadata.dart';
-import '../models/isolates/upload_isolate_config.dart';
-import '../models/clarity_config.dart';
-import '../models/ingest/serialized_payload.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/helpers/services/ingest_service.dart';
+import 'package:clarity_flutter/src/helpers/services/telemetry_service.dart';
+import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/mixins/callback_handler.dart';
+import 'package:clarity_flutter/src/mixins/event_queue_handler.dart';
+import 'package:clarity_flutter/src/mixins/isolate_handler.dart';
+import 'package:clarity_flutter/src/mixins/telemetry_queue_handler.dart';
+import 'package:clarity_flutter/src/models/clarity_config.dart';
+import 'package:clarity_flutter/src/models/events/control_event.dart';
+import 'package:clarity_flutter/src/models/events/event.dart';
+import 'package:clarity_flutter/src/models/events/payload_event.dart';
+import 'package:clarity_flutter/src/models/ingest/asset.dart';
+import 'package:clarity_flutter/src/models/ingest/asset_check.dart';
+import 'package:clarity_flutter/src/models/ingest/serialized_payload.dart';
+import 'package:clarity_flutter/src/models/isolates/upload_isolate_config.dart';
+import 'package:clarity_flutter/src/models/isolates/worker_isolate.dart';
+import 'package:clarity_flutter/src/models/session/page_metadata.dart';
+import 'package:clarity_flutter/src/models/session/payload_metadata.dart';
+import 'package:clarity_flutter/src/models/session/session_metadata.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/repositories/session_repository.dart';
+import 'package:clarity_flutter/src/utils/http_utils.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 // TODO: send session/page metadata once to avoid duplicates
 class UploadManager with CallbackHandler, IsolateHandler {

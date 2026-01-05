@@ -3,14 +3,20 @@
 library;
 
 // ignore_for_file: deprecated_member_use_from_same_package, constant_identifier_names
+
+// Dart imports:
 import 'dart:ui' as ui;
 
+// Flutter imports:
 import 'package:flutter/rendering.dart';
+
+// Package imports:
 import 'package:meta/meta.dart';
 
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
-import '../iproto_model.dart';
-import 'display.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/display/display.dart';
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
 
 @immutable
 class ShaderContext {

@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import 'event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/event.dart';
 
 abstract class SessionEvent extends Event {
   SessionEvent(this.timestamp, this.type);

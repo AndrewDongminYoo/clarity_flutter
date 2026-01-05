@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import '../models/events/event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/event.dart';
 
 typedef EventCallback = void Function(Event event);
 

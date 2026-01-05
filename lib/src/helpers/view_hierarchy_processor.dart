@@ -1,5 +1,6 @@
-import '../models/view_hierarchy/view_hierarchy.dart';
-import '../models/view_hierarchy/view_node.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/view_hierarchy/view_hierarchy.dart';
+import 'package:clarity_flutter/src/models/view_hierarchy/view_node.dart';
 
 class ViewHierarchyProcessor {
   Map<int, ViewNode> _lastFrameViewNodeCache = {};

@@ -2,14 +2,16 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:ui' as ui;
 
-import '../iproto_model.dart';
-import 'color4f.dart';
-import 'color_filter.dart';
-import 'mask_filter.dart';
-import 'shader.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+// Project imports:
+import 'package:clarity_flutter/src/models/display/color4f.dart';
+import 'package:clarity_flutter/src/models/display/color_filter.dart';
+import 'package:clarity_flutter/src/models/display/mask_filter.dart';
+import 'package:clarity_flutter/src/models/display/shader.dart';
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
 
 class Paint implements IProtoModel<mutation_payload.Paint> {
   Paint(

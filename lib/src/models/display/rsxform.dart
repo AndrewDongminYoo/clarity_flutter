@@ -2,10 +2,12 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:ui' as ui;
 
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
-import '../iproto_model.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
 
 class RSXform implements IProtoModel<mutation_payload.RSXform> {
   RSXform(this.scos, this.ssin, this.tx, this.ty);

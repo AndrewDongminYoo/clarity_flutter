@@ -2,17 +2,19 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:async';
 import 'dart:ui';
 
-import '../helpers/live_player_service.dart';
-import '../models/ingest/analytics/gesture_event.dart';
-import '../models/ingest/mutation_event.dart';
-import '../models/events/session_event.dart';
-import '../utils/dev_utils.dart';
-import '../utils/log_utils.dart';
-import '../utils/data_utils.dart';
-import 'base_session_manager.dart';
+// Project imports:
+import 'package:clarity_flutter/src/helpers/live_player_service.dart';
+import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/gesture_event.dart';
+import 'package:clarity_flutter/src/models/ingest/mutation_event.dart';
+import 'package:clarity_flutter/src/utils/data_utils.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class LiveSessionManager extends BaseSessionManager {
   Map<int, String> hashCodeToMD5HashMap = {};

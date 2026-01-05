@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import 'analytics_event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/ingest/analytics/analytics_event.dart';
 
 abstract class GestureEvent extends AnalyticsEvent {
   GestureEvent(super.timestamp, super.type, this.absX, this.absY, this.pointerId);

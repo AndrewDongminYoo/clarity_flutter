@@ -2,25 +2,28 @@
 /// Licensed under the MIT License.
 library;
 
+// Flutter imports:
 import 'package:flutter/rendering.dart';
-import '../clarity_constants.dart';
-import '../models/capture/edit_text_info.dart';
-import '../models/display/error_view_annotation.dart';
-import '../models/telemetry/telemetry.dart';
-import '../utils/dev_utils.dart';
-import '../models/masking.dart';
-import '../utils/int_utils.dart';
-import '../utils/rect_utils.dart';
-import '../utils/render_object_utils.dart';
-import '../models/view_hierarchy/view_node.dart';
-import '../utils/log_utils.dart';
-import '../models/text/text.dart' as clarity_text;
-import '../models/display/display.dart' as clarity_display;
-import '../models/capture/snapshot.dart';
-import '../utils/masking_utils.dart';
-import '../widgets/masking_widgets.dart';
-import 'snapshot_canvas.dart';
-import 'telemetry_tracker.dart';
+
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/helpers/snapshot_canvas.dart';
+import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/models/capture/edit_text_info.dart';
+import 'package:clarity_flutter/src/models/capture/snapshot.dart';
+import 'package:clarity_flutter/src/models/display/display.dart' as clarity_display;
+import 'package:clarity_flutter/src/models/display/error_view_annotation.dart';
+import 'package:clarity_flutter/src/models/masking.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/models/text/text.dart' as clarity_text;
+import 'package:clarity_flutter/src/models/view_hierarchy/view_node.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/utils/int_utils.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
+import 'package:clarity_flutter/src/utils/masking_utils.dart';
+import 'package:clarity_flutter/src/utils/rect_utils.dart';
+import 'package:clarity_flutter/src/utils/render_object_utils.dart';
+import 'package:clarity_flutter/src/widgets/masking_widgets.dart';
 
 class SnapshotPaintingContext extends PaintingContext {
   SnapshotPaintingContext({

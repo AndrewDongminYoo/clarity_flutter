@@ -2,13 +2,16 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:collection';
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 
-import '../models/events/event.dart';
-import '../utils/entry_point.dart';
-import '../utils/log_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/event.dart';
+import 'package:clarity_flutter/src/utils/entry_point.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 mixin EventQueueHandler {
   final Queue<Event> _eventsQueue = Queue();

@@ -4,16 +4,20 @@ library;
 
 // ignore_for_file: deprecated_member_use
 //  for support of lower versions
-import 'dart:ui' as ui;
-import 'dart:typed_data';
 
+// Dart imports:
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+
+// Flutter imports:
 import 'package:flutter/rendering.dart';
 
-import '../models/capture/native_image_wrapper.dart';
-import '../models/display/shader.dart';
-import '../models/view_hierarchy/view_node.dart';
-import '../models/display/display.dart';
-import '../models/capture/snapshot.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/capture/native_image_wrapper.dart';
+import 'package:clarity_flutter/src/models/capture/snapshot.dart';
+import 'package:clarity_flutter/src/models/display/display.dart';
+import 'package:clarity_flutter/src/models/display/shader.dart';
+import 'package:clarity_flutter/src/models/view_hierarchy/view_node.dart';
 
 typedef GradientRectCallback = ui.Rect Function();
 

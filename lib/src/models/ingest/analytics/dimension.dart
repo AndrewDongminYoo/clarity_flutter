@@ -2,9 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-import '../../events/session_event.dart';
-import '../../../utils/data_utils.dart';
-import 'analytics_event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/analytics_event.dart';
+import 'package:clarity_flutter/src/utils/data_utils.dart';
 
 // ignore_for_file: constant_identifier_names
 enum Dimension {

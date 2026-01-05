@@ -2,9 +2,11 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+// Package imports:
 import 'package:image/image.dart' as img;
 
 class AssetUtils {

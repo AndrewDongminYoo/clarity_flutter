@@ -2,19 +2,23 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:async';
+import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
-import '../models/ingest/analytics/gesture_event.dart';
-import '../registries/environment_registry.dart';
-import 'render_object_utils.dart';
-import '../models/file_store.dart';
-import 'log_utils.dart';
-import 'dart:convert';
-import 'dart:io';
+
+// Project imports:
+import 'package:clarity_flutter/src/models/file_store.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/gesture_event.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
+import 'package:clarity_flutter/src/utils/render_object_utils.dart';
 
 const bool profileMode = false;
 

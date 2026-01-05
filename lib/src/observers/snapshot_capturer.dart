@@ -2,27 +2,31 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
-import '../helpers/telemetry_tracker.dart';
-import '../managers/base_session_manager.dart';
-import '../models/capture/edit_text_info.dart';
-import '../models/capture/snapshot.dart';
-import '../models/capture/user_keyboard_tap.dart';
-import '../models/telemetry/telemetry.dart';
-import '../utils/dev_utils.dart';
-import '../models/capture/error_snapshot.dart';
-import '../utils/entry_point.dart';
-import '../models/masking.dart';
-import '../utils/log_utils.dart';
-import '../models/display/display.dart' as clarity_display;
-import '../utils/project_config_utils.dart';
-import 'iobserver.dart';
-import '../helpers/snapshot_painting_context.dart';
-import '../mixins/callback_handler.dart';
+
+// Project imports:
+import 'package:clarity_flutter/src/helpers/snapshot_painting_context.dart';
+import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/mixins/callback_handler.dart';
+import 'package:clarity_flutter/src/models/capture/edit_text_info.dart';
+import 'package:clarity_flutter/src/models/capture/error_snapshot.dart';
+import 'package:clarity_flutter/src/models/capture/snapshot.dart';
+import 'package:clarity_flutter/src/models/capture/user_keyboard_tap.dart';
+import 'package:clarity_flutter/src/models/display/display.dart' as clarity_display;
+import 'package:clarity_flutter/src/models/masking.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/observers/iobserver.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/utils/entry_point.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
+import 'package:clarity_flutter/src/utils/project_config_utils.dart';
 
 class SnapshotCapturer implements IObserver {
   SnapshotCapturer(this._maskingMode, this._onObservedEvent, this._paintsCache);

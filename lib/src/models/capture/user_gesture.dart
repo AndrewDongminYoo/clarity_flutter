@@ -2,8 +2,9 @@
 /// Licensed under the MIT License.
 library;
 
-import '../events/observed_event.dart';
-import '../ingest/analytics/gesture_event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/observed_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/gesture_event.dart';
 
 class UserGesture extends ObservedEvent {
   UserGesture(this.gestureEvent) : super(gestureEvent.timestamp);

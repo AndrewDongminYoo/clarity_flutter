@@ -2,13 +2,16 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:io';
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 
-import '../../clarity_constants.dart';
-import '../../utils/http_utils.dart';
-import '../../utils/log_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/utils/http_utils.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 abstract class RetriableHttpService {
   @protected

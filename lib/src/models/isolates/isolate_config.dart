@@ -2,8 +2,11 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:isolate';
-import '../../registries/environment_registry.dart';
+
+// Project imports:
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
 
 abstract class IsolateConfig {
   IsolateConfig({required this.sendPort}) : environmentRegistryItems = EnvRegistry.ensureInitialized().toMap();

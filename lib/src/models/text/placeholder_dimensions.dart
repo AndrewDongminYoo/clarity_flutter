@@ -2,11 +2,13 @@
 /// Licensed under the MIT License.
 library;
 
+// Flutter imports:
 import 'package:flutter/rendering.dart' as rendering;
 
-import '../iproto_model.dart';
-import 'offset.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+// Project imports:
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
+import 'package:clarity_flutter/src/models/text/offset.dart';
 
 class PlaceholderDimensions implements IProtoModel<mutation_payload.PlaceholderDimensions> {
   PlaceholderDimensions(this.size, this.alignment, this.baseline, this.baselineOffset);

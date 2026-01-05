@@ -2,11 +2,14 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:isolate';
 
+// Flutter imports:
 import 'package:flutter/services.dart';
 
-import '../../clarity_flutter.dart';
+// Project imports:
+import 'package:clarity_flutter/clarity_flutter.dart';
 
 class SessionIsolateConfig {
   SessionIsolateConfig({

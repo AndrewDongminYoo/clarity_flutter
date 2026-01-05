@@ -2,10 +2,12 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:math';
 
-import '../../clarity_constants.dart';
-import 'page_metadata.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/models/session/page_metadata.dart';
 
 class PayloadMetadata {
   PayloadMetadata({

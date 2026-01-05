@@ -2,8 +2,9 @@
 /// Licensed under the MIT License.
 library;
 
-import 'analytics_event.dart';
-import '../../events/session_event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/analytics_event.dart';
 
 class BaselineEvent extends AnalyticsEvent {
   BaselineEvent(int timestamp, this.visible) : super(timestamp, EventType.Baseline);

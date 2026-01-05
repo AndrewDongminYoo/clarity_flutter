@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import '../../utils/asset_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/utils/asset_utils.dart';
 
 class Asset {
   Asset({required this.assetType, required this.fileName}) : md5Hash = fileName;

@@ -17,7 +17,5 @@ analyzer:
 
 linter:
   rules:
-    always_use_package_imports: false
     dangling_library_doc_comments: true
-    prefer_relative_imports: true
     unnecessary_breaks: true

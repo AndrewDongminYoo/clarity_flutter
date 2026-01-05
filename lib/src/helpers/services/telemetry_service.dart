@@ -2,19 +2,21 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
-import '../../../clarity_flutter.dart';
-import '../../clarity_constants.dart';
-import '../../models/project_config.dart';
-import '../../models/session/page_metadata.dart';
-import '../../models/telemetry/telemetry.dart';
-import '../../registries/environment_registry.dart';
-import '../../utils/http_utils.dart';
-import '../../utils/log_utils.dart';
-import '../telemetry_tracker.dart';
-import 'retriable_http_service.dart';
+// Project imports:
+import 'package:clarity_flutter/clarity_flutter.dart';
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/helpers/services/retriable_http_service.dart';
+import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/models/project_config.dart';
+import 'package:clarity_flutter/src/models/session/page_metadata.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/utils/http_utils.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class TelemetryService extends RetriableHttpService {
   TelemetryService() {

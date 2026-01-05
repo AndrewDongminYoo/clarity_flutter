@@ -2,20 +2,23 @@
 /// Licensed under the MIT License.
 library;
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import '../helpers/telemetry_tracker.dart';
-import '../mixins/callback_handler.dart';
-import '../models/telemetry/telemetry.dart';
-import '../utils/dev_utils.dart';
-import '../utils/entry_point.dart';
-import '../utils/log_utils.dart';
-import '../models/capture/user_gesture.dart';
-import '../models/ingest/ingest.dart';
-import 'iobserver.dart';
+
+// Project imports:
+import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/mixins/callback_handler.dart';
+import 'package:clarity_flutter/src/models/capture/user_gesture.dart';
+import 'package:clarity_flutter/src/models/ingest/ingest.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/observers/iobserver.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/utils/entry_point.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class ClarityGestureObserver implements IObserver {
   factory ClarityGestureObserver(EventCallback onObservedEvent) {

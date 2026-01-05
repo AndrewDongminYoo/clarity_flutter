@@ -2,11 +2,13 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:io';
 
-import '../helpers/services/retriable_http_service.dart';
-import '../utils/log_utils.dart';
-import '../clarity_constants.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/helpers/services/retriable_http_service.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class HttpUtils {
   HttpUtils._();

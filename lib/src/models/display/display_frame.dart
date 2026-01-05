@@ -2,12 +2,13 @@
 /// Licensed under the MIT License.
 library;
 
-import '../../managers/base_session_manager.dart';
-import '../iproto_model.dart';
-import '../view_hierarchy/view_hierarchy.dart';
-import 'display.dart';
-import '../assets/image.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+// Project imports:
+import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/models/assets/image.dart';
+import 'package:clarity_flutter/src/models/display/display.dart';
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
+import 'package:clarity_flutter/src/models/view_hierarchy/view_hierarchy.dart';
 
 class DisplayFrame implements IProtoPageEventModel<mutation_payload.DisplayFrameV2> {
   DisplayFrame(

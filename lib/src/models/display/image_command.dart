@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import 'display.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/display/display.dart';
 
 abstract class ImageCommand extends PaintCommand {
   ImageCommand(this.imageHashcode, int paintHashcode, CommandType type) : super(paintHashcode, type);

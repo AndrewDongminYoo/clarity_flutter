@@ -2,9 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-import 'display_command.dart';
-import 'color4f.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+// Project imports:
+import 'package:clarity_flutter/src/models/display/color4f.dart';
+import 'package:clarity_flutter/src/models/display/display_command.dart';
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
 
 class DrawColor extends DisplayCommand {
   DrawColor(this.color, this.blendMode) : super(CommandType.DrawColor);

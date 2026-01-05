@@ -2,9 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-import '../../managers/base_session_manager.dart';
-import '../session/session_metadata.dart';
-import 'event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/models/events/event.dart';
+import 'package:clarity_flutter/src/models/session/session_metadata.dart';
 
 @pragma('vm:deeply-immutable')
 final class PauseCaptureEvent implements Event {}

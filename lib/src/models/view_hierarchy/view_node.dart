@@ -2,14 +2,17 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:math';
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 
-import '../../clarity_constants.dart';
-import '../iproto_model.dart';
-import '../masking.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
+import 'package:clarity_flutter/src/models/masking.dart';
 
 class ViewNode implements IProtoModel<mutation_payload.ViewNodeDelta> {
   ViewNode({

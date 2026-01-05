@@ -2,9 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-import 'analytics_event.dart';
-import '../../events/session_event.dart';
-import '../../../utils/data_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/analytics_event.dart';
+import 'package:clarity_flutter/src/utils/data_utils.dart';
 
 class CustomEvent extends AnalyticsEvent {
   CustomEvent(int timestamp, this.value) : super(timestamp, EventType.Custom);

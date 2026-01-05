@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import 'isolate_config.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/isolates/isolate_config.dart';
 
 class SessionIsolateConfig extends IsolateConfig {
   SessionIsolateConfig({required super.sendPort});

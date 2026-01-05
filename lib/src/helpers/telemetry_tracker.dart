@@ -2,15 +2,17 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:async';
 import 'dart:isolate';
 import 'dart:math';
 
-import '../clarity_constants.dart';
-import '../models/telemetry/telemetry.dart';
-import '../registries/environment_registry.dart';
-import '../utils/log_utils.dart';
-import 'services/telemetry_service.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/helpers/services/telemetry_service.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 // A class designed to be Singleton per Isolate
 class TelemetryTracker {

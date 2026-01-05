@@ -2,12 +2,14 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:convert';
 
-import 'low_end_devices_config.dart';
-import 'network_config.dart';
-import 'masking.dart';
-import 'screen_capture_config.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/low_end_devices_config.dart';
+import 'package:clarity_flutter/src/models/masking.dart';
+import 'package:clarity_flutter/src/models/network_config.dart';
+import 'package:clarity_flutter/src/models/screen_capture_config.dart';
 
 class ProjectConfig {
   ProjectConfig({

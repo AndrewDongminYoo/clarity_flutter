@@ -2,11 +2,13 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:ui' as ui;
 
-import '../iproto_model.dart';
-import 'color4f.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+// Project imports:
+import 'package:clarity_flutter/src/models/display/color4f.dart';
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
 
 class ColorFilter implements IProtoModel<mutation_payload.ColorFilter> {
   ColorFilter(this.color4f, this.mode);

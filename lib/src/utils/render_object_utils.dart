@@ -2,11 +2,14 @@
 /// Licensed under the MIT License.
 library;
 
+// Flutter imports:
 import 'package:flutter/rendering.dart';
-import '../models/masking.dart';
-import '../utils/dev_utils.dart';
-import '../widgets/masking_widgets.dart';
-import '../observers/clarity_gesture_observer.dart';
+
+// Project imports:
+import 'package:clarity_flutter/src/models/masking.dart';
+import 'package:clarity_flutter/src/observers/clarity_gesture_observer.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/widgets/masking_widgets.dart';
 
 // Render object types to ignore in Painting and View Hierarchy definition (and selector as well)
 List<Type> ignoredRenderObjects = [];

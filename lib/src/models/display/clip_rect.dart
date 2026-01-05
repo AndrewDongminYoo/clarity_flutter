@@ -2,9 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-import 'display_command.dart';
-import 'rect.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+// Project imports:
+import 'package:clarity_flutter/src/models/display/display_command.dart';
+import 'package:clarity_flutter/src/models/display/rect.dart';
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
 
 class ClipRect extends DisplayCommand {
   ClipRect(this.rect, this.op, this.antiAlias) : super(CommandType.ClipRect);

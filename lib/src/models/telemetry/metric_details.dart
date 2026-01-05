@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import 'telemetry_item.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/telemetry/telemetry_item.dart';
 
 @pragma('vm:deeply-immutable')
 final class MetricDetails implements TelemetryItem {

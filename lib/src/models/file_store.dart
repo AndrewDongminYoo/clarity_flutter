@@ -2,11 +2,13 @@
 /// Licensed under the MIT License.
 library;
 
-import 'dart:io';
+// Dart imports:
 import 'dart:convert';
+import 'dart:io';
 
-import '../utils/file_utils.dart';
-import '../clarity_constants.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/utils/file_utils.dart';
 
 enum WriteMode { overwrite, append }
 

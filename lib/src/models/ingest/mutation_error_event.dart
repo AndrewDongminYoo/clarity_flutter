@@ -2,9 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-import '../../utils/data_utils.dart';
-import '../events/session_event.dart';
-import 'base_mutation_event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/ingest/base_mutation_event.dart';
+import 'package:clarity_flutter/src/utils/data_utils.dart';
 
 class MutationErrorEvent extends BaseMutationEvent {
   MutationErrorEvent(int timestamp, this.reason, {this.errorMessage}) : super(timestamp, EventType.MutationError);

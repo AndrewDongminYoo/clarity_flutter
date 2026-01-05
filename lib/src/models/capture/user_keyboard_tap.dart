@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import '../events/observed_event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/observed_event.dart';
 
 class UserKeyboardTap extends ObservedEvent {
   UserKeyboardTap(super.timestamp, this.count);

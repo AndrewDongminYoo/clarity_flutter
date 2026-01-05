@@ -2,9 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-import '../../utils/data_utils.dart';
-import '../../registries/host_info.dart';
-import '../../clarity_constants.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/registries/host_info.dart';
+import 'package:clarity_flutter/src/utils/data_utils.dart';
 
 class Envelope {
   Envelope(this.projectId, this.userId, this.sessionId, this.pageNum, this.sequence, this.start, this.duration)

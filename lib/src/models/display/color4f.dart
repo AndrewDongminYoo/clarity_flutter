@@ -3,10 +3,13 @@
 library;
 
 // ignore_for_file: deprecated_member_use
+
+// Dart imports:
 import 'dart:ui' as ui;
 
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
-import '../iproto_model.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
 
 class Color4f implements IProtoModel<mutation_payload.Color4f> {
   Color4f(this.r, this.g, this.b, this.a);

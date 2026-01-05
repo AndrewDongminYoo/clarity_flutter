@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import '../events/observed_event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/observed_event.dart';
 
 class ErrorSnapshot extends ObservedEvent {
   ErrorSnapshot(this.errorMessage, super.timestamp);

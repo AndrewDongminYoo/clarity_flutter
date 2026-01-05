@@ -4,14 +4,17 @@ library;
 
 //https://dart.dev/language/concurrency#performance-and-isolate-groups
 //https://github.com/dart-lang/sdk/blob/main/runtime/docs/deeply_immutable.md
+
+// Package imports:
 import 'package:meta/meta.dart';
 
-import '../../../clarity_flutter.dart';
-import '../../clarity_constants.dart';
-import '../../registries/environment_registry.dart';
-import '../../registries/host_info.dart';
-import '../session/page_metadata.dart';
-import 'telemetry_item.dart';
+// Project imports:
+import 'package:clarity_flutter/clarity_flutter.dart';
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/models/session/page_metadata.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry_item.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/registries/host_info.dart';
 
 @immutable
 @pragma('vm:deeply-immutable')

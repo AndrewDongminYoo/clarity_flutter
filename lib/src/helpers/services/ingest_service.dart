@@ -2,25 +2,27 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
-import '../../clarity_constants.dart';
-import '../../models/telemetry/telemetry.dart';
-import '../../registries/environment_registry.dart';
-import '../../utils/dev_utils.dart';
-import '../../models/ingest/asset.dart';
-import '../../utils/http_utils.dart';
-import '../../../clarity_flutter.dart';
-import '../../utils/log_utils.dart';
-import '../../models/ingest/asset_check.dart';
-import '../../models/ingest/collect_request.dart';
-import '../../models/ingest/envelope.dart';
-import '../../models/project_config.dart';
-import '../../models/ingest/serialized_payload.dart';
-import '../../models/session/payload_metadata.dart';
-import 'retriable_http_service.dart';
-import '../telemetry_tracker.dart';
+// Project imports:
+import 'package:clarity_flutter/clarity_flutter.dart';
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/helpers/services/retriable_http_service.dart';
+import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/models/ingest/asset.dart';
+import 'package:clarity_flutter/src/models/ingest/asset_check.dart';
+import 'package:clarity_flutter/src/models/ingest/collect_request.dart';
+import 'package:clarity_flutter/src/models/ingest/envelope.dart';
+import 'package:clarity_flutter/src/models/ingest/serialized_payload.dart';
+import 'package:clarity_flutter/src/models/project_config.dart';
+import 'package:clarity_flutter/src/models/session/payload_metadata.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/utils/http_utils.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class IngestService extends RetriableHttpService {
   IngestService() : _packageName = EnvRegistry.ensureInitialized().getItem<String>(EnvRegistryKey.packageName)!;

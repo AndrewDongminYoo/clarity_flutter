@@ -2,15 +2,18 @@
 /// Licensed under the MIT License.
 library;
 
-import 'inline_span.dart';
-import 'render_text_base.dart';
-import 'text_style.dart';
-import 'strut_style.dart';
-import '../masking.dart';
+// Flutter imports:
 import 'package:flutter/rendering.dart' as rendering;
-import 'placeholder_dimensions.dart';
-import 'text_height_behavior.dart';
-import 'box_constraints.dart';
+
+// Project imports:
+import 'package:clarity_flutter/src/models/masking.dart';
+import 'package:clarity_flutter/src/models/text/box_constraints.dart';
+import 'package:clarity_flutter/src/models/text/inline_span.dart';
+import 'package:clarity_flutter/src/models/text/placeholder_dimensions.dart';
+import 'package:clarity_flutter/src/models/text/render_text_base.dart';
+import 'package:clarity_flutter/src/models/text/strut_style.dart';
+import 'package:clarity_flutter/src/models/text/text_height_behavior.dart';
+import 'package:clarity_flutter/src/models/text/text_style.dart';
 
 class RenderEditable extends RenderTextBase {
   RenderEditable(

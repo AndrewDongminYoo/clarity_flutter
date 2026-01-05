@@ -2,8 +2,9 @@
 /// Licensed under the MIT License.
 library;
 
-import 'gesture_event.dart';
-import '../../events/session_event.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/gesture_event.dart';
 
 class TouchEnd extends GestureEvent {
   TouchEnd(int timestamp, int pointerId, double absX, double absY)

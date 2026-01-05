@@ -2,39 +2,45 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:typed_data';
+
+// Flutter imports:
 import 'package:flutter/cupertino.dart' as cupertino;
+
+// Package imports:
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-import '../helpers/telemetry_tracker.dart';
-import '../mixins/event_queue_handler.dart';
-import '../mixins/callback_handler.dart';
-import '../models/capture/user_keyboard_tap.dart';
-import '../models/events/control_event.dart';
-import '../models/ingest/analytics/keystrokes_event.dart';
-import '../models/telemetry/telemetry.dart';
-import '../observers/clarity_gesture_observer.dart';
-import '../models/capture/error_snapshot.dart';
-import '../models/ingest/mutation_error_event.dart';
-import '../models/project_config.dart';
-import '../models/view_hierarchy/view_hierarchy.dart';
-import '../models/capture/native_image_wrapper.dart';
-import '../models/display/display.dart';
-import '../observers/snapshot_capturer.dart';
-import '../models/capture/user_gesture.dart';
-import '../models/capture/snapshot.dart';
-import '../models/events/observed_event.dart';
-import '../models/events/session_event.dart';
-import '../models/assets/image.dart';
-import '../models/ingest/ingest.dart';
-import '../registries/environment_registry.dart';
-import '../registries/host_info.dart';
-import '../utils/dev_utils.dart';
-import '../utils/project_config_utils.dart';
-import '../utils/render_object_utils.dart';
-import '../utils/log_utils.dart';
-import '../utils/asset_utils.dart';
-import 'base_session_manager.dart';
+// Project imports:
+import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/mixins/callback_handler.dart';
+import 'package:clarity_flutter/src/mixins/event_queue_handler.dart';
+import 'package:clarity_flutter/src/models/assets/image.dart';
+import 'package:clarity_flutter/src/models/capture/error_snapshot.dart';
+import 'package:clarity_flutter/src/models/capture/native_image_wrapper.dart';
+import 'package:clarity_flutter/src/models/capture/snapshot.dart';
+import 'package:clarity_flutter/src/models/capture/user_gesture.dart';
+import 'package:clarity_flutter/src/models/capture/user_keyboard_tap.dart';
+import 'package:clarity_flutter/src/models/display/display.dart';
+import 'package:clarity_flutter/src/models/events/control_event.dart';
+import 'package:clarity_flutter/src/models/events/observed_event.dart';
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/keystrokes_event.dart';
+import 'package:clarity_flutter/src/models/ingest/ingest.dart';
+import 'package:clarity_flutter/src/models/ingest/mutation_error_event.dart';
+import 'package:clarity_flutter/src/models/project_config.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/models/view_hierarchy/view_hierarchy.dart';
+import 'package:clarity_flutter/src/observers/clarity_gesture_observer.dart';
+import 'package:clarity_flutter/src/observers/snapshot_capturer.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/registries/host_info.dart';
+import 'package:clarity_flutter/src/utils/asset_utils.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
+import 'package:clarity_flutter/src/utils/project_config_utils.dart';
+import 'package:clarity_flutter/src/utils/render_object_utils.dart';
 
 class CaptureManager with CallbackHandler, EventQueueHandler {
   CaptureManager._internal() {

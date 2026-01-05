@@ -2,6 +2,7 @@
 /// Licensed under the MIT License.
 library;
 
+// Package imports:
 import 'package:json_annotation/json_annotation.dart';
 
 part '../generated/session_metadata.g.dart';

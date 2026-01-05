@@ -4,33 +4,38 @@ library;
 
 // ignore_for_file: deprecated_member_use_from_same_package
 
+// Dart imports:
 import 'dart:async';
 import 'dart:io';
 import 'dart:ui';
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../clarity_constants.dart';
-import '../helpers/services/ingest_service.dart';
-import '../helpers/telemetry_tracker.dart';
-import '../managers/base_session_manager.dart';
-import '../managers/upload_manager.dart';
-import '../models/events/control_event.dart';
-import '../models/events/session_event.dart';
-import '../models/telemetry/telemetry.dart';
-import '../registries/environment_registry.dart';
-import '../registries/host_info.dart';
-import '../utils/dev_utils.dart';
-import '../utils/entry_point.dart';
-import '../managers/session_manager.dart';
-import '../utils/log_utils.dart';
-import '../managers/capture_manager.dart';
-import '../models/clarity_config.dart';
-import '../utils/project_config_utils.dart';
-import '../utils/render_object_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/helpers/services/ingest_service.dart';
+import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/managers/capture_manager.dart';
+import 'package:clarity_flutter/src/managers/session_manager.dart';
+import 'package:clarity_flutter/src/managers/upload_manager.dart';
+import 'package:clarity_flutter/src/models/clarity_config.dart';
+import 'package:clarity_flutter/src/models/events/control_event.dart';
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/registries/host_info.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/utils/entry_point.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
+import 'package:clarity_flutter/src/utils/project_config_utils.dart';
+import 'package:clarity_flutter/src/utils/render_object_utils.dart';
 
 /// Provides public APIs to interact with the running Clarity session
 class Clarity {

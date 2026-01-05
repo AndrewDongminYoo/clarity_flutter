@@ -4,50 +4,53 @@ library;
 
 // ignore_for_file: deprecated_member_use_from_same_package
 
+// Dart imports:
 import 'dart:async';
 import 'dart:isolate';
 import 'dart:math';
 import 'dart:ui';
 
+// Flutter imports:
 import 'package:flutter/services.dart';
 
-import '../helpers/gesture_processor.dart';
-import '../helpers/telemetry_tracker.dart';
-import '../helpers/view_hierarchy_processor.dart';
-import '../models/events/event.dart';
-import '../models/ingest/analytics/custom.dart';
-import '../models/ingest/ingest.dart';
-import '../models/telemetry/telemetry.dart';
-import '../registries/environment_registry.dart';
-import '../registries/host_info.dart';
-import '../repositories/settings_repository.dart';
-import '../mixins/event_queue_handler.dart';
-import '../mixins/callback_handler.dart';
-import '../models/events/payload_event.dart';
-import '../../clarity_flutter.dart';
-import '../models/events/control_event.dart';
-import '../models/isolates/worker_isolate.dart';
-import '../utils/asset_utils.dart';
-import '../utils/dev_utils.dart';
-import '../models/ingest/analytics/dimension.dart';
-import '../models/ingest/analytics/analytics_event.dart';
-import '../models/ingest/analytics/baseline.dart';
-import '../models/ingest/analytics/metric.dart';
-import '../models/ingest/analytics/variable.dart';
-import '../models/ingest/analytics/resize.dart';
-import '../models/ingest/analytics/visibility.dart';
-import '../models/project_config.dart';
-import '../utils/data_utils.dart';
-import '../models/session/page_metadata.dart';
-import '../models/session/payload_metadata.dart';
-import '../models/isolates/session_isolate_config.dart';
-import '../repositories/session_repository.dart';
-import '../models/session/session_metadata.dart';
-import '../models/events/session_event.dart';
-import '../models/ingest/mutation_error_event.dart';
-import '../utils/log_utils.dart';
-import '../clarity_constants.dart';
-import 'base_session_manager.dart';
+// Project imports:
+import 'package:clarity_flutter/clarity_flutter.dart';
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/helpers/gesture_processor.dart';
+import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/helpers/view_hierarchy_processor.dart';
+import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/mixins/callback_handler.dart';
+import 'package:clarity_flutter/src/mixins/event_queue_handler.dart';
+import 'package:clarity_flutter/src/models/events/control_event.dart';
+import 'package:clarity_flutter/src/models/events/event.dart';
+import 'package:clarity_flutter/src/models/events/payload_event.dart';
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/analytics_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/baseline.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/custom.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/dimension.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/metric.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/resize.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/variable.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/visibility.dart';
+import 'package:clarity_flutter/src/models/ingest/ingest.dart';
+import 'package:clarity_flutter/src/models/ingest/mutation_error_event.dart';
+import 'package:clarity_flutter/src/models/isolates/session_isolate_config.dart';
+import 'package:clarity_flutter/src/models/isolates/worker_isolate.dart';
+import 'package:clarity_flutter/src/models/project_config.dart';
+import 'package:clarity_flutter/src/models/session/page_metadata.dart';
+import 'package:clarity_flutter/src/models/session/payload_metadata.dart';
+import 'package:clarity_flutter/src/models/session/session_metadata.dart';
+import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/registries/host_info.dart';
+import 'package:clarity_flutter/src/repositories/session_repository.dart';
+import 'package:clarity_flutter/src/repositories/settings_repository.dart';
+import 'package:clarity_flutter/src/utils/asset_utils.dart';
+import 'package:clarity_flutter/src/utils/data_utils.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class SessionManager extends BaseSessionManager {
   SessionManager._internal() {

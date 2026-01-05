@@ -2,9 +2,11 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:io';
 
-import '../utils/log_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 enum LivePlayerServiceType { playbackEvent, analyticsEvent, image }
 

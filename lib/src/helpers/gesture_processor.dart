@@ -2,16 +2,19 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:math';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-import '../clarity_constants.dart';
-import '../models/display/display_frame.dart';
-import '../models/ingest/ingest.dart';
-import '../models/view_hierarchy/view_hierarchy.dart';
-import '../models/view_hierarchy/view_node.dart';
-import '../utils/dev_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/models/display/display_frame.dart';
+import 'package:clarity_flutter/src/models/ingest/ingest.dart';
+import 'package:clarity_flutter/src/models/view_hierarchy/view_hierarchy.dart';
+import 'package:clarity_flutter/src/models/view_hierarchy/view_node.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
 
 class GestureProcessor {
   ViewHierarchy? _lastViewHierarchy;

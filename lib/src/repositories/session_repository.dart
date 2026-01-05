@@ -2,21 +2,24 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:io';
 
+// Flutter imports:
 import 'package:flutter/foundation.dart';
 
-import '../registries/environment_registry.dart';
-import '../utils/dev_utils.dart';
-import '../models/ingest/analytics/analytics_event.dart';
-import '../models/ingest/asset.dart';
-import '../models/events/session_event.dart';
-import '../utils/file_utils.dart';
-import '../models/file_store.dart';
-import '../models/session/payload_metadata.dart';
-import '../models/session/session_metadata.dart';
-import '../utils/log_utils.dart';
-import '../clarity_constants.dart';
+// Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/models/events/session_event.dart';
+import 'package:clarity_flutter/src/models/file_store.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/analytics_event.dart';
+import 'package:clarity_flutter/src/models/ingest/asset.dart';
+import 'package:clarity_flutter/src/models/session/payload_metadata.dart';
+import 'package:clarity_flutter/src/models/session/session_metadata.dart';
+import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/utils/file_utils.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 enum PayloadDataType { analytics, playback }
 

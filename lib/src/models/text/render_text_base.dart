@@ -2,14 +2,15 @@
 /// Licensed under the MIT License.
 library;
 
-import '../iproto_model.dart';
-import 'inline_span.dart';
-import 'text_style.dart';
-import 'strut_style.dart';
-import 'placeholder_dimensions.dart';
-import 'text_height_behavior.dart';
-import 'box_constraints.dart';
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
+// Project imports:
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
+import 'package:clarity_flutter/src/models/text/box_constraints.dart';
+import 'package:clarity_flutter/src/models/text/inline_span.dart';
+import 'package:clarity_flutter/src/models/text/placeholder_dimensions.dart';
+import 'package:clarity_flutter/src/models/text/strut_style.dart';
+import 'package:clarity_flutter/src/models/text/text_height_behavior.dart';
+import 'package:clarity_flutter/src/models/text/text_style.dart';
 
 abstract class RenderTextBase implements IProtoModel<mutation_payload.RenderText> {
   RenderTextBase(

@@ -2,7 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-import 'envelope.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/ingest/envelope.dart';
 
 class CollectRequest {
   CollectRequest(this.e, this.a, this.p);

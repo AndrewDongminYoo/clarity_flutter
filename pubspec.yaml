@@ -34,5 +34,6 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
+  import_sorter: ^4.6.0
   json_serializable: ^6.11.3
   very_good_analysis: ^10.0.0

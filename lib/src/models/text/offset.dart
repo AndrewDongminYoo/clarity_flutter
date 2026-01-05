@@ -2,10 +2,12 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:ui' as ui;
 
-import '../generated/MutationPayload.pb.dart' as mutation_payload;
-import '../iproto_model.dart';
+// Project imports:
+import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
+import 'package:clarity_flutter/src/models/iproto_model.dart';
 
 abstract class OffsetBase implements IProtoModel<mutation_payload.Offset> {
   OffsetBase(this.dx, this.dy);

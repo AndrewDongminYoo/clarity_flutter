@@ -2,12 +2,15 @@
 /// Licensed under the MIT License.
 library;
 
+// Dart imports:
 import 'dart:ui';
 
+// Package imports:
 import 'package:meta/meta.dart';
 
-import '../../utils/asset_utils.dart';
-import '../../utils/dev_utils.dart';
+// Project imports:
+import 'package:clarity_flutter/src/utils/asset_utils.dart';
+import 'package:clarity_flutter/src/utils/dev_utils.dart';
 
 @immutable
 // ignore: must_be_immutable
