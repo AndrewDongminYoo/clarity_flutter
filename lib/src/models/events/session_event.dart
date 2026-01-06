@@ -79,5 +79,5 @@ enum EventType {
 
   const EventType(this.customOrdinal);
 
-  final num customOrdinal;
+  final int customOrdinal;
 }

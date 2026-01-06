@@ -19,6 +19,7 @@ import 'package:clarity_flutter/src/models/clarity_config.dart';
 import 'package:clarity_flutter/src/models/events/control_event.dart';
 import 'package:clarity_flutter/src/models/events/event.dart';
 import 'package:clarity_flutter/src/models/events/payload_event.dart';
+import 'package:clarity_flutter/src/models/events/session_event.dart';
 import 'package:clarity_flutter/src/models/ingest/asset.dart';
 import 'package:clarity_flutter/src/models/ingest/asset_check.dart';
 import 'package:clarity_flutter/src/models/ingest/serialized_payload.dart';
@@ -33,7 +34,49 @@ import 'package:clarity_flutter/src/repositories/session_repository.dart';
 import 'package:clarity_flutter/src/utils/http_utils.dart';
 import 'package:clarity_flutter/src/utils/log_utils.dart';
 
-// TODO: send session/page metadata once to avoid duplicates
+class _SessionPageMetadataTracker {
+  final Set<String> _sentSessionMetadata = {};
+  final Set<String> _sentPageMetadata = {};
+
+  bool shouldSendSessionMetadata(SessionMetadata sessionMetadata) {
+    return _sentSessionMetadata.add(sessionMetadata.id);
+  }
+
+  bool shouldSendPageMetadata(PageMetadata pageMetadata) {
+    return _sentPageMetadata.add('${pageMetadata.session.id}:${pageMetadata.number}');
+  }
+}
+
+final Set<int> _pageMetadataEventTypes = {
+  EventType.Dimension.customOrdinal,
+  EventType.Metric.customOrdinal,
+  EventType.Resize.customOrdinal,
+};
+
+final Set<int> _sessionMetadataEventTypes = {
+  EventType.Variable.customOrdinal,
+};
+
+List<String> _filterMetadataEvents(
+  List<String> analytics, {
+  required bool sendSessionMetadata,
+  required bool sendPageMetadata,
+}) {
+  if (sendSessionMetadata && sendPageMetadata) return analytics;
+
+  final filtered = <String>[];
+  for (final event in analytics) {
+    final eventType = SerializedPayload.eventType(event);
+    if (!sendPageMetadata && _pageMetadataEventTypes.contains(eventType)) {
+      continue;
+    }
+    if (!sendSessionMetadata && _sessionMetadataEventTypes.contains(eventType)) {
+      continue;
+    }
+    filtered.add(event);
+  }
+  return filtered;
+}
 class UploadManager with CallbackHandler, IsolateHandler {
   // ignore: avoid_unused_constructor_parameters
   UploadManager._internal(ClarityConfig clarityConfig) {
@@ -80,6 +123,7 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
 
   TelemetryService? _telemetryService;
   PageMetadata? _latestPageMetadata;
+  final _metadataTracker = _SessionPageMetadataTracker();
 
   @override
   void processMessage(dynamic message) {
@@ -174,9 +218,16 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
   Future<int> _uploadPayload(PayloadMetadata payloadMetadata) async {
     final analytics = await _sessionRepository.getPayloadSerializedEvents(payloadMetadata, PayloadDataType.analytics);
     final playback = await _sessionRepository.getPayloadSerializedEvents(payloadMetadata, PayloadDataType.playback);
+    final sendSessionMetadata = _metadataTracker.shouldSendSessionMetadata(payloadMetadata.page.session);
+    final sendPageMetadata = _metadataTracker.shouldSendPageMetadata(payloadMetadata.page);
+    final filteredAnalytics = _filterMetadataEvents(
+      analytics,
+      sendSessionMetadata: sendSessionMetadata,
+      sendPageMetadata: sendPageMetadata,
+    );
     return _ingestService.uploadSessionPayload(
       SerializedPayload(
-        analytics: analytics,
+        analytics: filteredAnalytics,
         playback: playback,
         pageNum: payloadMetadata.pageNumber,
         sequence: payloadMetadata.sequence,
