@@ -16,6 +16,8 @@ runtimes:
     - python@3.10.8
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
+  disabled:
+    - dart
   ignore:
     - linters:
         - markdownlint
@@ -23,6 +25,10 @@ lint:
         - .github/ISSUE_TEMPLATE
         - .github/PULL_REQUEST_TEMPLATE.md
   enabled:
+    - bandit@1.9.2
+    - black@25.12.0
+    - isort@7.0.0
+    - ruff@0.14.10
     - actionlint@1.7.10
     - checkov@3.2.497
     - git-diff-check
