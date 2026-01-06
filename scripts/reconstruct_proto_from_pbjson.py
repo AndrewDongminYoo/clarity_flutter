@@ -2,11 +2,10 @@
 # reconstruct_proto_from_pbjson.py
 #
 # Usage:
-#   python reconstruct_proto_from_pbjson.py /path/to/MutationPayload.pbjson.dart -o MutationPayload.reconstructed.proto
-#   python reconstruct_proto_from_pbjson.py MutationPayload.pbjson.dart -o out.proto --package com.example.foo
+#   uv run python scripts/reconstruct_proto_from_pbjson.py lib/src/models/generated/MutationPayload.pbjson.dart -o proto/MutationPayload.proto
 #
 # Requires:
-#   pip install protobuf
+#   uv pip install -r scripts/requirements.txt
 
 from __future__ import annotations
 
@@ -17,7 +16,16 @@ from collections import Counter
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-from google.protobuf import descriptor_pb2
+try:
+    from google.protobuf import descriptor_pb2
+except ModuleNotFoundError as e:
+    raise SystemExit(
+        "Missing dependency: protobuf\n"
+        "Install with:\n"
+        " uv venv\n"
+        " uv pip install -r scripts/requirements.txt\n"
+    ) from e
+
 
 BLOCK_RE = re.compile(
     r"/// Descriptor for `(?P<proto_name>[^`]+)`\. Decode as a `google\.protobuf\.(?P<kind>[^`]+)`\.\s*"

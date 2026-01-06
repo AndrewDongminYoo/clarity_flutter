@@ -1,0 +1,886 @@
+syntax = "proto3";
+
+package com.microsoft.clarity.protomodels.mutationpayload;
+
+enum SamplingType {
+  CubicSampling = 0;
+  NonCubicSampling = 1;
+  AnisoSampling = 2;
+}
+
+enum DisplayCommandType {
+  ClipRect = 0;
+  Concat = 1;
+  Concat44 = 2;
+  DrawArc = 3;
+  DrawBehindPaint = 4;
+  DrawDRRect = 5;
+  DrawImage = 6;
+  DrawImageLattice = 7;
+  DrawImageNine = 8;
+  DrawImageRect = 9;
+  DrawPaint = 10;
+  DrawPath = 11;
+  DrawRect = 12;
+  Translate = 13;
+  DrawOval = 14;
+  DrawPoints = 15;
+  DrawRRect = 16;
+  DrawTextBlob = 17;
+  DrawVertices = 18;
+  DrawViewEndAnnotation = 19;
+  DrawViewStartAnnotation = 20;
+  Restore = 21;
+  Save = 22;
+  SaveBehind = 23;
+  SaveLayer = 24;
+  Scale = 25;
+  SetMatrix = 26;
+  SetMatrix44 = 27;
+  ClipPath = 28;
+  ClipRRect = 29;
+  DrawViewContentEndAnnotation = 30;
+  DrawViewContentStartAnnotation = 31;
+  FillViewCommandsAnnotation = 32;
+  DrawAtlas = 33;
+  DrawCircle = 34;
+  DrawColor = 35;
+  DrawLine = 36;
+  DrawRenderParagraph = 37;
+  DrawRawAtlas = 38;
+  DrawRawPoints = 39;
+  DrawShadow = 40;
+  RestoreToCount = 41;
+  Rotate = 42;
+  Skew = 43;
+  Transform = 44;
+  ErrorViewAnnotation = 45;
+  DrawRenderEditable = 46;
+}
+
+enum ColorFilterType {
+  ModeColorFilter = 0;
+  MatrixColorFilter = 1;
+}
+
+enum MaskFilterType {
+  BlurMaskFilter = 0;
+}
+
+enum ShaderType {
+  ImageShader = 0;
+  LinearGradientShader = 1;
+  RadialGradientShader = 2;
+  SweepGradientShader = 3;
+  LocalMatrixShader = 4;
+  Color4Shader = 5;
+}
+
+enum LooperType {
+  LayerDrawLooper = 0;
+}
+
+enum PathEffectType {
+  DashPathEffect = 0;
+  CornerPathEffect = 1;
+  Path1DPathEffect = 2;
+}
+
+enum PathVerbType {
+  AddRRectPathVerb = 0;
+  ClosePathVerb = 1;
+  ConicPathVerb = 2;
+  CubicPathVerb = 3;
+  DonePathVerb = 4;
+  LinePathVerb = 5;
+  MovePathVerb = 6;
+  QuadPathVerb = 7;
+}
+
+message IntList {
+  repeated int32 value = 1;
+}
+
+message FloatList {
+  repeated float value = 1;
+}
+
+message DoubleList {
+  repeated double value = 1;
+}
+
+message Rect {
+  optional float top = 1;
+  optional float left = 2;
+  optional float bottom = 3;
+  optional float right = 4;
+  repeated FloatList radii = 5;
+}
+
+message Sampling {
+  optional float _b = 2;
+  optional float _c = 3;
+  optional int32 filter = 4;
+  optional int32 mipmap = 5;
+  optional int32 max_aniso = 6;
+  oneof typeOneOf {
+    string type = 1 [deprecated=true];
+    SamplingType typeEnum = 7;
+  }
+}
+
+message Color4f {
+  optional float r = 1;
+  optional float g = 2;
+  optional float b = 3;
+  optional float a = 4;
+}
+
+message Lattice {
+  optional Rect bounds = 1;
+  repeated double colors = 2;
+  repeated int32 rect_type = 3;
+  repeated int32 x_divs = 4;
+  repeated int32 y_divs = 5;
+}
+
+message Point {
+  optional float x = 1;
+  optional float y = 2;
+}
+
+message RSXform {
+  optional double scos = 1;
+  optional double ssin = 2;
+  optional double tx = 3;
+  optional double ty = 4;
+}
+
+message Locale {
+  optional string languageCode = 1;
+  optional string countryCode = 2;
+}
+
+message FontWeight {
+  optional int32 index = 1;
+  optional int32 value = 2;
+}
+
+message TextDecoration {
+  optional int32 mask = 1;
+}
+
+message TextStyle {
+  optional bool inherit = 1;
+  optional Color4f color = 2;
+  optional Color4f backgroundColor = 3;
+  optional double fontSize = 4;
+  optional FontWeight fontWeight = 5;
+  optional int32 fontStyle = 6;
+  optional double letterSpacing = 7;
+  optional double wordSpacing = 8;
+  optional int32 textBaseline = 9;
+  optional double height = 10;
+  optional int32 leadingDistribution = 11;
+  optional Locale locale = 12;
+  optional Paint foreground = 13;
+  optional Paint background = 14;
+  optional TextDecoration decoration = 15;
+  optional Color4f decorationColor = 16;
+  optional int32 decorationStyle = 17;
+  optional double decorationThickness = 18;
+  optional string fontFamily = 19;
+  repeated string fontFamilyFallback = 20;
+  optional int32 overflow = 21;
+}
+
+message InlineSpan {
+  optional string type = 1;
+  optional string text = 2;
+  repeated InlineSpan children = 3;
+  optional TextStyle style = 4;
+  optional Locale locale = 5;
+  optional bool spellOut = 6;
+  optional int32 alignment = 7;
+  optional int32 baseline = 8;
+}
+
+message BoxConstraints {
+  optional double minWidth = 1;
+  optional double maxWidth = 2;
+  optional double minHeight = 3;
+  optional double maxHeight = 4;
+}
+
+message StrutStyle {
+  optional string fontFamily = 1;
+  repeated string fontFamilyFallback = 2;
+  optional double fontSize = 3;
+  optional double height = 4;
+  optional double leading = 5;
+  optional int32 leadingDistribution = 6;
+  optional FontWeight fontWeight = 7;
+  optional int32 fontStyle = 8;
+  optional bool forceStrutHeight = 9;
+}
+
+message TextHeightBehavior {
+  optional bool applyHeightToFirstAscent = 1;
+  optional bool applyHeightToLastDescent = 2;
+  optional int32 leadingDistribution = 3;
+}
+
+message Offset {
+  optional double dx = 1;
+  optional double dy = 2;
+}
+
+message PlaceholderDimensions {
+  optional Offset size = 1;
+  optional int32 alignment = 2;
+  optional int32 baseline = 3;
+  optional double baselineOffset = 4;
+}
+
+message RenderText {
+  optional InlineSpan text = 1;
+  optional BoxConstraints constraints = 2;
+  optional int32 textAlign = 3;
+  optional int32 textDirection = 4;
+  optional int32 maxLines = 5;
+  optional Locale locale = 6;
+  optional StrutStyle strutStyle = 7;
+  optional int32 textWidthBasis = 8;
+  optional TextHeightBehavior textHeightBehavior = 9;
+  repeated PlaceholderDimensions placeholderDimensions = 10;
+  optional bool softWrap = 11;
+  optional int32 overflow = 12;
+}
+
+message DisplayCommand {
+  optional int32 op = 2;
+  optional bool anti_alias = 3;
+  optional int32 path_index = 4;
+  optional Rect rect = 5;
+  optional Rect rrect = 6;
+  repeated float matrix = 7;
+  optional float start_angle = 8;
+  optional float sweep_angle = 9;
+  optional bool use_center = 10;
+  optional int32 paint_index = 11;
+  optional Rect outer = 12;
+  optional Rect inner = 13;
+  optional float x = 14;
+  optional float y = 15;
+  optional int32 image_index = 16;
+  optional Sampling sampling = 17;
+  optional int32 masked_width = 18;
+  optional int32 masked_height = 19;
+  optional Color4f masked_color = 20;
+  optional Lattice lattice = 21;
+  optional Rect dst = 22;
+  optional double filter_mode = 23;
+  optional Rect center = 24;
+  optional Rect src = 25;
+  optional int32 constraint = 26;
+  optional int32 point_mode = 27;
+  repeated Point points = 28;
+  optional int32 blob_index = 29;
+  optional int32 vertices_index = 30;
+  optional double mode = 31;
+  repeated FloatList bones = 32;
+  optional int32 id = 33;
+  optional string name = 34;
+  optional int32 flags = 35;
+  optional Rect subset = 36;
+  optional Rect bounds = 37;
+  optional int32 image_filter_paint = 38;
+  optional float sx = 39;
+  optional float sy = 40;
+  optional float left = 41;
+  optional float top = 42;
+  oneof typeOneOf {
+    string type = 1 [deprecated=true];
+    DisplayCommandType typeEnum = 43;
+  }
+}
+
+message FontStyle {
+  optional double width = 1;
+  optional double weight = 2;
+  optional double slant = 3;
+}
+
+message FontCoordinate {
+  optional string axis = 1;
+  optional float value = 2;
+}
+
+message Typeface {
+  optional string family_name = 1;
+  optional string full_name = 2;
+  optional string postscript_name = 3;
+  optional FontStyle style = 4;
+  optional double collection_index = 5;
+  repeated FontCoordinate coordinates = 6;
+  optional string data_hash = 7;
+  optional float weight_value = 8;
+  optional float width_value = 9;
+  optional float slant_value = 10;
+  optional float italic_value = 11;
+  optional double pallete_index = 12;
+}
+
+message Image {
+  optional Rect subset = 1;
+  optional string data_hash = 2;
+  bytes mipmap = 3;
+}
+
+message TextBlobRun {
+  optional Point point = 1;
+  optional float font_size = 2;
+  optional float font_scale_x = 3;
+  optional float font_skew_x = 4;
+  optional int32 typeface_index = 5;
+  repeated double glyphs = 6;
+  repeated FloatList positions = 7;
+  repeated double clusters = 8;
+  optional string text = 9;
+}
+
+message TextBlob {
+  optional Rect bounds = 1;
+  repeated TextBlobRun runs = 2;
+}
+
+message Vertices {
+  optional double mode = 1;
+  optional bool is_volatile = 2;
+  repeated Point positions = 3;
+  repeated Point tex_coords = 4;
+  repeated double colors = 5;
+  repeated DoubleList bone_indices = 6;
+  repeated FloatList bone_weights = 7;
+  repeated double indices = 8;
+}
+
+message ColorFilter {
+  optional double color = 2;
+  optional double mode = 3;
+  optional Color4f color4f = 4;
+  optional FloatList matrix = 6;
+  optional bool is_rgba = 7;
+  optional bool is_row_major = 8;
+  oneof typeOneOf {
+    string type = 1 [deprecated=true];
+    ColorFilterType typeEnum = 5;
+  }
+}
+
+message MaskFilter {
+  optional float sigma = 2;
+  optional int32 style = 3;
+  optional bool respect_c_t_m = 4;
+  oneof typeOneOf {
+    string type = 1 [deprecated=true];
+    MaskFilterType typeEnum = 5;
+  }
+}
+
+message Shader {
+  optional double t_x = 2;
+  optional double t_y = 3;
+  repeated float matrix = 4;
+  optional bool raw = 5;
+  optional Sampling sampling = 6;
+  optional int32 image_index = 7;
+  optional int32 masked_width = 8;
+  optional int32 masked_height = 9;
+  optional Color4f masked_color = 10;
+  optional Point start = 11;
+  optional Point end = 12;
+  optional double tile_mode = 13;
+  optional double grad_flags = 14;
+  repeated Color4f colors = 15;
+  repeated float pos = 16;
+  repeated float local_matrix = 17;
+  optional Point center = 18;
+  optional float radius = 19;
+  optional float start_angle = 20;
+  optional float end_angle = 21;
+  optional Shader shader = 22;
+  optional Color4f color4f = 24;
+  optional IntList color4f_space_data = 25;
+  oneof typeOneOf {
+    string type = 1 [deprecated=true];
+    ShaderType typeEnum = 23;
+  }
+}
+
+message LayerInfo {
+  optional int32 paint_bits = 1;
+  optional int32 color_mode = 2;
+  repeated float offset = 3;
+  optional bool post_translate = 4;
+}
+
+message Layer {
+  optional LayerInfo layer_info = 1;
+  optional Paint paint = 2;
+}
+
+message Looper {
+  repeated Layer layers = 2;
+  oneof typeOneOf {
+    string type = 1 [deprecated=true];
+    LooperType typeEnum = 3;
+  }
+}
+
+message PathEffect {
+  optional float phase = 2;
+  repeated float intervals = 3;
+  optional float radius = 5;
+  optional float advance = 6;
+  optional int64 style = 7;
+  optional Path path = 8;
+  oneof typeOneOf {
+    string type = 1 [deprecated=true];
+    PathEffectType typeEnum = 4;
+  }
+}
+
+message Paint {
+  optional Color4f color = 1;
+  optional double style = 2;
+  optional double blend_mode = 3;
+  optional double stroke_cap = 4;
+  optional double stroke_join = 5;
+  optional float stroke_width = 6;
+  optional float stroke_miter = 7;
+  optional bool anti_alias = 8;
+  optional bool dither = 9;
+  optional ColorFilter color_filter = 10;
+  optional MaskFilter mask_filter = 11;
+  optional Shader shader = 12;
+  optional Looper looper = 13;
+  optional PathEffect path_effect = 14;
+}
+
+message PathVerb {
+  optional Rect r_rect = 2;
+  optional bool is_c_c_w = 3;
+  optional float x1 = 4;
+  optional float y1 = 5;
+  optional float x2 = 6;
+  optional float y2 = 7;
+  optional float weight = 8;
+  optional float cpx1 = 9;
+  optional float cpy1 = 10;
+  optional float cpx2 = 11;
+  optional float cpy2 = 12;
+  optional float x = 13;
+  optional float y = 14;
+  oneof typeOneOf {
+    string type = 1 [deprecated=true];
+    PathVerbType typeEnum = 15;
+  }
+}
+
+message Path {
+  optional int32 fill_type = 1;
+  repeated PathVerb verbs = 2;
+}
+
+message ViewNode {
+  optional int32 id = 1;
+  optional string type = 2;
+  optional double render_node_id = 3;
+  optional int32 x = 4;
+  optional int32 y = 5;
+  optional int32 width = 6;
+  optional int32 height = 7;
+  optional int32 view_x = 8;
+  optional int32 view_y = 9;
+  optional int32 view_width = 10;
+  optional int32 view_height = 11;
+  optional bool visible = 12;
+  optional bool clickable = 13;
+  optional bool ignore_clicks = 14;
+  optional bool is_web_view = 15;
+  optional int32 backgroundColor = 16;
+  repeated ViewNode children = 17;
+  optional bool is_masked = 18;
+  optional string text = 19;
+  optional string id_entry_name = 20;
+}
+
+message ViewNodeDelta {
+  optional int32 id = 1;
+  optional string type = 2;
+  optional double render_node_id = 3;
+  optional int32 x = 4;
+  optional int32 y = 5;
+  optional int32 width = 6;
+  optional int32 height = 7;
+  optional int32 view_x = 8;
+  optional int32 view_y = 9;
+  optional int32 view_width = 10;
+  optional int32 view_height = 11;
+  optional bool visible = 12;
+  optional bool clickable = 13;
+  optional bool ignore_clicks = 14;
+  optional bool is_web_view = 15;
+  optional int32 backgroundColor = 16;
+  repeated ViewNodeDelta children = 17;
+  optional bool is_masked = 18;
+  optional string text = 19;
+  optional string id_entry_name = 20;
+  optional bool is_backgroundColor_set = 21;
+}
+
+message ViewHierarchy {
+  optional double timestamp = 1;
+  optional ViewNode root = 2;
+  repeated string visible_fragments = 3;
+  optional ViewNodeDelta rootDelta = 4;
+}
+
+message DisplayFrame {
+  repeated DisplayCommand commands = 1;
+  repeated Typeface typefaces = 2;
+  repeated Image images = 3;
+  repeated TextBlob text_blobs = 4;
+  repeated Vertices vertices = 5;
+  repeated Paint paints = 6;
+  repeated Path paths = 7;
+  repeated DisplayFrame sub_pictures = 8;
+  optional ViewHierarchy view_hierarchy = 9;
+  optional double timestamp = 10;
+  optional string activity_name = 11;
+  optional int32 activity_id = 12;
+  optional int32 screen_width = 13;
+  optional int32 screen_height = 14;
+  optional float density = 15;
+  optional int32 keyboard_height = 16;
+  optional int32 system_background_color = 17;
+}
+
+message ClipRectCommandPayload {
+  optional int32 op = 1;
+  optional bool anti_alias = 2;
+  optional Rect rect = 3;
+}
+
+message ConcatCommandPayload {
+  repeated float matrix = 1;
+}
+
+message Concat44CommandPayload {
+  repeated float matrix = 1;
+}
+
+message DrawArcCommandPayload {
+  optional Rect rect = 1;
+  optional float start_angle = 2;
+  optional float sweep_angle = 3;
+  optional bool use_center = 4;
+  optional int32 paint_index = 5;
+}
+
+message DrawBehindPaintCommandPayload {
+  optional int32 paint_index = 1;
+}
+
+message DrawDRRectCommandPayload {
+  optional Rect outer = 1;
+  optional Rect inner = 2;
+  optional int32 paint_index = 3;
+}
+
+message DrawImageCommandPayload {
+  optional float x = 1;
+  optional float y = 2;
+  optional int32 image_index = 3;
+  optional Sampling sampling = 4;
+  optional int32 masked_width = 5;
+  optional int32 masked_height = 6;
+  optional Color4f masked_color = 7;
+  optional int32 paint_index = 8;
+}
+
+message DrawImageLatticeCommandPayload {
+  optional Lattice lattice = 1;
+  optional Rect dst = 2;
+  optional int32 image_index = 3;
+  optional double filter_mode = 4;
+  optional int32 masked_width = 5;
+  optional int32 masked_height = 6;
+  optional Color4f masked_color = 7;
+  optional int32 paint_index = 8;
+}
+
+message DrawImageNineCommandPayload {
+  optional Rect center = 1;
+  optional Rect dst = 2;
+  optional int32 image_index = 3;
+  optional int32 masked_width = 4;
+  optional int32 masked_height = 5;
+  optional Color4f masked_color = 6;
+  optional int32 paint_index = 7;
+}
+
+message DrawImageRectCommandPayload {
+  optional Rect src = 1;
+  optional Rect dst = 2;
+  optional int32 constraint = 3;
+  optional int32 image_index = 4;
+  optional Sampling sampling = 5;
+  optional int32 masked_width = 6;
+  optional int32 masked_height = 7;
+  optional Color4f masked_color = 8;
+  optional int32 paint_index = 9;
+}
+
+message DrawPaintCommandPayload {
+  optional int32 paint_index = 1;
+}
+
+message DrawPathCommandPayload {
+  optional int32 path_index = 1;
+  optional int32 paint_index = 2;
+}
+
+message DrawRectCommandPayload {
+  optional Rect rect = 1;
+  optional int32 paint_index = 2;
+}
+
+message TranslateCommandPayload {
+  optional float left = 1;
+  optional float top = 2;
+}
+
+message DrawOvalCommandPayload {
+  optional Rect rect = 1;
+  optional int32 paint_index = 2;
+}
+
+message DrawPointsCommandPayload {
+  optional int32 point_mode = 1;
+  repeated Point points = 2;
+  optional int32 paint_index = 3;
+}
+
+message DrawRRectCommandPayload {
+  optional Rect rrect = 1;
+  optional int32 paint_index = 2;
+}
+
+message DrawTextBlobCommandPayload {
+  optional int32 blob_index = 1;
+  optional float x = 2;
+  optional float y = 3;
+  optional int32 paint_index = 4;
+}
+
+message DrawVerticesCommandPayload {
+  optional int32 vertices_index = 1;
+  optional double mode = 2;
+  repeated FloatList bones = 3;
+  optional int32 paint_index = 4;
+}
+
+message SaveCommandPayload {
+}
+
+message RestoreCommandPayload {
+}
+
+message SaveBehindCommandPayload {
+  optional int32 flags = 1;
+  optional Rect subset = 2;
+}
+
+message SaveLayerCommandPayload {
+  optional Rect bounds = 1;
+  optional int32 flags = 2;
+  optional int32 image_filter_paint = 3;
+  optional int32 paint_index = 4;
+}
+
+message ScaleCommandPayload {
+  optional float sx = 1;
+  optional float sy = 2;
+}
+
+message SetMatrixCommandPayload {
+  repeated float matrix = 1;
+}
+
+message SetMatrix44CommandPayload {
+  repeated float matrix = 1;
+}
+
+message ClipPathCommandPayload {
+  optional int32 op = 1;
+  optional bool anti_alias = 2;
+  optional int32 path_index = 3;
+}
+
+message ClipRRectCommandPayload {
+  optional int32 op = 1;
+  optional bool anti_alias = 2;
+  optional Rect rrect = 3;
+}
+
+message DrawViewEndAnnotationCommandPayload {
+  optional int32 id = 1;
+}
+
+message DrawViewStartAnnotationCommandPayload {
+  optional int32 id = 1;
+}
+
+message DrawViewContentEndAnnotationCommandPayload {
+  optional int32 id = 1;
+}
+
+message DrawViewContentStartAnnotationCommandPayload {
+  optional int32 id = 1;
+}
+
+message FillViewCommandsAnnotationCommandPayload {
+  optional int32 id = 1;
+}
+
+message DrawAtlasCommandPayload {
+  optional int32 paintIndex = 1;
+  optional int32 imageIndex = 2;
+  repeated Rect srcRects = 3;
+  repeated RSXform dstXforms = 4;
+  optional int32 blendMode = 5;
+  repeated int32 colors = 6;
+}
+
+message DrawCircleCommandPayload {
+  optional int32 paintIndex = 1;
+  optional Point point = 2;
+  optional double radius = 3;
+}
+
+message DrawColorCommandPayload {
+  optional Color4f color = 1;
+  optional int32 blendMode = 2;
+}
+
+message DrawLineCommandPayload {
+  optional int32 paintIndex = 1;
+  optional Point point1 = 2;
+  optional Point point2 = 3;
+}
+
+message DrawRenderParagraphCommandPayload {
+  optional RenderText renderParagraph = 1;
+  optional Offset offset = 2;
+}
+
+message RestoreToCountCommandPayload {
+  optional int32 count = 1;
+}
+
+message RotateCommandPayload {
+  optional double angleInDegrees = 1;
+  optional double rx = 2;
+  optional double ry = 3;
+}
+
+message SkewCommandPayload {
+  optional double sx = 1;
+  optional double sy = 2;
+}
+
+message TransformCommandPayload {
+  repeated double matrix = 1;
+}
+
+message ErrorViewAnnotationCommandPayload {
+  optional string viewType = 1;
+  optional string errorMessage = 2;
+}
+
+message DrawRenderEditableCommandPayload {
+  optional RenderText renderEditable = 1;
+  optional Offset offset = 2;
+}
+
+message DisplayCommandV2 {
+  optional DisplayCommandType type = 1;
+  oneof payload {
+    ClipRectCommandPayload clipRectPayload = 2;
+    ConcatCommandPayload concatPayload = 3;
+    Concat44CommandPayload concat44Payload = 4;
+    DrawArcCommandPayload drawArcPayload = 5;
+    DrawBehindPaintCommandPayload drawBehindPaintPayload = 6;
+    DrawDRRectCommandPayload drawDRRectPayload = 7;
+    DrawImageCommandPayload drawImagePayload = 8;
+    DrawImageLatticeCommandPayload drawImageLatticePayload = 9;
+    DrawImageNineCommandPayload drawImageNinePayload = 10;
+    DrawImageRectCommandPayload drawImageRectPayload = 11;
+    DrawPaintCommandPayload drawPaintPayload = 12;
+    DrawPathCommandPayload drawPathPayload = 13;
+    DrawRectCommandPayload drawRectPayload = 14;
+    TranslateCommandPayload translatePayload = 15;
+    DrawOvalCommandPayload drawOvalPayload = 16;
+    DrawPointsCommandPayload drawPointsPayload = 17;
+    DrawRRectCommandPayload drawRRectPayload = 18;
+    DrawTextBlobCommandPayload drawTextBlobPayload = 19;
+    DrawVerticesCommandPayload drawVerticesPayload = 20;
+    SaveCommandPayload savePayload = 21;
+    RestoreCommandPayload restorePayload = 22;
+    SaveBehindCommandPayload saveBehindPayload = 23;
+    SaveLayerCommandPayload saveLayerPayload = 24;
+    ScaleCommandPayload scalePayload = 25;
+    SetMatrixCommandPayload setMatrixPayload = 26;
+    SetMatrix44CommandPayload setMatrix44Payload = 27;
+    ClipPathCommandPayload clipPathPayload = 28;
+    ClipRRectCommandPayload clipRRectPayload = 29;
+    DrawViewEndAnnotationCommandPayload drawViewEndAnnotationPayload = 30;
+    DrawViewStartAnnotationCommandPayload drawViewStartAnnotationPayload = 31;
+    DrawViewContentEndAnnotationCommandPayload drawViewContentEndAnnotationPayload = 32;
+    DrawViewContentStartAnnotationCommandPayload drawViewContentStartAnnotationPayload = 33;
+    FillViewCommandsAnnotationCommandPayload fillViewCommandsAnnotationPayload = 34;
+    DrawAtlasCommandPayload drawAtlasPayload = 35;
+    DrawCircleCommandPayload drawCirclePayload = 36;
+    DrawColorCommandPayload drawColorPayload = 37;
+    DrawLineCommandPayload drawLinePayload = 38;
+    DrawRenderParagraphCommandPayload drawRenderParagraphPayload = 39;
+    RestoreToCountCommandPayload restoreToCountPayload = 40;
+    RotateCommandPayload rotatePayload = 41;
+    SkewCommandPayload skewPayload = 42;
+    TransformCommandPayload transformPayload = 43;
+    ErrorViewAnnotationCommandPayload errorViewAnnotationPayload = 44;
+    DrawRenderEditableCommandPayload drawRenderEditablePayload = 45;
+  }
+}
+
+message DisplayFrameV2 {
+  repeated DisplayCommandV2 commands = 1;
+  repeated Typeface typefaces = 2;
+  repeated Image images = 3;
+  repeated TextBlob text_blobs = 4;
+  repeated Vertices vertices = 5;
+  repeated Paint paints = 6;
+  repeated Path paths = 7;
+  repeated DisplayFrameV2 sub_pictures = 8;
+  optional ViewHierarchy view_hierarchy = 9;
+  optional double timestamp = 10;
+  optional string activity_name = 11;
+  optional int32 activity_id = 12;
+  optional int32 screen_width = 13;
+  optional int32 screen_height = 14;
+  optional float density = 15;
+  optional int32 keyboard_height = 16;
+  optional int32 system_background_color = 17;
+}
