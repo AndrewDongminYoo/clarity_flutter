@@ -2,6 +2,7 @@ name: clarity_flutter
 description: Official Microsoft Clarity Flutter SDK; add free, privacy-conscious session replay, heatmaps & interaction analytics to Flutter mobile apps.
 homepage: https://clarity.microsoft.com/mobile-apps
 version: 1.7.0
+publish_to: none # It's Unofficial fork
 environment:
   sdk: ^3.9.0
   flutter: ^3.35.0

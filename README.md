@@ -1,5 +1,9 @@
 # Official Clarity Flutter SDK (Forked by AndrewDongminYoo)
 
+> ⚠️ Unofficial fork. Not affiliated with Microsoft.
+> This repository exists to make `clarity_flutter` compatible with `protobuf ^6.0.0` (and common generators such as `retrofit_generator`) by restoring `.proto` sources and regenerating protobuf outputs.
+> Licensed under MIT; original copyright © Microsoft Corp. is retained.
+
 ## Overview
 
 The Clarity Flutter SDK allows you to integrate Clarity analytics into your Flutter applications. This SDK is the latest addition to Clarity’s range of SDKs available for Native Android, iOS, React native, Cordova and Ionic. Clarity SDKs help you capture user interactions, screen views, and other important metrics to gain insights into user behavior and improve your business KPIs.
@@ -15,7 +19,7 @@ The SDK supports Flutter on both Android and iOS devices.
 - [How Does Clarity Flutter SDK Work?](#how-does-clarity-flutter-sdk-work)
 - [Getting Started](#getting-started)
 - [Integration Steps](#integration-steps)
-  - [Step 1: Add Dependency](#step-1-add-dependency)
+  - [Step 1: Add Dependency (Git)](#step-1-add-dependency-git)
   - [Step 2: Import the Package](#step-2-import-the-package)
   - [Step 3: Initialize Your App](#step-3-initialize-your-app)
 - [Configuration Options](#configuration-options)
@@ -38,6 +42,7 @@ The SDK supports Flutter on both Android and iOS devices.
   - [isPaused](#ispaused)
 - [Troubleshooting](#troubleshooting)
 - [Known Limitations](#known-limitations)
+- [Project Support](#project-support)
 
 ## Why This Fork Exists (protobuf 6 upgrade)
 
@@ -132,24 +137,25 @@ To get started with Clarity, sign up and create a project. Follow the instructio
 
 ## Integration Steps
 
-### Step 1: Add Dependency
+This fork is **not published to pub.dev**. Install it via a Git dependency.
 
-Run this command with Flutter:
+### Step 1: Add Dependency (Git)
 
-```bash
-flutter pub add clarity_flutter
-```
-
-Or add the `clarity_flutter` dependency to your `pubspec.yaml` file.
+Add this to your app’s `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  clarity_flutter: 1.6.0
+  clarity_flutter:
+    git:
+      url: https://github.com/AndrewDongminYoo/clarity_flutter.git
+      ref: v1.7.0-fork.1
 ```
+
+> If you're migrating from the upstream pub.dev package, remove any `dependency_overrides` you previously added for `protobuf`, and let pub resolve dependencies normally.
 
 ### Step 2: Import the Package
 
-Import the `clarity_flutter` package in your `main.dart` file.
+Import the `clarity_flutter` package in your `main.dart` file:
 
 ```dart
 import 'package:clarity_flutter/clarity_flutter.dart';
@@ -159,9 +165,7 @@ import 'package:clarity_flutter/clarity_flutter.dart';
 
 There are two ways to initialize Clarity in your Flutter app:
 
-#### Option 1: Using Clarity.initialize Function (Recommended)
-
-Use the `Clarity.initialize` function to initialize Clarity manually:
+#### Option 1: Using `Clarity.initialize` (Recommended)
 
 ```dart
 import 'package:flutter/material.dart';
@@ -194,7 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _initializeClarity() {
     final config = ClarityConfig(
-      projectId: "your_project_id" // You can find it on the Settings page of Clarity dashboard.
+      projectId: "your_project_id", // Find it in Clarity Dashboard settings.
     );
 
     Clarity.initialize(context, config);
@@ -212,11 +216,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
 ```
 
-#### Option 2: Using ClarityWidget
+> When using `Clarity.initialize`, call it with a valid `BuildContext` after the widget is built (typically in `initState`).
 
-Alternatively, you can initialize the `ClarityConfig` object and wrap your app with the `ClarityWidget` widget:
+#### Option 2: Using `ClarityWidget`
 
 ```dart
 import 'package:flutter/material.dart';
@@ -224,13 +229,15 @@ import 'package:clarity_flutter/clarity_flutter.dart';
 
 void main() {
   final config = ClarityConfig(
-    projectId: "your_project_id" // You can find it on the Settings page of Clarity dashboard.
+    projectId: "your_project_id", // Find it in Clarity Dashboard settings.
   );
 
-  runApp(ClarityWidget(
-    app: MyApp(),
-    clarityConfig: config,
-  ));
+  runApp(
+    ClarityWidget(
+      app: MyApp(),
+      clarityConfig: config,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -656,8 +663,31 @@ final config = ClarityConfig(
 
 ## Known Limitations
 
-- Offline session data upload is NOT supported at the moment; only session data captured while the user is online is sent.
-- Native view capturing (including web views) is NOT supported at the moment; you should find these views covered in recordings.
-- Font support is limited at the moment; you might find font differences in the recordings.
+> Fork note: Protobuf Dart output may differ slightly from older upstream outputs due to modern `protoc_plugin` behavior, but **wire format and field compatibility are preserved**.
 
-If you have any questions or need further assistance, feel free to contact the Clarity Apps team on [clarity-apps@microsoft.com](mailto:clarity-apps@microsoft.com).
+- Offline session data upload is NOT supported at the moment; only session data captured while the user is online is sent.
+- Native view capturing (including web views) is NOT supported at the moment; these views may appear as covered in recordings.
+- Font support is limited at the moment; you might see font differences in recordings.
+
+### Fork-specific notes
+
+- This fork primarily focuses on **dependency compatibility** (notably `protobuf ^6.0.0`) and **reproducible protobuf regeneration**.
+- If you hit build errors related to protobuf / generated code, open an issue in this repository with:
+  - your `flutter --version`
+  - your `flutter pub deps | grep protobuf`
+  - and the full error log
+
+## Project Support
+
+### Support for this fork
+
+This is an **unofficial, community-maintained fork**.
+
+- For fork-specific issues (protobuf 6 compatibility, regenerated models, analyzer/lints, dependency constraints, build failures), please open a GitHub issue in this repository.
+- Include a minimal reproduction and your dependency tree (`flutter pub deps` output) when possible.
+
+### Upstream / Microsoft Clarity support
+
+For questions about **Clarity product behavior** (dashboard, session replay features, project setup, account issues, etc.), refer to the official [Microsoft Clarity documentation](https://learn.microsoft.com/en-us/clarity/mobile-sdk/sdk-getting-started):
+
+> Please do not contact Microsoft for fork-specific issues. If you believe an issue exists in the upstream SDK release itself, report it through official Microsoft channels and include a minimal reproduction using the upstream package.
