@@ -29,18 +29,81 @@ class MaskingUtils {
     return projectDefaultMasking;
   }
 
-  // TODO: Improve the heuristics used here, could use avg width of character like android SDK
   static String _obfuscateText(String? text, double? fontSize) {
     if (text == null || text.isEmpty) return '';
-    final width = text.length * (fontSize ?? 14);
-    // The value (1.4) only a random number to obtain a number of points that covers the width of the original text
-    final numberOfPoints = (width * 1.4) ~/ (fontSize ?? 14);
-    return maskedCharacterPlaceholder * numberOfPoints;
+    final estimatedWidthEm = _estimateTextWidthInEm(text);
+    const bulletWidthEm = 0.6;
+    final numberOfPoints = (estimatedWidthEm / bulletWidthEm).ceil();
+    return maskedCharacterPlaceholder * (numberOfPoints == 0 ? 1 : numberOfPoints);
   }
 
   static String _obfuscateTextPII(String? text) {
     if (text == null || text.isEmpty) return '';
     return _replaceNumbersWithMaskedCharacters(_replaceEmailsWithMaskedCharacters(text));
+  }
+
+  static double _estimateTextWidthInEm(String text) {
+    var widthEm = 0.0;
+    final length = text.length;
+    for (var i = 0; i < length; i++) {
+      final codeUnit = text.codeUnitAt(i);
+      if (codeUnit >= 0xD800 && codeUnit <= 0xDBFF && i + 1 < length) {
+        final low = text.codeUnitAt(i + 1);
+        if (low >= 0xDC00 && low <= 0xDFFF) {
+          i++;
+          widthEm += 1.0;
+          continue;
+        }
+      }
+
+      if (codeUnit <= 0x7F) {
+        if (codeUnit == 0x20) {
+          widthEm += 0.33;
+        } else if (codeUnit >= 0x30 && codeUnit <= 0x39) {
+          widthEm += 0.56;
+        } else if (codeUnit == 0x49 ||
+            codeUnit == 0x4C ||
+            codeUnit == 0x69 ||
+            codeUnit == 0x6C ||
+            codeUnit == 0x2E ||
+            codeUnit == 0x2C ||
+            codeUnit == 0x27 ||
+            codeUnit == 0x60) {
+          widthEm += 0.3;
+        } else if (codeUnit == 0x4D ||
+            codeUnit == 0x57 ||
+            codeUnit == 0x6D ||
+            codeUnit == 0x77 ||
+            codeUnit == 0x40 ||
+            codeUnit == 0x23 ||
+            codeUnit == 0x25 ||
+            codeUnit == 0x26) {
+          widthEm += 0.9;
+        } else {
+          widthEm += 0.6;
+        }
+        continue;
+      }
+
+      if (_isCjkOrFullwidth(codeUnit)) {
+        widthEm += 1.0;
+      } else {
+        widthEm += 0.7;
+      }
+    }
+
+    return widthEm;
+  }
+
+  static bool _isCjkOrFullwidth(int codeUnit) {
+    return (codeUnit >= 0x1100 && codeUnit <= 0x115F) ||
+        (codeUnit >= 0x2E80 && codeUnit <= 0xA4CF) ||
+        (codeUnit >= 0xAC00 && codeUnit <= 0xD7A3) ||
+        (codeUnit >= 0xF900 && codeUnit <= 0xFAFF) ||
+        (codeUnit >= 0xFE10 && codeUnit <= 0xFE19) ||
+        (codeUnit >= 0xFE30 && codeUnit <= 0xFE6F) ||
+        (codeUnit >= 0xFF00 && codeUnit <= 0xFF60) ||
+        (codeUnit >= 0xFFE0 && codeUnit <= 0xFFE6);
   }
 
   static String _replaceEmailsWithMaskedCharacters(String input) {
