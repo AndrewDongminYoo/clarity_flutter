@@ -1,4 +1,4 @@
-# Official Clarity Flutter SDK
+# Official Clarity Flutter SDK (Forked by AndrewDongminYoo)
 
 ## Overview
 
@@ -9,6 +9,8 @@ The SDK supports Flutter on both Android and iOS devices.
 ## Contents
 
 - [Overview](#overview)
+- [Why This Fork Exists (protobuf 6 upgrade)](#why-this-fork-exists-protobuf-6-upgrade)
+- [Project Structure](#project-structure)
 - [Features](#features)
 - [How Does Clarity Flutter SDK Work?](#how-does-clarity-flutter-sdk-work)
 - [Getting Started](#getting-started)
@@ -36,6 +38,72 @@ The SDK supports Flutter on both Android and iOS devices.
   - [isPaused](#ispaused)
 - [Troubleshooting](#troubleshooting)
 - [Known Limitations](#known-limitations)
+
+## Why This Fork Exists (protobuf 6 upgrade)
+
+This repository is a **fork of the official `clarity_flutter` package**.
+
+The upstream SDK ships protobuf-generated Dart files, but the **original `.proto` sources are not publicly available on GitHub**. As a result, when the ecosystem moved forward (e.g., `retrofit_generator` and other code generators depending on newer `protobuf`), some developers started hitting **dependency conflicts** between:
+
+- `clarity_flutter` (historically tied to older `protobuf` constraints)
+- other tooling / generators requiring `protobuf >= 6`
+
+To unblock these projects, this fork reconstructs the missing `.proto` file(s) from the published package and regenerates Dart protobuf code using modern tooling.
+
+### What was done
+
+- Reconstructed ignored/missing `.proto` sources by decoding protobuf descriptors included in the published Dart artifacts (`*.pbjson.dart`).
+- Restored the schema as `proto/MutationPayload.proto`.
+- Regenerated Dart protobuf outputs with modern tooling and upgraded runtime dependency to `protobuf 6.0.0`.
+- Verified that the regenerated code is wire-compatible with the published SDK (expected codegen differences may exist depending on `protoc_plugin` versions, but message layout and field numbers remain consistent).
+
+### Why this may help you
+
+If you're seeing dependency resolution failures such as conflicts between `retrofit_generator` (or other generators) and `clarity_flutter` due to protobuf version constraints, this fork is intended to be a drop-in alternative that plays nicely with the modern Dart/Flutter protobuf ecosystem.
+
+> Note: This fork focuses on **dependency compatibility and reproducible code generation**, not on changing Clarity behavior.
+
+## Project Structure
+
+This repository is organized to keep the SDK runtime, generated protobuf models, and maintenance tooling clearly separated.
+
+### Key directories
+
+- `lib/clarity_flutter.dart`
+
+  Public entrypoint for the package.
+
+- `lib/src/`
+
+  Core SDK implementation.
+  - `core/`: shared primitives / core runtime logic
+  - `helpers/`: snapshotting, gesture processing, telemetry tracking, view hierarchy processing, etc.
+  - `managers/`, `observers/`, `registries/`, `repositories/`: internal modules that orchestrate capturing and uploading
+  - `models/`: SDK domain models
+    - `models/generated/`: **protobuf-generated models** (Dart outputs)
+    - other folders: assets/capture/display/events/ingest/session/telemetry/text/view_hierarchy, etc.
+
+- `proto/`
+
+  Restored protobuf sources used for regeneration.
+  - `proto/MutationPayload.proto`
+
+- `scripts/`
+
+  Maintenance utilities for schema reconstruction and regeneration support.
+  - `scripts/reconstruct_proto_from_pbjson.py`: reconstructs `.proto` from `*.pbjson.dart` descriptors
+  - `scripts/requirements.txt`: Python dependencies for scripts
+
+- `example/`
+
+  Example Flutter app for local testing.
+
+### Tooling / repo meta
+
+- `.github/`: CI workflows
+- `.trunk/`: lint/format tooling
+- `analysis_options.yaml`, `build.yaml`: analyzer / build configuration
+- `Makefile`: convenience commands (e.g., regeneration workflows)
 
 ## Features
 
