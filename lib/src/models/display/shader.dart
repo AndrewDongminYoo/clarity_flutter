@@ -2,8 +2,6 @@
 /// Licensed under the MIT License.
 library;
 
-// ignore_for_file: deprecated_member_use_from_same_package, constant_identifier_names
-
 // 🎯 Dart imports:
 import 'dart:ui' as ui;
 
@@ -91,7 +89,8 @@ class UnsupportedShader extends Shader {
 
   @override
   mutation_payload.Shader toProtobufInstance() {
-    return mutation_payload.Shader(type: type.name);
+    final typeEnum = mutation_payload.ShaderType.values.where((e) => e.name == super.type.name).firstOrNull;
+    return mutation_payload.Shader(typeEnum: typeEnum);
   }
 }
 

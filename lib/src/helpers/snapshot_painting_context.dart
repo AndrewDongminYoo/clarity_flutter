@@ -160,8 +160,7 @@ class SnapshotPaintingContext extends PaintingContext {
   }) {
     final effectiveTransform = Matrix4.translationValues(offset.dx, offset.dy, 0)
       ..multiply(transform)
-      // ignore: deprecated_member_use
-      ..translate(-offset.dx, -offset.dy);
+      ..translateByDouble(-offset.dx, -offset.dy, 0, 1);
     canvas
       ..save()
       ..transform(effectiveTransform.storage);

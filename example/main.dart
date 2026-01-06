@@ -9,7 +9,7 @@ void main() {
 
   final config = ClarityConfig(
     projectId: '<YOUR_PROJECT_ID>', // Replace with your Clarity project ID
-    // ignore: avoid_redundant_argument_values
+    // ignore: avoid_redundant_argument_values "For Example"
     logLevel: LogLevel.Info, // Optional: verbose logging
   );
 

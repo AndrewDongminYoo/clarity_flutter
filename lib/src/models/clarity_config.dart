@@ -2,7 +2,7 @@
 /// Licensed under the MIT License.
 library;
 
-// ignore_for_file: deprecated_member_use_from_same_package
+// ignore_for_file: deprecated_member_use_from_same_package "'userId' is deprecated and shouldn't be used. Use `Clarity.setCustomUserId(customUserId)` instead, this will be removed in future major versions."
 
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/utils/log_utils.dart';

@@ -2,9 +2,6 @@
 /// Licensed under the MIT License.
 library;
 
-// ignore_for_file: deprecated_member_use
-//  for support of lower versions
-
 // 🎯 Dart imports:
 import 'dart:typed_data';
 import 'dart:ui' as ui;
@@ -111,7 +108,7 @@ class SnapshotCanvas implements ui.Canvas {
         maskImages ? null : trackImage(atlas),
         trackPaint(paint),
         blendMode?.index,
-        colors?.map((color) => color.value).toList(),
+        colors?.map((color) => color.toARGB32()).toList(),
       ),
     );
   }

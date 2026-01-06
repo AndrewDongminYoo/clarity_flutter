@@ -2,7 +2,7 @@
 /// Licensed under the MIT License.
 library;
 
-// ignore_for_file: deprecated_member_use_from_same_package
+// ignore_for_file: deprecated_member_use_from_same_package "ClarityConfig.userId is deprecated"
 
 // 🎯 Dart imports:
 import 'dart:async';

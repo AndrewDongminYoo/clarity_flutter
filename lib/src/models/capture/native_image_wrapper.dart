@@ -13,7 +13,7 @@ import 'package:clarity_flutter/src/utils/asset_utils.dart';
 import 'package:clarity_flutter/src/utils/dev_utils.dart';
 
 @immutable
-// ignore: must_be_immutable
+// ignore: must_be_immutable "This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: NativeImageWrapper.hashCode, NativeImageWrapper._imageCloneRef, NativeImageWrapper._pictureRef"
 class NativeImageWrapper {
   NativeImageWrapper({
     required this.hashCode,
@@ -65,7 +65,10 @@ class NativeImageWrapper {
   Future<Image?> get imageData async {
     Image? returnedImage;
     if (isFromPicture) {
-      returnedImage = await (_pictureRef ?? _weakPictureRef?.target)?.toImage(_size.width, _size.height);
+      returnedImage = await (_pictureRef ?? _weakPictureRef?.target)?.toImage(
+        _size.width,
+        _size.height,
+      );
     } else {
       returnedImage = _imageCloneRef ?? _weakImageRef?.target;
     }
@@ -75,7 +78,10 @@ class NativeImageWrapper {
   Image? get imageDataSync {
     Image? returnedImage;
     if (isFromPicture) {
-      returnedImage = (_pictureRef ?? _weakPictureRef?.target)?.toImageSync(_size.width, _size.height);
+      returnedImage = (_pictureRef ?? _weakPictureRef?.target)?.toImageSync(
+        _size.width,
+        _size.height,
+      );
     } else {
       returnedImage = _imageCloneRef ?? _weakImageRef?.target;
     }

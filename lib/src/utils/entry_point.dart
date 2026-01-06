@@ -58,8 +58,11 @@ class EntryPoint {
         Logger.error?.out(invokeE.toString(), stackTrace: st);
       }
       if (throwExceptions) {
-        // ignore: only_throw_errors
-        throw e;
+        if (e is Exception) {
+          throw e;
+        } else {
+          throw e as Error;
+        }
       }
     } else {
       Logger.error?.out('Unknown issue thrown $e', stackTrace: st);

@@ -2,8 +2,6 @@
 /// Licensed under the MIT License.
 library;
 
-// ignore_for_file: deprecated_member_use
-
 // 🎯 Dart imports:
 import 'dart:ui' as ui;
 
@@ -14,8 +12,7 @@ import 'package:clarity_flutter/src/models/iproto_model.dart';
 class Color4f implements IProtoModel<mutation_payload.Color4f> {
   Color4f(this.r, this.g, this.b, this.a);
 
-  Color4f.fromDartColor(ui.Color color)
-    : this(color.red / 255.0, color.green / 255.0, color.blue / 255.0, color.opacity);
+  Color4f.fromDartColor(ui.Color color) : this(color.r, color.g, color.b, color.a * 255.0 / 0xFF);
   double r;
   double g;
   double b;

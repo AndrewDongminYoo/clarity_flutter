@@ -11,7 +11,7 @@ import 'package:clarity_flutter/src/utils/dev_utils.dart';
 class Logger {
   Logger._();
 
-  // ignore: avoid_setters_without_getters
+  // ignore: avoid_setters_without_getters "Setter has no corresponding getter."
   static set configuredLogLevel(LogLevel value) => _initLevels(value);
   static late LogLevel _level;
 
@@ -48,7 +48,7 @@ class LevelLogger {
   }
 
   static void _log(String message, {StackTrace? stackTrace}) {
-    // ignore:  avoid_print
+    // ignore: avoid_print "Don't invoke 'print' in production code."
     print("[Clarity] $message ${stackTrace ?? ""}");
   }
 }
@@ -84,7 +84,6 @@ class LoggerUtils {
   }
 }
 
-// ignore_for_file: constant_identifier_names
 /// Logging levels for Clarity SDK.
 ///
 /// Use these to control the verbosity of logs.

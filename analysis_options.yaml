@@ -8,8 +8,6 @@ analyzer:
     cascade_invocations: ignore
     constant_identifier_names: ignore
     directives_ordering: ignore
-    document_ignores: ignore
-    flutter_style_todos: ignore
     lines_longer_than_80_chars: ignore
     public_member_api_docs: ignore
     use_late_for_private_fields_and_variables: ignore
@@ -18,3 +16,8 @@ linter:
   rules:
     dangling_library_doc_comments: true
     unnecessary_breaks: true
+
+# Formatter settings
+# https://github.com/dart-lang/dart_style/wiki/Configuration
+formatter:
+  page_width: 120

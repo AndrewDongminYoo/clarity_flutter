@@ -2,8 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-//https://dart.dev/language/concurrency#performance-and-isolate-groups
-//https://github.com/dart-lang/sdk/blob/main/runtime/docs/deeply_immutable.md
+// https://dart.dev/language/concurrency#performance-and-isolate-groups
+// https://github.com/dart-lang/sdk/blob/main/runtime/docs/deeply_immutable.md
 
 // 📦 Package imports:
 import 'package:meta/meta.dart';

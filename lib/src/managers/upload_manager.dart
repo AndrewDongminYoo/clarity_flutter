@@ -77,8 +77,9 @@ List<String> _filterMetadataEvents(
   }
   return filtered;
 }
+
 class UploadManager with CallbackHandler, IsolateHandler {
-  // ignore: avoid_unused_constructor_parameters
+  // ignore: avoid_unused_constructor_parameters "The parameter 'clarityConfig' is not used in the constructor."
   UploadManager._internal(ClarityConfig clarityConfig) {
     final receivePort = ReceivePort();
     receivePort.listen(handleResponsesFromIsolate);

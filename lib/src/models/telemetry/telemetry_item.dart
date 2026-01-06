@@ -6,7 +6,6 @@ abstract class TelemetryItem {
   const TelemetryItem();
 }
 
-// ignore_for_file: constant_identifier_names
 enum ErrorType {
   Initialization,
   ScreenCapturing,

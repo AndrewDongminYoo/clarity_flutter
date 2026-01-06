@@ -15,7 +15,6 @@ abstract class SessionEvent extends Event {
   int relativeTimestamp(int pageTimestamp) => timestamp - pageTimestamp;
 }
 
-// ignore_for_file: constant_identifier_names
 enum EventType {
   Metric(0),
   Dimension(1),
