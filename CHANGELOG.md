@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 1.7.0
+
+### January 6, 2026
+
+- **[Breaking]** Upgrade runtime dependencies and minimum SDK constraints to support the modern Flutter/Dart ecosystem.
+  - Dart SDK: `>=3.1.0` → `^3.9.0`
+  - Flutter: `>=3.19.0` → `^3.35.0`
+- **[Breaking]** Upgrade `protobuf` from `^5.0.0` to `^6.0.0`.
+- **[Maintenance]** Regenerate protobuf Dart sources (`lib/src/models/generated/**`) using `protobuf 6.0.0`-compatible tooling.
+- **[Quality]** Adopt `very_good_analysis` and tighten static analysis configuration to improve overall code quality.
+- **[Refactor]** Improve type-safety across the codebase by strengthening types and reducing loosely-typed APIs.
+- **[Chore]** Refresh dependencies to their latest compatible versions.
+- **[Maintenance]** Restore missing `.proto` sources from published artifacts and keep regeneration reproducible.
+
 ## 1.6.0
 
 ### November 9, 2025
