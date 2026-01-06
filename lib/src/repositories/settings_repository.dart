@@ -19,21 +19,25 @@ class SettingsRepository {
 
   FileStore settingsStore;
 
-  // TODO: unify userId storage across Metadata files
   static const String _userIdFieldName = 'userId';
 
   Future<String?> getCachedUserId() async {
-    final content = await _readFileContent(ClarityConstants.metadataFileName);
+    final metadataContent = await _readFileContent(ClarityConstants.metadataFileName);
+    final cachedUserId = _parseUserIdFromMetadata(metadataContent);
 
-    if (content == null) return null;
+    if (cachedUserId != null) return cachedUserId;
 
-    try {
-      final storedMap = jsonDecode(content) as Map<String, dynamic>;
-      return storedMap[_userIdFieldName] as String;
-    } catch (e) {
-      Logger.warn?.out('Error parsing cached userId: $e, will use a new one!');
-      return null;
-    }
+    final pageMetadataContent = await _readFileContent(ClarityConstants.pageMetadataFileName);
+    final userIdFromPageMetadata = _parseUserIdFromPageMetadata(pageMetadataContent);
+
+    if (userIdFromPageMetadata == null) return null;
+
+    await _writeFileContent(
+      ClarityConstants.metadataFileName,
+      jsonEncode(<String, String>{_userIdFieldName: userIdFromPageMetadata}),
+    );
+
+    return userIdFromPageMetadata;
   }
 
   Future<void> writeUserId(String userId) async {
@@ -42,6 +46,7 @@ class SettingsRepository {
     };
 
     await _writeFileContent(ClarityConstants.metadataFileName, jsonEncode(json));
+    await _updateUserIdInPageMetadata(userId);
   }
 
   Future<PageMetadata?> getCachedPageMetadata() async {
@@ -69,5 +74,54 @@ class SettingsRepository {
 
   Future<void> _writeFileContent(String fileName, String content) async {
     await settingsStore.writeToFile(fileName, content, WriteMode.overwrite);
+  }
+
+  String? _parseUserIdFromMetadata(String? content) {
+    if (content == null) return null;
+
+    try {
+      final storedMap = jsonDecode(content) as Map<String, dynamic>;
+      final userId = storedMap[_userIdFieldName];
+      return userId is String ? userId : null;
+    } catch (e) {
+      Logger.warn?.out('Error parsing cached userId: $e, will use a new one!');
+      return null;
+    }
+  }
+
+  String? _parseUserIdFromPageMetadata(String? content) {
+    if (content == null) return null;
+
+    try {
+      final storedMap = jsonDecode(content) as Map<String, dynamic>;
+      final sessionMap = storedMap['session'];
+      if (sessionMap is! Map<String, dynamic>) return null;
+
+      final userId = sessionMap[_userIdFieldName];
+      return userId is String ? userId : null;
+    } catch (e) {
+      Logger.warn?.out('Error parsing cached page metadata userId: $e, will use a new one!');
+      return null;
+    }
+  }
+
+  Future<void> _updateUserIdInPageMetadata(String userId) async {
+    if (!settingsStore.fileExists(ClarityConstants.pageMetadataFileName)) return;
+
+    final content = await _readFileContent(ClarityConstants.pageMetadataFileName);
+    if (content == null) return;
+
+    try {
+      final storedMap = jsonDecode(content) as Map<String, dynamic>;
+      final sessionMap = storedMap['session'];
+      if (sessionMap is! Map<String, dynamic>) return;
+
+      if (sessionMap[_userIdFieldName] == userId) return;
+
+      sessionMap[_userIdFieldName] = userId;
+      await _writeFileContent(ClarityConstants.pageMetadataFileName, jsonEncode(storedMap));
+    } catch (e) {
+      Logger.warn?.out('Error updating cached page metadata userId: $e');
+    }
   }
 }

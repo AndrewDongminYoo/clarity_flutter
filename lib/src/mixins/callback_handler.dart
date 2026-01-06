@@ -22,8 +22,7 @@ mixin CallbackHandler {
     });
   }
 
-  /* Set T if provided event is a subtype of T
-    else, event Type is used to decide callback fired. */
+  /// Set T if provided event is a subtype of T else, event Type is used to decide callback fired.
   void fireEvent<T extends Event>(Event event) {
     if (T == Event) {
       _callbacks[event.runtimeType]?.forEach((callback) => callback(event));
