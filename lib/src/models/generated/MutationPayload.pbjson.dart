@@ -1,5 +1,3 @@
-// ignore_for_file: type=lint, type=warning
-
 // This is a generated file - do not edit.
 //
 // Generated from MutationPayload.proto.
@@ -10,7 +8,8 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: curly_braces_in_flow_control_structures
 // ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
-// ignore_for_file: non_constant_identifier_names, unused_import
+// ignore_for_file: non_constant_identifier_names, prefer_relative_imports
+// ignore_for_file: unused_import
 
 // 🎯 Dart imports:
 import 'dart:convert' as $convert;
@@ -23,7 +22,7 @@ const SamplingType$json = {
   '2': [
     {'1': 'CubicSampling', '2': 0},
     {'1': 'NonCubicSampling', '2': 1},
-    {'1': 'AnisoSampling', '2': 2}
+    {'1': 'AnisoSampling', '2': 2},
   ],
 };
 
@@ -82,7 +81,7 @@ const DisplayCommandType$json = {
     {'1': 'Skew', '2': 43},
     {'1': 'Transform', '2': 44},
     {'1': 'ErrorViewAnnotation', '2': 45},
-    {'1': 'DrawRenderEditable', '2': 46}
+    {'1': 'DrawRenderEditable', '2': 46},
   ],
 };
 
@@ -110,7 +109,7 @@ const ColorFilterType$json = {
   '1': 'ColorFilterType',
   '2': [
     {'1': 'ModeColorFilter', '2': 0},
-    {'1': 'MatrixColorFilter', '2': 1}
+    {'1': 'MatrixColorFilter', '2': 1},
   ],
 };
 
@@ -123,7 +122,7 @@ final $typed_data.Uint8List colorFilterTypeDescriptor =
 const MaskFilterType$json = {
   '1': 'MaskFilterType',
   '2': [
-    {'1': 'BlurMaskFilter', '2': 0}
+    {'1': 'BlurMaskFilter', '2': 0},
   ],
 };
 
@@ -140,7 +139,7 @@ const ShaderType$json = {
     {'1': 'RadialGradientShader', '2': 2},
     {'1': 'SweepGradientShader', '2': 3},
     {'1': 'LocalMatrixShader', '2': 4},
-    {'1': 'Color4Shader', '2': 5}
+    {'1': 'Color4Shader', '2': 5},
   ],
 };
 
@@ -154,7 +153,7 @@ final $typed_data.Uint8List shaderTypeDescriptor =
 const LooperType$json = {
   '1': 'LooperType',
   '2': [
-    {'1': 'LayerDrawLooper', '2': 0}
+    {'1': 'LayerDrawLooper', '2': 0},
   ],
 };
 
@@ -168,7 +167,7 @@ const PathEffectType$json = {
   '2': [
     {'1': 'DashPathEffect', '2': 0},
     {'1': 'CornerPathEffect', '2': 1},
-    {'1': 'Path1DPathEffect', '2': 2}
+    {'1': 'Path1DPathEffect', '2': 2},
   ],
 };
 
@@ -188,7 +187,7 @@ const PathVerbType$json = {
     {'1': 'DonePathVerb', '2': 4},
     {'1': 'LinePathVerb', '2': 5},
     {'1': 'MovePathVerb', '2': 6},
-    {'1': 'QuadPathVerb', '2': 7}
+    {'1': 'QuadPathVerb', '2': 7},
   ],
 };
 
@@ -202,7 +201,7 @@ final $typed_data.Uint8List pathVerbTypeDescriptor =
 const IntList$json = {
   '1': 'IntList',
   '2': [
-    {'1': 'value', '3': 1, '4': 3, '5': 5, '10': 'value'}
+    {'1': 'value', '3': 1, '4': 3, '5': 5, '10': 'value'},
   ],
 };
 
@@ -213,7 +212,7 @@ final $typed_data.Uint8List intListDescriptor = $convert.base64Decode('CgdJbnRMa
 const FloatList$json = {
   '1': 'FloatList',
   '2': [
-    {'1': 'value', '3': 1, '4': 3, '5': 2, '10': 'value'}
+    {'1': 'value', '3': 1, '4': 3, '5': 2, '10': 'value'},
   ],
 };
 
@@ -224,7 +223,7 @@ final $typed_data.Uint8List floatListDescriptor = $convert.base64Decode('CglGbG9
 const DoubleList$json = {
   '1': 'DoubleList',
   '2': [
-    {'1': 'value', '3': 1, '4': 3, '5': 1, '10': 'value'}
+    {'1': 'value', '3': 1, '4': 3, '5': 1, '10': 'value'},
   ],
 };
 
@@ -247,13 +246,13 @@ const Rect$json = {
       '5': 11,
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.FloatList',
       '10': 'radii'
-    }
+    },
   ],
   '8': [
     {'1': '_top'},
     {'1': '_left'},
     {'1': '_bottom'},
-    {'1': '_right'}
+    {'1': '_right'},
   ],
 };
 
@@ -291,7 +290,7 @@ const Sampling$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.SamplingType',
       '9': 0,
       '10': 'typeEnum'
-    }
+    },
   ],
   '8': [
     {'1': 'typeOneOf'},
@@ -299,7 +298,7 @@ const Sampling$json = {
     {'1': 'X_c'},
     {'1': '_filter'},
     {'1': '_mipmap'},
-    {'1': '_max_aniso'}
+    {'1': '_max_aniso'},
   ],
 };
 
@@ -319,13 +318,13 @@ const Color4f$json = {
     {'1': 'r', '3': 1, '4': 1, '5': 2, '9': 0, '10': 'r', '17': true},
     {'1': 'g', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'g', '17': true},
     {'1': 'b', '3': 3, '4': 1, '5': 2, '9': 2, '10': 'b', '17': true},
-    {'1': 'a', '3': 4, '4': 1, '5': 2, '9': 3, '10': 'a', '17': true}
+    {'1': 'a', '3': 4, '4': 1, '5': 2, '9': 3, '10': 'a', '17': true},
   ],
   '8': [
     {'1': '_r'},
     {'1': '_g'},
     {'1': '_b'},
-    {'1': '_a'}
+    {'1': '_a'},
   ],
 };
 
@@ -351,10 +350,10 @@ const Lattice$json = {
     {'1': 'colors', '3': 2, '4': 3, '5': 1, '10': 'colors'},
     {'1': 'rect_type', '3': 3, '4': 3, '5': 5, '10': 'rectType'},
     {'1': 'x_divs', '3': 4, '4': 3, '5': 5, '10': 'xDivs'},
-    {'1': 'y_divs', '3': 5, '4': 3, '5': 5, '10': 'yDivs'}
+    {'1': 'y_divs', '3': 5, '4': 3, '5': 5, '10': 'yDivs'},
   ],
   '8': [
-    {'1': '_bounds'}
+    {'1': '_bounds'},
   ],
 };
 
@@ -370,11 +369,11 @@ const Point$json = {
   '1': 'Point',
   '2': [
     {'1': 'x', '3': 1, '4': 1, '5': 2, '9': 0, '10': 'x', '17': true},
-    {'1': 'y', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'y', '17': true}
+    {'1': 'y', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'y', '17': true},
   ],
   '8': [
     {'1': '_x'},
-    {'1': '_y'}
+    {'1': '_y'},
   ],
 };
 
@@ -390,13 +389,13 @@ const RSXform$json = {
     {'1': 'scos', '3': 1, '4': 1, '5': 1, '9': 0, '10': 'scos', '17': true},
     {'1': 'ssin', '3': 2, '4': 1, '5': 1, '9': 1, '10': 'ssin', '17': true},
     {'1': 'tx', '3': 3, '4': 1, '5': 1, '9': 2, '10': 'tx', '17': true},
-    {'1': 'ty', '3': 4, '4': 1, '5': 1, '9': 3, '10': 'ty', '17': true}
+    {'1': 'ty', '3': 4, '4': 1, '5': 1, '9': 3, '10': 'ty', '17': true},
   ],
   '8': [
     {'1': '_scos'},
     {'1': '_ssin'},
     {'1': '_tx'},
-    {'1': '_ty'}
+    {'1': '_ty'},
   ],
 };
 
@@ -411,11 +410,11 @@ const Locale$json = {
   '1': 'Locale',
   '2': [
     {'1': 'languageCode', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'languageCode', '17': true},
-    {'1': 'countryCode', '3': 2, '4': 1, '5': 9, '9': 1, '10': 'countryCode', '17': true}
+    {'1': 'countryCode', '3': 2, '4': 1, '5': 9, '9': 1, '10': 'countryCode', '17': true},
   ],
   '8': [
     {'1': '_languageCode'},
-    {'1': '_countryCode'}
+    {'1': '_countryCode'},
   ],
 };
 
@@ -430,11 +429,11 @@ const FontWeight$json = {
   '1': 'FontWeight',
   '2': [
     {'1': 'index', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'index', '17': true},
-    {'1': 'value', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'value', '17': true}
+    {'1': 'value', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'value', '17': true},
   ],
   '8': [
     {'1': '_index'},
-    {'1': '_value'}
+    {'1': '_value'},
   ],
 };
 
@@ -447,10 +446,10 @@ final $typed_data.Uint8List fontWeightDescriptor =
 const TextDecoration$json = {
   '1': 'TextDecoration',
   '2': [
-    {'1': 'mask', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'mask', '17': true}
+    {'1': 'mask', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'mask', '17': true},
   ],
   '8': [
-    {'1': '_mask'}
+    {'1': '_mask'},
   ],
 };
 
@@ -554,7 +553,7 @@ const TextStyle$json = {
     {'1': 'decorationThickness', '3': 18, '4': 1, '5': 1, '9': 17, '10': 'decorationThickness', '17': true},
     {'1': 'fontFamily', '3': 19, '4': 1, '5': 9, '9': 18, '10': 'fontFamily', '17': true},
     {'1': 'fontFamilyFallback', '3': 20, '4': 3, '5': 9, '10': 'fontFamilyFallback'},
-    {'1': 'overflow', '3': 21, '4': 1, '5': 5, '9': 19, '10': 'overflow', '17': true}
+    {'1': 'overflow', '3': 21, '4': 1, '5': 5, '9': 19, '10': 'overflow', '17': true},
   ],
   '8': [
     {'1': '_inherit'},
@@ -576,7 +575,7 @@ const TextStyle$json = {
     {'1': '_decorationStyle'},
     {'1': '_decorationThickness'},
     {'1': '_fontFamily'},
-    {'1': '_overflow'}
+    {'1': '_overflow'},
   ],
 };
 
@@ -649,7 +648,7 @@ const InlineSpan$json = {
     },
     {'1': 'spellOut', '3': 6, '4': 1, '5': 8, '9': 4, '10': 'spellOut', '17': true},
     {'1': 'alignment', '3': 7, '4': 1, '5': 5, '9': 5, '10': 'alignment', '17': true},
-    {'1': 'baseline', '3': 8, '4': 1, '5': 5, '9': 6, '10': 'baseline', '17': true}
+    {'1': 'baseline', '3': 8, '4': 1, '5': 5, '9': 6, '10': 'baseline', '17': true},
   ],
   '8': [
     {'1': '_type'},
@@ -658,7 +657,7 @@ const InlineSpan$json = {
     {'1': '_locale'},
     {'1': '_spellOut'},
     {'1': '_alignment'},
-    {'1': '_baseline'}
+    {'1': '_baseline'},
   ],
 };
 
@@ -682,13 +681,13 @@ const BoxConstraints$json = {
     {'1': 'minWidth', '3': 1, '4': 1, '5': 1, '9': 0, '10': 'minWidth', '17': true},
     {'1': 'maxWidth', '3': 2, '4': 1, '5': 1, '9': 1, '10': 'maxWidth', '17': true},
     {'1': 'minHeight', '3': 3, '4': 1, '5': 1, '9': 2, '10': 'minHeight', '17': true},
-    {'1': 'maxHeight', '3': 4, '4': 1, '5': 1, '9': 3, '10': 'maxHeight', '17': true}
+    {'1': 'maxHeight', '3': 4, '4': 1, '5': 1, '9': 3, '10': 'maxHeight', '17': true},
   ],
   '8': [
     {'1': '_minWidth'},
     {'1': '_maxWidth'},
     {'1': '_minHeight'},
-    {'1': '_maxHeight'}
+    {'1': '_maxHeight'},
   ],
 };
 
@@ -720,7 +719,7 @@ const StrutStyle$json = {
       '17': true
     },
     {'1': 'fontStyle', '3': 8, '4': 1, '5': 5, '9': 6, '10': 'fontStyle', '17': true},
-    {'1': 'forceStrutHeight', '3': 9, '4': 1, '5': 8, '9': 7, '10': 'forceStrutHeight', '17': true}
+    {'1': 'forceStrutHeight', '3': 9, '4': 1, '5': 8, '9': 7, '10': 'forceStrutHeight', '17': true},
   ],
   '8': [
     {'1': '_fontFamily'},
@@ -730,7 +729,7 @@ const StrutStyle$json = {
     {'1': '_leadingDistribution'},
     {'1': '_fontWeight'},
     {'1': '_fontStyle'},
-    {'1': '_forceStrutHeight'}
+    {'1': '_forceStrutHeight'},
   ],
 };
 
@@ -753,12 +752,12 @@ const TextHeightBehavior$json = {
   '2': [
     {'1': 'applyHeightToFirstAscent', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'applyHeightToFirstAscent', '17': true},
     {'1': 'applyHeightToLastDescent', '3': 2, '4': 1, '5': 8, '9': 1, '10': 'applyHeightToLastDescent', '17': true},
-    {'1': 'leadingDistribution', '3': 3, '4': 1, '5': 5, '9': 2, '10': 'leadingDistribution', '17': true}
+    {'1': 'leadingDistribution', '3': 3, '4': 1, '5': 5, '9': 2, '10': 'leadingDistribution', '17': true},
   ],
   '8': [
     {'1': '_applyHeightToFirstAscent'},
     {'1': '_applyHeightToLastDescent'},
-    {'1': '_leadingDistribution'}
+    {'1': '_leadingDistribution'},
   ],
 };
 
@@ -776,11 +775,11 @@ const Offset$json = {
   '1': 'Offset',
   '2': [
     {'1': 'dx', '3': 1, '4': 1, '5': 1, '9': 0, '10': 'dx', '17': true},
-    {'1': 'dy', '3': 2, '4': 1, '5': 1, '9': 1, '10': 'dy', '17': true}
+    {'1': 'dy', '3': 2, '4': 1, '5': 1, '9': 1, '10': 'dy', '17': true},
   ],
   '8': [
     {'1': '_dx'},
-    {'1': '_dy'}
+    {'1': '_dy'},
   ],
 };
 
@@ -805,13 +804,13 @@ const PlaceholderDimensions$json = {
     },
     {'1': 'alignment', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'alignment', '17': true},
     {'1': 'baseline', '3': 3, '4': 1, '5': 5, '9': 2, '10': 'baseline', '17': true},
-    {'1': 'baselineOffset', '3': 4, '4': 1, '5': 1, '9': 3, '10': 'baselineOffset', '17': true}
+    {'1': 'baselineOffset', '3': 4, '4': 1, '5': 1, '9': 3, '10': 'baselineOffset', '17': true},
   ],
   '8': [
     {'1': '_size'},
     {'1': '_alignment'},
     {'1': '_baseline'},
-    {'1': '_baselineOffset'}
+    {'1': '_baselineOffset'},
   ],
 };
 
@@ -890,7 +889,7 @@ const RenderText$json = {
       '10': 'placeholderDimensions'
     },
     {'1': 'softWrap', '3': 11, '4': 1, '5': 8, '9': 9, '10': 'softWrap', '17': true},
-    {'1': 'overflow', '3': 12, '4': 1, '5': 5, '9': 10, '10': 'overflow', '17': true}
+    {'1': 'overflow', '3': 12, '4': 1, '5': 5, '9': 10, '10': 'overflow', '17': true},
   ],
   '8': [
     {'1': '_text'},
@@ -903,7 +902,7 @@ const RenderText$json = {
     {'1': '_textWidthBasis'},
     {'1': '_textHeightBehavior'},
     {'1': '_softWrap'},
-    {'1': '_overflow'}
+    {'1': '_overflow'},
   ],
 };
 
@@ -1113,7 +1112,7 @@ const DisplayCommand$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.DisplayCommandType',
       '9': 0,
       '10': 'typeEnum'
-    }
+    },
   ],
   '8': [
     {'1': 'typeOneOf'},
@@ -1154,7 +1153,7 @@ const DisplayCommand$json = {
     {'1': '_sx'},
     {'1': '_sy'},
     {'1': '_left'},
-    {'1': '_top'}
+    {'1': '_top'},
   ],
 };
 
@@ -1216,12 +1215,12 @@ const FontStyle$json = {
   '2': [
     {'1': 'width', '3': 1, '4': 1, '5': 1, '9': 0, '10': 'width', '17': true},
     {'1': 'weight', '3': 2, '4': 1, '5': 1, '9': 1, '10': 'weight', '17': true},
-    {'1': 'slant', '3': 3, '4': 1, '5': 1, '9': 2, '10': 'slant', '17': true}
+    {'1': 'slant', '3': 3, '4': 1, '5': 1, '9': 2, '10': 'slant', '17': true},
   ],
   '8': [
     {'1': '_width'},
     {'1': '_weight'},
-    {'1': '_slant'}
+    {'1': '_slant'},
   ],
 };
 
@@ -1236,11 +1235,11 @@ const FontCoordinate$json = {
   '1': 'FontCoordinate',
   '2': [
     {'1': 'axis', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'axis', '17': true},
-    {'1': 'value', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'value', '17': true}
+    {'1': 'value', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'value', '17': true},
   ],
   '8': [
     {'1': '_axis'},
-    {'1': '_value'}
+    {'1': '_value'},
   ],
 };
 
@@ -1280,7 +1279,7 @@ const Typeface$json = {
     {'1': 'width_value', '3': 9, '4': 1, '5': 2, '9': 7, '10': 'widthValue', '17': true},
     {'1': 'slant_value', '3': 10, '4': 1, '5': 2, '9': 8, '10': 'slantValue', '17': true},
     {'1': 'italic_value', '3': 11, '4': 1, '5': 2, '9': 9, '10': 'italicValue', '17': true},
-    {'1': 'pallete_index', '3': 12, '4': 1, '5': 1, '9': 10, '10': 'palleteIndex', '17': true}
+    {'1': 'pallete_index', '3': 12, '4': 1, '5': 1, '9': 10, '10': 'palleteIndex', '17': true},
   ],
   '8': [
     {'1': '_family_name'},
@@ -1293,7 +1292,7 @@ const Typeface$json = {
     {'1': '_width_value'},
     {'1': '_slant_value'},
     {'1': '_italic_value'},
-    {'1': '_pallete_index'}
+    {'1': '_pallete_index'},
   ],
 };
 
@@ -1329,11 +1328,11 @@ const Image$json = {
       '17': true
     },
     {'1': 'data_hash', '3': 2, '4': 1, '5': 9, '9': 1, '10': 'dataHash', '17': true},
-    {'1': 'mipmap', '3': 3, '4': 1, '5': 12, '10': 'mipmap'}
+    {'1': 'mipmap', '3': 3, '4': 1, '5': 12, '10': 'mipmap'},
   ],
   '8': [
     {'1': '_subset'},
-    {'1': '_data_hash'}
+    {'1': '_data_hash'},
   ],
 };
 
@@ -1372,7 +1371,7 @@ const TextBlobRun$json = {
       '10': 'positions'
     },
     {'1': 'clusters', '3': 8, '4': 3, '5': 1, '10': 'clusters'},
-    {'1': 'text', '3': 9, '4': 1, '5': 9, '9': 5, '10': 'text', '17': true}
+    {'1': 'text', '3': 9, '4': 1, '5': 9, '9': 5, '10': 'text', '17': true},
   ],
   '8': [
     {'1': '_point'},
@@ -1380,7 +1379,7 @@ const TextBlobRun$json = {
     {'1': '_font_scale_x'},
     {'1': '_font_skew_x'},
     {'1': '_typeface_index'},
-    {'1': '_text'}
+    {'1': '_text'},
   ],
 };
 
@@ -1418,10 +1417,10 @@ const TextBlob$json = {
       '5': 11,
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.TextBlobRun',
       '10': 'runs'
-    }
+    },
   ],
   '8': [
-    {'1': '_bounds'}
+    {'1': '_bounds'},
   ],
 };
 
@@ -1471,11 +1470,11 @@ const Vertices$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.FloatList',
       '10': 'boneWeights'
     },
-    {'1': 'indices', '3': 8, '4': 3, '5': 1, '10': 'indices'}
+    {'1': 'indices', '3': 8, '4': 3, '5': 1, '10': 'indices'},
   ],
   '8': [
     {'1': '_mode'},
-    {'1': '_is_volatile'}
+    {'1': '_is_volatile'},
   ],
 };
 
@@ -1537,7 +1536,7 @@ const ColorFilter$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.ColorFilterType',
       '9': 0,
       '10': 'typeEnum'
-    }
+    },
   ],
   '8': [
     {'1': 'typeOneOf'},
@@ -1546,7 +1545,7 @@ const ColorFilter$json = {
     {'1': '_color4f'},
     {'1': '_matrix'},
     {'1': '_is_rgba'},
-    {'1': '_is_row_major'}
+    {'1': '_is_row_major'},
   ],
 };
 
@@ -1587,13 +1586,13 @@ const MaskFilter$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.MaskFilterType',
       '9': 0,
       '10': 'typeEnum'
-    }
+    },
   ],
   '8': [
     {'1': 'typeOneOf'},
     {'1': '_sigma'},
     {'1': '_style'},
-    {'1': '_respect_c_t_m'}
+    {'1': '_respect_c_t_m'},
   ],
 };
 
@@ -1729,7 +1728,7 @@ const Shader$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.ShaderType',
       '9': 0,
       '10': 'typeEnum'
-    }
+    },
   ],
   '8': [
     {'1': 'typeOneOf'},
@@ -1751,7 +1750,7 @@ const Shader$json = {
     {'1': '_end_angle'},
     {'1': '_shader'},
     {'1': '_color4f'},
-    {'1': '_color4f_space_data'}
+    {'1': '_color4f_space_data'},
   ],
 };
 
@@ -1795,12 +1794,12 @@ const LayerInfo$json = {
     {'1': 'paint_bits', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'paintBits', '17': true},
     {'1': 'color_mode', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'colorMode', '17': true},
     {'1': 'offset', '3': 3, '4': 3, '5': 2, '10': 'offset'},
-    {'1': 'post_translate', '3': 4, '4': 1, '5': 8, '9': 2, '10': 'postTranslate', '17': true}
+    {'1': 'post_translate', '3': 4, '4': 1, '5': 8, '9': 2, '10': 'postTranslate', '17': true},
   ],
   '8': [
     {'1': '_paint_bits'},
     {'1': '_color_mode'},
-    {'1': '_post_translate'}
+    {'1': '_post_translate'},
   ],
 };
 
@@ -1834,11 +1833,11 @@ const Layer$json = {
       '9': 1,
       '10': 'paint',
       '17': true
-    }
+    },
   ],
   '8': [
     {'1': '_layer_info'},
-    {'1': '_paint'}
+    {'1': '_paint'},
   ],
 };
 
@@ -1878,10 +1877,10 @@ const Looper$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.LooperType',
       '9': 0,
       '10': 'typeEnum'
-    }
+    },
   ],
   '8': [
-    {'1': 'typeOneOf'}
+    {'1': 'typeOneOf'},
   ],
 };
 
@@ -1928,7 +1927,7 @@ const PathEffect$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.PathEffectType',
       '9': 0,
       '10': 'typeEnum'
-    }
+    },
   ],
   '8': [
     {'1': 'typeOneOf'},
@@ -1936,7 +1935,7 @@ const PathEffect$json = {
     {'1': '_radius'},
     {'1': '_advance'},
     {'1': '_style'},
-    {'1': '_path'}
+    {'1': '_path'},
   ],
 };
 
@@ -2022,7 +2021,7 @@ const Paint$json = {
       '9': 13,
       '10': 'pathEffect',
       '17': true
-    }
+    },
   ],
   '8': [
     {'1': '_color'},
@@ -2038,7 +2037,7 @@ const Paint$json = {
     {'1': '_mask_filter'},
     {'1': '_shader'},
     {'1': '_looper'},
-    {'1': '_path_effect'}
+    {'1': '_path_effect'},
   ],
 };
 
@@ -2108,7 +2107,7 @@ const PathVerb$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.PathVerbType',
       '9': 0,
       '10': 'typeEnum'
-    }
+    },
   ],
   '8': [
     {'1': 'typeOneOf'},
@@ -2124,7 +2123,7 @@ const PathVerb$json = {
     {'1': '_cpx2'},
     {'1': '_cpy2'},
     {'1': '_x'},
-    {'1': '_y'}
+    {'1': '_y'},
   ],
 };
 
@@ -2155,10 +2154,10 @@ const Path$json = {
       '5': 11,
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.PathVerb',
       '10': 'verbs'
-    }
+    },
   ],
   '8': [
-    {'1': '_fill_type'}
+    {'1': '_fill_type'},
   ],
 };
 
@@ -2198,7 +2197,7 @@ const ViewNode$json = {
     },
     {'1': 'is_masked', '3': 18, '4': 1, '5': 8, '9': 16, '10': 'isMasked', '17': true},
     {'1': 'text', '3': 19, '4': 1, '5': 9, '9': 17, '10': 'text', '17': true},
-    {'1': 'id_entry_name', '3': 20, '4': 1, '5': 9, '9': 18, '10': 'idEntryName', '17': true}
+    {'1': 'id_entry_name', '3': 20, '4': 1, '5': 9, '9': 18, '10': 'idEntryName', '17': true},
   ],
   '8': [
     {'1': '_id'},
@@ -2219,7 +2218,7 @@ const ViewNode$json = {
     {'1': '_backgroundColor'},
     {'1': '_is_masked'},
     {'1': '_text'},
-    {'1': '_id_entry_name'}
+    {'1': '_id_entry_name'},
   ],
 };
 
@@ -2275,7 +2274,7 @@ const ViewNodeDelta$json = {
     {'1': 'is_masked', '3': 18, '4': 1, '5': 8, '9': 16, '10': 'isMasked', '17': true},
     {'1': 'text', '3': 19, '4': 1, '5': 9, '9': 17, '10': 'text', '17': true},
     {'1': 'id_entry_name', '3': 20, '4': 1, '5': 9, '9': 18, '10': 'idEntryName', '17': true},
-    {'1': 'is_backgroundColor_set', '3': 21, '4': 1, '5': 8, '9': 19, '10': 'isBackgroundColorSet', '17': true}
+    {'1': 'is_backgroundColor_set', '3': 21, '4': 1, '5': 8, '9': 19, '10': 'isBackgroundColorSet', '17': true},
   ],
   '8': [
     {'1': '_id'},
@@ -2297,7 +2296,7 @@ const ViewNodeDelta$json = {
     {'1': '_is_masked'},
     {'1': '_text'},
     {'1': '_id_entry_name'},
-    {'1': '_is_backgroundColor_set'}
+    {'1': '_is_backgroundColor_set'},
   ],
 };
 
@@ -2348,12 +2347,12 @@ const ViewHierarchy$json = {
       '9': 2,
       '10': 'rootDelta',
       '17': true
-    }
+    },
   ],
   '8': [
     {'1': '_timestamp'},
     {'1': '_root'},
-    {'1': '_rootDelta'}
+    {'1': '_rootDelta'},
   ],
 };
 
@@ -2451,7 +2450,7 @@ const DisplayFrame$json = {
     {'1': 'screen_height', '3': 14, '4': 1, '5': 5, '9': 5, '10': 'screenHeight', '17': true},
     {'1': 'density', '3': 15, '4': 1, '5': 2, '9': 6, '10': 'density', '17': true},
     {'1': 'keyboard_height', '3': 16, '4': 1, '5': 5, '9': 7, '10': 'keyboardHeight', '17': true},
-    {'1': 'system_background_color', '3': 17, '4': 1, '5': 5, '9': 8, '10': 'systemBackgroundColor', '17': true}
+    {'1': 'system_background_color', '3': 17, '4': 1, '5': 5, '9': 8, '10': 'systemBackgroundColor', '17': true},
   ],
   '8': [
     {'1': '_view_hierarchy'},
@@ -2462,7 +2461,7 @@ const DisplayFrame$json = {
     {'1': '_screen_height'},
     {'1': '_density'},
     {'1': '_keyboard_height'},
-    {'1': '_system_background_color'}
+    {'1': '_system_background_color'},
   ],
 };
 
@@ -2508,12 +2507,12 @@ const ClipRectCommandPayload$json = {
       '9': 2,
       '10': 'rect',
       '17': true
-    }
+    },
   ],
   '8': [
     {'1': '_op'},
     {'1': '_anti_alias'},
-    {'1': '_rect'}
+    {'1': '_rect'},
   ],
 };
 
@@ -2528,7 +2527,7 @@ final $typed_data.Uint8List clipRectCommandPayloadDescriptor =
 const ConcatCommandPayload$json = {
   '1': 'ConcatCommandPayload',
   '2': [
-    {'1': 'matrix', '3': 1, '4': 3, '5': 2, '10': 'matrix'}
+    {'1': 'matrix', '3': 1, '4': 3, '5': 2, '10': 'matrix'},
   ],
 };
 
@@ -2540,7 +2539,7 @@ final $typed_data.Uint8List concatCommandPayloadDescriptor =
 const Concat44CommandPayload$json = {
   '1': 'Concat44CommandPayload',
   '2': [
-    {'1': 'matrix', '3': 1, '4': 3, '5': 2, '10': 'matrix'}
+    {'1': 'matrix', '3': 1, '4': 3, '5': 2, '10': 'matrix'},
   ],
 };
 
@@ -2565,14 +2564,14 @@ const DrawArcCommandPayload$json = {
     {'1': 'start_angle', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'startAngle', '17': true},
     {'1': 'sweep_angle', '3': 3, '4': 1, '5': 2, '9': 2, '10': 'sweepAngle', '17': true},
     {'1': 'use_center', '3': 4, '4': 1, '5': 8, '9': 3, '10': 'useCenter', '17': true},
-    {'1': 'paint_index', '3': 5, '4': 1, '5': 5, '9': 4, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 5, '4': 1, '5': 5, '9': 4, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_rect'},
     {'1': '_start_angle'},
     {'1': '_sweep_angle'},
     {'1': '_use_center'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -2589,10 +2588,10 @@ final $typed_data.Uint8List drawArcCommandPayloadDescriptor =
 const DrawBehindPaintCommandPayload$json = {
   '1': 'DrawBehindPaintCommandPayload',
   '2': [
-    {'1': 'paint_index', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'paintIndex', '17': true},
   ],
   '8': [
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -2625,12 +2624,12 @@ const DrawDRRectCommandPayload$json = {
       '10': 'inner',
       '17': true
     },
-    {'1': 'paint_index', '3': 3, '4': 1, '5': 5, '9': 2, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 3, '4': 1, '5': 5, '9': 2, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_outer'},
     {'1': '_inner'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -2671,7 +2670,7 @@ const DrawImageCommandPayload$json = {
       '10': 'maskedColor',
       '17': true
     },
-    {'1': 'paint_index', '3': 8, '4': 1, '5': 5, '9': 7, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 8, '4': 1, '5': 5, '9': 7, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_x'},
@@ -2681,7 +2680,7 @@ const DrawImageCommandPayload$json = {
     {'1': '_masked_width'},
     {'1': '_masked_height'},
     {'1': '_masked_color'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -2736,7 +2735,7 @@ const DrawImageLatticeCommandPayload$json = {
       '10': 'maskedColor',
       '17': true
     },
-    {'1': 'paint_index', '3': 8, '4': 1, '5': 5, '9': 7, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 8, '4': 1, '5': 5, '9': 7, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_lattice'},
@@ -2746,7 +2745,7 @@ const DrawImageLatticeCommandPayload$json = {
     {'1': '_masked_width'},
     {'1': '_masked_height'},
     {'1': '_masked_color'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -2802,7 +2801,7 @@ const DrawImageNineCommandPayload$json = {
       '10': 'maskedColor',
       '17': true
     },
-    {'1': 'paint_index', '3': 7, '4': 1, '5': 5, '9': 6, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 7, '4': 1, '5': 5, '9': 6, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_center'},
@@ -2811,7 +2810,7 @@ const DrawImageNineCommandPayload$json = {
     {'1': '_masked_width'},
     {'1': '_masked_height'},
     {'1': '_masked_color'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -2877,7 +2876,7 @@ const DrawImageRectCommandPayload$json = {
       '10': 'maskedColor',
       '17': true
     },
-    {'1': 'paint_index', '3': 9, '4': 1, '5': 5, '9': 8, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 9, '4': 1, '5': 5, '9': 8, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_src'},
@@ -2888,7 +2887,7 @@ const DrawImageRectCommandPayload$json = {
     {'1': '_masked_width'},
     {'1': '_masked_height'},
     {'1': '_masked_color'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -2912,10 +2911,10 @@ final $typed_data.Uint8List drawImageRectCommandPayloadDescriptor =
 const DrawPaintCommandPayload$json = {
   '1': 'DrawPaintCommandPayload',
   '2': [
-    {'1': 'paint_index', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'paintIndex', '17': true},
   ],
   '8': [
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -2929,11 +2928,11 @@ const DrawPathCommandPayload$json = {
   '1': 'DrawPathCommandPayload',
   '2': [
     {'1': 'path_index', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'pathIndex', '17': true},
-    {'1': 'paint_index', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_path_index'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -2957,11 +2956,11 @@ const DrawRectCommandPayload$json = {
       '10': 'rect',
       '17': true
     },
-    {'1': 'paint_index', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_rect'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -2977,11 +2976,11 @@ const TranslateCommandPayload$json = {
   '1': 'TranslateCommandPayload',
   '2': [
     {'1': 'left', '3': 1, '4': 1, '5': 2, '9': 0, '10': 'left', '17': true},
-    {'1': 'top', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'top', '17': true}
+    {'1': 'top', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'top', '17': true},
   ],
   '8': [
     {'1': '_left'},
-    {'1': '_top'}
+    {'1': '_top'},
   ],
 };
 
@@ -3004,11 +3003,11 @@ const DrawOvalCommandPayload$json = {
       '10': 'rect',
       '17': true
     },
-    {'1': 'paint_index', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_rect'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -3032,11 +3031,11 @@ const DrawPointsCommandPayload$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.Point',
       '10': 'points'
     },
-    {'1': 'paint_index', '3': 3, '4': 1, '5': 5, '9': 1, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 3, '4': 1, '5': 5, '9': 1, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_point_mode'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -3061,11 +3060,11 @@ const DrawRRectCommandPayload$json = {
       '10': 'rrect',
       '17': true
     },
-    {'1': 'paint_index', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_rrect'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -3083,13 +3082,13 @@ const DrawTextBlobCommandPayload$json = {
     {'1': 'blob_index', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'blobIndex', '17': true},
     {'1': 'x', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'x', '17': true},
     {'1': 'y', '3': 3, '4': 1, '5': 2, '9': 2, '10': 'y', '17': true},
-    {'1': 'paint_index', '3': 4, '4': 1, '5': 5, '9': 3, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 4, '4': 1, '5': 5, '9': 3, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_blob_index'},
     {'1': '_x'},
     {'1': '_y'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -3114,12 +3113,12 @@ const DrawVerticesCommandPayload$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.FloatList',
       '10': 'bones'
     },
-    {'1': 'paint_index', '3': 4, '4': 1, '5': 5, '9': 2, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 4, '4': 1, '5': 5, '9': 2, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_vertices_index'},
     {'1': '_mode'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -3161,11 +3160,11 @@ const SaveBehindCommandPayload$json = {
       '9': 1,
       '10': 'subset',
       '17': true
-    }
+    },
   ],
   '8': [
     {'1': '_flags'},
-    {'1': '_subset'}
+    {'1': '_subset'},
   ],
 };
 
@@ -3191,13 +3190,13 @@ const SaveLayerCommandPayload$json = {
     },
     {'1': 'flags', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'flags', '17': true},
     {'1': 'image_filter_paint', '3': 3, '4': 1, '5': 5, '9': 2, '10': 'imageFilterPaint', '17': true},
-    {'1': 'paint_index', '3': 4, '4': 1, '5': 5, '9': 3, '10': 'paintIndex', '17': true}
+    {'1': 'paint_index', '3': 4, '4': 1, '5': 5, '9': 3, '10': 'paintIndex', '17': true},
   ],
   '8': [
     {'1': '_bounds'},
     {'1': '_flags'},
     {'1': '_image_filter_paint'},
-    {'1': '_paint_index'}
+    {'1': '_paint_index'},
   ],
 };
 
@@ -3215,11 +3214,11 @@ const ScaleCommandPayload$json = {
   '1': 'ScaleCommandPayload',
   '2': [
     {'1': 'sx', '3': 1, '4': 1, '5': 2, '9': 0, '10': 'sx', '17': true},
-    {'1': 'sy', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'sy', '17': true}
+    {'1': 'sy', '3': 2, '4': 1, '5': 2, '9': 1, '10': 'sy', '17': true},
   ],
   '8': [
     {'1': '_sx'},
-    {'1': '_sy'}
+    {'1': '_sy'},
   ],
 };
 
@@ -3232,7 +3231,7 @@ final $typed_data.Uint8List scaleCommandPayloadDescriptor =
 const SetMatrixCommandPayload$json = {
   '1': 'SetMatrixCommandPayload',
   '2': [
-    {'1': 'matrix', '3': 1, '4': 3, '5': 2, '10': 'matrix'}
+    {'1': 'matrix', '3': 1, '4': 3, '5': 2, '10': 'matrix'},
   ],
 };
 
@@ -3244,7 +3243,7 @@ final $typed_data.Uint8List setMatrixCommandPayloadDescriptor =
 const SetMatrix44CommandPayload$json = {
   '1': 'SetMatrix44CommandPayload',
   '2': [
-    {'1': 'matrix', '3': 1, '4': 3, '5': 2, '10': 'matrix'}
+    {'1': 'matrix', '3': 1, '4': 3, '5': 2, '10': 'matrix'},
   ],
 };
 
@@ -3258,12 +3257,12 @@ const ClipPathCommandPayload$json = {
   '2': [
     {'1': 'op', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'op', '17': true},
     {'1': 'anti_alias', '3': 2, '4': 1, '5': 8, '9': 1, '10': 'antiAlias', '17': true},
-    {'1': 'path_index', '3': 3, '4': 1, '5': 5, '9': 2, '10': 'pathIndex', '17': true}
+    {'1': 'path_index', '3': 3, '4': 1, '5': 5, '9': 2, '10': 'pathIndex', '17': true},
   ],
   '8': [
     {'1': '_op'},
     {'1': '_anti_alias'},
-    {'1': '_path_index'}
+    {'1': '_path_index'},
   ],
 };
 
@@ -3288,12 +3287,12 @@ const ClipRRectCommandPayload$json = {
       '9': 2,
       '10': 'rrect',
       '17': true
-    }
+    },
   ],
   '8': [
     {'1': '_op'},
     {'1': '_anti_alias'},
-    {'1': '_rrect'}
+    {'1': '_rrect'},
   ],
 };
 
@@ -3308,10 +3307,10 @@ final $typed_data.Uint8List clipRRectCommandPayloadDescriptor =
 const DrawViewEndAnnotationCommandPayload$json = {
   '1': 'DrawViewEndAnnotationCommandPayload',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true}
+    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true},
   ],
   '8': [
-    {'1': '_id'}
+    {'1': '_id'},
   ],
 };
 
@@ -3324,10 +3323,10 @@ final $typed_data.Uint8List drawViewEndAnnotationCommandPayloadDescriptor =
 const DrawViewStartAnnotationCommandPayload$json = {
   '1': 'DrawViewStartAnnotationCommandPayload',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true}
+    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true},
   ],
   '8': [
-    {'1': '_id'}
+    {'1': '_id'},
   ],
 };
 
@@ -3340,10 +3339,10 @@ final $typed_data.Uint8List drawViewStartAnnotationCommandPayloadDescriptor =
 const DrawViewContentEndAnnotationCommandPayload$json = {
   '1': 'DrawViewContentEndAnnotationCommandPayload',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true}
+    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true},
   ],
   '8': [
-    {'1': '_id'}
+    {'1': '_id'},
   ],
 };
 
@@ -3356,10 +3355,10 @@ final $typed_data.Uint8List drawViewContentEndAnnotationCommandPayloadDescriptor
 const DrawViewContentStartAnnotationCommandPayload$json = {
   '1': 'DrawViewContentStartAnnotationCommandPayload',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true}
+    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true},
   ],
   '8': [
-    {'1': '_id'}
+    {'1': '_id'},
   ],
 };
 
@@ -3372,10 +3371,10 @@ final $typed_data.Uint8List drawViewContentStartAnnotationCommandPayloadDescript
 const FillViewCommandsAnnotationCommandPayload$json = {
   '1': 'FillViewCommandsAnnotationCommandPayload',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true}
+    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true},
   ],
   '8': [
-    {'1': '_id'}
+    {'1': '_id'},
   ],
 };
 
@@ -3407,12 +3406,12 @@ const DrawAtlasCommandPayload$json = {
       '10': 'dstXforms'
     },
     {'1': 'blendMode', '3': 5, '4': 1, '5': 5, '9': 2, '10': 'blendMode', '17': true},
-    {'1': 'colors', '3': 6, '4': 3, '5': 5, '10': 'colors'}
+    {'1': 'colors', '3': 6, '4': 3, '5': 5, '10': 'colors'},
   ],
   '8': [
     {'1': '_paintIndex'},
     {'1': '_imageIndex'},
-    {'1': '_blendMode'}
+    {'1': '_blendMode'},
   ],
 };
 
@@ -3441,12 +3440,12 @@ const DrawCircleCommandPayload$json = {
       '10': 'point',
       '17': true
     },
-    {'1': 'radius', '3': 3, '4': 1, '5': 1, '9': 2, '10': 'radius', '17': true}
+    {'1': 'radius', '3': 3, '4': 1, '5': 1, '9': 2, '10': 'radius', '17': true},
   ],
   '8': [
     {'1': '_paintIndex'},
     {'1': '_point'},
-    {'1': '_radius'}
+    {'1': '_radius'},
   ],
 };
 
@@ -3471,11 +3470,11 @@ const DrawColorCommandPayload$json = {
       '10': 'color',
       '17': true
     },
-    {'1': 'blendMode', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'blendMode', '17': true}
+    {'1': 'blendMode', '3': 2, '4': 1, '5': 5, '9': 1, '10': 'blendMode', '17': true},
   ],
   '8': [
     {'1': '_color'},
-    {'1': '_blendMode'}
+    {'1': '_blendMode'},
   ],
 };
 
@@ -3510,12 +3509,12 @@ const DrawLineCommandPayload$json = {
       '9': 2,
       '10': 'point2',
       '17': true
-    }
+    },
   ],
   '8': [
     {'1': '_paintIndex'},
     {'1': '_point1'},
-    {'1': '_point2'}
+    {'1': '_point2'},
   ],
 };
 
@@ -3550,11 +3549,11 @@ const DrawRenderParagraphCommandPayload$json = {
       '9': 1,
       '10': 'offset',
       '17': true
-    }
+    },
   ],
   '8': [
     {'1': '_renderParagraph'},
-    {'1': '_offset'}
+    {'1': '_offset'},
   ],
 };
 
@@ -3570,10 +3569,10 @@ final $typed_data.Uint8List drawRenderParagraphCommandPayloadDescriptor =
 const RestoreToCountCommandPayload$json = {
   '1': 'RestoreToCountCommandPayload',
   '2': [
-    {'1': 'count', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'count', '17': true}
+    {'1': 'count', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'count', '17': true},
   ],
   '8': [
-    {'1': '_count'}
+    {'1': '_count'},
   ],
 };
 
@@ -3588,12 +3587,12 @@ const RotateCommandPayload$json = {
   '2': [
     {'1': 'angleInDegrees', '3': 1, '4': 1, '5': 1, '9': 0, '10': 'angleInDegrees', '17': true},
     {'1': 'rx', '3': 2, '4': 1, '5': 1, '9': 1, '10': 'rx', '17': true},
-    {'1': 'ry', '3': 3, '4': 1, '5': 1, '9': 2, '10': 'ry', '17': true}
+    {'1': 'ry', '3': 3, '4': 1, '5': 1, '9': 2, '10': 'ry', '17': true},
   ],
   '8': [
     {'1': '_angleInDegrees'},
     {'1': '_rx'},
-    {'1': '_ry'}
+    {'1': '_ry'},
   ],
 };
 
@@ -3608,11 +3607,11 @@ const SkewCommandPayload$json = {
   '1': 'SkewCommandPayload',
   '2': [
     {'1': 'sx', '3': 1, '4': 1, '5': 1, '9': 0, '10': 'sx', '17': true},
-    {'1': 'sy', '3': 2, '4': 1, '5': 1, '9': 1, '10': 'sy', '17': true}
+    {'1': 'sy', '3': 2, '4': 1, '5': 1, '9': 1, '10': 'sy', '17': true},
   ],
   '8': [
     {'1': '_sx'},
-    {'1': '_sy'}
+    {'1': '_sy'},
   ],
 };
 
@@ -3625,7 +3624,7 @@ final $typed_data.Uint8List skewCommandPayloadDescriptor =
 const TransformCommandPayload$json = {
   '1': 'TransformCommandPayload',
   '2': [
-    {'1': 'matrix', '3': 1, '4': 3, '5': 1, '10': 'matrix'}
+    {'1': 'matrix', '3': 1, '4': 3, '5': 1, '10': 'matrix'},
   ],
 };
 
@@ -3638,11 +3637,11 @@ const ErrorViewAnnotationCommandPayload$json = {
   '1': 'ErrorViewAnnotationCommandPayload',
   '2': [
     {'1': 'viewType', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'viewType', '17': true},
-    {'1': 'errorMessage', '3': 2, '4': 1, '5': 9, '9': 1, '10': 'errorMessage', '17': true}
+    {'1': 'errorMessage', '3': 2, '4': 1, '5': 9, '9': 1, '10': 'errorMessage', '17': true},
   ],
   '8': [
     {'1': '_viewType'},
-    {'1': '_errorMessage'}
+    {'1': '_errorMessage'},
   ],
 };
 
@@ -3675,11 +3674,11 @@ const DrawRenderEditableCommandPayload$json = {
       '9': 1,
       '10': 'offset',
       '17': true
-    }
+    },
   ],
   '8': [
     {'1': '_renderEditable'},
-    {'1': '_offset'}
+    {'1': '_offset'},
   ],
 };
 
@@ -4100,11 +4099,11 @@ const DisplayCommandV2$json = {
       '6': '.com.microsoft.clarity.protomodels.mutationpayload.DrawRenderEditableCommandPayload',
       '9': 0,
       '10': 'drawRenderEditablePayload'
-    }
+    },
   ],
   '8': [
     {'1': 'payload'},
-    {'1': '_type'}
+    {'1': '_type'},
   ],
 };
 
@@ -4302,7 +4301,7 @@ const DisplayFrameV2$json = {
     {'1': 'screen_height', '3': 14, '4': 1, '5': 5, '9': 5, '10': 'screenHeight', '17': true},
     {'1': 'density', '3': 15, '4': 1, '5': 2, '9': 6, '10': 'density', '17': true},
     {'1': 'keyboard_height', '3': 16, '4': 1, '5': 5, '9': 7, '10': 'keyboardHeight', '17': true},
-    {'1': 'system_background_color', '3': 17, '4': 1, '5': 5, '9': 8, '10': 'systemBackgroundColor', '17': true}
+    {'1': 'system_background_color', '3': 17, '4': 1, '5': 5, '9': 8, '10': 'systemBackgroundColor', '17': true},
   ],
   '8': [
     {'1': '_view_hierarchy'},
@@ -4313,7 +4312,7 @@ const DisplayFrameV2$json = {
     {'1': '_screen_height'},
     {'1': '_density'},
     {'1': '_keyboard_height'},
-    {'1': '_system_background_color'}
+    {'1': '_system_background_color'},
   ],
 };
 

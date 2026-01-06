@@ -1,5 +1,3 @@
-// ignore_for_file: type=lint, type=warning
-
 // This is a generated file - do not edit.
 //
 // Generated from MutationPayload.proto.
@@ -10,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: curly_braces_in_flow_control_structures
 // ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, prefer_relative_imports
 
 // 🎯 Dart imports:
 import 'dart:core' as $core;
@@ -62,7 +60,6 @@ class IntList extends $pb.GeneratedMessage {
   static IntList create() => IntList._();
   @$core.override
   IntList createEmptyInstance() => create();
-  static $pb.PbList<IntList> createRepeated() => $pb.PbList<IntList>();
   @$core.pragma('dart2js:noInline')
   static IntList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<IntList>(create);
   static IntList? _defaultInstance;
@@ -107,7 +104,6 @@ class FloatList extends $pb.GeneratedMessage {
   static FloatList create() => FloatList._();
   @$core.override
   FloatList createEmptyInstance() => create();
-  static $pb.PbList<FloatList> createRepeated() => $pb.PbList<FloatList>();
   @$core.pragma('dart2js:noInline')
   static FloatList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FloatList>(create);
   static FloatList? _defaultInstance;
@@ -152,7 +148,6 @@ class DoubleList extends $pb.GeneratedMessage {
   static DoubleList create() => DoubleList._();
   @$core.override
   DoubleList createEmptyInstance() => create();
-  static $pb.PbList<DoubleList> createRepeated() => $pb.PbList<DoubleList>();
   @$core.pragma('dart2js:noInline')
   static DoubleList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DoubleList>(create);
   static DoubleList? _defaultInstance;
@@ -207,7 +202,6 @@ class Rect extends $pb.GeneratedMessage {
   static Rect create() => Rect._();
   @$core.override
   Rect createEmptyInstance() => create();
-  static $pb.PbList<Rect> createRepeated() => $pb.PbList<Rect>();
   @$core.pragma('dart2js:noInline')
   static Rect getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Rect>(create);
   static Rect? _defaultInstance;
@@ -314,7 +308,6 @@ class Sampling extends $pb.GeneratedMessage {
   static Sampling create() => Sampling._();
   @$core.override
   Sampling createEmptyInstance() => create();
-  static $pb.PbList<Sampling> createRepeated() => $pb.PbList<Sampling>();
   @$core.pragma('dart2js:noInline')
   static Sampling getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Sampling>(create);
   static Sampling? _defaultInstance;
@@ -439,7 +432,6 @@ class Color4f extends $pb.GeneratedMessage {
   static Color4f create() => Color4f._();
   @$core.override
   Color4f createEmptyInstance() => create();
-  static $pb.PbList<Color4f> createRepeated() => $pb.PbList<Color4f>();
   @$core.pragma('dart2js:noInline')
   static Color4f getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Color4f>(create);
   static Color4f? _defaultInstance;
@@ -529,7 +521,6 @@ class Lattice extends $pb.GeneratedMessage {
   static Lattice create() => Lattice._();
   @$core.override
   Lattice createEmptyInstance() => create();
-  static $pb.PbList<Lattice> createRepeated() => $pb.PbList<Lattice>();
   @$core.pragma('dart2js:noInline')
   static Lattice getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Lattice>(create);
   static Lattice? _defaultInstance;
@@ -596,7 +587,6 @@ class Point extends $pb.GeneratedMessage {
   static Point create() => Point._();
   @$core.override
   Point createEmptyInstance() => create();
-  static $pb.PbList<Point> createRepeated() => $pb.PbList<Point>();
   @$core.pragma('dart2js:noInline')
   static Point getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Point>(create);
   static Point? _defaultInstance;
@@ -665,7 +655,6 @@ class RSXform extends $pb.GeneratedMessage {
   static RSXform create() => RSXform._();
   @$core.override
   RSXform createEmptyInstance() => create();
-  static $pb.PbList<RSXform> createRepeated() => $pb.PbList<RSXform>();
   @$core.pragma('dart2js:noInline')
   static RSXform getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RSXform>(create);
   static RSXform? _defaultInstance;
@@ -745,7 +734,6 @@ class Locale extends $pb.GeneratedMessage {
   static Locale create() => Locale._();
   @$core.override
   Locale createEmptyInstance() => create();
-  static $pb.PbList<Locale> createRepeated() => $pb.PbList<Locale>();
   @$core.pragma('dart2js:noInline')
   static Locale getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Locale>(create);
   static Locale? _defaultInstance;
@@ -808,7 +796,6 @@ class FontWeight extends $pb.GeneratedMessage {
   static FontWeight create() => FontWeight._();
   @$core.override
   FontWeight createEmptyInstance() => create();
-  static $pb.PbList<FontWeight> createRepeated() => $pb.PbList<FontWeight>();
   @$core.pragma('dart2js:noInline')
   static FontWeight getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FontWeight>(create);
   static FontWeight? _defaultInstance;
@@ -868,7 +855,6 @@ class TextDecoration extends $pb.GeneratedMessage {
   static TextDecoration create() => TextDecoration._();
   @$core.override
   TextDecoration createEmptyInstance() => create();
-  static $pb.PbList<TextDecoration> createRepeated() => $pb.PbList<TextDecoration>();
   @$core.pragma('dart2js:noInline')
   static TextDecoration getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextDecoration>(create);
   static TextDecoration? _defaultInstance;
@@ -981,7 +967,6 @@ class TextStyle extends $pb.GeneratedMessage {
   static TextStyle create() => TextStyle._();
   @$core.override
   TextStyle createEmptyInstance() => create();
-  static $pb.PbList<TextStyle> createRepeated() => $pb.PbList<TextStyle>();
   @$core.pragma('dart2js:noInline')
   static TextStyle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextStyle>(create);
   static TextStyle? _defaultInstance;
@@ -1243,7 +1228,6 @@ class InlineSpan extends $pb.GeneratedMessage {
   static InlineSpan create() => InlineSpan._();
   @$core.override
   InlineSpan createEmptyInstance() => create();
-  static $pb.PbList<InlineSpan> createRepeated() => $pb.PbList<InlineSpan>();
   @$core.pragma('dart2js:noInline')
   static InlineSpan getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InlineSpan>(create);
   static InlineSpan? _defaultInstance;
@@ -1364,7 +1348,6 @@ class BoxConstraints extends $pb.GeneratedMessage {
   static BoxConstraints create() => BoxConstraints._();
   @$core.override
   BoxConstraints createEmptyInstance() => create();
-  static $pb.PbList<BoxConstraints> createRepeated() => $pb.PbList<BoxConstraints>();
   @$core.pragma('dart2js:noInline')
   static BoxConstraints getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoxConstraints>(create);
   static BoxConstraints? _defaultInstance;
@@ -1466,7 +1449,6 @@ class StrutStyle extends $pb.GeneratedMessage {
   static StrutStyle create() => StrutStyle._();
   @$core.override
   StrutStyle createEmptyInstance() => create();
-  static $pb.PbList<StrutStyle> createRepeated() => $pb.PbList<StrutStyle>();
   @$core.pragma('dart2js:noInline')
   static StrutStyle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<StrutStyle>(create);
   static StrutStyle? _defaultInstance;
@@ -1592,7 +1574,6 @@ class TextHeightBehavior extends $pb.GeneratedMessage {
   static TextHeightBehavior create() => TextHeightBehavior._();
   @$core.override
   TextHeightBehavior createEmptyInstance() => create();
-  static $pb.PbList<TextHeightBehavior> createRepeated() => $pb.PbList<TextHeightBehavior>();
   @$core.pragma('dart2js:noInline')
   static TextHeightBehavior getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextHeightBehavior>(create);
@@ -1664,7 +1645,6 @@ class Offset extends $pb.GeneratedMessage {
   static Offset create() => Offset._();
   @$core.override
   Offset createEmptyInstance() => create();
-  static $pb.PbList<Offset> createRepeated() => $pb.PbList<Offset>();
   @$core.pragma('dart2js:noInline')
   static Offset getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Offset>(create);
   static Offset? _defaultInstance;
@@ -1734,7 +1714,6 @@ class PlaceholderDimensions extends $pb.GeneratedMessage {
   static PlaceholderDimensions create() => PlaceholderDimensions._();
   @$core.override
   PlaceholderDimensions createEmptyInstance() => create();
-  static $pb.PbList<PlaceholderDimensions> createRepeated() => $pb.PbList<PlaceholderDimensions>();
   @$core.pragma('dart2js:noInline')
   static PlaceholderDimensions getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PlaceholderDimensions>(create);
@@ -1850,7 +1829,6 @@ class RenderText extends $pb.GeneratedMessage {
   static RenderText create() => RenderText._();
   @$core.override
   RenderText createEmptyInstance() => create();
-  static $pb.PbList<RenderText> createRepeated() => $pb.PbList<RenderText>();
   @$core.pragma('dart2js:noInline')
   static RenderText getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RenderText>(create);
   static RenderText? _defaultInstance;
@@ -2139,7 +2117,6 @@ class DisplayCommand extends $pb.GeneratedMessage {
   static DisplayCommand create() => DisplayCommand._();
   @$core.override
   DisplayCommand createEmptyInstance() => create();
-  static $pb.PbList<DisplayCommand> createRepeated() => $pb.PbList<DisplayCommand>();
   @$core.pragma('dart2js:noInline')
   static DisplayCommand getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayCommand>(create);
   static DisplayCommand? _defaultInstance;
@@ -2591,7 +2568,6 @@ class FontStyle extends $pb.GeneratedMessage {
   static FontStyle create() => FontStyle._();
   @$core.override
   FontStyle createEmptyInstance() => create();
-  static $pb.PbList<FontStyle> createRepeated() => $pb.PbList<FontStyle>();
   @$core.pragma('dart2js:noInline')
   static FontStyle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FontStyle>(create);
   static FontStyle? _defaultInstance;
@@ -2663,7 +2639,6 @@ class FontCoordinate extends $pb.GeneratedMessage {
   static FontCoordinate create() => FontCoordinate._();
   @$core.override
   FontCoordinate createEmptyInstance() => create();
-  static $pb.PbList<FontCoordinate> createRepeated() => $pb.PbList<FontCoordinate>();
   @$core.pragma('dart2js:noInline')
   static FontCoordinate getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FontCoordinate>(create);
   static FontCoordinate? _defaultInstance;
@@ -2756,7 +2731,6 @@ class Typeface extends $pb.GeneratedMessage {
   static Typeface create() => Typeface._();
   @$core.override
   Typeface createEmptyInstance() => create();
-  static $pb.PbList<Typeface> createRepeated() => $pb.PbList<Typeface>();
   @$core.pragma('dart2js:noInline')
   static Typeface getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Typeface>(create);
   static Typeface? _defaultInstance;
@@ -2907,7 +2881,6 @@ class Image extends $pb.GeneratedMessage {
   static Image create() => Image._();
   @$core.override
   Image createEmptyInstance() => create();
-  static $pb.PbList<Image> createRepeated() => $pb.PbList<Image>();
   @$core.pragma('dart2js:noInline')
   static Image getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Image>(create);
   static Image? _defaultInstance;
@@ -3002,7 +2975,6 @@ class TextBlobRun extends $pb.GeneratedMessage {
   static TextBlobRun create() => TextBlobRun._();
   @$core.override
   TextBlobRun createEmptyInstance() => create();
-  static $pb.PbList<TextBlobRun> createRepeated() => $pb.PbList<TextBlobRun>();
   @$core.pragma('dart2js:noInline')
   static TextBlobRun getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextBlobRun>(create);
   static TextBlobRun? _defaultInstance;
@@ -3112,7 +3084,6 @@ class TextBlob extends $pb.GeneratedMessage {
   static TextBlob create() => TextBlob._();
   @$core.override
   TextBlob createEmptyInstance() => create();
-  static $pb.PbList<TextBlob> createRepeated() => $pb.PbList<TextBlob>();
   @$core.pragma('dart2js:noInline')
   static TextBlob getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextBlob>(create);
   static TextBlob? _defaultInstance;
@@ -3189,7 +3160,6 @@ class Vertices extends $pb.GeneratedMessage {
   static Vertices create() => Vertices._();
   @$core.override
   Vertices createEmptyInstance() => create();
-  static $pb.PbList<Vertices> createRepeated() => $pb.PbList<Vertices>();
   @$core.pragma('dart2js:noInline')
   static Vertices getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Vertices>(create);
   static Vertices? _defaultInstance;
@@ -3297,7 +3267,6 @@ class ColorFilter extends $pb.GeneratedMessage {
   static ColorFilter create() => ColorFilter._();
   @$core.override
   ColorFilter createEmptyInstance() => create();
-  static $pb.PbList<ColorFilter> createRepeated() => $pb.PbList<ColorFilter>();
   @$core.pragma('dart2js:noInline')
   static ColorFilter getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ColorFilter>(create);
   static ColorFilter? _defaultInstance;
@@ -3446,7 +3415,6 @@ class MaskFilter extends $pb.GeneratedMessage {
   static MaskFilter create() => MaskFilter._();
   @$core.override
   MaskFilter createEmptyInstance() => create();
-  static $pb.PbList<MaskFilter> createRepeated() => $pb.PbList<MaskFilter>();
   @$core.pragma('dart2js:noInline')
   static MaskFilter getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MaskFilter>(create);
   static MaskFilter? _defaultInstance;
@@ -3623,7 +3591,6 @@ class Shader extends $pb.GeneratedMessage {
   static Shader create() => Shader._();
   @$core.override
   Shader createEmptyInstance() => create();
-  static $pb.PbList<Shader> createRepeated() => $pb.PbList<Shader>();
   @$core.pragma('dart2js:noInline')
   static Shader getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Shader>(create);
   static Shader? _defaultInstance;
@@ -3902,7 +3869,6 @@ class LayerInfo extends $pb.GeneratedMessage {
   static LayerInfo create() => LayerInfo._();
   @$core.override
   LayerInfo createEmptyInstance() => create();
-  static $pb.PbList<LayerInfo> createRepeated() => $pb.PbList<LayerInfo>();
   @$core.pragma('dart2js:noInline')
   static LayerInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LayerInfo>(create);
   static LayerInfo? _defaultInstance;
@@ -3976,7 +3942,6 @@ class Layer extends $pb.GeneratedMessage {
   static Layer create() => Layer._();
   @$core.override
   Layer createEmptyInstance() => create();
-  static $pb.PbList<Layer> createRepeated() => $pb.PbList<Layer>();
   @$core.pragma('dart2js:noInline')
   static Layer getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Layer>(create);
   static Layer? _defaultInstance;
@@ -4053,7 +4018,6 @@ class Looper extends $pb.GeneratedMessage {
   static Looper create() => Looper._();
   @$core.override
   Looper createEmptyInstance() => create();
-  static $pb.PbList<Looper> createRepeated() => $pb.PbList<Looper>();
   @$core.pragma('dart2js:noInline')
   static Looper getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Looper>(create);
   static Looper? _defaultInstance;
@@ -4156,7 +4120,6 @@ class PathEffect extends $pb.GeneratedMessage {
   static PathEffect create() => PathEffect._();
   @$core.override
   PathEffect createEmptyInstance() => create();
-  static $pb.PbList<PathEffect> createRepeated() => $pb.PbList<PathEffect>();
   @$core.pragma('dart2js:noInline')
   static PathEffect getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PathEffect>(create);
   static PathEffect? _defaultInstance;
@@ -4315,7 +4278,6 @@ class Paint extends $pb.GeneratedMessage {
   static Paint create() => Paint._();
   @$core.override
   Paint createEmptyInstance() => create();
-  static $pb.PbList<Paint> createRepeated() => $pb.PbList<Paint>();
   @$core.pragma('dart2js:noInline')
   static Paint getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Paint>(create);
   static Paint? _defaultInstance;
@@ -4545,7 +4507,6 @@ class PathVerb extends $pb.GeneratedMessage {
   static PathVerb create() => PathVerb._();
   @$core.override
   PathVerb createEmptyInstance() => create();
-  static $pb.PbList<PathVerb> createRepeated() => $pb.PbList<PathVerb>();
   @$core.pragma('dart2js:noInline')
   static PathVerb getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PathVerb>(create);
   static PathVerb? _defaultInstance;
@@ -4736,7 +4697,6 @@ class Path extends $pb.GeneratedMessage {
   static Path create() => Path._();
   @$core.override
   Path createEmptyInstance() => create();
-  static $pb.PbList<Path> createRepeated() => $pb.PbList<Path>();
   @$core.pragma('dart2js:noInline')
   static Path getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Path>(create);
   static Path? _defaultInstance;
@@ -4847,7 +4807,6 @@ class ViewNode extends $pb.GeneratedMessage {
   static ViewNode create() => ViewNode._();
   @$core.override
   ViewNode createEmptyInstance() => create();
-  static $pb.PbList<ViewNode> createRepeated() => $pb.PbList<ViewNode>();
   @$core.pragma('dart2js:noInline')
   static ViewNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ViewNode>(create);
   static ViewNode? _defaultInstance;
@@ -5027,9 +4986,6 @@ class ViewNode extends $pb.GeneratedMessage {
   void clearIdEntryName() => $_clearField(20);
 }
 
-/// This is a mirror class of view node
-/// ViewNodeDelta objects only contain values that was changed from the last frame sent
-/// If the node didn't exist before or it's the first frame then all values will be sent
 class ViewNodeDelta extends $pb.GeneratedMessage {
   factory ViewNodeDelta({
     $core.int? id,
@@ -5126,7 +5082,6 @@ class ViewNodeDelta extends $pb.GeneratedMessage {
   static ViewNodeDelta create() => ViewNodeDelta._();
   @$core.override
   ViewNodeDelta createEmptyInstance() => create();
-  static $pb.PbList<ViewNodeDelta> createRepeated() => $pb.PbList<ViewNodeDelta>();
   @$core.pragma('dart2js:noInline')
   static ViewNodeDelta getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ViewNodeDelta>(create);
   static ViewNodeDelta? _defaultInstance;
@@ -5361,7 +5316,6 @@ class ViewHierarchy extends $pb.GeneratedMessage {
   static ViewHierarchy create() => ViewHierarchy._();
   @$core.override
   ViewHierarchy createEmptyInstance() => create();
-  static $pb.PbList<ViewHierarchy> createRepeated() => $pb.PbList<ViewHierarchy>();
   @$core.pragma('dart2js:noInline')
   static ViewHierarchy getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ViewHierarchy>(create);
   static ViewHierarchy? _defaultInstance;
@@ -5485,7 +5439,6 @@ class DisplayFrame extends $pb.GeneratedMessage {
   static DisplayFrame create() => DisplayFrame._();
   @$core.override
   DisplayFrame createEmptyInstance() => create();
-  static $pb.PbList<DisplayFrame> createRepeated() => $pb.PbList<DisplayFrame>();
   @$core.pragma('dart2js:noInline')
   static DisplayFrame getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayFrame>(create);
   static DisplayFrame? _defaultInstance;
@@ -5641,7 +5594,6 @@ class ClipRectCommandPayload extends $pb.GeneratedMessage {
   static ClipRectCommandPayload create() => ClipRectCommandPayload._();
   @$core.override
   ClipRectCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<ClipRectCommandPayload> createRepeated() => $pb.PbList<ClipRectCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static ClipRectCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ClipRectCommandPayload>(create);
@@ -5714,7 +5666,6 @@ class ConcatCommandPayload extends $pb.GeneratedMessage {
   static ConcatCommandPayload create() => ConcatCommandPayload._();
   @$core.override
   ConcatCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<ConcatCommandPayload> createRepeated() => $pb.PbList<ConcatCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static ConcatCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConcatCommandPayload>(create);
@@ -5761,7 +5712,6 @@ class Concat44CommandPayload extends $pb.GeneratedMessage {
   static Concat44CommandPayload create() => Concat44CommandPayload._();
   @$core.override
   Concat44CommandPayload createEmptyInstance() => create();
-  static $pb.PbList<Concat44CommandPayload> createRepeated() => $pb.PbList<Concat44CommandPayload>();
   @$core.pragma('dart2js:noInline')
   static Concat44CommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Concat44CommandPayload>(create);
@@ -5820,7 +5770,6 @@ class DrawArcCommandPayload extends $pb.GeneratedMessage {
   static DrawArcCommandPayload create() => DrawArcCommandPayload._();
   @$core.override
   DrawArcCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawArcCommandPayload> createRepeated() => $pb.PbList<DrawArcCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawArcCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawArcCommandPayload>(create);
@@ -5911,7 +5860,6 @@ class DrawBehindPaintCommandPayload extends $pb.GeneratedMessage {
   static DrawBehindPaintCommandPayload create() => DrawBehindPaintCommandPayload._();
   @$core.override
   DrawBehindPaintCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawBehindPaintCommandPayload> createRepeated() => $pb.PbList<DrawBehindPaintCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawBehindPaintCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawBehindPaintCommandPayload>(create);
@@ -5970,7 +5918,6 @@ class DrawDRRectCommandPayload extends $pb.GeneratedMessage {
   static DrawDRRectCommandPayload create() => DrawDRRectCommandPayload._();
   @$core.override
   DrawDRRectCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawDRRectCommandPayload> createRepeated() => $pb.PbList<DrawDRRectCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawDRRectCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawDRRectCommandPayload>(create);
@@ -6066,7 +6013,6 @@ class DrawImageCommandPayload extends $pb.GeneratedMessage {
   static DrawImageCommandPayload create() => DrawImageCommandPayload._();
   @$core.override
   DrawImageCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawImageCommandPayload> createRepeated() => $pb.PbList<DrawImageCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawImageCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawImageCommandPayload>(create);
@@ -6207,7 +6153,6 @@ class DrawImageLatticeCommandPayload extends $pb.GeneratedMessage {
   static DrawImageLatticeCommandPayload create() => DrawImageLatticeCommandPayload._();
   @$core.override
   DrawImageLatticeCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawImageLatticeCommandPayload> createRepeated() => $pb.PbList<DrawImageLatticeCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawImageLatticeCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawImageLatticeCommandPayload>(create);
@@ -6347,7 +6292,6 @@ class DrawImageNineCommandPayload extends $pb.GeneratedMessage {
   static DrawImageNineCommandPayload create() => DrawImageNineCommandPayload._();
   @$core.override
   DrawImageNineCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawImageNineCommandPayload> createRepeated() => $pb.PbList<DrawImageNineCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawImageNineCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawImageNineCommandPayload>(create);
@@ -6484,7 +6428,6 @@ class DrawImageRectCommandPayload extends $pb.GeneratedMessage {
   static DrawImageRectCommandPayload create() => DrawImageRectCommandPayload._();
   @$core.override
   DrawImageRectCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawImageRectCommandPayload> createRepeated() => $pb.PbList<DrawImageRectCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawImageRectCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawImageRectCommandPayload>(create);
@@ -6617,7 +6560,6 @@ class DrawPaintCommandPayload extends $pb.GeneratedMessage {
   static DrawPaintCommandPayload create() => DrawPaintCommandPayload._();
   @$core.override
   DrawPaintCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawPaintCommandPayload> createRepeated() => $pb.PbList<DrawPaintCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawPaintCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawPaintCommandPayload>(create);
@@ -6673,7 +6615,6 @@ class DrawPathCommandPayload extends $pb.GeneratedMessage {
   static DrawPathCommandPayload create() => DrawPathCommandPayload._();
   @$core.override
   DrawPathCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawPathCommandPayload> createRepeated() => $pb.PbList<DrawPathCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawPathCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawPathCommandPayload>(create);
@@ -6738,7 +6679,6 @@ class DrawRectCommandPayload extends $pb.GeneratedMessage {
   static DrawRectCommandPayload create() => DrawRectCommandPayload._();
   @$core.override
   DrawRectCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawRectCommandPayload> createRepeated() => $pb.PbList<DrawRectCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawRectCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawRectCommandPayload>(create);
@@ -6805,7 +6745,6 @@ class TranslateCommandPayload extends $pb.GeneratedMessage {
   static TranslateCommandPayload create() => TranslateCommandPayload._();
   @$core.override
   TranslateCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<TranslateCommandPayload> createRepeated() => $pb.PbList<TranslateCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static TranslateCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TranslateCommandPayload>(create);
@@ -6870,7 +6809,6 @@ class DrawOvalCommandPayload extends $pb.GeneratedMessage {
   static DrawOvalCommandPayload create() => DrawOvalCommandPayload._();
   @$core.override
   DrawOvalCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawOvalCommandPayload> createRepeated() => $pb.PbList<DrawOvalCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawOvalCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawOvalCommandPayload>(create);
@@ -6940,7 +6878,6 @@ class DrawPointsCommandPayload extends $pb.GeneratedMessage {
   static DrawPointsCommandPayload create() => DrawPointsCommandPayload._();
   @$core.override
   DrawPointsCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawPointsCommandPayload> createRepeated() => $pb.PbList<DrawPointsCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawPointsCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawPointsCommandPayload>(create);
@@ -7008,7 +6945,6 @@ class DrawRRectCommandPayload extends $pb.GeneratedMessage {
   static DrawRRectCommandPayload create() => DrawRRectCommandPayload._();
   @$core.override
   DrawRRectCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawRRectCommandPayload> createRepeated() => $pb.PbList<DrawRRectCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawRRectCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawRRectCommandPayload>(create);
@@ -7081,7 +7017,6 @@ class DrawTextBlobCommandPayload extends $pb.GeneratedMessage {
   static DrawTextBlobCommandPayload create() => DrawTextBlobCommandPayload._();
   @$core.override
   DrawTextBlobCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawTextBlobCommandPayload> createRepeated() => $pb.PbList<DrawTextBlobCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawTextBlobCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawTextBlobCommandPayload>(create);
@@ -7170,7 +7105,6 @@ class DrawVerticesCommandPayload extends $pb.GeneratedMessage {
   static DrawVerticesCommandPayload create() => DrawVerticesCommandPayload._();
   @$core.override
   DrawVerticesCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawVerticesCommandPayload> createRepeated() => $pb.PbList<DrawVerticesCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawVerticesCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawVerticesCommandPayload>(create);
@@ -7237,7 +7171,6 @@ class SaveCommandPayload extends $pb.GeneratedMessage {
   static SaveCommandPayload create() => SaveCommandPayload._();
   @$core.override
   SaveCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<SaveCommandPayload> createRepeated() => $pb.PbList<SaveCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static SaveCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveCommandPayload>(create);
@@ -7274,7 +7207,6 @@ class RestoreCommandPayload extends $pb.GeneratedMessage {
   static RestoreCommandPayload create() => RestoreCommandPayload._();
   @$core.override
   RestoreCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<RestoreCommandPayload> createRepeated() => $pb.PbList<RestoreCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static RestoreCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RestoreCommandPayload>(create);
@@ -7321,7 +7253,6 @@ class SaveBehindCommandPayload extends $pb.GeneratedMessage {
   static SaveBehindCommandPayload create() => SaveBehindCommandPayload._();
   @$core.override
   SaveBehindCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<SaveBehindCommandPayload> createRepeated() => $pb.PbList<SaveBehindCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static SaveBehindCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveBehindCommandPayload>(create);
@@ -7394,7 +7325,6 @@ class SaveLayerCommandPayload extends $pb.GeneratedMessage {
   static SaveLayerCommandPayload create() => SaveLayerCommandPayload._();
   @$core.override
   SaveLayerCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<SaveLayerCommandPayload> createRepeated() => $pb.PbList<SaveLayerCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static SaveLayerCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveLayerCommandPayload>(create);
@@ -7479,7 +7409,6 @@ class ScaleCommandPayload extends $pb.GeneratedMessage {
   static ScaleCommandPayload create() => ScaleCommandPayload._();
   @$core.override
   ScaleCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<ScaleCommandPayload> createRepeated() => $pb.PbList<ScaleCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static ScaleCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ScaleCommandPayload>(create);
@@ -7541,7 +7470,6 @@ class SetMatrixCommandPayload extends $pb.GeneratedMessage {
   static SetMatrixCommandPayload create() => SetMatrixCommandPayload._();
   @$core.override
   SetMatrixCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<SetMatrixCommandPayload> createRepeated() => $pb.PbList<SetMatrixCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static SetMatrixCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetMatrixCommandPayload>(create);
@@ -7588,7 +7516,6 @@ class SetMatrix44CommandPayload extends $pb.GeneratedMessage {
   static SetMatrix44CommandPayload create() => SetMatrix44CommandPayload._();
   @$core.override
   SetMatrix44CommandPayload createEmptyInstance() => create();
-  static $pb.PbList<SetMatrix44CommandPayload> createRepeated() => $pb.PbList<SetMatrix44CommandPayload>();
   @$core.pragma('dart2js:noInline')
   static SetMatrix44CommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetMatrix44CommandPayload>(create);
@@ -7641,7 +7568,6 @@ class ClipPathCommandPayload extends $pb.GeneratedMessage {
   static ClipPathCommandPayload create() => ClipPathCommandPayload._();
   @$core.override
   ClipPathCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<ClipPathCommandPayload> createRepeated() => $pb.PbList<ClipPathCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static ClipPathCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ClipPathCommandPayload>(create);
@@ -7718,7 +7644,6 @@ class ClipRRectCommandPayload extends $pb.GeneratedMessage {
   static ClipRRectCommandPayload create() => ClipRRectCommandPayload._();
   @$core.override
   ClipRRectCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<ClipRRectCommandPayload> createRepeated() => $pb.PbList<ClipRRectCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static ClipRRectCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ClipRRectCommandPayload>(create);
@@ -7792,8 +7717,6 @@ class DrawViewEndAnnotationCommandPayload extends $pb.GeneratedMessage {
   static DrawViewEndAnnotationCommandPayload create() => DrawViewEndAnnotationCommandPayload._();
   @$core.override
   DrawViewEndAnnotationCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawViewEndAnnotationCommandPayload> createRepeated() =>
-      $pb.PbList<DrawViewEndAnnotationCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawViewEndAnnotationCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewEndAnnotationCommandPayload>(create);
@@ -7847,8 +7770,6 @@ class DrawViewStartAnnotationCommandPayload extends $pb.GeneratedMessage {
   static DrawViewStartAnnotationCommandPayload create() => DrawViewStartAnnotationCommandPayload._();
   @$core.override
   DrawViewStartAnnotationCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawViewStartAnnotationCommandPayload> createRepeated() =>
-      $pb.PbList<DrawViewStartAnnotationCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawViewStartAnnotationCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewStartAnnotationCommandPayload>(create);
@@ -7904,8 +7825,6 @@ class DrawViewContentEndAnnotationCommandPayload extends $pb.GeneratedMessage {
   static DrawViewContentEndAnnotationCommandPayload create() => DrawViewContentEndAnnotationCommandPayload._();
   @$core.override
   DrawViewContentEndAnnotationCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawViewContentEndAnnotationCommandPayload> createRepeated() =>
-      $pb.PbList<DrawViewContentEndAnnotationCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawViewContentEndAnnotationCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewContentEndAnnotationCommandPayload>(create);
@@ -7961,8 +7880,6 @@ class DrawViewContentStartAnnotationCommandPayload extends $pb.GeneratedMessage 
   static DrawViewContentStartAnnotationCommandPayload create() => DrawViewContentStartAnnotationCommandPayload._();
   @$core.override
   DrawViewContentStartAnnotationCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawViewContentStartAnnotationCommandPayload> createRepeated() =>
-      $pb.PbList<DrawViewContentStartAnnotationCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawViewContentStartAnnotationCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewContentStartAnnotationCommandPayload>(create);
@@ -8016,8 +7933,6 @@ class FillViewCommandsAnnotationCommandPayload extends $pb.GeneratedMessage {
   static FillViewCommandsAnnotationCommandPayload create() => FillViewCommandsAnnotationCommandPayload._();
   @$core.override
   FillViewCommandsAnnotationCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<FillViewCommandsAnnotationCommandPayload> createRepeated() =>
-      $pb.PbList<FillViewCommandsAnnotationCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static FillViewCommandsAnnotationCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FillViewCommandsAnnotationCommandPayload>(create);
@@ -8085,7 +8000,6 @@ class DrawAtlasCommandPayload extends $pb.GeneratedMessage {
   static DrawAtlasCommandPayload create() => DrawAtlasCommandPayload._();
   @$core.override
   DrawAtlasCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawAtlasCommandPayload> createRepeated() => $pb.PbList<DrawAtlasCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawAtlasCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawAtlasCommandPayload>(create);
@@ -8171,7 +8085,6 @@ class DrawCircleCommandPayload extends $pb.GeneratedMessage {
   static DrawCircleCommandPayload create() => DrawCircleCommandPayload._();
   @$core.override
   DrawCircleCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawCircleCommandPayload> createRepeated() => $pb.PbList<DrawCircleCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawCircleCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawCircleCommandPayload>(create);
@@ -8247,7 +8160,6 @@ class DrawColorCommandPayload extends $pb.GeneratedMessage {
   static DrawColorCommandPayload create() => DrawColorCommandPayload._();
   @$core.override
   DrawColorCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawColorCommandPayload> createRepeated() => $pb.PbList<DrawColorCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawColorCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawColorCommandPayload>(create);
@@ -8317,7 +8229,6 @@ class DrawLineCommandPayload extends $pb.GeneratedMessage {
   static DrawLineCommandPayload create() => DrawLineCommandPayload._();
   @$core.override
   DrawLineCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawLineCommandPayload> createRepeated() => $pb.PbList<DrawLineCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawLineCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawLineCommandPayload>(create);
@@ -8397,8 +8308,6 @@ class DrawRenderParagraphCommandPayload extends $pb.GeneratedMessage {
   static DrawRenderParagraphCommandPayload create() => DrawRenderParagraphCommandPayload._();
   @$core.override
   DrawRenderParagraphCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawRenderParagraphCommandPayload> createRepeated() =>
-      $pb.PbList<DrawRenderParagraphCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawRenderParagraphCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawRenderParagraphCommandPayload>(create);
@@ -8464,7 +8373,6 @@ class RestoreToCountCommandPayload extends $pb.GeneratedMessage {
   static RestoreToCountCommandPayload create() => RestoreToCountCommandPayload._();
   @$core.override
   RestoreToCountCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<RestoreToCountCommandPayload> createRepeated() => $pb.PbList<RestoreToCountCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static RestoreToCountCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RestoreToCountCommandPayload>(create);
@@ -8523,7 +8431,6 @@ class RotateCommandPayload extends $pb.GeneratedMessage {
   static RotateCommandPayload create() => RotateCommandPayload._();
   @$core.override
   RotateCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<RotateCommandPayload> createRepeated() => $pb.PbList<RotateCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static RotateCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RotateCommandPayload>(create);
@@ -8597,7 +8504,6 @@ class SkewCommandPayload extends $pb.GeneratedMessage {
   static SkewCommandPayload create() => SkewCommandPayload._();
   @$core.override
   SkewCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<SkewCommandPayload> createRepeated() => $pb.PbList<SkewCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static SkewCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SkewCommandPayload>(create);
@@ -8659,7 +8565,6 @@ class TransformCommandPayload extends $pb.GeneratedMessage {
   static TransformCommandPayload create() => TransformCommandPayload._();
   @$core.override
   TransformCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<TransformCommandPayload> createRepeated() => $pb.PbList<TransformCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static TransformCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TransformCommandPayload>(create);
@@ -8710,8 +8615,6 @@ class ErrorViewAnnotationCommandPayload extends $pb.GeneratedMessage {
   static ErrorViewAnnotationCommandPayload create() => ErrorViewAnnotationCommandPayload._();
   @$core.override
   ErrorViewAnnotationCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<ErrorViewAnnotationCommandPayload> createRepeated() =>
-      $pb.PbList<ErrorViewAnnotationCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static ErrorViewAnnotationCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ErrorViewAnnotationCommandPayload>(create);
@@ -8778,8 +8681,6 @@ class DrawRenderEditableCommandPayload extends $pb.GeneratedMessage {
   static DrawRenderEditableCommandPayload create() => DrawRenderEditableCommandPayload._();
   @$core.override
   DrawRenderEditableCommandPayload createEmptyInstance() => create();
-  static $pb.PbList<DrawRenderEditableCommandPayload> createRepeated() =>
-      $pb.PbList<DrawRenderEditableCommandPayload>();
   @$core.pragma('dart2js:noInline')
   static DrawRenderEditableCommandPayload getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawRenderEditableCommandPayload>(create);
@@ -9167,7 +9068,6 @@ class DisplayCommandV2 extends $pb.GeneratedMessage {
   static DisplayCommandV2 create() => DisplayCommandV2._();
   @$core.override
   DisplayCommandV2 createEmptyInstance() => create();
-  static $pb.PbList<DisplayCommandV2> createRepeated() => $pb.PbList<DisplayCommandV2>();
   @$core.pragma('dart2js:noInline')
   static DisplayCommandV2 getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayCommandV2>(create);
@@ -9843,7 +9743,6 @@ class DisplayFrameV2 extends $pb.GeneratedMessage {
   static DisplayFrameV2 create() => DisplayFrameV2._();
   @$core.override
   DisplayFrameV2 createEmptyInstance() => create();
-  static $pb.PbList<DisplayFrameV2> createRepeated() => $pb.PbList<DisplayFrameV2>();
   @$core.pragma('dart2js:noInline')
   static DisplayFrameV2 getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayFrameV2>(create);
   static DisplayFrameV2? _defaultInstance;

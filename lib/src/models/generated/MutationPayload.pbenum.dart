@@ -1,5 +1,3 @@
-// ignore_for_file: type=lint, type=warning
-
 // This is a generated file - do not edit.
 //
 // Generated from MutationPayload.proto.
@@ -10,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: curly_braces_in_flow_control_structures
 // ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, prefer_relative_imports
 
 // 🎯 Dart imports:
 import 'dart:core' as $core;
@@ -23,7 +21,11 @@ class SamplingType extends $pb.ProtobufEnum {
   static const SamplingType NonCubicSampling = SamplingType._(1, _omitEnumNames ? '' : 'NonCubicSampling');
   static const SamplingType AnisoSampling = SamplingType._(2, _omitEnumNames ? '' : 'AnisoSampling');
 
-  static const $core.List<SamplingType> values = <SamplingType>[CubicSampling, NonCubicSampling, AnisoSampling];
+  static const $core.List<SamplingType> values = <SamplingType>[
+    CubicSampling,
+    NonCubicSampling,
+    AnisoSampling,
+  ];
 
   static final $core.List<SamplingType?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 2);
   static SamplingType? valueOf($core.int value) => value < 0 || value >= _byValue.length ? null : _byValue[value];
@@ -135,7 +137,7 @@ class DisplayCommandType extends $pb.ProtobufEnum {
     Skew,
     Transform,
     ErrorViewAnnotation,
-    DrawRenderEditable
+    DrawRenderEditable,
   ];
 
   static final $core.List<DisplayCommandType?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 46);
@@ -148,7 +150,10 @@ class ColorFilterType extends $pb.ProtobufEnum {
   static const ColorFilterType ModeColorFilter = ColorFilterType._(0, _omitEnumNames ? '' : 'ModeColorFilter');
   static const ColorFilterType MatrixColorFilter = ColorFilterType._(1, _omitEnumNames ? '' : 'MatrixColorFilter');
 
-  static const $core.List<ColorFilterType> values = <ColorFilterType>[ModeColorFilter, MatrixColorFilter];
+  static const $core.List<ColorFilterType> values = <ColorFilterType>[
+    ModeColorFilter,
+    MatrixColorFilter,
+  ];
 
   static final $core.List<ColorFilterType?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 1);
   static ColorFilterType? valueOf($core.int value) => value < 0 || value >= _byValue.length ? null : _byValue[value];
@@ -159,7 +164,9 @@ class ColorFilterType extends $pb.ProtobufEnum {
 class MaskFilterType extends $pb.ProtobufEnum {
   static const MaskFilterType BlurMaskFilter = MaskFilterType._(0, _omitEnumNames ? '' : 'BlurMaskFilter');
 
-  static const $core.List<MaskFilterType> values = <MaskFilterType>[BlurMaskFilter];
+  static const $core.List<MaskFilterType> values = <MaskFilterType>[
+    BlurMaskFilter,
+  ];
 
   static final $core.List<MaskFilterType?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 0);
   static MaskFilterType? valueOf($core.int value) => value < 0 || value >= _byValue.length ? null : _byValue[value];
@@ -181,7 +188,7 @@ class ShaderType extends $pb.ProtobufEnum {
     RadialGradientShader,
     SweepGradientShader,
     LocalMatrixShader,
-    Color4Shader
+    Color4Shader,
   ];
 
   static final $core.List<ShaderType?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 5);
@@ -193,7 +200,9 @@ class ShaderType extends $pb.ProtobufEnum {
 class LooperType extends $pb.ProtobufEnum {
   static const LooperType LayerDrawLooper = LooperType._(0, _omitEnumNames ? '' : 'LayerDrawLooper');
 
-  static const $core.List<LooperType> values = <LooperType>[LayerDrawLooper];
+  static const $core.List<LooperType> values = <LooperType>[
+    LayerDrawLooper,
+  ];
 
   static final $core.List<LooperType?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 0);
   static LooperType? valueOf($core.int value) => value < 0 || value >= _byValue.length ? null : _byValue[value];
@@ -206,7 +215,11 @@ class PathEffectType extends $pb.ProtobufEnum {
   static const PathEffectType CornerPathEffect = PathEffectType._(1, _omitEnumNames ? '' : 'CornerPathEffect');
   static const PathEffectType Path1DPathEffect = PathEffectType._(2, _omitEnumNames ? '' : 'Path1DPathEffect');
 
-  static const $core.List<PathEffectType> values = <PathEffectType>[DashPathEffect, CornerPathEffect, Path1DPathEffect];
+  static const $core.List<PathEffectType> values = <PathEffectType>[
+    DashPathEffect,
+    CornerPathEffect,
+    Path1DPathEffect,
+  ];
 
   static final $core.List<PathEffectType?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 2);
   static PathEffectType? valueOf($core.int value) => value < 0 || value >= _byValue.length ? null : _byValue[value];
@@ -232,7 +245,7 @@ class PathVerbType extends $pb.ProtobufEnum {
     DonePathVerb,
     LinePathVerb,
     MovePathVerb,
-    QuadPathVerb
+    QuadPathVerb,
   ];
 
   static final $core.List<PathVerbType?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 7);
