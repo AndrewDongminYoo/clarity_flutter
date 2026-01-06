@@ -1,5 +1,3 @@
-// ignore_for_file: type=lint, type=warning
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of '../session/page_metadata.dart';
