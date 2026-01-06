@@ -4,7 +4,6 @@ analyzer:
   exclude:
     - lib/src/models/generated/**
   errors:
-    avoid_catches_without_on_clauses: ignore
     avoid_positional_boolean_parameters: ignore
     cascade_invocations: ignore
     constant_identifier_names: ignore

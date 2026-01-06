@@ -265,7 +265,7 @@ class CaptureManager with CallbackHandler, EventQueueHandler {
                 imageBytes = await AssetUtils.getImageBytes((await imageWrapper.imageData)!);
                 imageWrapper.disposeData();
                 getBytes?.finish();
-              } catch (e) {
+              } on Object catch (e) {
                 Logger.warn?.out(
                   'Failed to fetch image ${DateTime.now().millisecondsSinceEpoch - snapshot.timestamp} isPictureSource: ${snapshot.images[command.imageHashcode]?.isFromPicture} Disposed: ${snapshot.images[command.imageHashcode]?.debugDisposed} Error: $e',
                 );

@@ -223,7 +223,7 @@ class DebuggingConfig {
         enforcedDebuggingPid: json['enforcedDebuggingPid'] as String,
         releaseFrameErrors: json['releaseFrameErrors'] as bool? ?? false,
       );
-    } catch (e) {
+    } on Object catch (e) {
       Logger.admin.out("W: Couldn't parse Debugging config $e.");
       return null;
     }

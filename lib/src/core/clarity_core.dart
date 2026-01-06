@@ -264,7 +264,7 @@ class ClarityManager {
           controller: SnapshotController(),
           child: null,
         ).createRenderObject(context).runtimeType;
-      } catch (e) {
+      } on Object catch (e) {
         Logger.admin.out("Couldn't fetch SnapShotWidgetRenderObject E:$e");
         return false;
       }

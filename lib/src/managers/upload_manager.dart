@@ -209,7 +209,7 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
       } else {
         Logger.warn?.out('Uh oh! payload $payloadMetadata upload failed with response $payloadUploadResponseCode');
       }
-    } catch (e, st) {
+    } on Object catch (e, st) {
       Logger.error?.out('Error Uploading Payload! Type: ${e.runtimeType} message: $e', stackTrace: st);
       TelemetryTracker.instance?.trackError(ErrorType.UploadSession, e.toString(), st);
     }
@@ -268,7 +268,7 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
       }
       await Future.wait(uploadAndDeleteFutures);
       return true;
-    } catch (e) {
+    } on Object catch (e) {
       Logger.warn?.out('Error uploading session assets: $e');
       return false;
     }

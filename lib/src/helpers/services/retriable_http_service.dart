@@ -39,7 +39,7 @@ class RetryPolicy<T> {
           throw _RetryableOperationError('Failed pass criteria!');
         }
         return result;
-      } catch (e) {
+      } on Object catch (e) {
         Logger.warn?.out('Request failed with $e, retrying!');
         await Future<void>.delayed(Duration(milliseconds: delayMilliseconds));
       }

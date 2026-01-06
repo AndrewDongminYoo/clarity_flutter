@@ -38,7 +38,7 @@ class IngestService extends RetriableHttpService {
         return ProjectConfig.fromJson(responseData);
       }
       return null;
-    } catch (e, st) {
+    } on Object catch (e, st) {
       Logger.error?.out(e.toString(), stackTrace: st);
       return null;
     }

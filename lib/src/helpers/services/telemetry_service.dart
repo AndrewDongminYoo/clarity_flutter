@@ -57,7 +57,7 @@ class TelemetryService extends RetriableHttpService {
         retryPolicy: retryPolicy,
       );
       return HttpUtils.isSuccessCode(response.statusCode);
-    } catch (e) {
+    } on Object catch (e) {
       Logger.warn?.out('Error when uploading Metrics Telemetry, $e');
       return false;
     }
@@ -78,7 +78,7 @@ class TelemetryService extends RetriableHttpService {
         retryPolicy: retryPolicy,
       );
       return HttpUtils.isSuccessCode(response.statusCode);
-    } catch (e) {
+    } on Object catch (e) {
       Logger.warn?.out('Error when uploading Error Telemetry, $e');
       return false;
     }

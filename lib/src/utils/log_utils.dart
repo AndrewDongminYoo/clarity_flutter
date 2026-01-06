@@ -63,7 +63,7 @@ class LoggerUtils {
     try {
       final stackTraceElement = StackTrace.current.toString().split('\n')[3];
       return '[${_getFileNameFromTrace(stackTraceElement)}::${_getFunctionNameFromTrace(stackTraceElement)}] ';
-    } catch (e) {
+    } on Object {
       return '';
     }
   }

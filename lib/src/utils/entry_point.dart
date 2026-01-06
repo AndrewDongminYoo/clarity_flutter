@@ -16,7 +16,7 @@ class EntryPoint {
   }) {
     try {
       return logic();
-    } catch (e, st) {
+    } on Object catch (e, st) {
       _handleException(e, st, catchLogic, throwExceptions);
       return null;
     } finally {
@@ -32,7 +32,7 @@ class EntryPoint {
   }) async {
     try {
       return await logic();
-    } catch (e, st) {
+    } on Object catch (e, st) {
       _handleException(e, st, catchLogic, throwExceptions);
       return Future.value();
     } finally {
@@ -54,7 +54,7 @@ class EntryPoint {
             (error, stackTrace) =>
                 Logger.error?.out('Type: ${error.runtimeType} Message: $error', stackTrace: stackTrace);
         onCatchError.call(e, st);
-      } catch (invokeE, st) {
+      } on Object catch (invokeE, st) {
         Logger.error?.out(invokeE.toString(), stackTrace: st);
       }
       if (throwExceptions) {

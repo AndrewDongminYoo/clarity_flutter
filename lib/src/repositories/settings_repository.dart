@@ -56,7 +56,7 @@ class SettingsRepository {
 
     try {
       return PageMetadata.fromJson(jsonDecode(content) as Map<String, dynamic>);
-    } catch (e) {
+    } on Object catch (e) {
       Logger.warn?.out('Error parsing cached page metadata: $e, will start a new Session!');
       return null;
     }
@@ -83,7 +83,7 @@ class SettingsRepository {
       final storedMap = jsonDecode(content) as Map<String, dynamic>;
       final userId = storedMap[_userIdFieldName];
       return userId is String ? userId : null;
-    } catch (e) {
+    } on Object catch (e) {
       Logger.warn?.out('Error parsing cached userId: $e, will use a new one!');
       return null;
     }
@@ -99,7 +99,7 @@ class SettingsRepository {
 
       final userId = sessionMap[_userIdFieldName];
       return userId is String ? userId : null;
-    } catch (e) {
+    } on Object catch (e) {
       Logger.warn?.out('Error parsing cached page metadata userId: $e, will use a new one!');
       return null;
     }
@@ -120,7 +120,7 @@ class SettingsRepository {
 
       sessionMap[_userIdFieldName] = userId;
       await _writeFileContent(ClarityConstants.pageMetadataFileName, jsonEncode(storedMap));
-    } catch (e) {
+    } on Object catch (e) {
       Logger.warn?.out('Error updating cached page metadata userId: $e');
     }
   }
