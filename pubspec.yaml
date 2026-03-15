@@ -4,8 +4,8 @@ homepage: https://clarity.microsoft.com/mobile-apps
 version: 1.7.1+orirehab
 publish_to: none # It's Unofficial fork
 environment:
-  sdk: ^3.9.0
-  flutter: ^3.35.0
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.16.0 <4.0.0"
 
 dependencies:
   # needed for network connectivity status
