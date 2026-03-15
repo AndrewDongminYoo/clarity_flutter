@@ -17,7 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
   # needed for image encoding as png
-  image: ^4.7.2
+  image: ">=4.0.0 <5.0.0"
   # needed for json annotations to generate json converters for data classes
   json_annotation: ^4.9.0
   # needed for package name, this version supports down to flutter 3.6
@@ -29,6 +29,7 @@ dependencies:
   protobuf: ^6.0.0
   # needed for getting memory info
   system_info2: ^4.1.0
+  archive: ">=3.0.0 <5.0.0"
 
 dev_dependencies:
   build_runner: ^2.10.4
