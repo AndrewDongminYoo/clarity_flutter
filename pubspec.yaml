@@ -9,9 +9,9 @@ environment:
 
 dependencies:
   # needed for network connectivity status
-  connectivity_plus: ^7.0.0
+  connectivity_plus: ">=5.0.0 <10.0.0"
   # needed for device information
-  device_info_plus: ^12.3.0
+  device_info_plus: ">=10.0.0 <14.0.0"
   # needed because protobuf depends on it, and generated code imports it directly
   fixnum: ^1.1.1
   flutter:
@@ -19,7 +19,7 @@ dependencies:
   # needed for image encoding as png
   image: ">=4.0.0 <5.0.0"
   # needed for json annotations to generate json converters for data classes
-  json_annotation: ^4.9.0
+  json_annotation: ">=4.8.0 <6.0.0"
   # needed for package name, this version supports down to flutter 3.6
   meta: ^1.17.0
   package_info_plus: ">=6.0.0 <10.0.0"
