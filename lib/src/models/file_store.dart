@@ -143,6 +143,7 @@ class FileStore {
   Future<List<FileSystemEntity>> _filterModifiedBeforeTimestamp(List<FileSystemEntity> entities, int timestamp) async {
     final result = <FileSystemEntity>[];
     for (final entity in entities) {
+      // ignore: avoid_slow_async_io "Needed to read modified time during cleanup."
       final stat = await entity.stat();
       if (stat.modified.millisecondsSinceEpoch < timestamp) {
         result.add(entity);
