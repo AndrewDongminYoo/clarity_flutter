@@ -1,18 +1,36 @@
 # CHANGELOG
 
+## 1.9.0
+
+### April 22, 2026
+
+- **[Feature]** Added `consent` API to manage user consent for data collection.
+- **[Enhancement]** Restored compatibility with Android Gradle Plugin 9.
+
+## 1.8.0
+
+### March 31, 2026
+
+- **[Feature]** Added custom font support for accurate text rendering in session playback.
+- **[Feature]** Capture accessibility labels for tapped elements.
+- **[Enhancement]** Improved image processing speed and efficiency.
+
+## 1.7.1
+
+### January 21, 2026
+
+- **[BugFix]** Fixed a bug in iOS capturing.
+- **[Enhancement]** Improved iOS user info accuracy.
+
 ## 1.7.0
 
-### January 6, 2026
+### January 5, 2026
 
-- **[Breaking]** Upgrade runtime dependencies and minimum SDK constraints to support the modern Flutter/Dart ecosystem.
-  - Dart SDK: `>=3.1.0` → `^3.9.0`
-  - Flutter: `>=3.19.0` → `^3.35.0`
-- **[Breaking]** Upgrade `protobuf` from `^5.0.0` to `^6.0.0`.
-- **[Maintenance]** Regenerate protobuf Dart sources (`lib/src/models/generated/**`) using `protobuf 6.0.0`-compatible tooling.
-- **[Quality]** Adopt `very_good_analysis` and tighten static analysis configuration to improve overall code quality.
-- **[Refactor]** Improve type-safety across the codebase by strengthening types and reducing loosely-typed APIs.
-- **[Chore]** Refresh dependencies to their latest compatible versions.
-- **[Maintenance]** Restore missing `.proto` sources from published artifacts and keep regeneration reproducible.
+- **[Enhancement]** Upgraded Protobuf dependency to `6.0.0`.
+- **[Enhancement]** Improve invalid project ID detection before attempting to start.
+- **[Enhancement]** Updated supported platforms to be more accurate.
+- **[BugFix]** Fixed an issue so the end of a session is now always captured correctly.
+- **[BugFix]** Fixed a rendering error that could occur when capturing certain text layouts.
 
 ## 1.6.0
 

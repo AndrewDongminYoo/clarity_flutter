@@ -12,37 +12,44 @@ The SDK supports Flutter on both Android and iOS devices.
 
 ## Contents
 
-- [Overview](#overview)
-- [Why This Fork Exists (protobuf 6 upgrade)](#why-this-fork-exists-protobuf-6-upgrade)
-- [Project Structure](#project-structure)
-- [Features](#features)
-- [How Does Clarity Flutter SDK Work?](#how-does-clarity-flutter-sdk-work)
-- [Getting Started](#getting-started)
-- [Integration Steps](#integration-steps)
-  - [Step 1: Add Dependency (Git)](#step-1-add-dependency-git)
-  - [Step 2: Import the Package](#step-2-import-the-package)
-  - [Step 3: Initialize Your App](#step-3-initialize-your-app)
-- [Configuration Options](#configuration-options)
-- [Masking Widgets](#masking-widgets)
-  - [ClarityMask](#claritymask)
-  - [ClarityUnmask](#clarityunmask)
-- [API](#api)
-  - [initialize](#initialize)
-  - [setCustomUserId](#setcustomuserid)
-  - [setCustomTag](#setcustomtag)
-  - [setCustomTags](#setcustomtags)
-  - [setCustomSessionId](#setcustomsessionid)
-  - [setOnSessionStartedCallback](#setonsessionstartedcallback)
-  - [getCurrentSessionUrl](#getcurrentsessionurl)
-  - [sendCustomEvent](#sendcustomevent)
-  - [setCurrentScreenName](#setcurrentscreenname)
-  - [startNewSession](#startnewsession)
-  - [pause](#pause)
-  - [resume](#resume)
-  - [isPaused](#ispaused)
-- [Troubleshooting](#troubleshooting)
-- [Known Limitations](#known-limitations)
-- [Project Support](#project-support)
+- [Official Clarity Flutter SDK (Forked by AndrewDongminYoo)](#official-clarity-flutter-sdk-forked-by-andrewdongminyoo)
+  - [Overview](#overview)
+  - [Contents](#contents)
+  - [Why This Fork Exists (protobuf 6 upgrade)](#why-this-fork-exists-protobuf-6-upgrade)
+    - [What was done](#what-was-done)
+    - [Why this may help you](#why-this-may-help-you)
+  - [Project Structure](#project-structure)
+    - [Key directories](#key-directories)
+    - [Tooling / repo meta](#tooling--repo-meta)
+  - [Features](#features)
+  - [How Does Clarity Flutter SDK Work?](#how-does-clarity-flutter-sdk-work)
+  - [Getting Started](#getting-started)
+  - [Integration Steps](#integration-steps)
+    - [Step 1: Add Dependency (Git)](#step-1-add-dependency-git)
+    - [Step 2: Import the Package](#step-2-import-the-package)
+    - [Step 3: Initialize Your App](#step-3-initialize-your-app)
+      - [Option 1: Using Clarity.initialize Function (Recommended)](#option-1-using-clarityinitialize-function-recommended)
+      - [Option 2: Using ClarityWidget](#option-2-using-claritywidget)
+  - [Configuration Options](#configuration-options)
+  - [Masking Widgets](#masking-widgets)
+    - [ClarityMask](#claritymask)
+    - [ClarityUnmask](#clarityunmask)
+  - [API](#api)
+    - [initialize](#initialize)
+    - [setCustomUserId](#setcustomuserid)
+    - [setCustomTag](#setcustomtag)
+    - [setCustomTags](#setcustomtags)
+    - [setCustomSessionId](#setcustomsessionid)
+    - [setOnSessionStartedCallback](#setonsessionstartedcallback)
+    - [getCurrentSessionUrl](#getcurrentsessionurl)
+    - [sendCustomEvent](#sendcustomevent)
+    - [setCurrentScreenName](#setcurrentscreenname)
+    - [startNewSession](#startnewsession)
+    - [pause](#pause)
+    - [resume](#resume)
+    - [isPaused](#ispaused)
+  - [Troubleshooting](#troubleshooting)
+  - [Known Limitations](#known-limitations)
 
 ## Why This Fork Exists (protobuf 6 upgrade)
 
@@ -155,7 +162,7 @@ dependencies:
 
 ### Step 2: Import the Package
 
-Import the `clarity_flutter` package in your `main.dart` file:
+Import the `clarity_flutter` package in your `main.dart` file.
 
 ```dart
 import 'package:clarity_flutter/clarity_flutter.dart';
@@ -165,7 +172,9 @@ import 'package:clarity_flutter/clarity_flutter.dart';
 
 There are two ways to initialize Clarity in your Flutter app:
 
-#### Option 1: Using `Clarity.initialize` (Recommended)
+#### Option 1: Using Clarity.initialize Function (Recommended)
+
+Use the `Clarity.initialize` function to initialize Clarity manually:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -198,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _initializeClarity() {
     final config = ClarityConfig(
-      projectId: "your_project_id", // Find it in Clarity Dashboard settings.
+      projectId: "your_project_id" // You can find it on the Settings page of Clarity dashboard.
     );
 
     Clarity.initialize(context, config);
@@ -216,12 +225,11 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
 ```
 
-> When using `Clarity.initialize`, call it with a valid `BuildContext` after the widget is built (typically in `initState`).
+#### Option 2: Using ClarityWidget
 
-#### Option 2: Using `ClarityWidget`
+Alternatively, you can initialize the `ClarityConfig` object and wrap your app with the `ClarityWidget` widget:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -229,15 +237,13 @@ import 'package:clarity_flutter/clarity_flutter.dart';
 
 void main() {
   final config = ClarityConfig(
-    projectId: "your_project_id", // Find it in Clarity Dashboard settings.
+    projectId: "your_project_id" // You can find it on the Settings page of Clarity dashboard.
   );
 
-  runApp(
-    ClarityWidget(
-      app: MyApp(),
-      clarityConfig: config,
-    ),
-  );
+  runApp(ClarityWidget(
+    app: MyApp(),
+    clarityConfig: config,
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -272,8 +278,7 @@ The `ClarityConfig` object has the following configuration options:
   - `LogLevel.Warn`: Warning messages.
   - `LogLevel.Error`: Error messages.
   - `LogLevel.None`: No logging.
-
-> **Tip!** In non-debug (production) builds, `loglevel` is forced to `None` to eliminate any performance overhead.
+    > **Tip!** In non-debug (production) builds, `loglevel` is forced to `None` to eliminate any performance overhead.
 
 Example:
 
@@ -663,31 +668,8 @@ final config = ClarityConfig(
 
 ## Known Limitations
 
-> Fork note: Protobuf Dart output may differ slightly from older upstream outputs due to modern `protoc_plugin` behavior, but **wire format and field compatibility are preserved**.
-
 - Offline session data upload is NOT supported at the moment; only session data captured while the user is online is sent.
-- Native view capturing (including web views) is NOT supported at the moment; these views may appear as covered in recordings.
-- Font support is limited at the moment; you might see font differences in recordings.
+- Native view capturing (including web views) is NOT supported at the moment; you should find these views covered in recordings.
+- Font support is limited at the moment; you might find font differences in the recordings.
 
-### Fork-specific notes
-
-- This fork primarily focuses on **dependency compatibility** (notably `protobuf ^6.0.0`) and **reproducible protobuf regeneration**.
-- If you hit build errors related to protobuf / generated code, open an issue in this repository with:
-  - your `flutter --version`
-  - your `flutter pub deps | grep protobuf`
-  - and the full error log
-
-## Project Support
-
-### Support for this fork
-
-This is an **unofficial, community-maintained fork**.
-
-- For fork-specific issues (protobuf 6 compatibility, regenerated models, analyzer/lints, dependency constraints, build failures), please open a GitHub issue in this repository.
-- Include a minimal reproduction and your dependency tree (`flutter pub deps` output) when possible.
-
-### Upstream / Microsoft Clarity support
-
-For questions about **Clarity product behavior** (dashboard, session replay features, project setup, account issues, etc.), refer to the official [Microsoft Clarity documentation](https://learn.microsoft.com/en-us/clarity/mobile-sdk/sdk-getting-started):
-
-> Please do not contact Microsoft for fork-specific issues. If you believe an issue exists in the upstream SDK release itself, report it through official Microsoft channels and include a minimal reproduction using the upstream package.
+If you have any questions or need further assistance, feel free to contact the Clarity Apps team on [clarity-apps@microsoft.com](mailto:clarity-apps@microsoft.com).
