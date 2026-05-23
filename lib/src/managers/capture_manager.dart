@@ -8,14 +8,12 @@ import 'dart:typed_data';
 // 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart' as cupertino;
 
-// 📦 Package imports:
-import 'package:connectivity_plus/connectivity_plus.dart';
-
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
 import 'package:clarity_flutter/src/managers/base_session_manager.dart';
 import 'package:clarity_flutter/src/mixins/callback_handler.dart';
 import 'package:clarity_flutter/src/mixins/event_queue_handler.dart';
+import 'package:clarity_flutter/src/models/assets/font_asset.dart';
 import 'package:clarity_flutter/src/models/assets/image.dart';
 import 'package:clarity_flutter/src/models/capture/error_snapshot.dart';
 import 'package:clarity_flutter/src/models/capture/native_image_wrapper.dart';
@@ -32,6 +30,7 @@ import 'package:clarity_flutter/src/models/ingest/mutation_error_event.dart';
 import 'package:clarity_flutter/src/models/project_config.dart';
 import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
 import 'package:clarity_flutter/src/models/view_hierarchy/view_hierarchy.dart';
+import 'package:clarity_flutter/src/native/clarity_platform.dart';
 import 'package:clarity_flutter/src/observers/clarity_gesture_observer.dart';
 import 'package:clarity_flutter/src/observers/snapshot_capturer.dart';
 import 'package:clarity_flutter/src/registries/environment_registry.dart';
@@ -67,16 +66,18 @@ class CaptureManager with CallbackHandler, EventQueueHandler {
   bool _widgetRemoved = false;
   bool _networkPaused = false;
   bool _screenDisallowed = false;
-  final _connectivity = Connectivity();
 
   bool get _forcePause => _userPaused || _widgetRemoved || _networkPaused || _screenDisallowed;
 
   static CaptureManager? _instance;
 
   void _listenToNetworkChanges() {
-    _connectivity.onConnectivityChanged.listen((List<ConnectivityResult> result) {
-      Logger.info?.out('Connectivity changed: $result');
-      final allowUploadOverNetwork = ProjectConfigUtils.isUploadingOverNetworkAllowed(result);
+    ClarityPlatform.onConnectivityChanged.listen((data) {
+      Logger.info?.out('Connectivity changed: $data');
+      final allowUploadOverNetwork = ProjectConfigUtils.isUploadingOverNetworkAllowed(data);
+      final networkPaused = !allowUploadOverNetwork;
+
+      if (_networkPaused == networkPaused) return;
 
       if (allowUploadOverNetwork) {
         _networkPaused = false;
@@ -265,7 +266,7 @@ class CaptureManager with CallbackHandler, EventQueueHandler {
                 imageBytes = await AssetUtils.getImageBytes((await imageWrapper.imageData)!);
                 imageWrapper.disposeData();
                 getBytes?.finish();
-              } on Object catch (e) {
+              } catch (e) {
                 Logger.warn?.out(
                   'Failed to fetch image ${DateTime.now().millisecondsSinceEpoch - snapshot.timestamp} isPictureSource: ${snapshot.images[command.imageHashcode]?.isFromPicture} Disposed: ${snapshot.images[command.imageHashcode]?.debugDisposed} Error: $e',
                 );
@@ -291,6 +292,7 @@ class CaptureManager with CallbackHandler, EventQueueHandler {
       frameImages,
       framePaints,
       snapshot.commands,
+      <Typeface>[],
       snapshot.root!.width,
       snapshot.root!.height,
       snapshot.keyboardHeight,

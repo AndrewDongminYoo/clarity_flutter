@@ -22,14 +22,60 @@ import 'package:clarity_flutter/src/utils/render_object_utils.dart';
 
 const bool profileMode = false;
 
-T profileTimeSync<T>(String name, T Function() function) =>
-    !profileMode ? function() : Timeline.timeSync(name, function);
+const bool traceLoggingEnabled = bool.fromEnvironment('CLARITY_TRACE_LOGGING');
 
-TimelineTask? profileTimeAsync() => !profileMode ? null : TimelineTask();
+const bool releaseLoggingEnabled = bool.fromEnvironment('CLARITY_RELEASE_LOGGING');
+
+T profileTimeSync<T>(String name, T Function() function) {
+  if (traceLoggingEnabled) {
+    final stopwatch = Stopwatch()..start();
+    final result = function();
+    stopwatch.stop();
+    final elapsedMs = stopwatch.elapsedMicroseconds / 1000.0;
+    // ignore: avoid_print
+    print('Trace section: $name executed in $elapsedMs ms');
+    return result;
+  }
+  return profileMode ? Timeline.timeSync(name, function) : function();
+}
+
+TraceTask? profileTimeAsync() {
+  if (traceLoggingEnabled) return TraceTask._();
+  return profileMode ? TraceTask._timeline() : null;
+}
+
+class TraceTask {
+  TraceTask._() : _isTrace = true, _timelineTask = null;
+
+  TraceTask._timeline() : _isTrace = false, _timelineTask = TimelineTask();
+  String? _name;
+  Stopwatch? _stopwatch;
+  final TimelineTask? _timelineTask;
+  final bool _isTrace;
+
+  void start(String name) {
+    _name = name;
+    if (_isTrace) {
+      _stopwatch = Stopwatch()..start();
+    } else {
+      _timelineTask?.start(name);
+    }
+  }
+
+  void finish() {
+    if (_isTrace && _stopwatch != null && _name != null) {
+      _stopwatch!.stop();
+      final elapsedMs = _stopwatch!.elapsedMicroseconds / 1000.0;
+      // ignore: avoid_print
+      print('Trace section: $_name executed in $elapsedMs ms');
+    } else {
+      _timelineTask?.finish();
+    }
+  }
+}
 
 class DebuggingUtils {
   DebuggingUtils._(this._config, this._debugStore);
-
   static const bool isDebugMode = kDebugMode;
   static DebuggingUtils? _instance;
 
@@ -56,7 +102,7 @@ class DebuggingUtils {
     if (_instance == null) {
       final cacheDir = EnvRegistry.ensureInitialized().getItem<Directory>(EnvRegistryKey.cacheDir)!;
       final clarityStore = FileStore(cacheDir);
-      if (clarityStore.fileExists(DebuggingConfig.fileName)) {
+      if (await clarityStore.fileExists(DebuggingConfig.fileName)) {
         final config = DebuggingConfig.fromJsonString(await clarityStore.readFileToString(DebuggingConfig.fileName));
         if (config == null) return;
         _instance = DebuggingUtils._(config, FileStore(cacheDir, DebuggingConfig.directory));
@@ -186,7 +232,6 @@ class DebuggingConfig {
     required this.enforcedDebuggingPid,
     required this.releaseFrameErrors,
   });
-
   static const String fileName = 'debug';
   static const String directory = 'debugging';
   static const String elementTreeFilePrefix = 'element_tree_';
@@ -220,10 +265,10 @@ class DebuggingConfig {
         paintIgnoredObjects: json['paintIgnoredObjects'] as bool? ?? false,
         retainLocalSessionFiles: json['retainLocalSessionFiles'] as bool? ?? false,
         alwaysCapture: json['alwaysCapture'] as bool? ?? false,
-        enforcedDebuggingPid: json['enforcedDebuggingPid'] as String,
+        enforcedDebuggingPid: json['enforcedDebuggingPid'] as String? ?? '',
         releaseFrameErrors: json['releaseFrameErrors'] as bool? ?? false,
       );
-    } on Object catch (e) {
+    } on FormatException catch (e) {
       Logger.admin.out("W: Couldn't parse Debugging config $e.");
       return null;
     }
@@ -243,7 +288,6 @@ class TreeDebugNode {
     this.height,
     List<TreeDebugNode>? children,
   }) : children = children ?? [];
-
   final int? elementHashCode;
   final String? elementType;
   final String? widgetType;

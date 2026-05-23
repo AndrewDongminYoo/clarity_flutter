@@ -10,7 +10,6 @@ import 'package:clarity_flutter/src/registries/environment_registry.dart';
 
 abstract class IsolateConfig {
   IsolateConfig({required this.sendPort}) : environmentRegistryItems = EnvRegistry.ensureInitialized().toMap();
-
   SendPort sendPort;
   Map<EnvRegistryKey, dynamic> environmentRegistryItems;
 }

@@ -9,8 +9,10 @@ import 'dart:ui';
 import 'package:clarity_flutter/src/mixins/callback_handler.dart';
 import 'package:clarity_flutter/src/mixins/event_queue_handler.dart';
 import 'package:clarity_flutter/src/mixins/isolate_handler.dart';
+import 'package:clarity_flutter/src/models/consent_status.dart';
 
 typedef SessionStartedCallback = void Function(String sessionId);
+typedef AnalyticsConsentChangedCallback = void Function();
 
 abstract class BaseSessionManager with CallbackHandler, IsolateHandler, EventQueueHandler {
   void onAppLifecycleChanged(AppLifecycleState state);
@@ -22,4 +24,6 @@ abstract class BaseSessionManager with CallbackHandler, IsolateHandler, EventQue
   String? getSessionUrl();
 
   void sendCustomEvent(String value);
+
+  void consent(ConsentStatus consentStatus, AnalyticsConsentChangedCallback onAnalyticsConsentChanged);
 }

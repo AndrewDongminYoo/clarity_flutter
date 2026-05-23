@@ -2,16 +2,15 @@
 /// Licensed under the MIT License.
 library;
 
-// ignore_for_file: deprecated_member_use_from_same_package "'userId' is deprecated and shouldn't be used. Use `Clarity.setCustomUserId(customUserId)` instead, this will be removed in future major versions."
+// ignore_for_file: deprecated_member_use_from_same_package
 
 // 🎯 Dart imports:
 import 'dart:async';
+import 'dart:io';
 import 'dart:isolate';
 import 'dart:math';
+import 'dart:typed_data';
 import 'dart:ui';
-
-// 🐦 Flutter imports:
-import 'package:flutter/services.dart';
 
 // 🌎 Project imports:
 import 'package:clarity_flutter/clarity_flutter.dart';
@@ -20,20 +19,27 @@ import 'package:clarity_flutter/src/helpers/gesture_processor.dart';
 import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
 import 'package:clarity_flutter/src/helpers/view_hierarchy_processor.dart';
 import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/managers/font_manager.dart';
 import 'package:clarity_flutter/src/mixins/callback_handler.dart';
 import 'package:clarity_flutter/src/mixins/event_queue_handler.dart';
+import 'package:clarity_flutter/src/models/consent_status.dart';
+import 'package:clarity_flutter/src/models/events/asset_event.dart';
 import 'package:clarity_flutter/src/models/events/control_event.dart';
 import 'package:clarity_flutter/src/models/events/event.dart';
 import 'package:clarity_flutter/src/models/events/payload_event.dart';
 import 'package:clarity_flutter/src/models/events/session_event.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/analytics_event.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/baseline.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/consent_event.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/custom.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/dimension.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/gaid_event.dart';
+import 'package:clarity_flutter/src/models/ingest/analytics/gaid_opt_out_event.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/metric.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/resize.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/variable.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/visibility.dart';
+import 'package:clarity_flutter/src/models/ingest/asset.dart';
 import 'package:clarity_flutter/src/models/ingest/ingest.dart';
 import 'package:clarity_flutter/src/models/ingest/mutation_error_event.dart';
 import 'package:clarity_flutter/src/models/isolates/session_isolate_config.dart';
@@ -43,6 +49,7 @@ import 'package:clarity_flutter/src/models/session/page_metadata.dart';
 import 'package:clarity_flutter/src/models/session/payload_metadata.dart';
 import 'package:clarity_flutter/src/models/session/session_metadata.dart';
 import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/native/clarity_platform.dart';
 import 'package:clarity_flutter/src/registries/environment_registry.dart';
 import 'package:clarity_flutter/src/registries/host_info.dart';
 import 'package:clarity_flutter/src/repositories/session_repository.dart';
@@ -59,12 +66,13 @@ class SessionManager extends BaseSessionManager {
     final isolateConfig = SessionIsolateConfig(sendPort: receivePort.sendPort);
     unawaited(WorkerIsolate.spawn(isolateConfig));
   }
-
   static SessionManager? _instance;
   String? _sessionId;
   SessionStartedCallback? _onSessionStartedOrResumedCallback;
   String? _userId;
   String? _projectId;
+
+  AnalyticsConsentChangedCallback? _onAnalyticsConsentChanged;
 
   static Future<SessionManager> create() async {
     _instance ??= SessionManager._internal();
@@ -74,13 +82,16 @@ class SessionManager extends BaseSessionManager {
 
   @override
   void handleResponsesFromIsolate(dynamic message) {
-    if (message case SendPort()) {
+    if (message is SendPort) {
       workerIsolatePort = message;
       isolateReady.complete();
-    } else if (message case PauseCaptureEvent() || ResumeCaptureEvent()) {
+    } else if (message case PauseCaptureEvent() || ResumeCaptureEvent() || RequestFontBytesEvent()) {
       fireEvent(message as Event);
-    } else if (message case SessionStartedEvent()) {
+    } else if (message is SessionStartedEvent) {
       _onSessionStarted(message);
+    } else if (message is ConsentAnalyticsChangedEvent) {
+      _onAnalyticsConsentChanged?.call();
+      _onAnalyticsConsentChanged = null;
     }
   }
 
@@ -126,6 +137,12 @@ class SessionManager extends BaseSessionManager {
   }
 
   @override
+  void consent(ConsentStatus consentStatus, AnalyticsConsentChangedCallback onAnalyticsConsentChanged) {
+    _onAnalyticsConsentChanged = onAnalyticsConsentChanged;
+    unawaited(enqueueEvent(ConsentChangedEvent(consentStatus)));
+  }
+
+  @override
   Future<void> enqueueEvent(Event event) async {
     profileTimeSync('ClaritySessionManagerSendingEvent', () => workerIsolatePort!.send(event));
   }
@@ -135,27 +152,45 @@ class SessionManager extends BaseSessionManager {
     _userId = sessionStartedEvent.userId;
     _projectId = sessionStartedEvent.projectId;
 
+    Logger.info?.out('[ClaritySession] projectId=$_projectId, userId=$_userId, sessionId=$_sessionId');
+
     (sessionStartedEvent.callback ?? _onSessionStartedOrResumedCallback)?.call(_sessionId!);
   }
 }
 
 class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueueHandler {
-  SessionWorkerIsolate(SessionIsolateConfig super.isolateConfig) {
+  SessionWorkerIsolate(SessionIsolateConfig super.config) {
     TelemetryTracker.ensureInitialized();
     final registry = EnvRegistry.ensureInitialized();
     _sessionRepository = SessionRepository();
     _settingsRepository = SettingsRepository();
+    _fontManager = FontManager(_sessionRepository, _settingsRepository);
+    final assetManagerPort = registry.getItem<SendPort>(EnvRegistryKey.assetIsolatePort)!;
     final uploadManagerPort = registry.getItem<SendPort>(EnvRegistryKey.uploadIsolatePort)!;
-    _dynamicIngestUrl = registry.getItem<ProjectConfig>(EnvRegistryKey.projectConfig)!.ingestUrl;
+    final projectConfig = registry.getItem<ProjectConfig>(EnvRegistryKey.projectConfig)!;
+    _dynamicIngestUrl = projectConfig.ingestUrl;
     _packageName = registry.getItem<String>(EnvRegistryKey.packageName)!;
+
+    _consentStatus = ConsentStatus(
+      source: ConsentSource.implicit,
+      adsStorage: projectConfig.adsStorage,
+      analyticsStorage: projectConfig.analyticsStorage,
+    );
+
     registerCallback<PayloadEvent>(uploadManagerPort.send);
+    registerCallback<AssetEncodingEvent>(assetManagerPort.send);
+    registerCallback<AssetUploadEvent>(uploadManagerPort.send);
+
+    unawaited(enqueueEvent(const InitConsentStatusEvent()));
+    unawaited(enqueueEvent(PayloadFlushEvent()));
   }
   // Late so that Environment Registry is initialized with needed data
   late final SessionRepository _sessionRepository;
   late final SettingsRepository _settingsRepository;
+  late final FontManager _fontManager;
   late final String _dynamicIngestUrl;
   late final String _packageName;
-  final Map<int, String> _hashCodeToMD5HashMap = {};
+  final Map<int, String> _dartHashCodeToContentHash = {};
   final Set<String> _writtenImagesHash = {};
   int _mutationEventsInQueueCount = 0;
   bool _capturingThrottled = false;
@@ -166,6 +201,9 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
   final Map<String, Set<String>> _customTags = {};
   final List<String> _preSessionCustomEventsValues = [];
   GestureProcessor gestureProcessor = GestureProcessor();
+  bool _networkPaused = false;
+  bool _payloadFlushCheckScheduled = false;
+  late ConsentStatus _consentStatus;
 
   @override
   void processMessage(dynamic message) {
@@ -187,6 +225,9 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
   @override
   Future<void> processEvent(Event event) async {
     switch (event) {
+      case NetworkConnectivityChangedEvent():
+        _reactToNetworkChange(event);
+
       case MutationEvent():
         _mutationEventsInQueueCount--;
         await _processMutationEvent(event);
@@ -202,6 +243,21 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
 
       case SendCustomValueEvent():
         await _processSendCustomValueEvent(event);
+
+      case PayloadFlushEvent():
+        await _processPeriodicPayloadFlushCheck();
+
+      case FontMetadataEvent():
+        await _processFontMetadataEvent(event);
+
+      case FontBytesLoadedEvent():
+        await _processFontBytesLoadedEvent(event);
+
+      case InitConsentStatusEvent():
+        await _processInitConsentStatusEvent(event);
+
+      case ConsentChangedEvent():
+        await _processConsentChangedEvent(event);
 
       default:
         throw UnsupportedError('Unsupported Event Type enqueued ${event.runtimeType}');
@@ -219,13 +275,17 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
     TelemetryTracker.instance?.trackError(ErrorType.SessionEventProcessing, e.toString(), st);
   }
 
+  void _reactToNetworkChange(NetworkConnectivityChangedEvent event) {
+    _networkPaused = !event.allowUploadOverNetwork;
+    if (!_networkPaused) {
+      Logger.info?.out('Network connectivity allows uploading, resuming uploads and flushing payload.');
+      unawaited(enqueueEvent(PayloadFlushEvent()));
+    }
+  }
+
   Future<void> _processSetCustomTagEvent(SetCustomTagEvent event) async {
     if (_currentPageMetadata != null) {
-      await _processAnalyticsEvent(
-        VariableEvent(_currentPageMetadata!.startTime, {
-          event.key: event.values,
-        }),
-      );
+      await _processAnalyticsEvent(VariableEvent(_currentPageMetadata!.startTime, {event.key: event.values}));
     }
 
     _customTags[event.key] = event.values;
@@ -248,6 +308,16 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
     _viewHierarchyProcessor!.process(mutationEvent.frame.viewHierarchy);
     // Must be done before we serialize the frame, so the hash of the image is correct and exists!
     await _hashAndStoreAssets(mutationEvent);
+
+    mutationEvent.frame.typefaces = _fontManager.typefaces;
+
+    _fontManager.triggerLazyFontLoading(mutationEvent.frame.commands);
+
+    final pendingFontRequests = _fontManager.consumePendingLoadRequests();
+    if (pendingFontRequests.isNotEmpty) {
+      sendPort.send(RequestFontBytesEvent(pendingFontRequests));
+    }
+
     await _addEventToPayload(mutationEvent);
   }
 
@@ -286,12 +356,16 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
   Future<void> _startNewPayloadIfNeeded(SessionEvent event) async {
     if (!_shouldStartNewPayload(event.timestamp)) return;
 
+    await _forceNewPayload(event.timestamp);
+  }
+
+  Future<void> _forceNewPayload(int timestamp) async {
     _sendCurrentPayloadMetadataForUpload();
     await _startNewPayload(
       _currentPayloadMetadata?.sequence == null
           ? ClarityConstants.firstPayloadSequence
           : _currentPayloadMetadata!.sequence + 1,
-      event.timestamp,
+      timestamp,
     );
   }
 
@@ -303,22 +377,44 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
   }
 
   Future<void> _hashAndStoreAssets(MutationEvent mutationEvent) async {
+    final imagesToEncode = <Asset>[];
     for (final image in mutationEvent.frame.images) {
-      if (!_hashCodeToMD5HashMap.containsKey(image.dartHashCode) && image.data != null) {
-        _hashCodeToMD5HashMap[image.dartHashCode] = await _processAndHashImage(image.data!, image.size);
+      if (!_dartHashCodeToContentHash.containsKey(image.dartHashCode) && image.data != null) {
+        _dartHashCodeToContentHash[image.dartHashCode] = await _processAndHashImage(
+          image.data!,
+          image.size,
+          image.dataSize,
+          imagesToEncode,
+        );
       }
-      image.dataHash = _hashCodeToMD5HashMap[image.dartHashCode];
+      image.dataHash = _dartHashCodeToContentHash[image.dartHashCode];
+    }
+
+    if (imagesToEncode.isNotEmpty) {
+      fireEvent(AssetEncodingEvent(assets: imagesToEncode, sessionMetadata: _currentSessionMetadata!));
     }
   }
 
-  Future<String> _processAndHashImage(Uint8List imageBytes, ImageSize size) async {
-    final pngBytes = AssetUtils.encodeAsPng(imageBytes, size.width, size.height);
-    final hash = DataUtils.md5HashBase64(pngBytes);
+  Future<String> _processAndHashImage(
+    Uint8List imageBytes,
+    ImageSize originalSize,
+    ImageSize bufferSize,
+    List<Asset> imagesToEncode,
+  ) async {
+    final profileTime = profileTimeAsync();
+    profileTime?.start('ClarityHashImageBytes');
+    final hash = DataUtils.xxHashBase64(imageBytes);
+    profileTime?.finish();
 
     if (_writtenImagesHash.contains(hash)) return hash;
-
     _writtenImagesHash.add(hash);
-    await _sessionRepository.saveSessionAsset(hash, pngBytes);
+
+    final asset = Asset(assetType: AssetType.image, fileName: hash)
+      ..data = imageBytes
+      ..originalImageSize = originalSize
+      ..bufferSize = bufferSize;
+
+    imagesToEncode.add(asset);
 
     return hash;
   }
@@ -342,14 +438,14 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
 
   void _unthrottleCapturingIfNeeded() {
     if (_capturingThrottled) {
-      Logger.debug?.out('Mutation events are processed, unthrottleing capture');
+      Logger.debug?.out('Mutation events are processed, unthrottling capture');
       sendPort.send(ResumeCaptureEvent());
       _capturingThrottled = false;
     }
   }
 
   Future<void> _addEventToPayload(SessionEvent event) async {
-    _currentPayloadMetadata?.updateDuration(event.timestamp);
+    _currentPayloadMetadata?.updateDuration(event.timestamp, event.type);
     await _sessionRepository.appendEventToSessionPayload(_currentPayloadMetadata!, event);
   }
 
@@ -386,6 +482,9 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
       await _startNewPage(event, cachedPageMetadata!.number + 1);
     }
 
+    final fontAssets = await _fontManager.onSessionReady();
+    _fireFontAssetUploadEvent(fontAssets);
+
     sendPort.send(SessionStartedEvent(_currentSessionMetadata!, event.frame.forceStartNewSessionCallback));
   }
 
@@ -400,7 +499,7 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
   }
 
   Future<void> _startNewSession(MutationEvent event) async {
-    final userId = _currentSessionMetadata?.userId ?? await _computeUserId(clarityConfig);
+    final userId = await _computeUserId(clarityConfig, _consentStatus.analyticsStorage);
 
     _currentSessionMetadata = SessionMetadata(
       event.timestamp,
@@ -441,6 +540,7 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
       Dimension.PlatformVersion: hostInfo.platformVersion,
       Dimension.Model: hostInfo.model,
       Dimension.PageTitle: event.screenName,
+      if (hostInfo.deviceFamily != null) Dimension.DeviceFamily: hostInfo.deviceFamily!,
     };
 
     final metrics = <Metric, int>{
@@ -452,13 +552,9 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
     };
 
     final variables = <String, Set<String>>{
-      ClarityConstants.applicationVersionVariableLabel: {
-        hostInfo.applicationVersion,
-      },
+      ClarityConstants.applicationVersionVariableLabel: {hostInfo.applicationVersion},
       ClarityConstants.frameworkVariableLabel: {hostInfo.applicationFramework},
-      ClarityConstants.clarityVersionVariableLabel: {
-        ClarityConstants.clarityVersion,
-      },
+      ClarityConstants.clarityVersionVariableLabel: {ClarityConstants.clarityVersion},
       ClarityConstants.packageNameVariableLabel: {_packageName},
     };
 
@@ -478,6 +574,9 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
     }
 
     _preSessionCustomEventsValues.clear();
+
+    await _addEventToPayload(ConsentEvent(_currentPageMetadata!.startTime, _consentStatus));
+    await _enforceAdsConsentPolicy();
 
     // The upstream components depend on having a visibility event at the start of every new page.
     await _addEventToPayload(VisibilityEvent(_currentPageMetadata!.startTime, ClarityConstants.visibleState));
@@ -520,8 +619,8 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
   }
 
   void _cleanUpCache() {
-    if (_hashCodeToMD5HashMap.length > 100) {
-      _hashCodeToMD5HashMap.clear();
+    if (_dartHashCodeToContentHash.length > 100) {
+      _dartHashCodeToContentHash.clear();
     }
 
     if (_writtenImagesHash.length > 100) {
@@ -529,12 +628,136 @@ class SessionWorkerIsolate extends WorkerIsolate with CallbackHandler, EventQueu
     }
   }
 
+  Future<void> _processFontMetadataEvent(FontMetadataEvent event) async {
+    await _fontManager.initializeFromMetadata(event.fontMap);
+  }
+
+  Future<void> _processFontBytesLoadedEvent(FontBytesLoadedEvent event) async {
+    final savedAssets = await _fontManager.registerLoadedFonts(event.loadedFonts);
+    _fireFontAssetUploadEvent(savedAssets);
+  }
+
+  void _fireFontAssetUploadEvent(List<Asset> assets) {
+    if (assets.isNotEmpty && _currentSessionMetadata != null) {
+      fireEvent(AssetUploadEvent(assets: assets, sessionMetadata: _currentSessionMetadata!));
+    }
+  }
+
+  Future<void> _processPeriodicPayloadFlushCheck() async {
+    final payloadMetadata = _currentPayloadMetadata;
+    final nextFlushDueAt = payloadMetadata?.nextFlushDueAt;
+
+    if (payloadMetadata != null && nextFlushDueAt != null) {
+      final now = DateTime.now().millisecondsSinceEpoch;
+
+      if (now > nextFlushDueAt) {
+        Logger.info?.out('Flushing payload events due to periodic check.');
+        await _forceNewPayload(now);
+      }
+    }
+
+    if (_networkPaused) {
+      Logger.info?.out('Network is currently paused, skipping periodic payload flush.');
+      return;
+    }
+
+    if (_payloadFlushCheckScheduled) return;
+
+    _payloadFlushCheckScheduled = true;
+    Future.delayed(const Duration(milliseconds: ClarityConstants.periodicPayloadFlushCheckIntervalMs), () {
+      _payloadFlushCheckScheduled = false;
+      unawaited(enqueueEvent(PayloadFlushEvent()));
+    });
+  }
+
   String _generateId() {
     final rand = Random(DateTime.now().millisecondsSinceEpoch).nextInt(1 << 32);
     return rand.toRadixString(ClarityConstants.idRadix);
   }
 
-  Future<String> _computeUserId(ClarityConfig clarityConfig) async {
+  Future<void> _processInitConsentStatusEvent(InitConsentStatusEvent event) async {
+    final resolved = await _settingsRepository.getConsentStatus(
+      projectAdsStorage: _consentStatus.adsStorage,
+      projectAnalyticsStorage: _consentStatus.analyticsStorage,
+    );
+    if (resolved != _consentStatus) {
+      _consentStatus = resolved;
+    }
+  }
+
+  Future<void> _processConsentChangedEvent(ConsentChangedEvent event) async {
+    final previousStatus = _consentStatus;
+
+    await _settingsRepository.updateConsentStatus(event.consentStatus);
+    _consentStatus = event.consentStatus;
+
+    if (previousStatus.analyticsStorage != _consentStatus.analyticsStorage) {
+      sendPort.send(ConsentAnalyticsChangedEvent());
+    }
+
+    if (_currentPageMetadata == null) return;
+
+    if (_consentStatus != previousStatus) {
+      await _processAnalyticsEvent(ConsentEvent(DateTime.now().millisecondsSinceEpoch, _consentStatus));
+    }
+
+    if (previousStatus.adsStorage != _consentStatus.adsStorage) {
+      await _enforceAdsConsentPolicy();
+    }
+  }
+
+  Future<void> _enforceAdsConsentPolicy() async {
+    if (_consentStatus.adsStorage) {
+      await _sendGaid();
+    } else {
+      await _discardCachedGaidIfExists();
+    }
+  }
+
+  Future<void> _sendGaid() async {
+    if (!Platform.isAndroid) return;
+
+    try {
+      final gaid = await ClarityPlatform.getGaid();
+
+      // Consent may have been revoked between the GAID request and this callback.
+      if (!_consentStatus.adsStorage) return;
+      if (_currentPageMetadata == null) return;
+
+      final cachedGaid = await _settingsRepository.getCachedGaid();
+
+      if (cachedGaid != gaid) {
+        await _settingsRepository.updateCachedGaid(gaid);
+
+        if (cachedGaid != null) {
+          await _processAnalyticsEvent(GAIDOptOutEvent(DateTime.now().millisecondsSinceEpoch, cachedGaid));
+        }
+      }
+
+      if (gaid != null) {
+        await _processAnalyticsEvent(GAIDEvent(DateTime.now().millisecondsSinceEpoch, gaid));
+      }
+    } catch (_) {
+      // GAID unavailable — no-op.
+    }
+  }
+
+  Future<void> _discardCachedGaidIfExists() async {
+    try {
+      final cachedGaid = await _settingsRepository.getCachedGaid();
+      if (cachedGaid == null) return;
+
+      await _settingsRepository.updateCachedGaid(null);
+
+      if (_currentPageMetadata == null) return;
+
+      await _processAnalyticsEvent(GAIDOptOutEvent(DateTime.now().millisecondsSinceEpoch, cachedGaid));
+    } catch (_) {}
+  }
+
+  Future<String> _computeUserId(ClarityConfig clarityConfig, bool analyticsStorage) async {
+    if (!analyticsStorage) return _generateId();
+
     var cachedUserId = await _settingsRepository.getCachedUserId();
 
     if (cachedUserId != null && cachedUserId == clarityConfig.userId) {

@@ -1,8 +1,8 @@
+// ignore_for_file: deprecated_member_use_from_same_package
+
 /// Copyright (c) Microsoft Corporation.
 /// Licensed under the MIT License.
 library;
-
-// ignore_for_file: deprecated_member_use_from_same_package "ClarityConfig.userId is deprecated"
 
 // 🎯 Dart imports:
 import 'dart:async';
@@ -13,22 +13,22 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:path_provider/path_provider.dart';
-
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/helpers/services/font_service.dart';
 import 'package:clarity_flutter/src/helpers/services/ingest_service.dart';
 import 'package:clarity_flutter/src/helpers/telemetry_tracker.dart';
+import 'package:clarity_flutter/src/managers/asset_manager.dart';
 import 'package:clarity_flutter/src/managers/base_session_manager.dart';
 import 'package:clarity_flutter/src/managers/capture_manager.dart';
 import 'package:clarity_flutter/src/managers/session_manager.dart';
 import 'package:clarity_flutter/src/managers/upload_manager.dart';
 import 'package:clarity_flutter/src/models/clarity_config.dart';
+import 'package:clarity_flutter/src/models/consent_status.dart';
 import 'package:clarity_flutter/src/models/events/control_event.dart';
 import 'package:clarity_flutter/src/models/events/session_event.dart';
 import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
+import 'package:clarity_flutter/src/native/clarity_platform.dart';
 import 'package:clarity_flutter/src/registries/environment_registry.dart';
 import 'package:clarity_flutter/src/registries/host_info.dart';
 import 'package:clarity_flutter/src/utils/dev_utils.dart';
@@ -61,7 +61,7 @@ class Clarity {
   ///
   /// - This ID can be used to filter sessions on the Clarity dashboard.
   /// - This function should only be called on the UI Isolate.
-  /// - Unlike the [ClarityConfig.userId] provided in the [ClarityConfig], the [customUserId] has fewer restrictions.
+  /// - Unlike the [ClarityConfig.userId], the [customUserId] has fewer restrictions.
   /// - We recommend NOT to set any Personally Identifiable Information values inside this field.
   ///
   /// Returns `true` if the custom user ID was set successfully; otherwise `false`.
@@ -194,6 +194,22 @@ class Clarity {
   ///
   /// Returns `true` if the session is paused; otherwise `false`.
   static bool isPaused() => ClarityManager._isPaused();
+
+  /// Sets the user's consent status for data collection.
+  ///
+  /// [adsStorage] The user's consent for ads data collection.
+  ///
+  /// [analyticsStorage] The user's consent for analytics data collection.
+  ///
+  /// ## Remarks
+  ///
+  /// - You are responsible for obtaining the user's consent, e.g. via a
+  ///   consent banner.
+  /// - This function should only be called on the UI Isolate.
+  ///
+  /// Returns `true` if the consent status was applied successfully; otherwise
+  /// `false`.
+  static bool consent(bool adsStorage, bool analyticsStorage) => ClarityManager._consent(adsStorage, analyticsStorage);
 }
 
 class ClarityManager {
@@ -203,6 +219,7 @@ class ClarityManager {
   static CaptureManager? _captureManager;
   static BaseSessionManager? _sessionManager;
   static UploadManager? _uploadManager;
+  static AssetManager? _assetManager;
   static final Map<String, Set<String>> _customTags = {};
   static SessionStartedCallback? _onSessionStartedOrResumedCallback;
   static SessionStartedCallback? _startNewSessionCallback;
@@ -210,6 +227,7 @@ class ClarityManager {
   static final List<String> _customEventValues = [];
   static bool _userPaused = false;
   static bool _widgetRemoved = false;
+  static ConsentStatus? _pendingConsent;
 
   static bool initialize(BuildContext context, ClarityConfig clarityConfig) {
     return EntryPoint.run(
@@ -264,7 +282,7 @@ class ClarityManager {
           controller: SnapshotController(),
           child: null,
         ).createRenderObject(context).runtimeType;
-      } on Object catch (e) {
+      } catch (e) {
         Logger.admin.out("Couldn't fetch SnapShotWidgetRenderObject E:$e");
         return false;
       }
@@ -287,15 +305,30 @@ class ClarityManager {
         TelemetryTracker.ensureInitialized();
         final registry = EnvRegistry.ensureInitialized();
         registry.registerItem(EnvRegistryKey.clarityConfig, clarityConfig);
-        registry.registerItem(EnvRegistryKey.cacheDir, await getApplicationCacheDirectory());
-        registry.registerItem(EnvRegistryKey.packageName, (await PackageInfo.fromPlatform()).packageName);
-        registry.registerItem(EnvRegistryKey.hostInfo, await HostInfo.ensureInitialized());
+        final cacheDir = await ClarityPlatform.getCacheDirectory();
+        registry.registerItem(EnvRegistryKey.cacheDir, cacheDir);
+        final packageInfo = await ClarityPlatform.getPackageInfo();
+        final deviceInfo = await ClarityPlatform.getDeviceInfo();
+        final userAgent = await ClarityPlatform.getUserAgent();
+        registry.registerItem(EnvRegistryKey.packageName, packageInfo.packageName);
+        registry.registerItem(EnvRegistryKey.appVersion, packageInfo.version);
+        registry.registerItem(EnvRegistryKey.appBuildNumber, packageInfo.buildNumber);
+        registry.registerItem(
+          EnvRegistryKey.hostInfo,
+          await HostInfo.ensureInitialized(
+            applicationVersion: packageInfo.version,
+            userAgent: userAgent,
+            deviceInfo: deviceInfo,
+          ),
+        );
         await DebuggingUtils.init();
         if (!clarityConfig.isLogLevelValid()) {
           Logger.admin.out("Clarity's logging is disabled by default in non-debug builds for optimal performance");
         }
         if (!clarityConfig.isProjectIdValid()) {
-          Logger.error?.out('Invalid Project ID: Cannot be empty or blank. Clarity cannot start.');
+          Logger.error?.out(
+            'Invalid Project ID: Please check the dashboard for your project ID. Clarity cannot start.',
+          );
           return;
         }
 
@@ -329,6 +362,8 @@ class ClarityManager {
         Logger.info?.out('Clarity activated! with user Configs $projectConfig');
         _uploadManager = await UploadManager.create();
         registry.registerItem(EnvRegistryKey.uploadIsolatePort, _uploadManager!.workerIsolatePort);
+        _assetManager = await AssetManager.create();
+        registry.registerItem(EnvRegistryKey.assetIsolatePort, _assetManager!.workerIsolatePort);
         _sessionManager = await SessionManager.create();
         _captureManager = CaptureManager.create();
 
@@ -352,6 +387,10 @@ class ClarityManager {
 
         _customEventValues.forEach(_sessionManager!.sendCustomEvent);
 
+        if (_pendingConsent != null) {
+          _consent(_pendingConsent!.adsStorage, _pendingConsent!.analyticsStorage);
+        }
+
         if (_userPaused) {
           _captureManager!.userPause();
         }
@@ -362,9 +401,14 @@ class ClarityManager {
 
         _captureManager!.start();
         _clarityStarted = true;
+
+        unawaited(_initializeFontService());
       },
       catchLogic: (e, st) {
-        Logger.error?.out('Error initializing Clarity! Type: ${e.runtimeType} message: $e', stackTrace: st);
+        Logger.error?.out(
+          'Error initializing Clarity! Type: ${e.runtimeType} message: $e',
+          stackTrace: st,
+        );
         TelemetryTracker.instance?.trackError(ErrorType.Initialization, e.toString(), st);
       },
       finallyLogic: () {
@@ -373,6 +417,7 @@ class ClarityManager {
         _userProvidedScreenName = null;
         _customTags.clear();
         _customEventValues.clear();
+        _pendingConsent = null;
       },
     );
 
@@ -394,8 +439,42 @@ class ClarityManager {
       unawaited(_sessionManager!.enqueueEvent(event));
     });
     _captureManager!.registerCallback<NetworkConnectivityChangedEvent>((event) {
+      unawaited(_sessionManager!.enqueueEvent(event));
       _uploadManager!.onNetworkConnectivityChanged(event);
     });
+    _sessionManager!.registerCallback<RequestFontBytesEvent>((event) {
+      unawaited(_loadAndSendRequestedFonts(event as RequestFontBytesEvent));
+    });
+  }
+
+  static bool _consent(bool adsStorage, bool analyticsStorage) {
+    return EntryPoint.run(
+          () {
+            final status = ConsentStatus(
+              source: ConsentSource.api,
+              adsStorage: adsStorage,
+              analyticsStorage: analyticsStorage,
+            );
+
+            if (_sessionManager == null) {
+              _pendingConsent = status;
+            } else {
+              _sessionManager!.consent(status, () {
+                _captureManager?.startNewSession((_) {});
+              });
+            }
+
+            return true;
+          },
+          catchLogic: (e, st) {
+            (_clarityStarted ? Logger.error : Logger.admin)?.out(
+              'Error setting consent! Type: ${e.runtimeType} message: $e',
+              stackTrace: st,
+            );
+            TelemetryTracker.instance?.trackError(ErrorType.SettingConsent, e.toString(), st);
+          },
+        ) ??
+        false;
   }
 
   static bool _setCustomUserId(String customUserId) =>
@@ -628,5 +707,33 @@ class ClarityManager {
 
   static bool _isPaused() {
     return _userPaused;
+  }
+
+  static Future<void> _initializeFontService() async {
+    try {
+      final fontDiscoveryProfile = profileTimeAsync();
+      fontDiscoveryProfile?.start('ClarityFontDiscovery');
+      final fontMap = await FontService.discoverFonts();
+      fontDiscoveryProfile?.finish();
+
+      if (fontMap.isEmpty) return;
+
+      await _sessionManager!.enqueueEvent(FontMetadataEvent(fontMap: fontMap));
+    } catch (e, stackTrace) {
+      TelemetryTracker.instance?.trackError(ErrorType.FontRegistration, e.toString(), stackTrace);
+    }
+  }
+
+  static Future<void> _loadAndSendRequestedFonts(RequestFontBytesEvent event) async {
+    try {
+      final loaded = (await Future.wait(
+        event.fontsToLoad.map((request) => FontService.loadFontAsset(request.familyName, request.asset)),
+      )).nonNulls.toList();
+      if (loaded.isNotEmpty) {
+        await _sessionManager!.enqueueEvent(FontBytesLoadedEvent(loaded));
+      }
+    } catch (e, stackTrace) {
+      TelemetryTracker.instance?.trackError(ErrorType.FontRegistration, e.toString(), stackTrace);
+    }
   }
 }

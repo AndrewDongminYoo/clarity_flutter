@@ -13,7 +13,6 @@ class SerializedPayload {
     required this.sequence,
     required this.start,
   });
-
   final List<String> analytics;
   final List<String> playback;
   final int pageNum;

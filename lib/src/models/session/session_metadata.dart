@@ -10,9 +10,6 @@ part '../generated/session_metadata.g.dart';
 @JsonSerializable(explicitToJson: true)
 class SessionMetadata {
   SessionMetadata(this.startTime, this.id, this.projectId, this.userId, this.ingestUrl, this.version);
-
-  factory SessionMetadata.fromJson(Map<String, dynamic> json) => _$SessionMetadataFromJson(json);
-
   int startTime;
   String id;
   String projectId;
@@ -26,4 +23,6 @@ class SessionMetadata {
   }
 
   Map<String, dynamic> toJson() => _$SessionMetadataToJson(this);
+
+  static SessionMetadata fromJson(Map<String, dynamic> json) => _$SessionMetadataFromJson(json);
 }

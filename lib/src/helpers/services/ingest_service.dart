@@ -26,7 +26,6 @@ import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class IngestService extends RetriableHttpService {
   IngestService() : _packageName = EnvRegistry.ensureInitialized().getItem<String>(EnvRegistryKey.packageName)!;
-
   final String _packageName;
 
   Future<ProjectConfig?> getProjectConfigs(ClarityConfig clarityConfig) async {
@@ -38,7 +37,7 @@ class IngestService extends RetriableHttpService {
         return ProjectConfig.fromJson(responseData);
       }
       return null;
-    } on Object catch (e, st) {
+    } catch (e, st) {
       Logger.error?.out(e.toString(), stackTrace: st);
       return null;
     }
@@ -66,9 +65,7 @@ class IngestService extends RetriableHttpService {
     final url = _getCheckAssetsUrl(ingestUrl, projectId);
     final requestData = jsonEncode(assets.map((asset) => asset.toJsonObject()).toList());
 
-    final headers = {
-      ClarityConstants.contentTypeHeaderName: 'application/json',
-    };
+    final headers = {ClarityConstants.contentTypeHeaderName: 'application/json'};
 
     final response = await HttpUtils.post(
       url,
@@ -96,20 +93,20 @@ class IngestService extends RetriableHttpService {
 
     final headers = {
       ClarityConstants.contentTypeHeaderName: 'application/octet-stream',
-      ClarityConstants.contentHashHeaderName: asset.md5Hash,
+      ClarityConstants.contentHashHeaderName: asset.hash,
     };
     final response = await HttpUtils.post(url, headers: headers, data: asset.data, retryPolicy: retryPolicy);
     final success = HttpUtils.isSuccessCode(response.statusCode);
     if (success) {
-      TelemetryTracker.instance?.trackMetric(MetricKey.Clarity_UploadAssetBytes, asset.data.length);
+      TelemetryTracker.instance?.trackMetric(MetricKey.Clarity_UploadAssetBytes, asset.data!.length);
     }
 
     return success;
   }
 
-  String _getTagUrl(String projectID) {
-    final projectId = DebuggingUtils.instance?.enforcedProjectId ?? projectID;
-    final uri = Uri.parse('https://www.clarity.ms/').replace(pathSegments: ['tag', 'mobile', projectId]);
+  String _getTagUrl(String projectId) {
+    final effectiveProjectId = DebuggingUtils.instance?.enforcedProjectId ?? projectId;
+    final uri = Uri.parse('https://www.clarity.ms/').replace(pathSegments: ['tag', 'mobile', effectiveProjectId]);
     return uri.toString();
   }
 
@@ -118,9 +115,7 @@ class IngestService extends RetriableHttpService {
   }
 
   Map<String, String> _getCollectHeaders() {
-    final headers = {
-      ClarityConstants.contentTypeHeaderName: 'application/json',
-    };
+    final headers = {ClarityConstants.contentTypeHeaderName: 'application/json'};
 
     headers[ClarityConstants.acceptHeaderName] = 'application/x-clarity-gzip';
     headers[ClarityConstants.acceptEncodingHeaderName] = 'gzip, deflate, br';
@@ -130,23 +125,26 @@ class IngestService extends RetriableHttpService {
     return headers;
   }
 
-  Uri _getCheckAssetsUrl(String ingestUrl, String projectID) {
-    final projectId = DebuggingUtils.instance?.enforcedProjectId ?? projectID;
+  Uri _getCheckAssetsUrl(String ingestUrl, String projectId) {
+    final effectiveProjectId = DebuggingUtils.instance?.enforcedProjectId ?? projectId;
     final uri = Uri.parse(ingestUrl);
-    final newUri = uri.replace(pathSegments: [...uri.pathSegments, projectId, 'check-asset']);
+    final newUri = uri.replace(pathSegments: [...uri.pathSegments, effectiveProjectId, 'check-asset']);
     return newUri;
   }
 
-  Uri _getUploadAssetUrl(String ingestUrl, String projectID, Asset asset) {
-    final projectId = DebuggingUtils.instance?.enforcedProjectId ?? projectID;
+  Uri _getUploadAssetUrl(String ingestUrl, String projectId, Asset asset) {
+    final effectiveProjectId = DebuggingUtils.instance?.enforcedProjectId ?? projectId;
     final uri = Uri.parse(ingestUrl);
     final newUri = uri.replace(
-      pathSegments: [...uri.pathSegments, projectId, 'upload-asset', asset.md5Hash, asset.assetType.index.toString()],
+      pathSegments: [
+        ...uri.pathSegments,
+        effectiveProjectId,
+        'upload-asset',
+        asset.hash,
+        asset.assetType.index.toString(),
+      ],
       queryParameters: asset.assetType == AssetType.image
-          ? {
-              'width': asset.imageSize!.width.toString(),
-              'height': asset.imageSize!.height.toString(),
-            }
+          ? {'width': asset.originalImageSize!.width.toString(), 'height': asset.originalImageSize!.height.toString()}
           : null,
     );
     return newUri;

@@ -12,12 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:clarity_flutter/clarity_flutter.dart';
 
 class SessionIsolateConfig {
-  SessionIsolateConfig({
-    required this.sendPort,
-    required this.clarityConfig,
-    required this.rootIsolateToken,
-  });
-
+  SessionIsolateConfig({required this.sendPort, required this.clarityConfig, required this.rootIsolateToken});
   SendPort sendPort;
   ClarityConfig clarityConfig;
   RootIsolateToken rootIsolateToken;

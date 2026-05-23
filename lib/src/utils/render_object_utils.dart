@@ -62,6 +62,15 @@ extension RenderObjectUtils on RenderObject {
     return false;
   }
 
+  String? get contentDescription {
+    if (parent is RenderSemanticsAnnotations) {
+      final renderSemanticsParent = parent! as RenderSemanticsAnnotations;
+      return renderSemanticsParent.properties.label;
+    }
+
+    return null;
+  }
+
   int getIndexAmongSameSiblingsType() {
     var index = 0;
     var counter = 0;
@@ -107,34 +116,24 @@ extension RenderObjectUtils on RenderObject {
 // This class is made to be used only for RenderParagraph and RenderEditable
 // Since they have no common parent with the [firstChild] and [childAfter] methods, we have to use dynamic here
 abstract final class RenderTextUtils {
-  static List<PlaceholderDimensions> layoutChildren(dynamic obj) {
+  static List<PlaceholderDimensions> layoutChildren(RenderInlineChildrenContainerDefaults obj) {
     return <PlaceholderDimensions>[
-      for (
-        RenderBox? child = (obj as dynamic).firstChild as RenderBox?;
-        child != null;
-        child = (obj as dynamic).childAfter(child) as RenderBox?
-      )
-        _layoutChild(child, ((obj as dynamic).constraints as BoxConstraints).maxWidth),
+      for (RenderBox? child = obj.firstChild; child != null; child = obj.childAfter(child))
+        _layoutChild(child, obj.constraints.maxWidth),
     ];
   }
 
   static PlaceholderDimensions _layoutChild(RenderBox child, double maxWidth) {
     final parentData = child.parentData! as TextParentData;
     final span = parentData.span;
+    // ignore: prefer_asserts_with_message
+    assert(span != null);
     return span == null
         ? PlaceholderDimensions.empty
         : PlaceholderDimensions(
             size: ChildLayoutHelper.layoutChild(child, BoxConstraints(maxWidth: maxWidth)),
             alignment: span.alignment,
             baseline: span.baseline,
-            baselineOffset: switch (span.alignment) {
-              PlaceholderAlignment.aboveBaseline ||
-              PlaceholderAlignment.belowBaseline ||
-              PlaceholderAlignment.bottom ||
-              PlaceholderAlignment.middle ||
-              PlaceholderAlignment.top => null,
-              PlaceholderAlignment.baseline => child.getDistanceToBaseline(span.baseline!),
-            },
           );
   }
 }

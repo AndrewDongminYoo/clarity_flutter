@@ -68,7 +68,6 @@ mixin TelemetryHandler {
 
 class TelemetryContainer {
   TelemetryContainer(this.metrics, this.errors);
-
   List<MetricAccumulator> metrics;
   List<ErrorDetails> errors;
 

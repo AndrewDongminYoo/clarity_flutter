@@ -24,17 +24,15 @@ class TelemetryService extends RetriableHttpService {
       _reportUrl =
           EnvRegistry.ensureInitialized().getItem<ProjectConfig>(EnvRegistryKey.projectConfig)?.reportUrl ??
           ClarityConstants.fallbackReportUrl;
+    } else {
+      _reportUrl = null;
     }
     _projectId = EnvRegistry.ensureInitialized().getItem<ClarityConfig>(EnvRegistryKey.clarityConfig)!.projectId;
   }
-
   late final String? _reportUrl;
   late final String _projectId;
 
-  Future<bool> reportTelemetryItem(
-    TelemetryItem item, {
-    PageMetadata? pageMetadata,
-  }) {
+  Future<bool> reportTelemetryItem(TelemetryItem item, {PageMetadata? pageMetadata}) {
     if (item is MetricDetails) {
       return reportMetrics([MetricAccumulator(item.key)..add(item.value)]);
     } else if (item is ErrorDetails) {
@@ -57,16 +55,13 @@ class TelemetryService extends RetriableHttpService {
         retryPolicy: retryPolicy,
       );
       return HttpUtils.isSuccessCode(response.statusCode);
-    } on Object catch (e) {
+    } catch (e) {
       Logger.warn?.out('Error when uploading Metrics Telemetry, $e');
       return false;
     }
   }
 
-  Future<bool> reportError(
-    ErrorDetails errorDetails, {
-    PageMetadata? pageMetadata,
-  }) async {
+  Future<bool> reportError(ErrorDetails errorDetails, {PageMetadata? pageMetadata}) async {
     if (_reportUrl == null) return false;
     try {
       final serializedError = jsonEncode(errorDetails.toJson(pageMetadata));
@@ -78,15 +73,13 @@ class TelemetryService extends RetriableHttpService {
         retryPolicy: retryPolicy,
       );
       return HttpUtils.isSuccessCode(response.statusCode);
-    } on Object catch (e) {
+    } catch (e) {
       Logger.warn?.out('Error when uploading Error Telemetry, $e');
       return false;
     }
   }
 
-  Map<String, String> _getHeaders() => {
-    HttpHeaders.contentTypeHeader: 'application/json',
-  };
+  Map<String, String> _getHeaders() => {HttpHeaders.contentTypeHeader: 'application/json'};
 
   String? _getMetricReportUrl(String projectId) {
     if (_reportUrl == null) return null;

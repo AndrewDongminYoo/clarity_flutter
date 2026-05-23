@@ -15,13 +15,13 @@ class LivePlayerService {
     final client = HttpClient();
     await client
         .postUrl(_getUploadEventUrlPath(LivePlayerServiceType.image))
-        .then((HttpClientRequest request) {
+        .then((request) {
           request.headers.contentType = ContentType.binary;
           request.headers.set('Content-Hash', hash);
           request.add(imageBytes);
           return request.close();
         })
-        .then((HttpClientResponse response) {
+        .then((response) {
           Logger.debug?.out('Got response ${response.statusCode}');
         });
   }
@@ -30,12 +30,12 @@ class LivePlayerService {
     final client = HttpClient();
     await client
         .postUrl(_getUploadEventUrlPath(type))
-        .then((HttpClientRequest request) {
+        .then((request) {
           request.headers.contentType = ContentType.json;
           request.write(event);
           return request.close();
         })
-        .then((HttpClientResponse response) {
+        .then((response) {
           Logger.debug?.out('Got response of event ${response.statusCode}');
         });
   }

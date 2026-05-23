@@ -9,6 +9,7 @@ import 'dart:ui';
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/helpers/live_player_service.dart';
 import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/models/consent_status.dart';
 import 'package:clarity_flutter/src/models/events/session_event.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/gesture_event.dart';
 import 'package:clarity_flutter/src/models/ingest/mutation_event.dart';
@@ -17,7 +18,7 @@ import 'package:clarity_flutter/src/utils/dev_utils.dart';
 import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class LiveSessionManager extends BaseSessionManager {
-  Map<int, String> hashCodeToMD5HashMap = {};
+  Map<int, String> dartHashCodeToContentHash = {};
 
   @override
   void handleResponsesFromIsolate(dynamic message) {}
@@ -30,6 +31,9 @@ class LiveSessionManager extends BaseSessionManager {
 
   @override
   void setOnSessionStartedOrResumedCallback(SessionStartedCallback callback) {}
+
+  @override
+  void consent(ConsentStatus consentStatus, AnalyticsConsentChangedCallback onAnalyticsConsentChanged) {}
 
   @override
   String? getSessionUrl() {
@@ -55,11 +59,11 @@ class LiveSessionManager extends BaseSessionManager {
 
   Future<void> _hashAndTransmitAssets(MutationEvent mutationEvent) async {
     for (final image in mutationEvent.frame.images) {
-      if (!hashCodeToMD5HashMap.containsKey(image.dartHashCode) && image.data != null) {
-        hashCodeToMD5HashMap[image.dartHashCode] = DataUtils.md5HashBase64(image.data!);
+      if (!dartHashCodeToContentHash.containsKey(image.dartHashCode) && image.data != null) {
+        dartHashCodeToContentHash[image.dartHashCode] = DataUtils.xxHashBase64(image.data!);
       }
       // Need to update dataHash of all image objects so that commands can function correctly
-      image.dataHash = hashCodeToMD5HashMap[image.dartHashCode];
+      image.dataHash = dartHashCodeToContentHash[image.dartHashCode];
 
       // Only store images that haven't been seen before
       if (image.data != null) {

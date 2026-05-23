@@ -1,40 +1,50 @@
 name: clarity_flutter
 description: Official Microsoft Clarity Flutter SDK; add free, privacy-conscious session replay, heatmaps & interaction analytics to Flutter mobile apps.
 homepage: https://clarity.microsoft.com/mobile-apps
-version: 1.7.0
+version: 1.9.0
 publish_to: none # It's Unofficial fork
+
+platforms:
+  android:
+  ios:
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.microsoft.clarity
+        pluginClass: ClarityFlutterPlugin
+      ios:
+        pluginClass: ClarityFlutterPlugin
+
 environment:
-  sdk: ^3.9.0
-  flutter: ^3.35.0
+  sdk: ^3.12.0
+  flutter: ^3.44.0
+
+exclude:
+  - Makefile
 
 dependencies:
-  # needed for network connectivity status
-  connectivity_plus: ^7.0.0
-  # needed for device information
-  device_info_plus: ^13.1.0
   # needed because protobuf depends on it, and generated code imports it directly
   fixnum: ^1.1.1
   flutter:
     sdk: flutter
   # needed for image encoding as png
-  image: ^4.7.2
+  image: ^4.8.0
   # needed for json annotations to generate json converters for data classes
-  json_annotation: ^4.9.0
-  # needed for package name, this version supports down to flutter 3.6
-  meta: ^1.17.0
-  package_info_plus: ^10.1.0
-  # needed to fetch cache path on device to store files
-  # bumps min flutter version to 3.19
-  path_provider: ^2.1.5
+  json_annotation: ^4.12.0
   protobuf: ^6.0.0
-  # needed for getting memory info
-  system_info2: ^4.1.0
+  # needed for fast hashing
+  xxh3: ^1.2.0
 
 dev_dependencies:
-  build_runner: ^2.10.4
+  build_runner: ^2.15.0
   flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
   import_sorter: ^4.6.0
-  json_serializable: ^6.11.3
-  very_good_analysis: ^10.0.0
+  json_serializable: ^6.14.0
+  # Pigeon: type-safe code-gen for platform channels.
+  # Used only at dev time via `make gen_pigeon` -> generates Dart/Kotlin/Swift stubs.
+  pigeon: ^26.3.4
+  very_good_analysis: ^10.2.0

@@ -11,9 +11,8 @@ import 'package:clarity_flutter/src/utils/dev_utils.dart';
 class Logger {
   Logger._();
 
-  // ignore: avoid_setters_without_getters "Setter has no corresponding getter."
+  // ignore: avoid_setters_without_getters
   static set configuredLogLevel(LogLevel value) => _initLevels(value);
-  static late LogLevel _level;
 
   static LevelLogger? verbose;
   static LevelLogger? debug;
@@ -23,24 +22,24 @@ class Logger {
 
   static LevelLogger admin = LevelLogger('A:');
 
-  static void _initLevels(LogLevel value) {
+  static void _initLevels(LogLevel level) {
+    var effectiveLevel = level;
     if (DebuggingUtils.instance?.enforcedLogLevel != null) {
-      _level = DebuggingUtils.instance!.enforcedLogLevel!;
-    } else if (LoggerUtils.shouldOverride(value)) {
-      _level = LogLevel.None;
+      effectiveLevel = DebuggingUtils.instance!.enforcedLogLevel!;
+    } else if (LoggerUtils.shouldOverride(effectiveLevel)) {
+      effectiveLevel = LogLevel.None;
     }
     verbose = debug = info = warn = error = null;
-    if (_level <= LogLevel.Error) error = LevelLogger('E:');
-    if (_level <= LogLevel.Warn) warn = LevelLogger('W:');
-    if (_level <= LogLevel.Info) info = LevelLogger('I:');
-    if (_level <= LogLevel.Debug) debug = LevelLogger('D:');
-    if (_level <= LogLevel.Verbose) verbose = LevelLogger('V:');
+    if (effectiveLevel <= LogLevel.Error) error = LevelLogger('E:');
+    if (effectiveLevel <= LogLevel.Warn) warn = LevelLogger('W:');
+    if (effectiveLevel <= LogLevel.Info) info = LevelLogger('I:');
+    if (effectiveLevel <= LogLevel.Debug) debug = LevelLogger('D:');
+    if (effectiveLevel <= LogLevel.Verbose) verbose = LevelLogger('V:');
   }
 }
 
 class LevelLogger {
   LevelLogger(this._prefix);
-
   final String _prefix;
 
   void out(String message, {StackTrace? stackTrace}) {
@@ -48,7 +47,7 @@ class LevelLogger {
   }
 
   static void _log(String message, {StackTrace? stackTrace}) {
-    // ignore: avoid_print "Don't invoke 'print' in production code."
+    // ignore:  avoid_print
     print("[Clarity] $message ${stackTrace ?? ""}");
   }
 }
@@ -57,13 +56,13 @@ class LoggerUtils {
   LoggerUtils._();
 
   static bool shouldOverride(LogLevel? level) =>
-      !DebuggingUtils.isDebugMode && (level ?? LogLevel.None) <= LogLevel.Error;
+      !DebuggingUtils.isDebugMode && !releaseLoggingEnabled && (level ?? LogLevel.None) <= LogLevel.Error;
 
   static String get messagePrefix {
     try {
       final stackTraceElement = StackTrace.current.toString().split('\n')[3];
       return '[${_getFileNameFromTrace(stackTraceElement)}::${_getFunctionNameFromTrace(stackTraceElement)}] ';
-    } on Object {
+    } catch (_) {
       return '';
     }
   }
@@ -84,13 +83,12 @@ class LoggerUtils {
   }
 }
 
+// ignore_for_file: constant_identifier_names
 /// Logging levels for Clarity SDK.
 ///
 /// Use these to control the verbosity of logs.
-@immutable
 class LogLevel implements Comparable<LogLevel> {
   const LogLevel._(this._name, this.value);
-
   final String _name;
 
   @protected

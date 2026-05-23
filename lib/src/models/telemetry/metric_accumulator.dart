@@ -11,9 +11,7 @@ import 'package:clarity_flutter/src/registries/host_info.dart';
 
 class MetricAccumulator {
   MetricAccumulator(this.key);
-
   final String key;
-
   int _count = 0;
   double _sum = 0;
   double _max = 0;

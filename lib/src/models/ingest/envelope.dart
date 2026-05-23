@@ -10,7 +10,6 @@ import 'package:clarity_flutter/src/utils/data_utils.dart';
 class Envelope {
   Envelope(this.projectId, this.userId, this.sessionId, this.pageNum, this.sequence, this.start, this.duration)
     : platform = ApplicationPlatform.getCurrentPlatform().index;
-
   final String projectId;
   final String userId;
   final String sessionId;

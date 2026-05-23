@@ -30,11 +30,7 @@ class ClarityWidget extends StatefulWidget {
   ///
   /// [app] is your application widget.
   /// [clarityConfig] is the configuration for Clarity.
-  const ClarityWidget({
-    required this.app,
-    required this.clarityConfig,
-    super.key,
-  });
+  const ClarityWidget({required this.app, required this.clarityConfig, super.key});
 
   /// The root widget of your app.
   final Widget app;
@@ -73,7 +69,10 @@ class ClarityState extends State<ClarityWidget> with WidgetsBindingObserver {
     EntryPoint.run(
       ClarityManager.widgetRemoved,
       catchLogic: (e, st) {
-        Logger.error?.out('Error deactivating with Clarity! Type: ${e.runtimeType} message: $e', stackTrace: st);
+        Logger.error?.out(
+          'Error deactivating with Clarity! Type: ${e.runtimeType} message: $e',
+          stackTrace: st,
+        );
       },
     );
   }
@@ -87,7 +86,10 @@ class ClarityState extends State<ClarityWidget> with WidgetsBindingObserver {
             return ClarityManager.getGestureListenerWidget(widget.app);
           },
           catchLogic: (e, st) {
-            Logger.error?.out('Error building with Clarity! Type: ${e.runtimeType} message: $e', stackTrace: st);
+            Logger.error?.out(
+              'Error building with Clarity! Type: ${e.runtimeType} message: $e',
+              stackTrace: st,
+            );
             TelemetryTracker.instance?.trackError(ErrorType.Initialization, e.toString(), st);
           },
         ) ??

@@ -25,14 +25,13 @@ enum PayloadDataType { analytics, playback }
 
 class SessionRepository {
   SessionRepository() : cacheDir = EnvRegistry.ensureInitialized().getItem<Directory>(EnvRegistryKey.cacheDir)!;
-
   SessionStores? _currentSessionStores;
   Directory cacheDir;
   bool debugMode = kDebugMode;
 
   static const payloadFileSeparator = '_';
 
-  static const List<AssetType> assetTypes = [AssetType.image];
+  static const List<AssetType> assetTypes = [AssetType.image, AssetType.typeface];
 
   void setSessionStores(SessionMetadata sessionMetadata) {
     Logger.debug?.out('Create session ${sessionMetadata.id} stores');
@@ -79,12 +78,12 @@ class SessionRepository {
   Future<void> saveSessionAsset(String identifier, List<int> data) async {
     Logger.verbose?.out('Save asset $identifier');
     final store = _currentSessionStores!.assetStore;
-    if (!store.fileExists(identifier)) {
+    if (!(await store.fileExists(identifier))) {
       await store.writeToFileBytes(identifier, data, WriteMode.overwrite);
     }
   }
 
-  Future<List<int>> getSessionAsset(String sessionId, String identifier) {
+  Future<Uint8List> getSessionAsset(String sessionId, String identifier) {
     return _currentSessionStores!.assetStore.readFileToByteArray(identifier);
   }
 
@@ -92,14 +91,6 @@ class SessionRepository {
     if (DebuggingUtils.instance?.retainSessionData ?? false) return;
     Logger.verbose?.out('Deleting Asset $identifier');
     await _currentSessionStores!.assetStore.deleteFile(identifier);
-  }
-
-  Future<List<Asset>> getCurrentSessionAssetsMetadataOnly() async {
-    final files = await _currentSessionStores!.assetStore.getAllFilesRecursively();
-    return files.map((file) {
-      final fileName = file.path.substring(file.path.lastIndexOf(Platform.pathSeparator) + 1);
-      return Asset(assetType: AssetType.image, fileName: fileName);
-    }).toList();
   }
 
   Future<List<String>> getPayloadSerializedEvents(PayloadMetadata payloadMetadata, PayloadDataType type) async {
@@ -131,7 +122,6 @@ class SessionStores {
         cacheDir,
         FileUtils.concat([SessionRepository.getSessionFolderName(sessionMetadata), ClarityConstants.assetsDirectory]),
       );
-
   FileStore payloadStore;
   FileStore assetStore;
 }

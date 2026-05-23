@@ -6,12 +6,14 @@ abstract class TelemetryItem {
   const TelemetryItem();
 }
 
+// ignore_for_file: constant_identifier_names
 enum ErrorType {
   Initialization,
   ScreenCapturing,
   PartialScreenCapturing,
   ObservedEventProcessing,
   SessionEventProcessing,
+  AssetProcessing,
   PayloadProcessing,
   CapturingTouchEvent,
   UploadSession,
@@ -23,6 +25,8 @@ enum ErrorType {
   PausingClarity,
   ResumingClarity,
   StartNewClaritySession,
+  FontRegistration,
+  SettingConsent,
 }
 
 enum MetricKey {

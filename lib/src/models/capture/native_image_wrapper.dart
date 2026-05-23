@@ -5,15 +5,10 @@ library;
 // 🎯 Dart imports:
 import 'dart:ui';
 
-// 📦 Package imports:
-import 'package:meta/meta.dart';
-
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/utils/asset_utils.dart';
 import 'package:clarity_flutter/src/utils/dev_utils.dart';
 
-@immutable
-// ignore: must_be_immutable "This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: NativeImageWrapper.hashCode, NativeImageWrapper._imageCloneRef, NativeImageWrapper._pictureRef"
 class NativeImageWrapper {
   NativeImageWrapper({
     required this.hashCode,
@@ -44,9 +39,10 @@ class NativeImageWrapper {
       );
 
   @override
-  int hashCode;
+  final int hashCode;
 
   @override
+  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
@@ -56,19 +52,16 @@ class NativeImageWrapper {
   Image? _imageCloneRef;
   Picture? _pictureRef;
 
-  final WeakReference<Image>? _weakImageRef;
-  final WeakReference<Picture>? _weakPictureRef;
+  WeakReference<Image>? _weakImageRef;
+  WeakReference<Picture>? _weakPictureRef;
 
-  final ImageSize _size;
-  final bool isFromPicture;
+  ImageSize _size;
+  bool isFromPicture;
 
   Future<Image?> get imageData async {
     Image? returnedImage;
     if (isFromPicture) {
-      returnedImage = await (_pictureRef ?? _weakPictureRef?.target)?.toImage(
-        _size.width,
-        _size.height,
-      );
+      returnedImage = await (_pictureRef ?? _weakPictureRef?.target)?.toImage(_size.width, _size.height);
     } else {
       returnedImage = _imageCloneRef ?? _weakImageRef?.target;
     }
@@ -78,10 +71,7 @@ class NativeImageWrapper {
   Image? get imageDataSync {
     Image? returnedImage;
     if (isFromPicture) {
-      returnedImage = (_pictureRef ?? _weakPictureRef?.target)?.toImageSync(
-        _size.width,
-        _size.height,
-      );
+      returnedImage = (_pictureRef ?? _weakPictureRef?.target)?.toImageSync(_size.width, _size.height);
     } else {
       returnedImage = _imageCloneRef ?? _weakImageRef?.target;
     }

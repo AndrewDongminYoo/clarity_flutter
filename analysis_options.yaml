@@ -4,11 +4,15 @@ analyzer:
   exclude:
     - lib/src/models/generated/**
   errors:
+    avoid_catches_without_on_clauses: ignore
+    avoid_equals_and_hash_code_on_mutable_classes: ignore
     avoid_positional_boolean_parameters: ignore
     cascade_invocations: ignore
     constant_identifier_names: ignore
     directives_ordering: ignore
+    document_ignores: ignore
     lines_longer_than_80_chars: ignore
+    one_member_abstracts: ignore # for pigeon generated code
     public_member_api_docs: ignore
     use_late_for_private_fields_and_variables: ignore
 
@@ -16,6 +20,7 @@ linter:
   rules:
     dangling_library_doc_comments: true
     unnecessary_breaks: true
+    unnecessary_ignore: true
 
 # Formatter settings
 # https://github.com/dart-lang/dart_style/wiki/Configuration

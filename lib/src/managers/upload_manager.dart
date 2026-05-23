@@ -15,7 +15,7 @@ import 'package:clarity_flutter/src/mixins/callback_handler.dart';
 import 'package:clarity_flutter/src/mixins/event_queue_handler.dart';
 import 'package:clarity_flutter/src/mixins/isolate_handler.dart';
 import 'package:clarity_flutter/src/mixins/telemetry_queue_handler.dart';
-import 'package:clarity_flutter/src/models/clarity_config.dart';
+import 'package:clarity_flutter/src/models/events/asset_event.dart';
 import 'package:clarity_flutter/src/models/events/control_event.dart';
 import 'package:clarity_flutter/src/models/events/event.dart';
 import 'package:clarity_flutter/src/models/events/payload_event.dart';
@@ -29,7 +29,6 @@ import 'package:clarity_flutter/src/models/session/page_metadata.dart';
 import 'package:clarity_flutter/src/models/session/payload_metadata.dart';
 import 'package:clarity_flutter/src/models/session/session_metadata.dart';
 import 'package:clarity_flutter/src/models/telemetry/telemetry.dart';
-import 'package:clarity_flutter/src/registries/environment_registry.dart';
 import 'package:clarity_flutter/src/repositories/session_repository.dart';
 import 'package:clarity_flutter/src/utils/http_utils.dart';
 import 'package:clarity_flutter/src/utils/log_utils.dart';
@@ -79,19 +78,16 @@ List<String> _filterMetadataEvents(
 }
 
 class UploadManager with CallbackHandler, IsolateHandler {
-  // ignore: avoid_unused_constructor_parameters "The parameter 'clarityConfig' is not used in the constructor."
-  UploadManager._internal(ClarityConfig clarityConfig) {
+  UploadManager._internal() {
     final receivePort = ReceivePort();
     receivePort.listen(handleResponsesFromIsolate);
     final isolateConfig = UploadIsolateConfig(sendPort: receivePort.sendPort);
     unawaited(WorkerIsolate.spawn(isolateConfig));
   }
-
   static UploadManager? _instance;
 
   static Future<UploadManager> create() async {
-    final clarityConfig = EnvRegistry.ensureInitialized().getItem<ClarityConfig>(EnvRegistryKey.clarityConfig)!;
-    _instance ??= UploadManager._internal(clarityConfig);
+    _instance ??= UploadManager._internal();
     await _instance!.isolateReady.future;
     return _instance!;
   }
@@ -110,7 +106,7 @@ class UploadManager with CallbackHandler, IsolateHandler {
 }
 
 class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, TelemetryHandler {
-  UploadWorkerIsolate(UploadIsolateConfig super.isolateConfig) {
+  UploadWorkerIsolate(UploadIsolateConfig super.config) {
     TelemetryTracker.ensureInitialized(onTelemetryOverride: enqueueTelemetry);
     _ingestService = IngestService();
     _sessionRepository = SessionRepository();
@@ -119,7 +115,8 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
   late final IngestService _ingestService;
   late final SessionRepository _sessionRepository;
 
-  bool _queueCongested = false;
+  bool _payloadQueueCongested = false;
+  int _payloadEventsInQueueCount = 0;
   Completer<void>? networkPausedCompleter;
 
   TelemetryService? _telemetryService;
@@ -128,8 +125,8 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
 
   @override
   void processMessage(dynamic message) {
-    if (message is PayloadEvent) {
-      unawaited(enqueueEvent(message));
+    if (message is PayloadEvent || message is AssetUploadEvent) {
+      unawaited(enqueueEvent(message as Event));
     } else if (message is TelemetryItem) {
       enqueueTelemetry(message);
     } else if (message is NetworkConnectivityChangedEvent) {
@@ -140,21 +137,29 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
   }
 
   @override
-  void preProcessEvent(covariant PayloadEvent event) {
-    if (queueSize >= ClarityConstants.payloadQueueCongestionLimit && !_queueCongested) {
+  void preProcessEvent(covariant Event event) {
+    if (event is PayloadEvent) {
+      _payloadEventsInQueueCount++;
+    }
+    if (_payloadEventsInQueueCount >= ClarityConstants.payloadQueueCongestionLimit && !_payloadQueueCongested) {
       TelemetryTracker.instance?.trackMetric(MetricKey.Clarity_PayloadQueueCongestion, 1);
-      _queueCongested = true;
+      _payloadQueueCongested = true;
     }
     super.preProcessEvent(event);
   }
 
   @override
-  Future<void> processEvent(covariant PayloadEvent event) async {
+  Future<void> processEvent(covariant Event event) async {
     await networkPausedCompleter?.future;
 
-    _latestPageMetadata = event.metadata.page;
+    if (event is PayloadEvent) {
+      _latestPageMetadata = event.metadata.page;
+      _payloadEventsInQueueCount--;
 
-    await _uploadSessionPayload(event.metadata);
+      await _uploadSessionPayload(event.metadata);
+    } else if (event is AssetUploadEvent) {
+      await _uploadSessionAssets(event);
+    }
   }
 
   @override
@@ -177,11 +182,11 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
 
   @override
   void postProcessEventsQueue() {
-    _queueCongested = false;
+    _payloadQueueCongested = false;
   }
 
   @override
-  void processEventError(covariant PayloadEvent event, Object e, StackTrace st) {
+  void processEventError(Event event, Object e, StackTrace st) {
     TelemetryTracker.instance?.trackError(ErrorType.PayloadProcessing, e.toString(), st);
   }
 
@@ -190,7 +195,7 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
       networkPausedCompleter?.complete();
       networkPausedCompleter = null;
     } else {
-      networkPausedCompleter = Completer<void>();
+      networkPausedCompleter ??= Completer<void>();
     }
   }
 
@@ -198,9 +203,6 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
     Logger.debug?.out('Starting upload of payload $payloadMetadata');
     _sessionRepository.setSessionStores(payloadMetadata.page.session);
 
-    if (!(await _uploadSessionAssets(payloadMetadata.page.session))) {
-      Logger.warn?.out('Upload session ${payloadMetadata.sessionId} assets failed.');
-    }
     try {
       final payloadUploadResponseCode = await _uploadPayload(payloadMetadata);
 
@@ -210,7 +212,7 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
       } else {
         Logger.warn?.out('Uh oh! payload $payloadMetadata upload failed with response $payloadUploadResponseCode');
       }
-    } on Object catch (e, st) {
+    } catch (e, st) {
       Logger.error?.out('Error Uploading Payload! Type: ${e.runtimeType} message: $e', stackTrace: st);
       TelemetryTracker.instance?.trackError(ErrorType.UploadSession, e.toString(), st);
     }
@@ -238,26 +240,27 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
     );
   }
 
-  Future<bool> _uploadSessionAssets(SessionMetadata sessionMetadata) async {
+  Future<void> _uploadSessionAssets(AssetUploadEvent event) async {
+    Logger.debug?.out('Starting upload of assets for ${event.sessionMetadata.id}');
+    _sessionRepository.setSessionStores(event.sessionMetadata);
+
     try {
-      // Upload all assets every time
-      // Get all assets without their data
-      final assets = await _sessionRepository.getCurrentSessionAssetsMetadataOnly();
+      final assets = event.assets;
 
-      if (assets.isEmpty) return true;
+      if (assets.isEmpty) return;
 
-      final assetCheckRequests = assets.map((it) => AssetCheck(hash: it.md5Hash, type: AssetType.image.index)).toList();
+      final assetCheckRequests = assets.map((it) => AssetCheck(hash: it.hash, type: it.assetType.index)).toList();
 
       final assetsCheckResponses = await _ingestService.checkIfAssetsExist(
-        sessionMetadata.ingestUrl,
+        event.sessionMetadata.ingestUrl,
         clarityConfig.projectId,
         assetCheckRequests,
       );
 
       Logger.debug?.out('Result of assets check $assetsCheckResponses');
 
-      final assetsToUpload = assets.where((it) => !(assetsCheckResponses[it.md5Hash] ?? false)).toList();
-      final assetsToDelete = assets.where((it) => assetsCheckResponses[it.md5Hash] ?? false).toList();
+      final assetsToUpload = assets.where((it) => !(assetsCheckResponses[it.hash] ?? false)).toList();
+      final assetsToDelete = assets.where((it) => assetsCheckResponses[it.hash] ?? false).toList();
 
       final uploadAndDeleteFutures = <Future<void>>[];
       for (final asset in assetsToDelete) {
@@ -265,20 +268,18 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
       }
 
       for (final asset in assetsToUpload) {
-        uploadAndDeleteFutures.add(_uploadAsset(sessionMetadata, asset));
+        uploadAndDeleteFutures.add(_uploadAsset(event.sessionMetadata, asset));
       }
       await Future.wait(uploadAndDeleteFutures);
-      return true;
-    } on Object catch (e) {
+    } catch (e) {
       Logger.warn?.out('Error uploading session assets: $e');
-      return false;
     }
   }
 
   Future<void> _uploadAsset(SessionMetadata sessionMetadata, Asset asset) async {
     asset.data = await _sessionRepository.getSessionAsset(sessionMetadata.id, asset.fileName);
     final success = await _ingestService.uploadAsset(sessionMetadata.ingestUrl, clarityConfig.projectId, asset);
-    Logger.debug?.out('Result of Asset ${asset.md5Hash} upload $success');
+    Logger.debug?.out('Result of Asset ${asset.hash} upload $success');
     if (success) {
       await _sessionRepository.deleteSessionAsset(asset.fileName);
     }

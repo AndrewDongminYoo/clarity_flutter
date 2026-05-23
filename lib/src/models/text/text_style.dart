@@ -116,10 +116,9 @@ class TextStyle implements IProtoModel<mutation_payload.TextStyle> {
 }
 
 class FontWeight implements IProtoModel<mutation_payload.FontWeight> {
-  FontWeight(this.index, this.value);
+  FontWeight(this.value) : index = (value ~/ 100 - 1).clamp(0, 8);
 
-  // ignore: deprecated_member_use "Supports older Flutter rendering.FontWeight."
-  FontWeight.fromDartFontWeight(rendering.FontWeight fontWeight) : this(fontWeight.index, fontWeight.value);
+  FontWeight.fromDartFontWeight(rendering.FontWeight fontWeight) : this(fontWeight.value);
   int index;
   int value;
 

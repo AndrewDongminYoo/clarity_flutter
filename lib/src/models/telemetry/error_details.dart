@@ -2,11 +2,8 @@
 /// Licensed under the MIT License.
 library;
 
-// https://dart.dev/language/concurrency#performance-and-isolate-groups
-// https://github.com/dart-lang/sdk/blob/main/runtime/docs/deeply_immutable.md
-
-// 📦 Package imports:
-import 'package:meta/meta.dart';
+//https://dart.dev/language/concurrency#performance-and-isolate-groups
+//https://github.com/dart-lang/sdk/blob/main/runtime/docs/deeply_immutable.md
 
 // 🌎 Project imports:
 import 'package:clarity_flutter/clarity_flutter.dart';
@@ -16,17 +13,10 @@ import 'package:clarity_flutter/src/models/telemetry/telemetry_item.dart';
 import 'package:clarity_flutter/src/registries/environment_registry.dart';
 import 'package:clarity_flutter/src/registries/host_info.dart';
 
-@immutable
 @pragma('vm:deeply-immutable')
 final class ErrorDetails implements TelemetryItem {
+  const ErrorDetails({required this.errorType, required this.timestamp, this.message, this.stackTrace});
   // ErrorType as string to allow for deep immutability of the object
-  const ErrorDetails({
-    required this.errorType,
-    required this.timestamp,
-    this.message,
-    this.stackTrace,
-  });
-
   final String errorType;
   final String timestamp;
   final String? message;

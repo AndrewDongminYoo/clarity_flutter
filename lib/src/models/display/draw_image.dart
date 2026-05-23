@@ -8,14 +8,8 @@ import 'package:clarity_flutter/src/models/display/image_command.dart';
 import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
 
 class DrawImage extends ImageCommand {
-  DrawImage(
-    this.x,
-    this.y,
-    int? imageHashcode,
-    int paintHashcode, {
-    this.maskedWidth,
-    this.maskedHeight,
-  }) : super(imageHashcode, paintHashcode, CommandType.DrawImage);
+  DrawImage(this.x, this.y, int? imageHashcode, int paintHashcode, {this.maskedWidth, this.maskedHeight})
+    : super(imageHashcode, paintHashcode, CommandType.DrawImage);
   double x;
   double y;
   int? maskedWidth;

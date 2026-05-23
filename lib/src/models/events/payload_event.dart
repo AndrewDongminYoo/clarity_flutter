@@ -10,3 +10,7 @@ class PayloadEvent extends Event {
   PayloadEvent(this.metadata);
   PayloadMetadata metadata;
 }
+
+class PayloadFlushEvent extends Event {
+  PayloadFlushEvent();
+}

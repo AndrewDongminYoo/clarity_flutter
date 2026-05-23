@@ -2,6 +2,9 @@
 /// Licensed under the MIT License.
 library;
 
+// ignore_for_file: deprecated_member_use
+//  for support of lower versions
+
 // 🎯 Dart imports:
 import 'dart:typed_data';
 import 'dart:ui' as ui;
@@ -20,7 +23,6 @@ typedef GradientRectCallback = ui.Rect Function();
 
 class SnapshotCanvas implements ui.Canvas {
   SnapshotCanvas(Snapshot snapshotData, this._paintsCache) : _data = snapshotData;
-
   static const double pi = 3.1415926535897932;
 
   final Snapshot _data;
@@ -43,10 +45,7 @@ class SnapshotCanvas implements ui.Canvas {
   }
 
   @override
-  void clipRSuperellipse(
-    ui.RSuperellipse rSuperellipse, {
-    bool doAntiAlias = true,
-  }) {
+  void clipRSuperellipse(ui.RSuperellipse rSuperellipse, {bool doAntiAlias = true}) {
     const op = 1;
     final rrect = ui.RRect.fromLTRBAndCorners(
       rSuperellipse.left,
@@ -70,11 +69,7 @@ class SnapshotCanvas implements ui.Canvas {
   }
 
   @override
-  void clipRect(
-    ui.Rect rect, {
-    ui.ClipOp clipOp = ui.ClipOp.intersect,
-    bool doAntiAlias = true,
-  }) {
+  void clipRect(ui.Rect rect, {ui.ClipOp clipOp = ui.ClipOp.intersect, bool doAntiAlias = true}) {
     final op = clipOp.index;
     trackCommand(ClipRect(Rect.fromDartRect(rect), op, doAntiAlias));
     _nativeCanvas.clipRect(rect, clipOp: clipOp, doAntiAlias: doAntiAlias);
@@ -108,7 +103,7 @@ class SnapshotCanvas implements ui.Canvas {
         maskImages ? null : trackImage(atlas),
         trackPaint(paint),
         blendMode?.index,
-        colors?.map((color) => color.toARGB32()).toList(),
+        colors?.map((color) => color.value).toList(),
       ),
     );
   }
@@ -239,7 +234,9 @@ class SnapshotCanvas implements ui.Canvas {
 
   @override
   void drawPoints(ui.PointMode pointMode, List<ui.Offset> points, ui.Paint paint) {
-    trackCommand(DrawPoints(pointMode.index, points.map(Point.fromDartOffset).toList(), trackPaint(paint)));
+    trackCommand(
+      DrawPoints(pointMode.index, points.map(Point.fromDartOffset).toList(), trackPaint(paint)),
+    );
   }
 
   @override
@@ -384,10 +381,7 @@ class SnapshotCanvas implements ui.Canvas {
     _data.addCommand(command);
   }
 
-  int trackPaint(
-    ui.Paint dartPaint, {
-    GradientRectCallback? gradientRectCallback,
-  }) {
+  int trackPaint(ui.Paint dartPaint, {GradientRectCallback? gradientRectCallback}) {
     ShaderContext? context;
 
     if (dartPaint.shader != null && _currentGradient != null && gradientRectCallback != null) {

@@ -2,21 +2,19 @@
 /// Licensed under the MIT License.
 library;
 
+// ignore_for_file: deprecated_member_use_from_same_package, constant_identifier_names
+
 // 🎯 Dart imports:
 import 'dart:ui' as ui;
 
 // 🐦 Flutter imports:
 import 'package:flutter/rendering.dart';
 
-// 📦 Package imports:
-import 'package:meta/meta.dart';
-
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/models/display/display.dart';
 import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
 import 'package:clarity_flutter/src/models/iproto_model.dart';
 
-@immutable
 class ShaderContext {
   const ShaderContext(this.gradient, this.rect, this.textDirection);
   final Gradient gradient;
@@ -89,8 +87,7 @@ class UnsupportedShader extends Shader {
 
   @override
   mutation_payload.Shader toProtobufInstance() {
-    final typeEnum = mutation_payload.ShaderType.values.where((e) => e.name == super.type.name).firstOrNull;
-    return mutation_payload.Shader(typeEnum: typeEnum);
+    return mutation_payload.Shader(type: type.name);
   }
 }
 
@@ -119,7 +116,6 @@ class LinearGradientShader extends Shader {
       localMatrix,
     );
   }
-
   final Point start;
   final Point end;
   final int tileMode;
@@ -166,7 +162,6 @@ class RadialGradientShader extends Shader {
       localMatrix,
     );
   }
-
   final Point center;
   final double radius;
   final int tileMode;
@@ -219,7 +214,6 @@ class SweepGradientShader extends Shader {
       localMatrix,
     );
   }
-
   final Point center;
   final double startAngle;
   final double endAngle;

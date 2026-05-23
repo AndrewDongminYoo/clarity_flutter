@@ -15,6 +15,7 @@ abstract class SessionEvent extends Event {
   int relativeTimestamp(int pageTimestamp) => timestamp - pageTimestamp;
 }
 
+// ignore_for_file: constant_identifier_names
 enum EventType {
   Metric(0),
   Dimension(1),
@@ -67,6 +68,7 @@ enum EventType {
   Animation(44),
   StyleSheetAdoption(45),
   StyleSheetUpdate(46),
+  Consent(47),
   WebViewDiscover(100),
   WebViewMutation(101),
   MutationError(102),
@@ -74,7 +76,9 @@ enum EventType {
   Keystrokes(104),
   BackGesture(105),
   WebViewStatus(106),
-  AppInstallReferrer(107);
+  AppInstallReferrer(107),
+  GAID(108),
+  GAIDOptOut(109);
 
   const EventType(this.customOrdinal);
 

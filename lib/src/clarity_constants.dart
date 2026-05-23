@@ -5,9 +5,10 @@ library;
 class ClarityConstants {
   ClarityConstants._();
 
-  static const String clarityVersion = '1.6.0';
+  static const String clarityVersion = '1.9.0';
 
   // SDK constants
+  static const int idRadix = 36;
   static const int customTagMaxLength = 255;
   static const int customEventValueMaxLength = 254;
   static const int currentScreenNameMaxLength = 255;
@@ -17,20 +18,26 @@ class ClarityConstants {
 
   // Session constants
   static const int maxSessionDurationInMs = 30 * 60 * 1000; // 30 minutes
-  static const int idRadix = 36;
   static const int firstPageNumber = 1;
   static const int firstPayloadSequence = 1;
   static const String rootDirectory = 'microsoft_clarity';
   static const String payloadsDirectory = 'payloads';
   static const String assetsDirectory = 'assets';
   static const int payloadDurationIncrementInMs = 1000; // 1 second
-  static const int maxPayloadDurationInMs = 10 * 1000; // 10 seconds
+  static const int maxPayloadDurationInMs = 30 * 1000; // 30 seconds
   static const int connectionTimeoutInMs = 10 * 1000; // 10 seconds
   static const int requestsRetryCount = 3;
   static const int requestsRetryDelayInMs = 0;
   static const int mutationEventsThrottlingLimit = 15;
   static const int frameErrorsThrottlingLimit = 10;
   static const int payloadQueueCongestionLimit = 5;
+  static const int minEventDelayToFlushPayloadMs = 5000;
+  static const int periodicPayloadFlushCheckIntervalMs = 1000;
+
+  // Asset constants
+  static const int assetEncodingCountCongestionLimit = 20;
+  static const double imageDownsamplingFactor = 0.65;
+  static const int imageMinimumDimension = 50;
 
   // Client constants
   static const String applicationVersionVariableLabel = 'Application Version';
@@ -56,6 +63,9 @@ class ClarityConstants {
   // Settings Constants
   static const String metadataFileName = 'metadata';
   static const String pageMetadataFileName = 'page_metadata';
+
+  // Font Cache Constants
+  static const String fontCacheFileName = 'font_cache';
 
   // Telemetry Constants
   static const String dummyString = 'DUMMY';

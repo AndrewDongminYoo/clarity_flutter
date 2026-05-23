@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/models/assets/font_asset.dart';
 import 'package:clarity_flutter/src/models/capture/edit_text_info.dart';
 import 'package:clarity_flutter/src/models/capture/native_image_wrapper.dart';
 import 'package:clarity_flutter/src/models/display/display.dart';
@@ -29,6 +30,7 @@ class Snapshot extends ObservedEvent {
   List<DisplayCommand> commands = [];
   Map<int, NativeImageWrapper> images = {};
   Map<int, Paint> paints = {};
+  List<Typeface> typefaces = [];
   ViewNode? root;
   int keyboardHeight;
   EditTextInfo? editTextInfo;

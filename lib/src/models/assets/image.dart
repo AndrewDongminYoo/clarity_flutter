@@ -11,11 +11,14 @@ import 'package:clarity_flutter/src/models/iproto_model.dart';
 import 'package:clarity_flutter/src/utils/asset_utils.dart';
 
 class Image implements IProtoModel<mutation_payload.Image> {
-  Image(this.data, this.dartHashCode, this.size);
+  Image(this.data, this.dartHashCode, this.size, {this.bufferSize});
   Uint8List? data;
   int dartHashCode;
   String? dataHash;
   ImageSize size;
+  ImageSize? bufferSize;
+
+  ImageSize get dataSize => bufferSize ?? size;
 
   @override
   mutation_payload.Image toProtobufInstance() {

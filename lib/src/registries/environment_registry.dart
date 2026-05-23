@@ -8,9 +8,7 @@ class EnvRegistry {
   /// Factory constructor to get the singleton for the isolate.
   /// If [initialItems] is provided when the registry is first created,
   /// those items are used to initialize the registry.
-  factory EnvRegistry.ensureInitialized({
-    Map<EnvRegistryKey, dynamic>? initialItems,
-  }) {
+  factory EnvRegistry.ensureInitialized({Map<EnvRegistryKey, dynamic>? initialItems}) {
     if (_instance == null) {
       _instance = EnvRegistry._(initialItems ?? {});
     } else if (initialItems != null) {
@@ -47,7 +45,10 @@ enum EnvRegistryKey {
   projectConfig,
   cacheDir,
   packageName,
+  appVersion,
+  appBuildNumber,
   uploadIsolatePort,
+  assetIsolatePort,
   rootIsolateToken,
   telemetryEnabled,
   hostInfo,

@@ -18,8 +18,4 @@ class MutationErrorEvent extends BaseMutationEvent {
   }
 }
 
-enum ErrorReason {
-  enqueuedSessionFramesExceededLimit,
-  frameCapturingError,
-  frameProcessingError,
-}
+enum ErrorReason { enqueuedSessionFramesExceededLimit, frameCapturingError, frameProcessingError }

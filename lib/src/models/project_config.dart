@@ -21,6 +21,8 @@ class ProjectConfig {
     this.reportUrl,
     this.lean = false,
     this.maskingMode = MaskingMode.strict,
+    this.adsStorage = false,
+    this.analyticsStorage = true,
   });
 
   factory ProjectConfig.fromJson(String json) {
@@ -31,14 +33,15 @@ class ProjectConfig {
           ? jsonData['reportUrl'] as String
           : null,
       activate: jsonData['activate'] as bool,
-      lean: jsonData['lean'] as bool? ?? false,
+      lean: jsonData['lean'] as bool,
       maskingMode: MaskingMode.values[jsonData['maskingMode'] as int],
       network: NetworkConfig.fromJson(jsonData['network'] as Map<String, dynamic>),
       lowEndDevices: LowEndDevicesConfig.fromJson(jsonData['lowEndDevices'] as Map<String, dynamic>),
       screenCapture: ScreenCaptureConfig.fromJson(jsonData['screenCapture'] as Map<String, dynamic>),
+      adsStorage: jsonData['adsStorage'] as bool? ?? false,
+      analyticsStorage: jsonData['analyticsStorage'] as bool? ?? true,
     );
   }
-
   String ingestUrl;
   String? reportUrl;
   bool activate;
@@ -47,6 +50,8 @@ class ProjectConfig {
   NetworkConfig network;
   LowEndDevicesConfig lowEndDevices;
   ScreenCaptureConfig screenCapture;
+  bool adsStorage;
+  bool analyticsStorage;
 
   @override
   String toString() {

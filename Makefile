@@ -16,3 +16,8 @@ gen_protobuf:
 	  -I=$(PROTO_DIR) \
 	  $(PROTO_DIR)/*.proto
 	@echo "Dart protobuf stubs generated!"
+
+gen_pigeon:
+	@echo "Generating Pigeon stubs (Dart/Kotlin/Swift)..."
+	@$(DART) run pigeon --input pigeons/messages.dart
+	@echo "Pigeon stubs generated!"

@@ -22,7 +22,9 @@ class ColorFilter implements IProtoModel<mutation_payload.ColorFilter> {
       final color = match.group(1);
       final blendMode = match.group(2);
       if (color == null || blendMode == null) return null;
-      final actualBlendMode = ui.BlendMode.values.firstWhere((e) => e.toString() == blendMode.replaceAll(' ', ''));
+      final actualBlendMode = ui.BlendMode.values.firstWhere(
+        (e) => e.toString() == blendMode.replaceAll(' ', ''),
+      );
       return ColorFilter(Color4f.fromDartColorString(color)!, actualBlendMode.index);
     } else {
       return null;

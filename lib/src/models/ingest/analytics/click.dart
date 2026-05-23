@@ -48,7 +48,7 @@ class Click extends GestureEvent {
         '$relativeX,'
         '$relativeY,'
         '0,' // Ignore button
-        '${reaction ?? false ? 1 : 0},'
+        '${reaction == true ? 1 : 0},'
         '0,' // Ignore context
         '"${DataUtils.escape(text)}",'
         'null,' // Ignore link

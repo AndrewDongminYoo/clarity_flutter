@@ -34,6 +34,7 @@ class ViewNode implements IProtoModel<mutation_payload.ViewNodeDelta> {
     required this.nodeBounds,
     this.explicitMaskingState,
     String text = '',
+    this.contentDescription,
     this.previousFrameNode,
   }) {
     _text = ViewNodeText(text);
@@ -56,6 +57,7 @@ class ViewNode implements IProtoModel<mutation_payload.ViewNodeDelta> {
   final WeakReference<RenderObject> objectRef;
   Rect nodeBounds;
   ViewNode? previousFrameNode;
+  String? contentDescription;
   late final ViewNodeText _text;
 
   // Inherited from parent if parent has explicit masking defined
@@ -115,7 +117,6 @@ class ViewNodeText {
   ViewNodeText(String text) {
     this.text = text;
   }
-
   late String _text;
   late bool isFullText;
 

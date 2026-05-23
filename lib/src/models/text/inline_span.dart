@@ -31,11 +31,7 @@ abstract class InlineSpan implements IProtoModel<mutation_payload.InlineSpan> {
 
 class TextSpan extends InlineSpan {
   TextSpan(this.text, this.children, this.style, this.locale, this.spellOut) : super('TS');
-
-  factory TextSpan._fromDartTextSpan(
-    rendering.TextSpan textSpan, {
-    MaskingMode maskingMode = MaskingMode.relaxed,
-  }) {
+  factory TextSpan._fromDartTextSpan(rendering.TextSpan textSpan, {MaskingMode maskingMode = MaskingMode.relaxed}) {
     return TextSpan(
       MaskingUtils.maskText(maskingMode, textSpan.text, textSpan.style?.fontSize),
       textSpan.children?.map((e) => InlineSpan.fromDartInlineSpan(e, maskingMode: maskingMode)).nonNulls.toList(),

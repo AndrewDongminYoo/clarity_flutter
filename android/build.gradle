@@ -1,0 +1,41 @@
+/// Copyright (c) Microsoft Corporation.
+/// Licensed under the MIT License.
+
+group = "com.microsoft.clarity"
+version = "1.0"
+
+apply plugin: "com.android.library"
+
+try {
+    apply plugin: "kotlin-android"
+} catch (Exception ignored) {
+    // AGP 9+ has built-in Kotlin support; the plugin is not needed.
+}
+
+android {
+    namespace "com.microsoft.clarity"
+    compileSdk flutter.compileSdkVersion
+
+    defaultConfig {
+        minSdk 21
+        consumerProguardFiles "consumer-proguard-rules.pro"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+try {
+    android.kotlinOptions {
+        jvmTarget = "17"
+    }
+} catch (Exception ignored) {
+    // AGP 9+ does not support kotlinOptions; use built-in Kotlin compiler options.
+    kotlin {
+        compilerOptions {
+            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+        }
+    }
+}

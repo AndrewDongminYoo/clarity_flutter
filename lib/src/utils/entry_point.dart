@@ -16,7 +16,7 @@ class EntryPoint {
   }) {
     try {
       return logic();
-    } on Object catch (e, st) {
+    } catch (e, st) {
       _handleException(e, st, catchLogic, throwExceptions);
       return null;
     } finally {
@@ -32,7 +32,7 @@ class EntryPoint {
   }) async {
     try {
       return await logic();
-    } on Object catch (e, st) {
+    } catch (e, st) {
       _handleException(e, st, catchLogic, throwExceptions);
       return Future.value();
     } finally {
@@ -46,23 +46,19 @@ class EntryPoint {
     void Function(Object, StackTrace)? catchLogic,
     bool throwExceptions,
   ) {
-    if (e case Exception() || Error()) {
+    if (e is Exception || e is Error) {
       try {
-        // Log error if no catch logic is defined
-        final onCatchError =
-            catchLogic ??
-            (error, stackTrace) =>
-                Logger.error?.out('Type: ${error.runtimeType} Message: $error', stackTrace: stackTrace);
-        onCatchError.call(e, st);
-      } on Object catch (invokeE, st) {
+        final onCatch =
+            catchLogic ?? (e, st) => Logger.error?.out('Type: ${e.runtimeType} Message: $e', stackTrace: st);
+        onCatch.call(e, st);
+      } catch (invokeE, st) {
         Logger.error?.out(invokeE.toString(), stackTrace: st);
       }
       if (throwExceptions) {
-        if (e is Exception) {
-          throw e;
-        } else {
-          throw e as Error;
+        if (e is Error) {
+          Error.throwWithStackTrace(e, st);
         }
+        Error.throwWithStackTrace(Exception(e.toString()), st);
       }
     } else {
       Logger.error?.out('Unknown issue thrown $e', stackTrace: st);

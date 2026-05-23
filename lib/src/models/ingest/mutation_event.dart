@@ -12,7 +12,6 @@ import 'package:clarity_flutter/src/utils/data_utils.dart';
 
 class MutationEvent extends BaseMutationEvent {
   MutationEvent(int timestamp, this.frame, this.screenName) : super(timestamp, EventType.Mutation);
-
   bool isKeyFrame = true;
   DisplayFrame frame;
   String screenName;

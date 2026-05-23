@@ -7,6 +7,7 @@ import 'dart:math';
 
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/clarity_constants.dart';
+import 'package:clarity_flutter/src/models/events/session_event.dart';
 import 'package:clarity_flutter/src/models/session/page_metadata.dart';
 
 class PayloadMetadata {
@@ -16,13 +17,13 @@ class PayloadMetadata {
     required this.start,
     required this.startTimeRelativeToPage,
   });
-
   PageMetadata page;
   final int sequence;
 
   // Start time relative to the previous payload in the same page
   final int start;
   int? duration;
+  int? nextFlushDueAt;
 
   // This indicates the actual payload start time relative to the page
   int startTimeRelativeToPage;
@@ -42,9 +43,12 @@ class PayloadMetadata {
   int get maxPayloadDuration =>
       (sequence * ClarityConstants.payloadDurationIncrementInMs).clamp(0, ClarityConstants.maxPayloadDurationInMs);
 
-  void updateDuration(int eventTimestamp) {
+  void updateDuration(int eventTimestamp, EventType eventType) {
     final eventPageRelativeTimestamp = eventTimestamp - pageStartTime;
     duration = max(duration ?? 0, eventPageRelativeTimestamp - start);
+    if (eventType != EventType.Baseline) {
+      nextFlushDueAt = eventTimestamp + ClarityConstants.minEventDelayToFlushPayloadMs;
+    }
   }
 
   @override

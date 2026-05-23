@@ -28,9 +28,9 @@ class TelemetryTracker {
 
   static bool get shouldTrackTelemetry {
     if (_telemetryEnabled != null) return _telemetryEnabled!;
-    final enabledConfig = EnvRegistry.ensureInitialized().getItem<bool>(EnvRegistryKey.telemetryEnabled);
+    final enabledConfig = EnvRegistry.ensureInitialized().getItem<String>(EnvRegistryKey.telemetryEnabled);
     if (enabledConfig != null) {
-      return _telemetryEnabled = enabledConfig;
+      return _telemetryEnabled = enabledConfig.toLowerCase() == 'true';
     } else {
       // Not set yet, track telemetry in the meantime to cover initialization problems
       return true;
@@ -39,9 +39,7 @@ class TelemetryTracker {
 
   static TelemetryTracker? get instance => _instance;
 
-  static void ensureInitialized({
-    void Function(TelemetryItem)? onTelemetryOverride,
-  }) {
+  static void ensureInitialized({void Function(TelemetryItem)? onTelemetryOverride}) {
     // Set instance to null to disable telemetry tracking
     if (!shouldTrackTelemetry) {
       _instance = null;

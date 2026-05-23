@@ -1,17 +1,15 @@
-// 📦 Package imports:
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:system_info2/system_info2.dart';
-
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/clarity_constants.dart';
 import 'package:clarity_flutter/src/models/project_config.dart';
+import 'package:clarity_flutter/src/native/generated/messages.g.dart' as pigeon;
 import 'package:clarity_flutter/src/registries/environment_registry.dart';
+import 'package:clarity_flutter/src/registries/host_info.dart';
 import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 class ProjectConfigUtils {
   ProjectConfigUtils._();
 
-  static const int bytesInGB = 1024 * 1024 * 1024;
+  static const int megabytesInGB = 1024;
 
   static bool isScreenNameAllowed(String? screenName) {
     if (screenName == null) return true;
@@ -32,19 +30,26 @@ class ProjectConfigUtils {
   }
 
   static bool isLowEndDevice() {
-    final totalMemoryMB = SysInfo.getTotalPhysicalMemory() / ProjectConfigUtils.bytesInGB;
+    final hostInfo = EnvRegistry.ensureInitialized().getItem<HostInfo>(EnvRegistryKey.hostInfo);
+    final totalMemoryMB = hostInfo?.totalMemory ?? 0;
+    if (totalMemoryMB > 0) {
+      final totalMemoryGB = totalMemoryMB / ProjectConfigUtils.megabytesInGB;
+      return totalMemoryGB < ClarityConstants.lowEndMemoryThresholdGB;
+    }
 
-    return totalMemoryMB < ClarityConstants.lowEndMemoryThresholdGB;
+    Logger.warn?.out("Unable to determine total memory of the device. Assuming it's not a low-end device.");
+    return false;
   }
 
-  static bool isUploadingOverNetworkAllowed(List<ConnectivityResult> result) {
+  static bool isUploadingOverNetworkAllowed(List<pigeon.ConnectivityType> result) {
     final allowMeteredNetworkConfig = EnvRegistry.ensureInitialized()
         .getItem<ProjectConfig>(EnvRegistryKey.projectConfig)!
         .network
         .allowMeteredNetwork;
-    final isCurrentNetworkWIFI = result.contains(ConnectivityResult.wifi);
-    final isCurrentNetworkMobile = result.contains(ConnectivityResult.mobile);
+    final isCurrentNetworkUnmetered =
+        result.contains(pigeon.ConnectivityType.wifi) || result.contains(pigeon.ConnectivityType.ethernet);
+    final isCurrentNetworkMobile = result.contains(pigeon.ConnectivityType.mobile);
 
-    return isCurrentNetworkWIFI || (allowMeteredNetworkConfig && isCurrentNetworkMobile);
+    return isCurrentNetworkUnmetered || (allowMeteredNetworkConfig && isCurrentNetworkMobile);
   }
 }

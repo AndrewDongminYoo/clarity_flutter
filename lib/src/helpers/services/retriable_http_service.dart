@@ -26,7 +26,6 @@ abstract class RetriableHttpService {
 
 class RetryPolicy<T> {
   RetryPolicy(this.maxRetryCount, this.delayMilliseconds, this.resultRetryCriteria);
-
   final int maxRetryCount;
   final int delayMilliseconds;
   final bool Function(T)? resultRetryCriteria;
@@ -39,7 +38,7 @@ class RetryPolicy<T> {
           throw _RetryableOperationError('Failed pass criteria!');
         }
         return result;
-      } on Object catch (e) {
+      } catch (e) {
         Logger.warn?.out('Request failed with $e, retrying!');
         await Future<void>.delayed(Duration(milliseconds: delayMilliseconds));
       }
@@ -51,7 +50,6 @@ class RetryPolicy<T> {
 
 class _RetryableOperationError extends Error {
   _RetryableOperationError(this.message);
-
   String message;
 
   @override

@@ -28,7 +28,8 @@ class Offset extends OffsetBase {
 }
 
 class Size extends OffsetBase {
-  Size(super.dx, super.dy);
+  // ignore: matching_super_parameters
+  Size(super.width, super.height);
 
   Size.fromDartSize(ui.Size size)
     : this(

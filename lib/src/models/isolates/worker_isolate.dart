@@ -11,8 +11,10 @@ import 'package:flutter/widgets.dart';
 
 // 🌎 Project imports:
 import 'package:clarity_flutter/clarity_flutter.dart';
+import 'package:clarity_flutter/src/managers/asset_manager.dart';
 import 'package:clarity_flutter/src/managers/session_manager.dart';
 import 'package:clarity_flutter/src/managers/upload_manager.dart';
+import 'package:clarity_flutter/src/models/isolates/asset_isolate_config.dart';
 import 'package:clarity_flutter/src/models/isolates/isolate_config.dart';
 import 'package:clarity_flutter/src/models/isolates/session_isolate_config.dart';
 import 'package:clarity_flutter/src/models/isolates/upload_isolate_config.dart';
@@ -23,10 +25,9 @@ import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 abstract class WorkerIsolate {
   @protected
-  WorkerIsolate(IsolateConfig isolateConfig)
-    : sendPort = isolateConfig.sendPort,
+  WorkerIsolate(IsolateConfig config)
+    : sendPort = config.sendPort,
       clarityConfig = EnvRegistry.ensureInitialized().getItem<ClarityConfig>(EnvRegistryKey.clarityConfig)!;
-
   @protected
   final SendPort sendPort;
   @protected
@@ -49,6 +50,8 @@ abstract class WorkerIsolate {
       instance = SessionWorkerIsolate(isolateConfig);
     } else if (isolateConfig is UploadIsolateConfig) {
       instance = UploadWorkerIsolate(isolateConfig);
+    } else if (isolateConfig is AssetIsolateConfig) {
+      instance = AssetWorkerIsolate(isolateConfig);
     } else {
       throw UnimplementedError('Provided Config is not a valid type must be implemented in subclasses');
     }

@@ -3,6 +3,7 @@
 library;
 
 // 🎯 Dart imports:
+import 'dart:collection';
 import 'dart:math';
 
 // 🐦 Flutter imports:
@@ -15,6 +16,8 @@ import 'package:clarity_flutter/src/models/ingest/ingest.dart';
 import 'package:clarity_flutter/src/models/view_hierarchy/view_hierarchy.dart';
 import 'package:clarity_flutter/src/models/view_hierarchy/view_node.dart';
 import 'package:clarity_flutter/src/utils/dev_utils.dart';
+import 'package:clarity_flutter/src/utils/log_utils.dart';
+import 'package:clarity_flutter/src/utils/string_utils.dart';
 
 class GestureProcessor {
   ViewHierarchy? _lastViewHierarchy;
@@ -36,15 +39,30 @@ class GestureProcessor {
 
   void _updateAnalyticsClickEvent(Click event) {
     final clickedViewNode = _getEstimatedClickedViewNode(_lastViewHierarchy!.root, event, 0);
-    final eventText = clickedViewNode.node.text.isNotEmpty
-        ? clickedViewNode.node.text
-        : _getLongestTextInNodeTree(clickedViewNode.node, Offset(event.absX, event.absY));
 
-    event.text = eventText;
+    event.text = _resolveEventText(event, clickedViewNode);
     event.reaction = !clickedViewNode.isPathClickable;
     event.nodeSelector = clickedViewNode.selectorPath.join();
     event.nodeBounds = clickedViewNode.node.nodeBounds;
+    Logger.info?.out('Click Target Event Text: ${event.text}');
+
     _updateRelativePoints(event);
+  }
+
+  String _resolveEventText(Click event, ClickedViewNode clickedNode) {
+    final nodeText = clickedNode.node.text;
+    if (!nodeText.hasStrangeText) return nodeText;
+
+    final treeText = _getLongestTextInNodeTree(clickedNode.node, Offset(event.absX, event.absY));
+    if (!treeText.hasStrangeText) return treeText;
+
+    // Content description fallback
+    if (clickedNode.isPathClickable) {
+      return _findNearestContentDescriptionInSubtree(clickedNode.node) ??
+          clickedNode.nearestContentDescription ??
+          treeText;
+    }
+    return clickedNode.nearestContentDescription ?? treeText;
   }
 
   /// Recursively finds the best-matching clicked node, prioritizing clickable children
@@ -67,21 +85,30 @@ class GestureProcessor {
 
       typeIdIndexMap[typeIdPair] = childIndex + 1;
     }
-
-    // Priority: clickable children in range, the first one visually on top
+    ClickedViewNode? clickedViewNode;
     final clickableChildren = childClickCandidateArray.where((c) => c.isPathClickable).toList();
+
     if (clickableChildren.isNotEmpty) {
-      return clickableChildren.first;
+      // Priority: clickable children in range, the first one visually on top
+      clickedViewNode = clickableChildren.first;
+    } else if (node.clickable || childClickCandidateArray.isEmpty) {
+      // If current node is clickable or no children in range, return current node
+      clickedViewNode = ClickedViewNode(node, index, node.clickable);
+    } else {
+      // Otherwise, return smallest un-clickable child in range
+      childClickCandidateArray.sort((a, b) => a.nodeArea.compareTo(b.nodeArea));
+      clickedViewNode = childClickCandidateArray.first;
     }
 
-    // If current node is clickable or no children in range, return current node
-    if (node.clickable || childClickCandidateArray.isEmpty) {
-      return ClickedViewNode(node, index, node.clickable);
-    }
+    _updateClickedNodeContentDescription(node, clickedViewNode);
+    return clickedViewNode;
+  }
 
-    // Otherwise, return smallest un-clickable child in range
-    childClickCandidateArray.sort((a, b) => a.nodeArea.compareTo(b.nodeArea));
-    return childClickCandidateArray.first;
+  /// Captures the nearest ancestor's content description during traversal.
+  void _updateClickedNodeContentDescription(ViewNode node, ClickedViewNode clickedNode) {
+    if (clickedNode.nearestContentDescription == null && (node.contentDescription?.isNotEmpty ?? false)) {
+      clickedNode.nearestContentDescription = node.contentDescription;
+    }
   }
 
   void _updateRelativePoints(Click event) {
@@ -107,6 +134,19 @@ class GestureProcessor {
     return longestText;
   }
 
+  String? _findNearestContentDescriptionInSubtree(ViewNode node) {
+    final queue = Queue<ViewNode>()..add(node);
+
+    while (queue.isNotEmpty) {
+      final current = queue.removeFirst();
+      if (current.contentDescription?.isNotEmpty ?? false) {
+        return current.contentDescription;
+      }
+      queue.addAll(current.children);
+    }
+    return null;
+  }
+
   bool _checkPointWithinBounds(Offset point, Rect bounds) {
     return bounds.contains(point);
   }
@@ -122,12 +162,12 @@ class ClickedViewNode {
     : selectorPath = selectorPath ?? [] {
     prependNodeSelector(node.type, node.id, index);
   }
-
   final ViewNode node;
   final int index;
   final bool isPathClickable;
   final List<String> selectorPath;
 
+  String? nearestContentDescription;
   int get nodeArea => node.width * node.height;
 
   /// Prepends a selector segment for the current node to the selector path.

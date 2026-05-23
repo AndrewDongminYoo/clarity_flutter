@@ -2,33 +2,23 @@
 /// Licensed under the MIT License.
 library;
 
+// 🎯 Dart imports:
+import 'dart:typed_data';
+
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/utils/asset_utils.dart';
 
 class Asset {
-  Asset({required this.assetType, required this.fileName}) : md5Hash = fileName;
-
+  Asset({required this.assetType, required this.fileName}) : hash = fileName;
   final AssetType assetType;
-  List<int>? _data;
   final String fileName;
-  String md5Hash;
+  late String hash;
 
-  int width = 0;
-  int height = 0;
+  Uint8List? data;
+  ImageSize? originalImageSize;
+  ImageSize? bufferSize;
 
-  ImageSize? imageSize;
-
-  set data(List<int> value) {
-    _data = value;
-    imageSize = assetType == AssetType.image ? AssetUtils.getImageSizeFromBytes(_data!) : null;
-  }
-
-  List<int> get data => _data!;
+  ImageSize get dataSize => bufferSize ?? originalImageSize!;
 }
 
-enum AssetType {
-  unsupported,
-  image,
-  typeface,
-  web,
-}
+enum AssetType { unsupported, image, typeface, web }

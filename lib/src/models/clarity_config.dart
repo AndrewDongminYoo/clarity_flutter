@@ -2,9 +2,10 @@
 /// Licensed under the MIT License.
 library;
 
-// ignore_for_file: deprecated_member_use_from_same_package "'userId' is deprecated and shouldn't be used. Use `Clarity.setCustomUserId(customUserId)` instead, this will be removed in future major versions."
+// ignore_for_file: deprecated_member_use_from_same_package
 
 // 🌎 Project imports:
+import 'package:clarity_flutter/src/clarity_constants.dart';
 import 'package:clarity_flutter/src/utils/log_utils.dart';
 
 /// Configuration for initializing Clarity in your Flutter app.
@@ -35,24 +36,27 @@ class ClarityConfig {
   /// Defaults to [LogLevel.Info] if not provided.
   final LogLevel logLevel;
 
-  /// Checks if the [projectId] is valid (not empty or whitespace).
+  /// Checks if the [projectId] is a valid base36 number.
   bool isProjectIdValid() {
-    if (projectId.isEmpty || projectId.trim().isEmpty) {
+    if (_blankOrHasInvalidCharacters(projectId)) {
       return false;
     }
-    return true;
+
+    final projectIdValue = int.tryParse(projectId, radix: ClarityConstants.idRadix);
+
+    return projectIdValue != null;
   }
 
   /// Checks if the [userId] is valid (if provided, must be non-empty and within allowed base36 range).
   bool isUserIdValid() {
     if (userId == null) return true;
 
-    if (userId!.isEmpty || userId!.trim().isEmpty || RegExp('[A-Z]').hasMatch(userId!)) {
+    if (_blankOrHasInvalidCharacters(userId!)) {
       return false;
     }
 
-    final maxBase36Value = int.parse('1z141z4', radix: 36);
-    final userIdValue = int.tryParse(userId!, radix: 36);
+    final maxBase36Value = int.parse('1z141z4', radix: ClarityConstants.idRadix);
+    final userIdValue = int.tryParse(userId!, radix: ClarityConstants.idRadix);
 
     return userIdValue != null && userIdValue > 0 && userIdValue < maxBase36Value;
   }
@@ -65,5 +69,9 @@ class ClarityConfig {
   @override
   String toString() {
     return 'ClarityConfig{projectId: $projectId, userId: $userId, logLevel: $logLevel}';
+  }
+
+  bool _blankOrHasInvalidCharacters(String value) {
+    return value.isEmpty || value != value.trim() || RegExp('[A-Z]').hasMatch(value);
   }
 }

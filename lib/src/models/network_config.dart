@@ -3,10 +3,7 @@
 library;
 
 class NetworkConfig {
-  const NetworkConfig({
-    required this.allowMeteredNetwork,
-    this.maxDataVolume,
-  });
+  const NetworkConfig({required this.allowMeteredNetwork, this.maxDataVolume});
 
   factory NetworkConfig.fromJson(Map<String, dynamic> json) {
     return NetworkConfig(

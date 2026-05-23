@@ -4,6 +4,7 @@ library;
 
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/managers/base_session_manager.dart';
+import 'package:clarity_flutter/src/models/assets/font_asset.dart';
 import 'package:clarity_flutter/src/models/assets/image.dart';
 import 'package:clarity_flutter/src/models/display/display.dart';
 import 'package:clarity_flutter/src/models/generated/MutationPayload.pb.dart' as mutation_payload;
@@ -16,6 +17,7 @@ class DisplayFrame implements IProtoPageEventModel<mutation_payload.DisplayFrame
     this.images,
     this.paints,
     this.commands,
+    this.typefaces,
     this.screenWidth,
     this.screenHeight,
     this.keyboardHeight,
@@ -29,6 +31,7 @@ class DisplayFrame implements IProtoPageEventModel<mutation_payload.DisplayFrame
   List<Image> images;
   List<Paint> paints;
   List<DisplayCommand> commands;
+  List<Typeface> typefaces;
   int screenWidth;
   int screenHeight;
   int keyboardHeight;
@@ -45,6 +48,7 @@ class DisplayFrame implements IProtoPageEventModel<mutation_payload.DisplayFrame
       images: images.map((image) => image.toProtobufInstance()).toList(growable: false),
       paints: paints.map((paint) => paint.toProtobufInstance()).toList(growable: false),
       commands: commands.map((command) => command.toProtobufInstance()).toList(growable: false),
+      typefaces: typefaces.map((typeface) => typeface.toProtobufInstance()).toList(growable: false),
       screenWidth: screenWidth,
       screenHeight: screenHeight,
       keyboardHeight: keyboardHeight,

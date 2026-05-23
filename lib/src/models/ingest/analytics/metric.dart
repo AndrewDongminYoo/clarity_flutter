@@ -6,6 +6,7 @@ library;
 import 'package:clarity_flutter/src/models/events/session_event.dart';
 import 'package:clarity_flutter/src/models/ingest/analytics/analytics_event.dart';
 
+// ignore_for_file: constant_identifier_names
 enum Metric {
   ClientTimestamp,
   Playback,

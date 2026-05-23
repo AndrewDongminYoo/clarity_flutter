@@ -41,10 +41,7 @@ class SnapshotPaintingContext extends PaintingContext {
   // Related Issue: https://msasg.visualstudio.com/Clarity/_workitems/edit/9734552
   // This package's (https://pub.dev/packages/visibility_detector) VisibilityDetector Widget creates a RenderVisibilityDetector which notifies its subscribers when paint is called
   // on it, so we skip it to not cause excessive notifications
-  final Set<String> skippedRenderObjects = const {
-    '_RenderSnapshotWidget',
-    'RenderVisibilityDetector',
-  };
+  final Set<String> skippedRenderObjects = const {'_RenderSnapshotWidget', 'RenderVisibilityDetector'};
 
   final Snapshot _snapshotData;
 
@@ -160,7 +157,8 @@ class SnapshotPaintingContext extends PaintingContext {
   }) {
     final effectiveTransform = Matrix4.translationValues(offset.dx, offset.dy, 0)
       ..multiply(transform)
-      ..translateByDouble(-offset.dx, -offset.dy, 0, 1);
+      // ignore: deprecated_member_use
+      ..translate(-offset.dx, -offset.dy);
     canvas
       ..save()
       ..transform(effectiveTransform.storage);
@@ -214,6 +212,8 @@ class SnapshotPaintingContext extends PaintingContext {
         (explicitMasking == null && projectDefaultMasking == MaskingMode.strict) ||
         (explicitMasking != null && explicitMasking == MaskingState.masking);
 
+    final currentMaskingMode = MaskingUtils.determineMaskingMode(explicitMasking, projectDefaultMasking);
+
     final node = ViewNode(
       renderNodeId: identityHashCode(child),
       id: parent == null ? 0 : -1,
@@ -232,6 +232,9 @@ class SnapshotPaintingContext extends PaintingContext {
       explicitMaskingState: explicitMasking,
       isMasked: isMasked,
       nodeBounds: globalRect,
+      contentDescription: child.contentDescription == null
+          ? null
+          : MaskingUtils.maskText(currentMaskingMode, child.contentDescription, null),
     );
 
     currentPaintingObject = node;
@@ -279,7 +282,10 @@ class SnapshotPaintingContext extends PaintingContext {
       if (!releaseFrameErrors && _allowedErrorCount <= 0) {
         rethrow;
       }
-      Logger.error?.out('View painting error for Type: ${child.runtimeType} with Error: $e', stackTrace: st);
+      Logger.error?.out(
+        'View painting error for Type: ${child.runtimeType} with Error: $e',
+        stackTrace: st,
+      );
       TelemetryTracker.instance?.trackError(ErrorType.PartialScreenCapturing, e.toString(), st);
       _snapshotCanvas!.trackCommand(ErrorViewAnnotation(child.runtimeType.toString(), e.toString()));
       _allowedErrorCount--;
@@ -377,14 +383,14 @@ class SnapshotPaintingContext extends PaintingContext {
 
   // Have to put child as dynamic because there is no way to specify that the type T is a RenderBox and also implements the ContainerRenderObjectMixin<RenderBox, TextParentData> mixin.
   String _paintRenderTextWithPlaceholders<T extends RenderBox, U extends clarity_text.RenderTextBase>(
-    dynamic child,
+    RenderInlineChildrenContainerDefaults child,
     Offset offset,
     MaskingMode currentPainterMaskingMode,
     U Function(T, BoxConstraints, List<PlaceholderDimensions>, [MaskingMode]) createObjectCallback,
     clarity_display.DisplayCommand Function(U, clarity_text.Offset) trackCommandCallback,
   ) {
     var placeholders = <PlaceholderDimensions>[];
-    if ((child as dynamic).childCount as int > 0) {
+    if (child.childCount > 0) {
       placeholders = RenderTextUtils.layoutChildren(child);
     }
 
@@ -394,7 +400,7 @@ class SnapshotPaintingContext extends PaintingContext {
 
     // Only paint if has children, to paint the children and apply needed transformations to them.
     // To cover WidgetSpans for instance.
-    if ((child as dynamic).childCount as int > 0) {
+    if (child.childCount > 0) {
       _paintWithErrorHandling(child, offset);
     }
 
@@ -420,12 +426,7 @@ class SnapshotPaintingContext extends PaintingContext {
   // however, if they get called for some reason we call [RenderObject.markNeedsPaint] on containing
   // render object to make sure we don't cause inconsistency in the RenderObject Tree.
   @override
-  void pushLayer(
-    ContainerLayer childLayer,
-    PaintingContextCallback painter,
-    Offset offset, {
-    Rect? childPaintBounds,
-  }) {
+  void pushLayer(ContainerLayer childLayer, PaintingContextCallback painter, Offset offset, {Rect? childPaintBounds}) {
     Logger.warn?.out(
       'Pushing layer! Painter: ${currentPaintingObject?.runtimeType} ${childLayer.runtimeType} ${currentPaintingObject?.renderObject?.isRepaintBoundary}',
     );
@@ -464,12 +465,7 @@ class SnapshotPaintingContext extends PaintingContext {
   }
 
   @override
-  OpacityLayer pushOpacity(
-    Offset offset,
-    int alpha,
-    PaintingContextCallback painter, {
-    OpacityLayer? oldLayer,
-  }) {
+  OpacityLayer pushOpacity(Offset offset, int alpha, PaintingContextCallback painter, {OpacityLayer? oldLayer}) {
     if (oldLayer == null) {
       currentPaintingObject?.renderObject?.markNeedsPaint();
       onMarkNeedsPaint();
@@ -482,7 +478,6 @@ class SnapshotPaintingContext extends PaintingContext {
 // Used to bypass protection layer over [alwaysNeedsCompositing]
 class ClarityObjectWrapper extends RenderObject {
   ClarityObjectWrapper(this.object);
-
   RenderObject object;
 
   @override

@@ -2,9 +2,12 @@
 /// Licensed under the MIT License.
 library;
 
+// ignore_for_file: avoid_slow_async_io
+
 // 🎯 Dart imports:
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 // 🌎 Project imports:
 import 'package:clarity_flutter/src/clarity_constants.dart';
@@ -15,20 +18,16 @@ enum WriteMode { overwrite, append }
 class FileStore {
   FileStore(Directory cacheDir, [String? directory])
     : fullDirectory = FileUtils.concat([cacheDir.path, ClarityConstants.rootDirectory, directory ?? '']);
-
   final String fullDirectory;
 
-  bool fileExists(String filename) {
+  Future<bool> fileExists(String filename) {
     final file = File(_getFileFullPath(filename));
-    return file.existsSync();
+    return file.exists();
   }
 
-  Future<List<FileSystemEntity>> getAllFilesRecursively({
-    String prefix = '',
-    bool includeDirectories = false,
-  }) async {
+  Future<List<FileSystemEntity>> getAllFilesRecursively({String prefix = '', bool includeDirectories = false}) async {
     final directory = Directory('$fullDirectory/$prefix');
-    if (directory.existsSync()) {
+    if (await directory.exists()) {
       return directory.list(recursive: true).where((entity) => includeDirectories || entity is File).toList();
     } else {
       return List.empty();
@@ -37,7 +36,7 @@ class FileStore {
 
   Future<List<FileSystemEntity>> getAllDirectories({String prefix = ''}) async {
     final directory = Directory('$fullDirectory/$prefix');
-    if (directory.existsSync()) {
+    if (await directory.exists()) {
       return directory.list().where((entity) => entity is Directory).toList();
     } else {
       return List.empty();
@@ -48,7 +47,7 @@ class FileStore {
     return utf8.decode(await readFileToByteArray(filename));
   }
 
-  Future<List<int>> readFileToByteArray(String filename) {
+  Future<Uint8List> readFileToByteArray(String filename) {
     final file = File(_getFileFullPath(filename));
     return file.readAsBytes();
   }
@@ -143,7 +142,6 @@ class FileStore {
   Future<List<FileSystemEntity>> _filterModifiedBeforeTimestamp(List<FileSystemEntity> entities, int timestamp) async {
     final result = <FileSystemEntity>[];
     for (final entity in entities) {
-      // ignore: avoid_slow_async_io "Needed to read modified time during cleanup."
       final stat = await entity.stat();
       if (stat.modified.millisecondsSinceEpoch < timestamp) {
         result.add(entity);
