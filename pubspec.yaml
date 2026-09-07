@@ -47,4 +47,4 @@ dev_dependencies:
   # Pigeon: type-safe code-gen for platform channels.
   # Used only at dev time via `make gen_pigeon` -> generates Dart/Kotlin/Swift stubs.
   pigeon: ^26.3.4
-  very_good_analysis: ^10.2.0
+  very_good_analysis: ^11.0.0
