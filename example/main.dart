@@ -13,12 +13,7 @@ void main() {
     logLevel: LogLevel.Info, // Optional: verbose logging
   );
 
-  runApp(
-    ClarityWidget(
-      app: const MyApp(),
-      clarityConfig: config,
-    ),
-  );
+  runApp(ClarityWidget(app: const MyApp(), clarityConfig: config));
 }
 
 class MyApp extends StatelessWidget {
@@ -50,11 +45,7 @@ class HomeScreen extends StatelessWidget {
 
           // Masking sensitive widget content from Clarity session replay
           ClarityMask(
-            child: TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Sensitive Input (masked)',
-              ),
-            ),
+            child: TextFormField(decoration: const InputDecoration(labelText: 'Sensitive Input (masked)')),
           ),
 
           const SizedBox(height: 16),
@@ -63,9 +54,7 @@ class HomeScreen extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () async {
                 final sessionUrl = Clarity.getCurrentSessionUrl();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Current session URL: $sessionUrl')),
-                );
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Current session URL: $sessionUrl')));
               },
               child: const Text('Show session URL'),
             ),

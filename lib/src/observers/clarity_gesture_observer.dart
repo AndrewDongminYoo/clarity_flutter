@@ -240,10 +240,7 @@ class ClarityGestureObserver implements IObserver {
     EntryPoint.run(
       logic,
       catchLogic: (e, st) {
-        Logger.error?.out(
-          'Error processing pointer event! Type: ${e.runtimeType} message: $e',
-          stackTrace: st,
-        );
+        Logger.error?.out('Error processing pointer event! Type: ${e.runtimeType} message: $e', stackTrace: st);
         TelemetryTracker.instance?.trackError(ErrorType.CapturingTouchEvent, e.toString(), st);
       },
     );

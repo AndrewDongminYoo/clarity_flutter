@@ -3,6 +3,9 @@ include: package:very_good_analysis/analysis_options.yaml
 analyzer:
   exclude:
     - lib/src/models/generated/**
+    - build/**
+    - android/**
+    - ios/**
   errors:
     avoid_catches_without_on_clauses: ignore
     avoid_equals_and_hash_code_on_mutable_classes: ignore

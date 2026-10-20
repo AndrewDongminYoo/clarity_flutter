@@ -234,9 +234,7 @@ class SnapshotCanvas implements ui.Canvas {
 
   @override
   void drawPoints(ui.PointMode pointMode, List<ui.Offset> points, ui.Paint paint) {
-    trackCommand(
-      DrawPoints(pointMode.index, points.map(Point.fromDartOffset).toList(), trackPaint(paint)),
-    );
+    trackCommand(DrawPoints(pointMode.index, points.map(Point.fromDartOffset).toList(), trackPaint(paint)));
   }
 
   @override

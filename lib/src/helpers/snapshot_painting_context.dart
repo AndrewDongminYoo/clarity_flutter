@@ -282,10 +282,7 @@ class SnapshotPaintingContext extends PaintingContext {
       if (!releaseFrameErrors && _allowedErrorCount <= 0) {
         rethrow;
       }
-      Logger.error?.out(
-        'View painting error for Type: ${child.runtimeType} with Error: $e',
-        stackTrace: st,
-      );
+      Logger.error?.out('View painting error for Type: ${child.runtimeType} with Error: $e', stackTrace: st);
       TelemetryTracker.instance?.trackError(ErrorType.PartialScreenCapturing, e.toString(), st);
       _snapshotCanvas!.trackCommand(ErrorViewAnnotation(child.runtimeType.toString(), e.toString()));
       _allowedErrorCount--;

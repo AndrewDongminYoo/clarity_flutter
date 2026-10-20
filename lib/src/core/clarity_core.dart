@@ -405,10 +405,7 @@ class ClarityManager {
         unawaited(_initializeFontService());
       },
       catchLogic: (e, st) {
-        Logger.error?.out(
-          'Error initializing Clarity! Type: ${e.runtimeType} message: $e',
-          stackTrace: st,
-        );
+        Logger.error?.out('Error initializing Clarity! Type: ${e.runtimeType} message: $e', stackTrace: st);
         TelemetryTracker.instance?.trackError(ErrorType.Initialization, e.toString(), st);
       },
       finallyLogic: () {

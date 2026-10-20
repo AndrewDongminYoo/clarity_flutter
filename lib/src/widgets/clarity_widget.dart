@@ -69,10 +69,7 @@ class ClarityState extends State<ClarityWidget> with WidgetsBindingObserver {
     EntryPoint.run(
       ClarityManager.widgetRemoved,
       catchLogic: (e, st) {
-        Logger.error?.out(
-          'Error deactivating with Clarity! Type: ${e.runtimeType} message: $e',
-          stackTrace: st,
-        );
+        Logger.error?.out('Error deactivating with Clarity! Type: ${e.runtimeType} message: $e', stackTrace: st);
       },
     );
   }
@@ -86,10 +83,7 @@ class ClarityState extends State<ClarityWidget> with WidgetsBindingObserver {
             return ClarityManager.getGestureListenerWidget(widget.app);
           },
           catchLogic: (e, st) {
-            Logger.error?.out(
-              'Error building with Clarity! Type: ${e.runtimeType} message: $e',
-              stackTrace: st,
-            );
+            Logger.error?.out('Error building with Clarity! Type: ${e.runtimeType} message: $e', stackTrace: st);
             TelemetryTracker.instance?.trackError(ErrorType.Initialization, e.toString(), st);
           },
         ) ??

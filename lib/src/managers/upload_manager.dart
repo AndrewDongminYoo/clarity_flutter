@@ -52,9 +52,7 @@ final Set<int> _pageMetadataEventTypes = {
   EventType.Resize.customOrdinal,
 };
 
-final Set<int> _sessionMetadataEventTypes = {
-  EventType.Variable.customOrdinal,
-};
+final Set<int> _sessionMetadataEventTypes = {EventType.Variable.customOrdinal};
 
 List<String> _filterMetadataEvents(
   List<String> analytics, {
