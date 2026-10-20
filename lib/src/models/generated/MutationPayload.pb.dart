@@ -28,7 +28,7 @@ class IntList extends $pb.GeneratedMessage {
   factory IntList({
     $core.Iterable<$core.int>? value,
   }) {
-    final result = create();
+    final result = IntList._();
     if (value != null) result.value.addAll(value);
     return result;
   }
@@ -37,13 +37,13 @@ class IntList extends $pb.GeneratedMessage {
 
   factory IntList.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      IntList()..mergeFromBuffer(data, registry);
   factory IntList.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      IntList()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'IntList',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: IntList.$_createMessage)
     ..p<$core.int>(1, _omitFieldNames ? '' : 'value', $pb.PbFieldType.K3)
     ..hasRequiredFields = false;
 
@@ -57,11 +57,14 @@ class IntList extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use IntList() / IntList.new instead')
   static IntList create() => IntList._();
+  static $pb.GeneratedMessage $_createMessage() => IntList._();
   @$core.override
-  IntList createEmptyInstance() => create();
+  IntList createEmptyInstance() => IntList._();
   @$core.pragma('dart2js:noInline')
-  static IntList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<IntList>(create);
+  static IntList getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<IntList>(IntList.$_createMessage);
   static IntList? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -72,7 +75,7 @@ class FloatList extends $pb.GeneratedMessage {
   factory FloatList({
     $core.Iterable<$core.double>? value,
   }) {
-    final result = create();
+    final result = FloatList._();
     if (value != null) result.value.addAll(value);
     return result;
   }
@@ -81,13 +84,13 @@ class FloatList extends $pb.GeneratedMessage {
 
   factory FloatList.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      FloatList()..mergeFromBuffer(data, registry);
   factory FloatList.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      FloatList()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FloatList',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: FloatList.$_createMessage)
     ..p<$core.double>(1, _omitFieldNames ? '' : 'value', $pb.PbFieldType.KF)
     ..hasRequiredFields = false;
 
@@ -101,11 +104,14 @@ class FloatList extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use FloatList() / FloatList.new instead')
   static FloatList create() => FloatList._();
+  static $pb.GeneratedMessage $_createMessage() => FloatList._();
   @$core.override
-  FloatList createEmptyInstance() => create();
+  FloatList createEmptyInstance() => FloatList._();
   @$core.pragma('dart2js:noInline')
-  static FloatList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FloatList>(create);
+  static FloatList getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FloatList>(FloatList.$_createMessage);
   static FloatList? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -116,7 +122,7 @@ class DoubleList extends $pb.GeneratedMessage {
   factory DoubleList({
     $core.Iterable<$core.double>? value,
   }) {
-    final result = create();
+    final result = DoubleList._();
     if (value != null) result.value.addAll(value);
     return result;
   }
@@ -125,13 +131,13 @@ class DoubleList extends $pb.GeneratedMessage {
 
   factory DoubleList.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DoubleList()..mergeFromBuffer(data, registry);
   factory DoubleList.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DoubleList()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DoubleList',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DoubleList.$_createMessage)
     ..p<$core.double>(1, _omitFieldNames ? '' : 'value', $pb.PbFieldType.KD)
     ..hasRequiredFields = false;
 
@@ -145,11 +151,14 @@ class DoubleList extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DoubleList() / DoubleList.new instead')
   static DoubleList create() => DoubleList._();
+  static $pb.GeneratedMessage $_createMessage() => DoubleList._();
   @$core.override
-  DoubleList createEmptyInstance() => create();
+  DoubleList createEmptyInstance() => DoubleList._();
   @$core.pragma('dart2js:noInline')
-  static DoubleList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DoubleList>(create);
+  static DoubleList getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DoubleList>(DoubleList.$_createMessage);
   static DoubleList? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -164,7 +173,7 @@ class Rect extends $pb.GeneratedMessage {
     $core.double? right,
     $core.Iterable<FloatList>? radii,
   }) {
-    final result = create();
+    final result = Rect._();
     if (top != null) result.top = top;
     if (left != null) result.left = left;
     if (bottom != null) result.bottom = bottom;
@@ -176,18 +185,18 @@ class Rect extends $pb.GeneratedMessage {
   Rect._();
 
   factory Rect.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Rect()..mergeFromBuffer(data, registry);
   factory Rect.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Rect()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Rect',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Rect.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'top', fieldType: $pb.PbFieldType.OF)
     ..aD(2, _omitFieldNames ? '' : 'left', fieldType: $pb.PbFieldType.OF)
     ..aD(3, _omitFieldNames ? '' : 'bottom', fieldType: $pb.PbFieldType.OF)
     ..aD(4, _omitFieldNames ? '' : 'right', fieldType: $pb.PbFieldType.OF)
-    ..pPM<FloatList>(5, _omitFieldNames ? '' : 'radii', subBuilder: FloatList.create)
+    ..pPM<FloatList>(5, _omitFieldNames ? '' : 'radii', subBuilder: FloatList.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -199,11 +208,13 @@ class Rect extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Rect() / Rect.new instead')
   static Rect create() => Rect._();
+  static $pb.GeneratedMessage $_createMessage() => Rect._();
   @$core.override
-  Rect createEmptyInstance() => create();
+  Rect createEmptyInstance() => Rect._();
   @$core.pragma('dart2js:noInline')
-  static Rect getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Rect>(create);
+  static Rect getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Rect>(Rect.$_createMessage);
   static Rect? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -258,7 +269,7 @@ class Sampling extends $pb.GeneratedMessage {
     $core.int? maxAniso,
     SamplingType? typeEnum,
   }) {
-    final result = create();
+    final result = Sampling._();
     if (type != null) result.type = type;
     if (b != null) result.b = b;
     if (c != null) result.c = c;
@@ -273,9 +284,9 @@ class Sampling extends $pb.GeneratedMessage {
 
   factory Sampling.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Sampling()..mergeFromBuffer(data, registry);
   factory Sampling.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Sampling()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, Sampling_TypeOneOf> _Sampling_TypeOneOfByTag = {
     1: Sampling_TypeOneOf.type,
@@ -284,7 +295,7 @@ class Sampling extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Sampling',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Sampling.$_createMessage)
     ..oo(0, [1, 7])
     ..aOS(1, _omitFieldNames ? '' : 'type')
     ..aD(2, _omitFieldNames ? '' : 'B', fieldType: $pb.PbFieldType.OF)
@@ -305,11 +316,14 @@ class Sampling extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Sampling() / Sampling.new instead')
   static Sampling create() => Sampling._();
+  static $pb.GeneratedMessage $_createMessage() => Sampling._();
   @$core.override
-  Sampling createEmptyInstance() => create();
+  Sampling createEmptyInstance() => Sampling._();
   @$core.pragma('dart2js:noInline')
-  static Sampling getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Sampling>(create);
+  static Sampling getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Sampling>(Sampling.$_createMessage);
   static Sampling? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -394,7 +408,7 @@ class Color4f extends $pb.GeneratedMessage {
     $core.double? b,
     $core.double? a,
   }) {
-    final result = create();
+    final result = Color4f._();
     if (r != null) result.r = r;
     if (g != null) result.g = g;
     if (b != null) result.b = b;
@@ -406,13 +420,13 @@ class Color4f extends $pb.GeneratedMessage {
 
   factory Color4f.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Color4f()..mergeFromBuffer(data, registry);
   factory Color4f.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Color4f()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Color4f',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Color4f.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'r', fieldType: $pb.PbFieldType.OF)
     ..aD(2, _omitFieldNames ? '' : 'g', fieldType: $pb.PbFieldType.OF)
     ..aD(3, _omitFieldNames ? '' : 'b', fieldType: $pb.PbFieldType.OF)
@@ -429,11 +443,14 @@ class Color4f extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Color4f() / Color4f.new instead')
   static Color4f create() => Color4f._();
+  static $pb.GeneratedMessage $_createMessage() => Color4f._();
   @$core.override
-  Color4f createEmptyInstance() => create();
+  Color4f createEmptyInstance() => Color4f._();
   @$core.pragma('dart2js:noInline')
-  static Color4f getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Color4f>(create);
+  static Color4f getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Color4f>(Color4f.$_createMessage);
   static Color4f? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -481,7 +498,7 @@ class Lattice extends $pb.GeneratedMessage {
     $core.Iterable<$core.int>? xDivs,
     $core.Iterable<$core.int>? yDivs,
   }) {
-    final result = create();
+    final result = Lattice._();
     if (bounds != null) result.bounds = bounds;
     if (colors != null) result.colors.addAll(colors);
     if (rectType != null) result.rectType.addAll(rectType);
@@ -494,14 +511,14 @@ class Lattice extends $pb.GeneratedMessage {
 
   factory Lattice.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Lattice()..mergeFromBuffer(data, registry);
   factory Lattice.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Lattice()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Lattice',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'bounds', subBuilder: Rect.create)
+      createEmptyInstance: Lattice.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'bounds', subBuilder: Rect.$_createMessage)
     ..p<$core.double>(2, _omitFieldNames ? '' : 'colors', $pb.PbFieldType.KD)
     ..p<$core.int>(3, _omitFieldNames ? '' : 'rectType', $pb.PbFieldType.K3)
     ..p<$core.int>(4, _omitFieldNames ? '' : 'xDivs', $pb.PbFieldType.K3)
@@ -518,11 +535,14 @@ class Lattice extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Lattice() / Lattice.new instead')
   static Lattice create() => Lattice._();
+  static $pb.GeneratedMessage $_createMessage() => Lattice._();
   @$core.override
-  Lattice createEmptyInstance() => create();
+  Lattice createEmptyInstance() => Lattice._();
   @$core.pragma('dart2js:noInline')
-  static Lattice getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Lattice>(create);
+  static Lattice getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Lattice>(Lattice.$_createMessage);
   static Lattice? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -554,7 +574,7 @@ class Point extends $pb.GeneratedMessage {
     $core.double? x,
     $core.double? y,
   }) {
-    final result = create();
+    final result = Point._();
     if (x != null) result.x = x;
     if (y != null) result.y = y;
     return result;
@@ -564,13 +584,13 @@ class Point extends $pb.GeneratedMessage {
 
   factory Point.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Point()..mergeFromBuffer(data, registry);
   factory Point.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Point()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Point',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Point.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'x', fieldType: $pb.PbFieldType.OF)
     ..aD(2, _omitFieldNames ? '' : 'y', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
@@ -584,11 +604,13 @@ class Point extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Point() / Point.new instead')
   static Point create() => Point._();
+  static $pb.GeneratedMessage $_createMessage() => Point._();
   @$core.override
-  Point createEmptyInstance() => create();
+  Point createEmptyInstance() => Point._();
   @$core.pragma('dart2js:noInline')
-  static Point getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Point>(create);
+  static Point getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Point>(Point.$_createMessage);
   static Point? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -617,7 +639,7 @@ class RSXform extends $pb.GeneratedMessage {
     $core.double? tx,
     $core.double? ty,
   }) {
-    final result = create();
+    final result = RSXform._();
     if (scos != null) result.scos = scos;
     if (ssin != null) result.ssin = ssin;
     if (tx != null) result.tx = tx;
@@ -629,13 +651,13 @@ class RSXform extends $pb.GeneratedMessage {
 
   factory RSXform.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      RSXform()..mergeFromBuffer(data, registry);
   factory RSXform.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      RSXform()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RSXform',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: RSXform.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'scos')
     ..aD(2, _omitFieldNames ? '' : 'ssin')
     ..aD(3, _omitFieldNames ? '' : 'tx')
@@ -652,11 +674,14 @@ class RSXform extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use RSXform() / RSXform.new instead')
   static RSXform create() => RSXform._();
+  static $pb.GeneratedMessage $_createMessage() => RSXform._();
   @$core.override
-  RSXform createEmptyInstance() => create();
+  RSXform createEmptyInstance() => RSXform._();
   @$core.pragma('dart2js:noInline')
-  static RSXform getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RSXform>(create);
+  static RSXform getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RSXform>(RSXform.$_createMessage);
   static RSXform? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -701,7 +726,7 @@ class Locale extends $pb.GeneratedMessage {
     $core.String? languageCode,
     $core.String? countryCode,
   }) {
-    final result = create();
+    final result = Locale._();
     if (languageCode != null) result.languageCode = languageCode;
     if (countryCode != null) result.countryCode = countryCode;
     return result;
@@ -711,13 +736,13 @@ class Locale extends $pb.GeneratedMessage {
 
   factory Locale.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Locale()..mergeFromBuffer(data, registry);
   factory Locale.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Locale()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Locale',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Locale.$_createMessage)
     ..aOS(1, _omitFieldNames ? '' : 'languageCode', protoName: 'languageCode')
     ..aOS(2, _omitFieldNames ? '' : 'countryCode', protoName: 'countryCode')
     ..hasRequiredFields = false;
@@ -731,11 +756,13 @@ class Locale extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Locale() / Locale.new instead')
   static Locale create() => Locale._();
+  static $pb.GeneratedMessage $_createMessage() => Locale._();
   @$core.override
-  Locale createEmptyInstance() => create();
+  Locale createEmptyInstance() => Locale._();
   @$core.pragma('dart2js:noInline')
-  static Locale getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Locale>(create);
+  static Locale getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Locale>(Locale.$_createMessage);
   static Locale? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -762,7 +789,7 @@ class FontWeight extends $pb.GeneratedMessage {
     $core.int? index,
     $core.int? value,
   }) {
-    final result = create();
+    final result = FontWeight._();
     if (index != null) result.index = index;
     if (value != null) result.value = value;
     return result;
@@ -772,13 +799,13 @@ class FontWeight extends $pb.GeneratedMessage {
 
   factory FontWeight.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      FontWeight()..mergeFromBuffer(data, registry);
   factory FontWeight.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      FontWeight()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FontWeight',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: FontWeight.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'index')
     ..aI(2, _omitFieldNames ? '' : 'value')
     ..hasRequiredFields = false;
@@ -793,11 +820,14 @@ class FontWeight extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use FontWeight() / FontWeight.new instead')
   static FontWeight create() => FontWeight._();
+  static $pb.GeneratedMessage $_createMessage() => FontWeight._();
   @$core.override
-  FontWeight createEmptyInstance() => create();
+  FontWeight createEmptyInstance() => FontWeight._();
   @$core.pragma('dart2js:noInline')
-  static FontWeight getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FontWeight>(create);
+  static FontWeight getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FontWeight>(FontWeight.$_createMessage);
   static FontWeight? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -823,7 +853,7 @@ class TextDecoration extends $pb.GeneratedMessage {
   factory TextDecoration({
     $core.int? mask,
   }) {
-    final result = create();
+    final result = TextDecoration._();
     if (mask != null) result.mask = mask;
     return result;
   }
@@ -832,13 +862,13 @@ class TextDecoration extends $pb.GeneratedMessage {
 
   factory TextDecoration.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      TextDecoration()..mergeFromBuffer(data, registry);
   factory TextDecoration.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      TextDecoration()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextDecoration',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: TextDecoration.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'mask')
     ..hasRequiredFields = false;
 
@@ -852,11 +882,14 @@ class TextDecoration extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use TextDecoration() / TextDecoration.new instead')
   static TextDecoration create() => TextDecoration._();
+  static $pb.GeneratedMessage $_createMessage() => TextDecoration._();
   @$core.override
-  TextDecoration createEmptyInstance() => create();
+  TextDecoration createEmptyInstance() => TextDecoration._();
   @$core.pragma('dart2js:noInline')
-  static TextDecoration getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextDecoration>(create);
+  static TextDecoration getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextDecoration>(TextDecoration.$_createMessage);
   static TextDecoration? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -893,7 +926,7 @@ class TextStyle extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? fontFamilyFallback,
     $core.int? overflow,
   }) {
-    final result = create();
+    final result = TextStyle._();
     if (inherit != null) result.inherit = inherit;
     if (color != null) result.color = color;
     if (backgroundColor != null) result.backgroundColor = backgroundColor;
@@ -922,31 +955,32 @@ class TextStyle extends $pb.GeneratedMessage {
 
   factory TextStyle.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      TextStyle()..mergeFromBuffer(data, registry);
   factory TextStyle.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      TextStyle()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextStyle',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: TextStyle.$_createMessage)
     ..aOB(1, _omitFieldNames ? '' : 'inherit')
-    ..aOM<Color4f>(2, _omitFieldNames ? '' : 'color', subBuilder: Color4f.create)
+    ..aOM<Color4f>(2, _omitFieldNames ? '' : 'color', subBuilder: Color4f.$_createMessage)
     ..aOM<Color4f>(3, _omitFieldNames ? '' : 'backgroundColor',
-        protoName: 'backgroundColor', subBuilder: Color4f.create)
+        protoName: 'backgroundColor', subBuilder: Color4f.$_createMessage)
     ..aD(4, _omitFieldNames ? '' : 'fontSize', protoName: 'fontSize')
-    ..aOM<FontWeight>(5, _omitFieldNames ? '' : 'fontWeight', protoName: 'fontWeight', subBuilder: FontWeight.create)
+    ..aOM<FontWeight>(5, _omitFieldNames ? '' : 'fontWeight',
+        protoName: 'fontWeight', subBuilder: FontWeight.$_createMessage)
     ..aI(6, _omitFieldNames ? '' : 'fontStyle', protoName: 'fontStyle')
     ..aD(7, _omitFieldNames ? '' : 'letterSpacing', protoName: 'letterSpacing')
     ..aD(8, _omitFieldNames ? '' : 'wordSpacing', protoName: 'wordSpacing')
     ..aI(9, _omitFieldNames ? '' : 'textBaseline', protoName: 'textBaseline')
     ..aD(10, _omitFieldNames ? '' : 'height')
     ..aI(11, _omitFieldNames ? '' : 'leadingDistribution', protoName: 'leadingDistribution')
-    ..aOM<Locale>(12, _omitFieldNames ? '' : 'locale', subBuilder: Locale.create)
-    ..aOM<Paint>(13, _omitFieldNames ? '' : 'foreground', subBuilder: Paint.create)
-    ..aOM<Paint>(14, _omitFieldNames ? '' : 'background', subBuilder: Paint.create)
-    ..aOM<TextDecoration>(15, _omitFieldNames ? '' : 'decoration', subBuilder: TextDecoration.create)
+    ..aOM<Locale>(12, _omitFieldNames ? '' : 'locale', subBuilder: Locale.$_createMessage)
+    ..aOM<Paint>(13, _omitFieldNames ? '' : 'foreground', subBuilder: Paint.$_createMessage)
+    ..aOM<Paint>(14, _omitFieldNames ? '' : 'background', subBuilder: Paint.$_createMessage)
+    ..aOM<TextDecoration>(15, _omitFieldNames ? '' : 'decoration', subBuilder: TextDecoration.$_createMessage)
     ..aOM<Color4f>(16, _omitFieldNames ? '' : 'decorationColor',
-        protoName: 'decorationColor', subBuilder: Color4f.create)
+        protoName: 'decorationColor', subBuilder: Color4f.$_createMessage)
     ..aI(17, _omitFieldNames ? '' : 'decorationStyle', protoName: 'decorationStyle')
     ..aD(18, _omitFieldNames ? '' : 'decorationThickness', protoName: 'decorationThickness')
     ..aOS(19, _omitFieldNames ? '' : 'fontFamily', protoName: 'fontFamily')
@@ -964,11 +998,14 @@ class TextStyle extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use TextStyle() / TextStyle.new instead')
   static TextStyle create() => TextStyle._();
+  static $pb.GeneratedMessage $_createMessage() => TextStyle._();
   @$core.override
-  TextStyle createEmptyInstance() => create();
+  TextStyle createEmptyInstance() => TextStyle._();
   @$core.pragma('dart2js:noInline')
-  static TextStyle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextStyle>(create);
+  static TextStyle getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextStyle>(TextStyle.$_createMessage);
   static TextStyle? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1182,7 +1219,7 @@ class InlineSpan extends $pb.GeneratedMessage {
     $core.int? alignment,
     $core.int? baseline,
   }) {
-    final result = create();
+    final result = InlineSpan._();
     if (type != null) result.type = type;
     if (text != null) result.text = text;
     if (children != null) result.children.addAll(children);
@@ -1198,18 +1235,18 @@ class InlineSpan extends $pb.GeneratedMessage {
 
   factory InlineSpan.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      InlineSpan()..mergeFromBuffer(data, registry);
   factory InlineSpan.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      InlineSpan()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InlineSpan',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: InlineSpan.$_createMessage)
     ..aOS(1, _omitFieldNames ? '' : 'type')
     ..aOS(2, _omitFieldNames ? '' : 'text')
-    ..pPM<InlineSpan>(3, _omitFieldNames ? '' : 'children', subBuilder: InlineSpan.create)
-    ..aOM<TextStyle>(4, _omitFieldNames ? '' : 'style', subBuilder: TextStyle.create)
-    ..aOM<Locale>(5, _omitFieldNames ? '' : 'locale', subBuilder: Locale.create)
+    ..pPM<InlineSpan>(3, _omitFieldNames ? '' : 'children', subBuilder: InlineSpan.$_createMessage)
+    ..aOM<TextStyle>(4, _omitFieldNames ? '' : 'style', subBuilder: TextStyle.$_createMessage)
+    ..aOM<Locale>(5, _omitFieldNames ? '' : 'locale', subBuilder: Locale.$_createMessage)
     ..aOB(6, _omitFieldNames ? '' : 'spellOut', protoName: 'spellOut')
     ..aI(7, _omitFieldNames ? '' : 'alignment')
     ..aI(8, _omitFieldNames ? '' : 'baseline')
@@ -1225,11 +1262,14 @@ class InlineSpan extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use InlineSpan() / InlineSpan.new instead')
   static InlineSpan create() => InlineSpan._();
+  static $pb.GeneratedMessage $_createMessage() => InlineSpan._();
   @$core.override
-  InlineSpan createEmptyInstance() => create();
+  InlineSpan createEmptyInstance() => InlineSpan._();
   @$core.pragma('dart2js:noInline')
-  static InlineSpan getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InlineSpan>(create);
+  static InlineSpan getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InlineSpan>(InlineSpan.$_createMessage);
   static InlineSpan? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1310,7 +1350,7 @@ class BoxConstraints extends $pb.GeneratedMessage {
     $core.double? minHeight,
     $core.double? maxHeight,
   }) {
-    final result = create();
+    final result = BoxConstraints._();
     if (minWidth != null) result.minWidth = minWidth;
     if (maxWidth != null) result.maxWidth = maxWidth;
     if (minHeight != null) result.minHeight = minHeight;
@@ -1322,13 +1362,13 @@ class BoxConstraints extends $pb.GeneratedMessage {
 
   factory BoxConstraints.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      BoxConstraints()..mergeFromBuffer(data, registry);
   factory BoxConstraints.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      BoxConstraints()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BoxConstraints',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: BoxConstraints.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'minWidth', protoName: 'minWidth')
     ..aD(2, _omitFieldNames ? '' : 'maxWidth', protoName: 'maxWidth')
     ..aD(3, _omitFieldNames ? '' : 'minHeight', protoName: 'minHeight')
@@ -1345,11 +1385,14 @@ class BoxConstraints extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use BoxConstraints() / BoxConstraints.new instead')
   static BoxConstraints create() => BoxConstraints._();
+  static $pb.GeneratedMessage $_createMessage() => BoxConstraints._();
   @$core.override
-  BoxConstraints createEmptyInstance() => create();
+  BoxConstraints createEmptyInstance() => BoxConstraints._();
   @$core.pragma('dart2js:noInline')
-  static BoxConstraints getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoxConstraints>(create);
+  static BoxConstraints getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoxConstraints>(BoxConstraints.$_createMessage);
   static BoxConstraints? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1401,7 +1444,7 @@ class StrutStyle extends $pb.GeneratedMessage {
     $core.int? fontStyle,
     $core.bool? forceStrutHeight,
   }) {
-    final result = create();
+    final result = StrutStyle._();
     if (fontFamily != null) result.fontFamily = fontFamily;
     if (fontFamilyFallback != null) result.fontFamilyFallback.addAll(fontFamilyFallback);
     if (fontSize != null) result.fontSize = fontSize;
@@ -1418,20 +1461,21 @@ class StrutStyle extends $pb.GeneratedMessage {
 
   factory StrutStyle.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      StrutStyle()..mergeFromBuffer(data, registry);
   factory StrutStyle.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      StrutStyle()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'StrutStyle',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: StrutStyle.$_createMessage)
     ..aOS(1, _omitFieldNames ? '' : 'fontFamily', protoName: 'fontFamily')
     ..pPS(2, _omitFieldNames ? '' : 'fontFamilyFallback', protoName: 'fontFamilyFallback')
     ..aD(3, _omitFieldNames ? '' : 'fontSize', protoName: 'fontSize')
     ..aD(4, _omitFieldNames ? '' : 'height')
     ..aD(5, _omitFieldNames ? '' : 'leading')
     ..aI(6, _omitFieldNames ? '' : 'leadingDistribution', protoName: 'leadingDistribution')
-    ..aOM<FontWeight>(7, _omitFieldNames ? '' : 'fontWeight', protoName: 'fontWeight', subBuilder: FontWeight.create)
+    ..aOM<FontWeight>(7, _omitFieldNames ? '' : 'fontWeight',
+        protoName: 'fontWeight', subBuilder: FontWeight.$_createMessage)
     ..aI(8, _omitFieldNames ? '' : 'fontStyle', protoName: 'fontStyle')
     ..aOB(9, _omitFieldNames ? '' : 'forceStrutHeight', protoName: 'forceStrutHeight')
     ..hasRequiredFields = false;
@@ -1446,11 +1490,14 @@ class StrutStyle extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use StrutStyle() / StrutStyle.new instead')
   static StrutStyle create() => StrutStyle._();
+  static $pb.GeneratedMessage $_createMessage() => StrutStyle._();
   @$core.override
-  StrutStyle createEmptyInstance() => create();
+  StrutStyle createEmptyInstance() => StrutStyle._();
   @$core.pragma('dart2js:noInline')
-  static StrutStyle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<StrutStyle>(create);
+  static StrutStyle getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<StrutStyle>(StrutStyle.$_createMessage);
   static StrutStyle? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1537,7 +1584,7 @@ class TextHeightBehavior extends $pb.GeneratedMessage {
     $core.bool? applyHeightToLastDescent,
     $core.int? leadingDistribution,
   }) {
-    final result = create();
+    final result = TextHeightBehavior._();
     if (applyHeightToFirstAscent != null) result.applyHeightToFirstAscent = applyHeightToFirstAscent;
     if (applyHeightToLastDescent != null) result.applyHeightToLastDescent = applyHeightToLastDescent;
     if (leadingDistribution != null) result.leadingDistribution = leadingDistribution;
@@ -1548,14 +1595,14 @@ class TextHeightBehavior extends $pb.GeneratedMessage {
 
   factory TextHeightBehavior.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      TextHeightBehavior()..mergeFromBuffer(data, registry);
   factory TextHeightBehavior.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      TextHeightBehavior()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextHeightBehavior',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: TextHeightBehavior.$_createMessage)
     ..aOB(1, _omitFieldNames ? '' : 'applyHeightToFirstAscent', protoName: 'applyHeightToFirstAscent')
     ..aOB(2, _omitFieldNames ? '' : 'applyHeightToLastDescent', protoName: 'applyHeightToLastDescent')
     ..aI(3, _omitFieldNames ? '' : 'leadingDistribution', protoName: 'leadingDistribution')
@@ -1571,12 +1618,14 @@ class TextHeightBehavior extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use TextHeightBehavior() / TextHeightBehavior.new instead')
   static TextHeightBehavior create() => TextHeightBehavior._();
+  static $pb.GeneratedMessage $_createMessage() => TextHeightBehavior._();
   @$core.override
-  TextHeightBehavior createEmptyInstance() => create();
+  TextHeightBehavior createEmptyInstance() => TextHeightBehavior._();
   @$core.pragma('dart2js:noInline')
   static TextHeightBehavior getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextHeightBehavior>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextHeightBehavior>(TextHeightBehavior.$_createMessage);
   static TextHeightBehavior? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1612,7 +1661,7 @@ class Offset extends $pb.GeneratedMessage {
     $core.double? dx,
     $core.double? dy,
   }) {
-    final result = create();
+    final result = Offset._();
     if (dx != null) result.dx = dx;
     if (dy != null) result.dy = dy;
     return result;
@@ -1622,13 +1671,13 @@ class Offset extends $pb.GeneratedMessage {
 
   factory Offset.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Offset()..mergeFromBuffer(data, registry);
   factory Offset.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Offset()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Offset',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Offset.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'dx')
     ..aD(2, _omitFieldNames ? '' : 'dy')
     ..hasRequiredFields = false;
@@ -1642,11 +1691,13 @@ class Offset extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Offset() / Offset.new instead')
   static Offset create() => Offset._();
+  static $pb.GeneratedMessage $_createMessage() => Offset._();
   @$core.override
-  Offset createEmptyInstance() => create();
+  Offset createEmptyInstance() => Offset._();
   @$core.pragma('dart2js:noInline')
-  static Offset getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Offset>(create);
+  static Offset getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Offset>(Offset.$_createMessage);
   static Offset? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1675,7 +1726,7 @@ class PlaceholderDimensions extends $pb.GeneratedMessage {
     $core.int? baseline,
     $core.double? baselineOffset,
   }) {
-    final result = create();
+    final result = PlaceholderDimensions._();
     if (size != null) result.size = size;
     if (alignment != null) result.alignment = alignment;
     if (baseline != null) result.baseline = baseline;
@@ -1687,15 +1738,15 @@ class PlaceholderDimensions extends $pb.GeneratedMessage {
 
   factory PlaceholderDimensions.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      PlaceholderDimensions()..mergeFromBuffer(data, registry);
   factory PlaceholderDimensions.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      PlaceholderDimensions()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PlaceholderDimensions',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Offset>(1, _omitFieldNames ? '' : 'size', subBuilder: Offset.create)
+      createEmptyInstance: PlaceholderDimensions.$_createMessage)
+    ..aOM<Offset>(1, _omitFieldNames ? '' : 'size', subBuilder: Offset.$_createMessage)
     ..aI(2, _omitFieldNames ? '' : 'alignment')
     ..aI(3, _omitFieldNames ? '' : 'baseline')
     ..aD(4, _omitFieldNames ? '' : 'baselineOffset', protoName: 'baselineOffset')
@@ -1711,12 +1762,14 @@ class PlaceholderDimensions extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use PlaceholderDimensions() / PlaceholderDimensions.new instead')
   static PlaceholderDimensions create() => PlaceholderDimensions._();
+  static $pb.GeneratedMessage $_createMessage() => PlaceholderDimensions._();
   @$core.override
-  PlaceholderDimensions createEmptyInstance() => create();
+  PlaceholderDimensions createEmptyInstance() => PlaceholderDimensions._();
   @$core.pragma('dart2js:noInline')
-  static PlaceholderDimensions getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PlaceholderDimensions>(create);
+  static PlaceholderDimensions getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PlaceholderDimensions>(PlaceholderDimensions.$_createMessage);
   static PlaceholderDimensions? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1773,7 +1826,7 @@ class RenderText extends $pb.GeneratedMessage {
     $core.bool? softWrap,
     $core.int? overflow,
   }) {
-    final result = create();
+    final result = RenderText._();
     if (text != null) result.text = text;
     if (constraints != null) result.constraints = constraints;
     if (textAlign != null) result.textAlign = textAlign;
@@ -1793,25 +1846,26 @@ class RenderText extends $pb.GeneratedMessage {
 
   factory RenderText.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      RenderText()..mergeFromBuffer(data, registry);
   factory RenderText.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      RenderText()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RenderText',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<InlineSpan>(1, _omitFieldNames ? '' : 'text', subBuilder: InlineSpan.create)
-    ..aOM<BoxConstraints>(2, _omitFieldNames ? '' : 'constraints', subBuilder: BoxConstraints.create)
+      createEmptyInstance: RenderText.$_createMessage)
+    ..aOM<InlineSpan>(1, _omitFieldNames ? '' : 'text', subBuilder: InlineSpan.$_createMessage)
+    ..aOM<BoxConstraints>(2, _omitFieldNames ? '' : 'constraints', subBuilder: BoxConstraints.$_createMessage)
     ..aI(3, _omitFieldNames ? '' : 'textAlign', protoName: 'textAlign')
     ..aI(4, _omitFieldNames ? '' : 'textDirection', protoName: 'textDirection')
     ..aI(5, _omitFieldNames ? '' : 'maxLines', protoName: 'maxLines')
-    ..aOM<Locale>(6, _omitFieldNames ? '' : 'locale', subBuilder: Locale.create)
-    ..aOM<StrutStyle>(7, _omitFieldNames ? '' : 'strutStyle', protoName: 'strutStyle', subBuilder: StrutStyle.create)
+    ..aOM<Locale>(6, _omitFieldNames ? '' : 'locale', subBuilder: Locale.$_createMessage)
+    ..aOM<StrutStyle>(7, _omitFieldNames ? '' : 'strutStyle',
+        protoName: 'strutStyle', subBuilder: StrutStyle.$_createMessage)
     ..aI(8, _omitFieldNames ? '' : 'textWidthBasis', protoName: 'textWidthBasis')
     ..aOM<TextHeightBehavior>(9, _omitFieldNames ? '' : 'textHeightBehavior',
-        protoName: 'textHeightBehavior', subBuilder: TextHeightBehavior.create)
+        protoName: 'textHeightBehavior', subBuilder: TextHeightBehavior.$_createMessage)
     ..pPM<PlaceholderDimensions>(10, _omitFieldNames ? '' : 'placeholderDimensions',
-        protoName: 'placeholderDimensions', subBuilder: PlaceholderDimensions.create)
+        protoName: 'placeholderDimensions', subBuilder: PlaceholderDimensions.$_createMessage)
     ..aOB(11, _omitFieldNames ? '' : 'softWrap', protoName: 'softWrap')
     ..aI(12, _omitFieldNames ? '' : 'overflow')
     ..hasRequiredFields = false;
@@ -1826,11 +1880,14 @@ class RenderText extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use RenderText() / RenderText.new instead')
   static RenderText create() => RenderText._();
+  static $pb.GeneratedMessage $_createMessage() => RenderText._();
   @$core.override
-  RenderText createEmptyInstance() => create();
+  RenderText createEmptyInstance() => RenderText._();
   @$core.pragma('dart2js:noInline')
-  static RenderText getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RenderText>(create);
+  static RenderText getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RenderText>(RenderText.$_createMessage);
   static RenderText? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1994,7 +2051,7 @@ class DisplayCommand extends $pb.GeneratedMessage {
     $core.double? top,
     DisplayCommandType? typeEnum,
   }) {
-    final result = create();
+    final result = DisplayCommand._();
     if (type != null) result.type = type;
     if (op != null) result.op = op;
     if (antiAlias != null) result.antiAlias = antiAlias;
@@ -2045,9 +2102,9 @@ class DisplayCommand extends $pb.GeneratedMessage {
 
   factory DisplayCommand.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DisplayCommand()..mergeFromBuffer(data, registry);
   factory DisplayCommand.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DisplayCommand()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, DisplayCommand_TypeOneOf> _DisplayCommand_TypeOneOfByTag = {
     1: DisplayCommand_TypeOneOf.type,
@@ -2056,45 +2113,45 @@ class DisplayCommand extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DisplayCommand',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DisplayCommand.$_createMessage)
     ..oo(0, [1, 43])
     ..aOS(1, _omitFieldNames ? '' : 'type')
     ..aI(2, _omitFieldNames ? '' : 'op')
     ..aOB(3, _omitFieldNames ? '' : 'antiAlias')
     ..aI(4, _omitFieldNames ? '' : 'pathIndex')
-    ..aOM<Rect>(5, _omitFieldNames ? '' : 'rect', subBuilder: Rect.create)
-    ..aOM<Rect>(6, _omitFieldNames ? '' : 'rrect', subBuilder: Rect.create)
+    ..aOM<Rect>(5, _omitFieldNames ? '' : 'rect', subBuilder: Rect.$_createMessage)
+    ..aOM<Rect>(6, _omitFieldNames ? '' : 'rrect', subBuilder: Rect.$_createMessage)
     ..p<$core.double>(7, _omitFieldNames ? '' : 'matrix', $pb.PbFieldType.KF)
     ..aD(8, _omitFieldNames ? '' : 'startAngle', fieldType: $pb.PbFieldType.OF)
     ..aD(9, _omitFieldNames ? '' : 'sweepAngle', fieldType: $pb.PbFieldType.OF)
     ..aOB(10, _omitFieldNames ? '' : 'useCenter')
     ..aI(11, _omitFieldNames ? '' : 'paintIndex')
-    ..aOM<Rect>(12, _omitFieldNames ? '' : 'outer', subBuilder: Rect.create)
-    ..aOM<Rect>(13, _omitFieldNames ? '' : 'inner', subBuilder: Rect.create)
+    ..aOM<Rect>(12, _omitFieldNames ? '' : 'outer', subBuilder: Rect.$_createMessage)
+    ..aOM<Rect>(13, _omitFieldNames ? '' : 'inner', subBuilder: Rect.$_createMessage)
     ..aD(14, _omitFieldNames ? '' : 'x', fieldType: $pb.PbFieldType.OF)
     ..aD(15, _omitFieldNames ? '' : 'y', fieldType: $pb.PbFieldType.OF)
     ..aI(16, _omitFieldNames ? '' : 'imageIndex')
-    ..aOM<Sampling>(17, _omitFieldNames ? '' : 'sampling', subBuilder: Sampling.create)
+    ..aOM<Sampling>(17, _omitFieldNames ? '' : 'sampling', subBuilder: Sampling.$_createMessage)
     ..aI(18, _omitFieldNames ? '' : 'maskedWidth')
     ..aI(19, _omitFieldNames ? '' : 'maskedHeight')
-    ..aOM<Color4f>(20, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.create)
-    ..aOM<Lattice>(21, _omitFieldNames ? '' : 'lattice', subBuilder: Lattice.create)
-    ..aOM<Rect>(22, _omitFieldNames ? '' : 'dst', subBuilder: Rect.create)
+    ..aOM<Color4f>(20, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.$_createMessage)
+    ..aOM<Lattice>(21, _omitFieldNames ? '' : 'lattice', subBuilder: Lattice.$_createMessage)
+    ..aOM<Rect>(22, _omitFieldNames ? '' : 'dst', subBuilder: Rect.$_createMessage)
     ..aD(23, _omitFieldNames ? '' : 'filterMode')
-    ..aOM<Rect>(24, _omitFieldNames ? '' : 'center', subBuilder: Rect.create)
-    ..aOM<Rect>(25, _omitFieldNames ? '' : 'src', subBuilder: Rect.create)
+    ..aOM<Rect>(24, _omitFieldNames ? '' : 'center', subBuilder: Rect.$_createMessage)
+    ..aOM<Rect>(25, _omitFieldNames ? '' : 'src', subBuilder: Rect.$_createMessage)
     ..aI(26, _omitFieldNames ? '' : 'constraint')
     ..aI(27, _omitFieldNames ? '' : 'pointMode')
-    ..pPM<Point>(28, _omitFieldNames ? '' : 'points', subBuilder: Point.create)
+    ..pPM<Point>(28, _omitFieldNames ? '' : 'points', subBuilder: Point.$_createMessage)
     ..aI(29, _omitFieldNames ? '' : 'blobIndex')
     ..aI(30, _omitFieldNames ? '' : 'verticesIndex')
     ..aD(31, _omitFieldNames ? '' : 'mode')
-    ..pPM<FloatList>(32, _omitFieldNames ? '' : 'bones', subBuilder: FloatList.create)
+    ..pPM<FloatList>(32, _omitFieldNames ? '' : 'bones', subBuilder: FloatList.$_createMessage)
     ..aI(33, _omitFieldNames ? '' : 'id')
     ..aOS(34, _omitFieldNames ? '' : 'name')
     ..aI(35, _omitFieldNames ? '' : 'flags')
-    ..aOM<Rect>(36, _omitFieldNames ? '' : 'subset', subBuilder: Rect.create)
-    ..aOM<Rect>(37, _omitFieldNames ? '' : 'bounds', subBuilder: Rect.create)
+    ..aOM<Rect>(36, _omitFieldNames ? '' : 'subset', subBuilder: Rect.$_createMessage)
+    ..aOM<Rect>(37, _omitFieldNames ? '' : 'bounds', subBuilder: Rect.$_createMessage)
     ..aI(38, _omitFieldNames ? '' : 'imageFilterPaint')
     ..aD(39, _omitFieldNames ? '' : 'sx', fieldType: $pb.PbFieldType.OF)
     ..aD(40, _omitFieldNames ? '' : 'sy', fieldType: $pb.PbFieldType.OF)
@@ -2114,11 +2171,14 @@ class DisplayCommand extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DisplayCommand() / DisplayCommand.new instead')
   static DisplayCommand create() => DisplayCommand._();
+  static $pb.GeneratedMessage $_createMessage() => DisplayCommand._();
   @$core.override
-  DisplayCommand createEmptyInstance() => create();
+  DisplayCommand createEmptyInstance() => DisplayCommand._();
   @$core.pragma('dart2js:noInline')
-  static DisplayCommand getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayCommand>(create);
+  static DisplayCommand getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayCommand>(DisplayCommand.$_createMessage);
   static DisplayCommand? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2532,7 +2592,7 @@ class FontStyle extends $pb.GeneratedMessage {
     $core.double? weight,
     $core.double? slant,
   }) {
-    final result = create();
+    final result = FontStyle._();
     if (width != null) result.width = width;
     if (weight != null) result.weight = weight;
     if (slant != null) result.slant = slant;
@@ -2543,13 +2603,13 @@ class FontStyle extends $pb.GeneratedMessage {
 
   factory FontStyle.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      FontStyle()..mergeFromBuffer(data, registry);
   factory FontStyle.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      FontStyle()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FontStyle',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: FontStyle.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'width')
     ..aD(2, _omitFieldNames ? '' : 'weight')
     ..aD(3, _omitFieldNames ? '' : 'slant')
@@ -2565,11 +2625,14 @@ class FontStyle extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use FontStyle() / FontStyle.new instead')
   static FontStyle create() => FontStyle._();
+  static $pb.GeneratedMessage $_createMessage() => FontStyle._();
   @$core.override
-  FontStyle createEmptyInstance() => create();
+  FontStyle createEmptyInstance() => FontStyle._();
   @$core.pragma('dart2js:noInline')
-  static FontStyle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FontStyle>(create);
+  static FontStyle getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FontStyle>(FontStyle.$_createMessage);
   static FontStyle? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2605,7 +2668,7 @@ class FontCoordinate extends $pb.GeneratedMessage {
     $core.String? axis,
     $core.double? value,
   }) {
-    final result = create();
+    final result = FontCoordinate._();
     if (axis != null) result.axis = axis;
     if (value != null) result.value = value;
     return result;
@@ -2615,13 +2678,13 @@ class FontCoordinate extends $pb.GeneratedMessage {
 
   factory FontCoordinate.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      FontCoordinate()..mergeFromBuffer(data, registry);
   factory FontCoordinate.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      FontCoordinate()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FontCoordinate',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: FontCoordinate.$_createMessage)
     ..aOS(1, _omitFieldNames ? '' : 'axis')
     ..aD(2, _omitFieldNames ? '' : 'value', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
@@ -2636,11 +2699,14 @@ class FontCoordinate extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use FontCoordinate() / FontCoordinate.new instead')
   static FontCoordinate create() => FontCoordinate._();
+  static $pb.GeneratedMessage $_createMessage() => FontCoordinate._();
   @$core.override
-  FontCoordinate createEmptyInstance() => create();
+  FontCoordinate createEmptyInstance() => FontCoordinate._();
   @$core.pragma('dart2js:noInline')
-  static FontCoordinate getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FontCoordinate>(create);
+  static FontCoordinate getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FontCoordinate>(FontCoordinate.$_createMessage);
   static FontCoordinate? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2677,7 +2743,7 @@ class Typeface extends $pb.GeneratedMessage {
     $core.double? italicValue,
     $core.double? palleteIndex,
   }) {
-    final result = create();
+    final result = Typeface._();
     if (familyName != null) result.familyName = familyName;
     if (fullName != null) result.fullName = fullName;
     if (postscriptName != null) result.postscriptName = postscriptName;
@@ -2697,19 +2763,19 @@ class Typeface extends $pb.GeneratedMessage {
 
   factory Typeface.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Typeface()..mergeFromBuffer(data, registry);
   factory Typeface.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Typeface()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Typeface',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Typeface.$_createMessage)
     ..aOS(1, _omitFieldNames ? '' : 'familyName')
     ..aOS(2, _omitFieldNames ? '' : 'fullName')
     ..aOS(3, _omitFieldNames ? '' : 'postscriptName')
-    ..aOM<FontStyle>(4, _omitFieldNames ? '' : 'style', subBuilder: FontStyle.create)
+    ..aOM<FontStyle>(4, _omitFieldNames ? '' : 'style', subBuilder: FontStyle.$_createMessage)
     ..aD(5, _omitFieldNames ? '' : 'collectionIndex')
-    ..pPM<FontCoordinate>(6, _omitFieldNames ? '' : 'coordinates', subBuilder: FontCoordinate.create)
+    ..pPM<FontCoordinate>(6, _omitFieldNames ? '' : 'coordinates', subBuilder: FontCoordinate.$_createMessage)
     ..aOS(7, _omitFieldNames ? '' : 'dataHash')
     ..aD(8, _omitFieldNames ? '' : 'weightValue', fieldType: $pb.PbFieldType.OF)
     ..aD(9, _omitFieldNames ? '' : 'widthValue', fieldType: $pb.PbFieldType.OF)
@@ -2728,11 +2794,14 @@ class Typeface extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Typeface() / Typeface.new instead')
   static Typeface create() => Typeface._();
+  static $pb.GeneratedMessage $_createMessage() => Typeface._();
   @$core.override
-  Typeface createEmptyInstance() => create();
+  Typeface createEmptyInstance() => Typeface._();
   @$core.pragma('dart2js:noInline')
-  static Typeface getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Typeface>(create);
+  static Typeface getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Typeface>(Typeface.$_createMessage);
   static Typeface? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2846,7 +2915,7 @@ class Image extends $pb.GeneratedMessage {
     $core.String? dataHash,
     $core.List<$core.int>? mipmap,
   }) {
-    final result = create();
+    final result = Image._();
     if (subset != null) result.subset = subset;
     if (dataHash != null) result.dataHash = dataHash;
     if (mipmap != null) result.mipmap = mipmap;
@@ -2857,14 +2926,14 @@ class Image extends $pb.GeneratedMessage {
 
   factory Image.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Image()..mergeFromBuffer(data, registry);
   factory Image.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Image()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Image',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'subset', subBuilder: Rect.create)
+      createEmptyInstance: Image.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'subset', subBuilder: Rect.$_createMessage)
     ..aOS(2, _omitFieldNames ? '' : 'dataHash')
     ..a<$core.List<$core.int>>(3, _omitFieldNames ? '' : 'mipmap', $pb.PbFieldType.OY)
     ..hasRequiredFields = false;
@@ -2878,11 +2947,13 @@ class Image extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Image() / Image.new instead')
   static Image create() => Image._();
+  static $pb.GeneratedMessage $_createMessage() => Image._();
   @$core.override
-  Image createEmptyInstance() => create();
+  Image createEmptyInstance() => Image._();
   @$core.pragma('dart2js:noInline')
-  static Image getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Image>(create);
+  static Image getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Image>(Image.$_createMessage);
   static Image? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2927,7 +2998,7 @@ class TextBlobRun extends $pb.GeneratedMessage {
     $core.Iterable<$core.double>? clusters,
     $core.String? text,
   }) {
-    final result = create();
+    final result = TextBlobRun._();
     if (point != null) result.point = point;
     if (fontSize != null) result.fontSize = fontSize;
     if (fontScaleX != null) result.fontScaleX = fontScaleX;
@@ -2944,20 +3015,20 @@ class TextBlobRun extends $pb.GeneratedMessage {
 
   factory TextBlobRun.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      TextBlobRun()..mergeFromBuffer(data, registry);
   factory TextBlobRun.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      TextBlobRun()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextBlobRun',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Point>(1, _omitFieldNames ? '' : 'point', subBuilder: Point.create)
+      createEmptyInstance: TextBlobRun.$_createMessage)
+    ..aOM<Point>(1, _omitFieldNames ? '' : 'point', subBuilder: Point.$_createMessage)
     ..aD(2, _omitFieldNames ? '' : 'fontSize', fieldType: $pb.PbFieldType.OF)
     ..aD(3, _omitFieldNames ? '' : 'fontScaleX', fieldType: $pb.PbFieldType.OF)
     ..aD(4, _omitFieldNames ? '' : 'fontSkewX', fieldType: $pb.PbFieldType.OF)
     ..aI(5, _omitFieldNames ? '' : 'typefaceIndex')
     ..p<$core.double>(6, _omitFieldNames ? '' : 'glyphs', $pb.PbFieldType.KD)
-    ..pPM<FloatList>(7, _omitFieldNames ? '' : 'positions', subBuilder: FloatList.create)
+    ..pPM<FloatList>(7, _omitFieldNames ? '' : 'positions', subBuilder: FloatList.$_createMessage)
     ..p<$core.double>(8, _omitFieldNames ? '' : 'clusters', $pb.PbFieldType.KD)
     ..aOS(9, _omitFieldNames ? '' : 'text')
     ..hasRequiredFields = false;
@@ -2972,11 +3043,14 @@ class TextBlobRun extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use TextBlobRun() / TextBlobRun.new instead')
   static TextBlobRun create() => TextBlobRun._();
+  static $pb.GeneratedMessage $_createMessage() => TextBlobRun._();
   @$core.override
-  TextBlobRun createEmptyInstance() => create();
+  TextBlobRun createEmptyInstance() => TextBlobRun._();
   @$core.pragma('dart2js:noInline')
-  static TextBlobRun getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextBlobRun>(create);
+  static TextBlobRun getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextBlobRun>(TextBlobRun.$_createMessage);
   static TextBlobRun? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3050,7 +3124,7 @@ class TextBlob extends $pb.GeneratedMessage {
     Rect? bounds,
     $core.Iterable<TextBlobRun>? runs,
   }) {
-    final result = create();
+    final result = TextBlob._();
     if (bounds != null) result.bounds = bounds;
     if (runs != null) result.runs.addAll(runs);
     return result;
@@ -3060,15 +3134,15 @@ class TextBlob extends $pb.GeneratedMessage {
 
   factory TextBlob.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      TextBlob()..mergeFromBuffer(data, registry);
   factory TextBlob.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      TextBlob()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextBlob',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'bounds', subBuilder: Rect.create)
-    ..pPM<TextBlobRun>(2, _omitFieldNames ? '' : 'runs', subBuilder: TextBlobRun.create)
+      createEmptyInstance: TextBlob.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'bounds', subBuilder: Rect.$_createMessage)
+    ..pPM<TextBlobRun>(2, _omitFieldNames ? '' : 'runs', subBuilder: TextBlobRun.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -3081,11 +3155,14 @@ class TextBlob extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use TextBlob() / TextBlob.new instead')
   static TextBlob create() => TextBlob._();
+  static $pb.GeneratedMessage $_createMessage() => TextBlob._();
   @$core.override
-  TextBlob createEmptyInstance() => create();
+  TextBlob createEmptyInstance() => TextBlob._();
   @$core.pragma('dart2js:noInline')
-  static TextBlob getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextBlob>(create);
+  static TextBlob getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TextBlob>(TextBlob.$_createMessage);
   static TextBlob? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3114,7 +3191,7 @@ class Vertices extends $pb.GeneratedMessage {
     $core.Iterable<FloatList>? boneWeights,
     $core.Iterable<$core.double>? indices,
   }) {
-    final result = create();
+    final result = Vertices._();
     if (mode != null) result.mode = mode;
     if (isVolatile != null) result.isVolatile = isVolatile;
     if (positions != null) result.positions.addAll(positions);
@@ -3130,20 +3207,20 @@ class Vertices extends $pb.GeneratedMessage {
 
   factory Vertices.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Vertices()..mergeFromBuffer(data, registry);
   factory Vertices.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Vertices()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Vertices',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Vertices.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'mode')
     ..aOB(2, _omitFieldNames ? '' : 'isVolatile')
-    ..pPM<Point>(3, _omitFieldNames ? '' : 'positions', subBuilder: Point.create)
-    ..pPM<Point>(4, _omitFieldNames ? '' : 'texCoords', subBuilder: Point.create)
+    ..pPM<Point>(3, _omitFieldNames ? '' : 'positions', subBuilder: Point.$_createMessage)
+    ..pPM<Point>(4, _omitFieldNames ? '' : 'texCoords', subBuilder: Point.$_createMessage)
     ..p<$core.double>(5, _omitFieldNames ? '' : 'colors', $pb.PbFieldType.KD)
-    ..pPM<DoubleList>(6, _omitFieldNames ? '' : 'boneIndices', subBuilder: DoubleList.create)
-    ..pPM<FloatList>(7, _omitFieldNames ? '' : 'boneWeights', subBuilder: FloatList.create)
+    ..pPM<DoubleList>(6, _omitFieldNames ? '' : 'boneIndices', subBuilder: DoubleList.$_createMessage)
+    ..pPM<FloatList>(7, _omitFieldNames ? '' : 'boneWeights', subBuilder: FloatList.$_createMessage)
     ..p<$core.double>(8, _omitFieldNames ? '' : 'indices', $pb.PbFieldType.KD)
     ..hasRequiredFields = false;
 
@@ -3157,11 +3234,14 @@ class Vertices extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Vertices() / Vertices.new instead')
   static Vertices create() => Vertices._();
+  static $pb.GeneratedMessage $_createMessage() => Vertices._();
   @$core.override
-  Vertices createEmptyInstance() => create();
+  Vertices createEmptyInstance() => Vertices._();
   @$core.pragma('dart2js:noInline')
-  static Vertices getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Vertices>(create);
+  static Vertices getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Vertices>(Vertices.$_createMessage);
   static Vertices? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3214,7 +3294,7 @@ class ColorFilter extends $pb.GeneratedMessage {
     $core.bool? isRgba,
     $core.bool? isRowMajor,
   }) {
-    final result = create();
+    final result = ColorFilter._();
     if (type != null) result.type = type;
     if (color != null) result.color = color;
     if (mode != null) result.mode = mode;
@@ -3230,9 +3310,9 @@ class ColorFilter extends $pb.GeneratedMessage {
 
   factory ColorFilter.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      ColorFilter()..mergeFromBuffer(data, registry);
   factory ColorFilter.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      ColorFilter()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, ColorFilter_TypeOneOf> _ColorFilter_TypeOneOfByTag = {
     1: ColorFilter_TypeOneOf.type,
@@ -3241,15 +3321,15 @@ class ColorFilter extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ColorFilter',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: ColorFilter.$_createMessage)
     ..oo(0, [1, 5])
     ..aOS(1, _omitFieldNames ? '' : 'type')
     ..aD(2, _omitFieldNames ? '' : 'color')
     ..aD(3, _omitFieldNames ? '' : 'mode')
-    ..aOM<Color4f>(4, _omitFieldNames ? '' : 'color4f', subBuilder: Color4f.create)
+    ..aOM<Color4f>(4, _omitFieldNames ? '' : 'color4f', subBuilder: Color4f.$_createMessage)
     ..aE<ColorFilterType>(5, _omitFieldNames ? '' : 'typeEnum',
         protoName: 'typeEnum', enumValues: ColorFilterType.values)
-    ..aOM<FloatList>(6, _omitFieldNames ? '' : 'matrix', subBuilder: FloatList.create)
+    ..aOM<FloatList>(6, _omitFieldNames ? '' : 'matrix', subBuilder: FloatList.$_createMessage)
     ..aOB(7, _omitFieldNames ? '' : 'isRgba')
     ..aOB(8, _omitFieldNames ? '' : 'isRowMajor')
     ..hasRequiredFields = false;
@@ -3264,11 +3344,14 @@ class ColorFilter extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use ColorFilter() / ColorFilter.new instead')
   static ColorFilter create() => ColorFilter._();
+  static $pb.GeneratedMessage $_createMessage() => ColorFilter._();
   @$core.override
-  ColorFilter createEmptyInstance() => create();
+  ColorFilter createEmptyInstance() => ColorFilter._();
   @$core.pragma('dart2js:noInline')
-  static ColorFilter getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ColorFilter>(create);
+  static ColorFilter getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ColorFilter>(ColorFilter.$_createMessage);
   static ColorFilter? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3369,7 +3452,7 @@ class MaskFilter extends $pb.GeneratedMessage {
     $core.bool? respectCTM,
     MaskFilterType? typeEnum,
   }) {
-    final result = create();
+    final result = MaskFilter._();
     if (type != null) result.type = type;
     if (sigma != null) result.sigma = sigma;
     if (style != null) result.style = style;
@@ -3382,9 +3465,9 @@ class MaskFilter extends $pb.GeneratedMessage {
 
   factory MaskFilter.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      MaskFilter()..mergeFromBuffer(data, registry);
   factory MaskFilter.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      MaskFilter()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, MaskFilter_TypeOneOf> _MaskFilter_TypeOneOfByTag = {
     1: MaskFilter_TypeOneOf.type,
@@ -3393,7 +3476,7 @@ class MaskFilter extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MaskFilter',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: MaskFilter.$_createMessage)
     ..oo(0, [1, 5])
     ..aOS(1, _omitFieldNames ? '' : 'type')
     ..aD(2, _omitFieldNames ? '' : 'sigma', fieldType: $pb.PbFieldType.OF)
@@ -3412,11 +3495,14 @@ class MaskFilter extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use MaskFilter() / MaskFilter.new instead')
   static MaskFilter create() => MaskFilter._();
+  static $pb.GeneratedMessage $_createMessage() => MaskFilter._();
   @$core.override
-  MaskFilter createEmptyInstance() => create();
+  MaskFilter createEmptyInstance() => MaskFilter._();
   @$core.pragma('dart2js:noInline')
-  static MaskFilter getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MaskFilter>(create);
+  static MaskFilter getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MaskFilter>(MaskFilter.$_createMessage);
   static MaskFilter? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3506,7 +3592,7 @@ class Shader extends $pb.GeneratedMessage {
     Color4f? color4f,
     IntList? color4fSpaceData,
   }) {
-    final result = create();
+    final result = Shader._();
     if (type != null) result.type = type;
     if (tX != null) result.tX = tX;
     if (tY != null) result.tY = tY;
@@ -3539,9 +3625,9 @@ class Shader extends $pb.GeneratedMessage {
 
   factory Shader.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Shader()..mergeFromBuffer(data, registry);
   factory Shader.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Shader()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, Shader_TypeOneOf> _Shader_TypeOneOfByTag = {
     1: Shader_TypeOneOf.type,
@@ -3550,33 +3636,33 @@ class Shader extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Shader',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Shader.$_createMessage)
     ..oo(0, [1, 23])
     ..aOS(1, _omitFieldNames ? '' : 'type')
     ..aD(2, _omitFieldNames ? '' : 'tX')
     ..aD(3, _omitFieldNames ? '' : 'tY')
     ..p<$core.double>(4, _omitFieldNames ? '' : 'matrix', $pb.PbFieldType.KF)
     ..aOB(5, _omitFieldNames ? '' : 'raw')
-    ..aOM<Sampling>(6, _omitFieldNames ? '' : 'sampling', subBuilder: Sampling.create)
+    ..aOM<Sampling>(6, _omitFieldNames ? '' : 'sampling', subBuilder: Sampling.$_createMessage)
     ..aI(7, _omitFieldNames ? '' : 'imageIndex')
     ..aI(8, _omitFieldNames ? '' : 'maskedWidth')
     ..aI(9, _omitFieldNames ? '' : 'maskedHeight')
-    ..aOM<Color4f>(10, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.create)
-    ..aOM<Point>(11, _omitFieldNames ? '' : 'start', subBuilder: Point.create)
-    ..aOM<Point>(12, _omitFieldNames ? '' : 'end', subBuilder: Point.create)
+    ..aOM<Color4f>(10, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.$_createMessage)
+    ..aOM<Point>(11, _omitFieldNames ? '' : 'start', subBuilder: Point.$_createMessage)
+    ..aOM<Point>(12, _omitFieldNames ? '' : 'end', subBuilder: Point.$_createMessage)
     ..aD(13, _omitFieldNames ? '' : 'tileMode')
     ..aD(14, _omitFieldNames ? '' : 'gradFlags')
-    ..pPM<Color4f>(15, _omitFieldNames ? '' : 'colors', subBuilder: Color4f.create)
+    ..pPM<Color4f>(15, _omitFieldNames ? '' : 'colors', subBuilder: Color4f.$_createMessage)
     ..p<$core.double>(16, _omitFieldNames ? '' : 'pos', $pb.PbFieldType.KF)
     ..p<$core.double>(17, _omitFieldNames ? '' : 'localMatrix', $pb.PbFieldType.KF)
-    ..aOM<Point>(18, _omitFieldNames ? '' : 'center', subBuilder: Point.create)
+    ..aOM<Point>(18, _omitFieldNames ? '' : 'center', subBuilder: Point.$_createMessage)
     ..aD(19, _omitFieldNames ? '' : 'radius', fieldType: $pb.PbFieldType.OF)
     ..aD(20, _omitFieldNames ? '' : 'startAngle', fieldType: $pb.PbFieldType.OF)
     ..aD(21, _omitFieldNames ? '' : 'endAngle', fieldType: $pb.PbFieldType.OF)
-    ..aOM<Shader>(22, _omitFieldNames ? '' : 'shader', subBuilder: Shader.create)
+    ..aOM<Shader>(22, _omitFieldNames ? '' : 'shader', subBuilder: Shader.$_createMessage)
     ..aE<ShaderType>(23, _omitFieldNames ? '' : 'typeEnum', protoName: 'typeEnum', enumValues: ShaderType.values)
-    ..aOM<Color4f>(24, _omitFieldNames ? '' : 'color4f', subBuilder: Color4f.create)
-    ..aOM<IntList>(25, _omitFieldNames ? '' : 'color4fSpaceData', subBuilder: IntList.create)
+    ..aOM<Color4f>(24, _omitFieldNames ? '' : 'color4f', subBuilder: Color4f.$_createMessage)
+    ..aOM<IntList>(25, _omitFieldNames ? '' : 'color4fSpaceData', subBuilder: IntList.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -3588,11 +3674,13 @@ class Shader extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Shader() / Shader.new instead')
   static Shader create() => Shader._();
+  static $pb.GeneratedMessage $_createMessage() => Shader._();
   @$core.override
-  Shader createEmptyInstance() => create();
+  Shader createEmptyInstance() => Shader._();
   @$core.pragma('dart2js:noInline')
-  static Shader getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Shader>(create);
+  static Shader getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Shader>(Shader.$_createMessage);
   static Shader? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3831,7 +3919,7 @@ class LayerInfo extends $pb.GeneratedMessage {
     $core.Iterable<$core.double>? offset,
     $core.bool? postTranslate,
   }) {
-    final result = create();
+    final result = LayerInfo._();
     if (paintBits != null) result.paintBits = paintBits;
     if (colorMode != null) result.colorMode = colorMode;
     if (offset != null) result.offset.addAll(offset);
@@ -3843,13 +3931,13 @@ class LayerInfo extends $pb.GeneratedMessage {
 
   factory LayerInfo.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      LayerInfo()..mergeFromBuffer(data, registry);
   factory LayerInfo.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      LayerInfo()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LayerInfo',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: LayerInfo.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'paintBits')
     ..aI(2, _omitFieldNames ? '' : 'colorMode')
     ..p<$core.double>(3, _omitFieldNames ? '' : 'offset', $pb.PbFieldType.KF)
@@ -3866,11 +3954,14 @@ class LayerInfo extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use LayerInfo() / LayerInfo.new instead')
   static LayerInfo create() => LayerInfo._();
+  static $pb.GeneratedMessage $_createMessage() => LayerInfo._();
   @$core.override
-  LayerInfo createEmptyInstance() => create();
+  LayerInfo createEmptyInstance() => LayerInfo._();
   @$core.pragma('dart2js:noInline')
-  static LayerInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LayerInfo>(create);
+  static LayerInfo getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LayerInfo>(LayerInfo.$_createMessage);
   static LayerInfo? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3909,7 +4000,7 @@ class Layer extends $pb.GeneratedMessage {
     LayerInfo? layerInfo,
     Paint? paint,
   }) {
-    final result = create();
+    final result = Layer._();
     if (layerInfo != null) result.layerInfo = layerInfo;
     if (paint != null) result.paint = paint;
     return result;
@@ -3919,15 +4010,15 @@ class Layer extends $pb.GeneratedMessage {
 
   factory Layer.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Layer()..mergeFromBuffer(data, registry);
   factory Layer.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Layer()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Layer',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<LayerInfo>(1, _omitFieldNames ? '' : 'layerInfo', subBuilder: LayerInfo.create)
-    ..aOM<Paint>(2, _omitFieldNames ? '' : 'paint', subBuilder: Paint.create)
+      createEmptyInstance: Layer.$_createMessage)
+    ..aOM<LayerInfo>(1, _omitFieldNames ? '' : 'layerInfo', subBuilder: LayerInfo.$_createMessage)
+    ..aOM<Paint>(2, _omitFieldNames ? '' : 'paint', subBuilder: Paint.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -3939,11 +4030,13 @@ class Layer extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Layer() / Layer.new instead')
   static Layer create() => Layer._();
+  static $pb.GeneratedMessage $_createMessage() => Layer._();
   @$core.override
-  Layer createEmptyInstance() => create();
+  Layer createEmptyInstance() => Layer._();
   @$core.pragma('dart2js:noInline')
-  static Layer getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Layer>(create);
+  static Layer getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Layer>(Layer.$_createMessage);
   static Layer? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3977,7 +4070,7 @@ class Looper extends $pb.GeneratedMessage {
     $core.Iterable<Layer>? layers,
     LooperType? typeEnum,
   }) {
-    final result = create();
+    final result = Looper._();
     if (type != null) result.type = type;
     if (layers != null) result.layers.addAll(layers);
     if (typeEnum != null) result.typeEnum = typeEnum;
@@ -3988,9 +4081,9 @@ class Looper extends $pb.GeneratedMessage {
 
   factory Looper.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Looper()..mergeFromBuffer(data, registry);
   factory Looper.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Looper()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, Looper_TypeOneOf> _Looper_TypeOneOfByTag = {
     1: Looper_TypeOneOf.type,
@@ -3999,10 +4092,10 @@ class Looper extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Looper',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Looper.$_createMessage)
     ..oo(0, [1, 3])
     ..aOS(1, _omitFieldNames ? '' : 'type')
-    ..pPM<Layer>(2, _omitFieldNames ? '' : 'layers', subBuilder: Layer.create)
+    ..pPM<Layer>(2, _omitFieldNames ? '' : 'layers', subBuilder: Layer.$_createMessage)
     ..aE<LooperType>(3, _omitFieldNames ? '' : 'typeEnum', protoName: 'typeEnum', enumValues: LooperType.values)
     ..hasRequiredFields = false;
 
@@ -4015,11 +4108,13 @@ class Looper extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Looper() / Looper.new instead')
   static Looper create() => Looper._();
+  static $pb.GeneratedMessage $_createMessage() => Looper._();
   @$core.override
-  Looper createEmptyInstance() => create();
+  Looper createEmptyInstance() => Looper._();
   @$core.pragma('dart2js:noInline')
-  static Looper getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Looper>(create);
+  static Looper getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Looper>(Looper.$_createMessage);
   static Looper? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4068,7 +4163,7 @@ class PathEffect extends $pb.GeneratedMessage {
     $fixnum.Int64? style,
     Path? path,
   }) {
-    final result = create();
+    final result = PathEffect._();
     if (type != null) result.type = type;
     if (phase != null) result.phase = phase;
     if (intervals != null) result.intervals.addAll(intervals);
@@ -4084,9 +4179,9 @@ class PathEffect extends $pb.GeneratedMessage {
 
   factory PathEffect.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      PathEffect()..mergeFromBuffer(data, registry);
   factory PathEffect.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      PathEffect()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, PathEffect_TypeOneOf> _PathEffect_TypeOneOfByTag = {
     1: PathEffect_TypeOneOf.type,
@@ -4095,7 +4190,7 @@ class PathEffect extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PathEffect',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: PathEffect.$_createMessage)
     ..oo(0, [1, 4])
     ..aOS(1, _omitFieldNames ? '' : 'type')
     ..aD(2, _omitFieldNames ? '' : 'phase', fieldType: $pb.PbFieldType.OF)
@@ -4104,7 +4199,7 @@ class PathEffect extends $pb.GeneratedMessage {
     ..aD(5, _omitFieldNames ? '' : 'radius', fieldType: $pb.PbFieldType.OF)
     ..aD(6, _omitFieldNames ? '' : 'advance', fieldType: $pb.PbFieldType.OF)
     ..aInt64(7, _omitFieldNames ? '' : 'style')
-    ..aOM<Path>(8, _omitFieldNames ? '' : 'path', subBuilder: Path.create)
+    ..aOM<Path>(8, _omitFieldNames ? '' : 'path', subBuilder: Path.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -4117,11 +4212,14 @@ class PathEffect extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use PathEffect() / PathEffect.new instead')
   static PathEffect create() => PathEffect._();
+  static $pb.GeneratedMessage $_createMessage() => PathEffect._();
   @$core.override
-  PathEffect createEmptyInstance() => create();
+  PathEffect createEmptyInstance() => PathEffect._();
   @$core.pragma('dart2js:noInline')
-  static PathEffect getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PathEffect>(create);
+  static PathEffect getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PathEffect>(PathEffect.$_createMessage);
   static PathEffect? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4221,7 +4319,7 @@ class Paint extends $pb.GeneratedMessage {
     Looper? looper,
     PathEffect? pathEffect,
   }) {
-    final result = create();
+    final result = Paint._();
     if (color != null) result.color = color;
     if (style != null) result.style = style;
     if (blendMode != null) result.blendMode = blendMode;
@@ -4243,14 +4341,14 @@ class Paint extends $pb.GeneratedMessage {
 
   factory Paint.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Paint()..mergeFromBuffer(data, registry);
   factory Paint.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Paint()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Paint',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Color4f>(1, _omitFieldNames ? '' : 'color', subBuilder: Color4f.create)
+      createEmptyInstance: Paint.$_createMessage)
+    ..aOM<Color4f>(1, _omitFieldNames ? '' : 'color', subBuilder: Color4f.$_createMessage)
     ..aD(2, _omitFieldNames ? '' : 'style')
     ..aD(3, _omitFieldNames ? '' : 'blendMode')
     ..aD(4, _omitFieldNames ? '' : 'strokeCap')
@@ -4259,11 +4357,11 @@ class Paint extends $pb.GeneratedMessage {
     ..aD(7, _omitFieldNames ? '' : 'strokeMiter', fieldType: $pb.PbFieldType.OF)
     ..aOB(8, _omitFieldNames ? '' : 'antiAlias')
     ..aOB(9, _omitFieldNames ? '' : 'dither')
-    ..aOM<ColorFilter>(10, _omitFieldNames ? '' : 'colorFilter', subBuilder: ColorFilter.create)
-    ..aOM<MaskFilter>(11, _omitFieldNames ? '' : 'maskFilter', subBuilder: MaskFilter.create)
-    ..aOM<Shader>(12, _omitFieldNames ? '' : 'shader', subBuilder: Shader.create)
-    ..aOM<Looper>(13, _omitFieldNames ? '' : 'looper', subBuilder: Looper.create)
-    ..aOM<PathEffect>(14, _omitFieldNames ? '' : 'pathEffect', subBuilder: PathEffect.create)
+    ..aOM<ColorFilter>(10, _omitFieldNames ? '' : 'colorFilter', subBuilder: ColorFilter.$_createMessage)
+    ..aOM<MaskFilter>(11, _omitFieldNames ? '' : 'maskFilter', subBuilder: MaskFilter.$_createMessage)
+    ..aOM<Shader>(12, _omitFieldNames ? '' : 'shader', subBuilder: Shader.$_createMessage)
+    ..aOM<Looper>(13, _omitFieldNames ? '' : 'looper', subBuilder: Looper.$_createMessage)
+    ..aOM<PathEffect>(14, _omitFieldNames ? '' : 'pathEffect', subBuilder: PathEffect.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -4275,11 +4373,13 @@ class Paint extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Paint() / Paint.new instead')
   static Paint create() => Paint._();
+  static $pb.GeneratedMessage $_createMessage() => Paint._();
   @$core.override
-  Paint createEmptyInstance() => create();
+  Paint createEmptyInstance() => Paint._();
   @$core.pragma('dart2js:noInline')
-  static Paint getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Paint>(create);
+  static Paint getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Paint>(Paint.$_createMessage);
   static Paint? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4441,7 +4541,7 @@ class PathVerb extends $pb.GeneratedMessage {
     $core.double? y,
     PathVerbType? typeEnum,
   }) {
-    final result = create();
+    final result = PathVerb._();
     if (type != null) result.type = type;
     if (rRect != null) result.rRect = rRect;
     if (isCCW != null) result.isCCW = isCCW;
@@ -4464,9 +4564,9 @@ class PathVerb extends $pb.GeneratedMessage {
 
   factory PathVerb.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      PathVerb()..mergeFromBuffer(data, registry);
   factory PathVerb.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      PathVerb()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, PathVerb_TypeOneOf> _PathVerb_TypeOneOfByTag = {
     1: PathVerb_TypeOneOf.type,
@@ -4475,10 +4575,10 @@ class PathVerb extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PathVerb',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: PathVerb.$_createMessage)
     ..oo(0, [1, 15])
     ..aOS(1, _omitFieldNames ? '' : 'type')
-    ..aOM<Rect>(2, _omitFieldNames ? '' : 'rRect', subBuilder: Rect.create)
+    ..aOM<Rect>(2, _omitFieldNames ? '' : 'rRect', subBuilder: Rect.$_createMessage)
     ..aOB(3, _omitFieldNames ? '' : 'isCCW')
     ..aD(4, _omitFieldNames ? '' : 'x1', fieldType: $pb.PbFieldType.OF)
     ..aD(5, _omitFieldNames ? '' : 'y1', fieldType: $pb.PbFieldType.OF)
@@ -4504,11 +4604,14 @@ class PathVerb extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use PathVerb() / PathVerb.new instead')
   static PathVerb create() => PathVerb._();
+  static $pb.GeneratedMessage $_createMessage() => PathVerb._();
   @$core.override
-  PathVerb createEmptyInstance() => create();
+  PathVerb createEmptyInstance() => PathVerb._();
   @$core.pragma('dart2js:noInline')
-  static PathVerb getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PathVerb>(create);
+  static PathVerb getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PathVerb>(PathVerb.$_createMessage);
   static PathVerb? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4665,7 +4768,7 @@ class Path extends $pb.GeneratedMessage {
     $core.int? fillType,
     $core.Iterable<PathVerb>? verbs,
   }) {
-    final result = create();
+    final result = Path._();
     if (fillType != null) result.fillType = fillType;
     if (verbs != null) result.verbs.addAll(verbs);
     return result;
@@ -4674,15 +4777,15 @@ class Path extends $pb.GeneratedMessage {
   Path._();
 
   factory Path.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Path()..mergeFromBuffer(data, registry);
   factory Path.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Path()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Path',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Path.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'fillType')
-    ..pPM<PathVerb>(2, _omitFieldNames ? '' : 'verbs', subBuilder: PathVerb.create)
+    ..pPM<PathVerb>(2, _omitFieldNames ? '' : 'verbs', subBuilder: PathVerb.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -4694,11 +4797,13 @@ class Path extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Path() / Path.new instead')
   static Path create() => Path._();
+  static $pb.GeneratedMessage $_createMessage() => Path._();
   @$core.override
-  Path createEmptyInstance() => create();
+  Path createEmptyInstance() => Path._();
   @$core.pragma('dart2js:noInline')
-  static Path getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Path>(create);
+  static Path getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Path>(Path.$_createMessage);
   static Path? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4737,7 +4842,7 @@ class ViewNode extends $pb.GeneratedMessage {
     $core.String? text,
     $core.String? idEntryName,
   }) {
-    final result = create();
+    final result = ViewNode._();
     if (id != null) result.id = id;
     if (type != null) result.type = type;
     if (renderNodeId != null) result.renderNodeId = renderNodeId;
@@ -4765,13 +4870,13 @@ class ViewNode extends $pb.GeneratedMessage {
 
   factory ViewNode.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      ViewNode()..mergeFromBuffer(data, registry);
   factory ViewNode.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      ViewNode()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ViewNode',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: ViewNode.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'type')
     ..aD(3, _omitFieldNames ? '' : 'renderNodeId')
@@ -4788,7 +4893,7 @@ class ViewNode extends $pb.GeneratedMessage {
     ..aOB(14, _omitFieldNames ? '' : 'ignoreClicks')
     ..aOB(15, _omitFieldNames ? '' : 'isWebView')
     ..aI(16, _omitFieldNames ? '' : 'backgroundColor', protoName: 'backgroundColor')
-    ..pPM<ViewNode>(17, _omitFieldNames ? '' : 'children', subBuilder: ViewNode.create)
+    ..pPM<ViewNode>(17, _omitFieldNames ? '' : 'children', subBuilder: ViewNode.$_createMessage)
     ..aOB(18, _omitFieldNames ? '' : 'isMasked')
     ..aOS(19, _omitFieldNames ? '' : 'text')
     ..aOS(20, _omitFieldNames ? '' : 'idEntryName')
@@ -4804,11 +4909,14 @@ class ViewNode extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use ViewNode() / ViewNode.new instead')
   static ViewNode create() => ViewNode._();
+  static $pb.GeneratedMessage $_createMessage() => ViewNode._();
   @$core.override
-  ViewNode createEmptyInstance() => create();
+  ViewNode createEmptyInstance() => ViewNode._();
   @$core.pragma('dart2js:noInline')
-  static ViewNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ViewNode>(create);
+  static ViewNode getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ViewNode>(ViewNode.$_createMessage);
   static ViewNode? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5010,7 +5118,7 @@ class ViewNodeDelta extends $pb.GeneratedMessage {
     $core.String? idEntryName,
     $core.bool? isBackgroundColorSet,
   }) {
-    final result = create();
+    final result = ViewNodeDelta._();
     if (id != null) result.id = id;
     if (type != null) result.type = type;
     if (renderNodeId != null) result.renderNodeId = renderNodeId;
@@ -5039,13 +5147,13 @@ class ViewNodeDelta extends $pb.GeneratedMessage {
 
   factory ViewNodeDelta.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      ViewNodeDelta()..mergeFromBuffer(data, registry);
   factory ViewNodeDelta.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      ViewNodeDelta()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ViewNodeDelta',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: ViewNodeDelta.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'type')
     ..aD(3, _omitFieldNames ? '' : 'renderNodeId')
@@ -5062,7 +5170,7 @@ class ViewNodeDelta extends $pb.GeneratedMessage {
     ..aOB(14, _omitFieldNames ? '' : 'ignoreClicks')
     ..aOB(15, _omitFieldNames ? '' : 'isWebView')
     ..aI(16, _omitFieldNames ? '' : 'backgroundColor', protoName: 'backgroundColor')
-    ..pPM<ViewNodeDelta>(17, _omitFieldNames ? '' : 'children', subBuilder: ViewNodeDelta.create)
+    ..pPM<ViewNodeDelta>(17, _omitFieldNames ? '' : 'children', subBuilder: ViewNodeDelta.$_createMessage)
     ..aOB(18, _omitFieldNames ? '' : 'isMasked')
     ..aOS(19, _omitFieldNames ? '' : 'text')
     ..aOS(20, _omitFieldNames ? '' : 'idEntryName')
@@ -5079,11 +5187,14 @@ class ViewNodeDelta extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use ViewNodeDelta() / ViewNodeDelta.new instead')
   static ViewNodeDelta create() => ViewNodeDelta._();
+  static $pb.GeneratedMessage $_createMessage() => ViewNodeDelta._();
   @$core.override
-  ViewNodeDelta createEmptyInstance() => create();
+  ViewNodeDelta createEmptyInstance() => ViewNodeDelta._();
   @$core.pragma('dart2js:noInline')
-  static ViewNodeDelta getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ViewNodeDelta>(create);
+  static ViewNodeDelta getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ViewNodeDelta>(ViewNodeDelta.$_createMessage);
   static ViewNodeDelta? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5277,7 +5388,7 @@ class ViewHierarchy extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? visibleFragments,
     ViewNodeDelta? rootDelta,
   }) {
-    final result = create();
+    final result = ViewHierarchy._();
     if (timestamp != null) result.timestamp = timestamp;
     if (root != null) result.root = root;
     if (visibleFragments != null) result.visibleFragments.addAll(visibleFragments);
@@ -5289,18 +5400,18 @@ class ViewHierarchy extends $pb.GeneratedMessage {
 
   factory ViewHierarchy.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      ViewHierarchy()..mergeFromBuffer(data, registry);
   factory ViewHierarchy.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      ViewHierarchy()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ViewHierarchy',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: ViewHierarchy.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'timestamp')
-    ..aOM<ViewNode>(2, _omitFieldNames ? '' : 'root', subBuilder: ViewNode.create)
+    ..aOM<ViewNode>(2, _omitFieldNames ? '' : 'root', subBuilder: ViewNode.$_createMessage)
     ..pPS(3, _omitFieldNames ? '' : 'visibleFragments')
     ..aOM<ViewNodeDelta>(4, _omitFieldNames ? '' : 'rootDelta',
-        protoName: 'rootDelta', subBuilder: ViewNodeDelta.create)
+        protoName: 'rootDelta', subBuilder: ViewNodeDelta.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -5313,11 +5424,14 @@ class ViewHierarchy extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use ViewHierarchy() / ViewHierarchy.new instead')
   static ViewHierarchy create() => ViewHierarchy._();
+  static $pb.GeneratedMessage $_createMessage() => ViewHierarchy._();
   @$core.override
-  ViewHierarchy createEmptyInstance() => create();
+  ViewHierarchy createEmptyInstance() => ViewHierarchy._();
   @$core.pragma('dart2js:noInline')
-  static ViewHierarchy getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ViewHierarchy>(create);
+  static ViewHierarchy getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ViewHierarchy>(ViewHierarchy.$_createMessage);
   static ViewHierarchy? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5375,7 +5489,7 @@ class DisplayFrame extends $pb.GeneratedMessage {
     $core.int? keyboardHeight,
     $core.int? systemBackgroundColor,
   }) {
-    final result = create();
+    final result = DisplayFrame._();
     if (commands != null) result.commands.addAll(commands);
     if (typefaces != null) result.typefaces.addAll(typefaces);
     if (images != null) result.images.addAll(images);
@@ -5400,22 +5514,22 @@ class DisplayFrame extends $pb.GeneratedMessage {
 
   factory DisplayFrame.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DisplayFrame()..mergeFromBuffer(data, registry);
   factory DisplayFrame.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DisplayFrame()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DisplayFrame',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..pPM<DisplayCommand>(1, _omitFieldNames ? '' : 'commands', subBuilder: DisplayCommand.create)
-    ..pPM<Typeface>(2, _omitFieldNames ? '' : 'typefaces', subBuilder: Typeface.create)
-    ..pPM<Image>(3, _omitFieldNames ? '' : 'images', subBuilder: Image.create)
-    ..pPM<TextBlob>(4, _omitFieldNames ? '' : 'textBlobs', subBuilder: TextBlob.create)
-    ..pPM<Vertices>(5, _omitFieldNames ? '' : 'vertices', subBuilder: Vertices.create)
-    ..pPM<Paint>(6, _omitFieldNames ? '' : 'paints', subBuilder: Paint.create)
-    ..pPM<Path>(7, _omitFieldNames ? '' : 'paths', subBuilder: Path.create)
-    ..pPM<DisplayFrame>(8, _omitFieldNames ? '' : 'subPictures', subBuilder: DisplayFrame.create)
-    ..aOM<ViewHierarchy>(9, _omitFieldNames ? '' : 'viewHierarchy', subBuilder: ViewHierarchy.create)
+      createEmptyInstance: DisplayFrame.$_createMessage)
+    ..pPM<DisplayCommand>(1, _omitFieldNames ? '' : 'commands', subBuilder: DisplayCommand.$_createMessage)
+    ..pPM<Typeface>(2, _omitFieldNames ? '' : 'typefaces', subBuilder: Typeface.$_createMessage)
+    ..pPM<Image>(3, _omitFieldNames ? '' : 'images', subBuilder: Image.$_createMessage)
+    ..pPM<TextBlob>(4, _omitFieldNames ? '' : 'textBlobs', subBuilder: TextBlob.$_createMessage)
+    ..pPM<Vertices>(5, _omitFieldNames ? '' : 'vertices', subBuilder: Vertices.$_createMessage)
+    ..pPM<Paint>(6, _omitFieldNames ? '' : 'paints', subBuilder: Paint.$_createMessage)
+    ..pPM<Path>(7, _omitFieldNames ? '' : 'paths', subBuilder: Path.$_createMessage)
+    ..pPM<DisplayFrame>(8, _omitFieldNames ? '' : 'subPictures', subBuilder: DisplayFrame.$_createMessage)
+    ..aOM<ViewHierarchy>(9, _omitFieldNames ? '' : 'viewHierarchy', subBuilder: ViewHierarchy.$_createMessage)
     ..aD(10, _omitFieldNames ? '' : 'timestamp')
     ..aOS(11, _omitFieldNames ? '' : 'activityName')
     ..aI(12, _omitFieldNames ? '' : 'activityId')
@@ -5436,11 +5550,14 @@ class DisplayFrame extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DisplayFrame() / DisplayFrame.new instead')
   static DisplayFrame create() => DisplayFrame._();
+  static $pb.GeneratedMessage $_createMessage() => DisplayFrame._();
   @$core.override
-  DisplayFrame createEmptyInstance() => create();
+  DisplayFrame createEmptyInstance() => DisplayFrame._();
   @$core.pragma('dart2js:noInline')
-  static DisplayFrame getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayFrame>(create);
+  static DisplayFrame getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayFrame>(DisplayFrame.$_createMessage);
   static DisplayFrame? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5557,7 +5674,7 @@ class ClipRectCommandPayload extends $pb.GeneratedMessage {
     $core.bool? antiAlias,
     Rect? rect,
   }) {
-    final result = create();
+    final result = ClipRectCommandPayload._();
     if (op != null) result.op = op;
     if (antiAlias != null) result.antiAlias = antiAlias;
     if (rect != null) result.rect = rect;
@@ -5568,17 +5685,17 @@ class ClipRectCommandPayload extends $pb.GeneratedMessage {
 
   factory ClipRectCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      ClipRectCommandPayload()..mergeFromBuffer(data, registry);
   factory ClipRectCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      ClipRectCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ClipRectCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: ClipRectCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'op')
     ..aOB(2, _omitFieldNames ? '' : 'antiAlias')
-    ..aOM<Rect>(3, _omitFieldNames ? '' : 'rect', subBuilder: Rect.create)
+    ..aOM<Rect>(3, _omitFieldNames ? '' : 'rect', subBuilder: Rect.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -5591,12 +5708,14 @@ class ClipRectCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use ClipRectCommandPayload() / ClipRectCommandPayload.new instead')
   static ClipRectCommandPayload create() => ClipRectCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => ClipRectCommandPayload._();
   @$core.override
-  ClipRectCommandPayload createEmptyInstance() => create();
+  ClipRectCommandPayload createEmptyInstance() => ClipRectCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static ClipRectCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ClipRectCommandPayload>(create);
+  static ClipRectCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ClipRectCommandPayload>(ClipRectCommandPayload.$_createMessage);
   static ClipRectCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5633,7 +5752,7 @@ class ConcatCommandPayload extends $pb.GeneratedMessage {
   factory ConcatCommandPayload({
     $core.Iterable<$core.double>? matrix,
   }) {
-    final result = create();
+    final result = ConcatCommandPayload._();
     if (matrix != null) result.matrix.addAll(matrix);
     return result;
   }
@@ -5642,14 +5761,14 @@ class ConcatCommandPayload extends $pb.GeneratedMessage {
 
   factory ConcatCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      ConcatCommandPayload()..mergeFromBuffer(data, registry);
   factory ConcatCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      ConcatCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ConcatCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: ConcatCommandPayload.$_createMessage)
     ..p<$core.double>(1, _omitFieldNames ? '' : 'matrix', $pb.PbFieldType.KF)
     ..hasRequiredFields = false;
 
@@ -5663,12 +5782,14 @@ class ConcatCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use ConcatCommandPayload() / ConcatCommandPayload.new instead')
   static ConcatCommandPayload create() => ConcatCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => ConcatCommandPayload._();
   @$core.override
-  ConcatCommandPayload createEmptyInstance() => create();
+  ConcatCommandPayload createEmptyInstance() => ConcatCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static ConcatCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConcatCommandPayload>(create);
+  static ConcatCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ConcatCommandPayload>(ConcatCommandPayload.$_createMessage);
   static ConcatCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5679,7 +5800,7 @@ class Concat44CommandPayload extends $pb.GeneratedMessage {
   factory Concat44CommandPayload({
     $core.Iterable<$core.double>? matrix,
   }) {
-    final result = create();
+    final result = Concat44CommandPayload._();
     if (matrix != null) result.matrix.addAll(matrix);
     return result;
   }
@@ -5688,14 +5809,14 @@ class Concat44CommandPayload extends $pb.GeneratedMessage {
 
   factory Concat44CommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      Concat44CommandPayload()..mergeFromBuffer(data, registry);
   factory Concat44CommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      Concat44CommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Concat44CommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: Concat44CommandPayload.$_createMessage)
     ..p<$core.double>(1, _omitFieldNames ? '' : 'matrix', $pb.PbFieldType.KF)
     ..hasRequiredFields = false;
 
@@ -5709,12 +5830,14 @@ class Concat44CommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use Concat44CommandPayload() / Concat44CommandPayload.new instead')
   static Concat44CommandPayload create() => Concat44CommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => Concat44CommandPayload._();
   @$core.override
-  Concat44CommandPayload createEmptyInstance() => create();
+  Concat44CommandPayload createEmptyInstance() => Concat44CommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static Concat44CommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Concat44CommandPayload>(create);
+  static Concat44CommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Concat44CommandPayload>(Concat44CommandPayload.$_createMessage);
   static Concat44CommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5729,7 +5852,7 @@ class DrawArcCommandPayload extends $pb.GeneratedMessage {
     $core.bool? useCenter,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawArcCommandPayload._();
     if (rect != null) result.rect = rect;
     if (startAngle != null) result.startAngle = startAngle;
     if (sweepAngle != null) result.sweepAngle = sweepAngle;
@@ -5742,15 +5865,15 @@ class DrawArcCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawArcCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawArcCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawArcCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawArcCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawArcCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'rect', subBuilder: Rect.create)
+      createEmptyInstance: DrawArcCommandPayload.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'rect', subBuilder: Rect.$_createMessage)
     ..aD(2, _omitFieldNames ? '' : 'startAngle', fieldType: $pb.PbFieldType.OF)
     ..aD(3, _omitFieldNames ? '' : 'sweepAngle', fieldType: $pb.PbFieldType.OF)
     ..aOB(4, _omitFieldNames ? '' : 'useCenter')
@@ -5767,12 +5890,14 @@ class DrawArcCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawArcCommandPayload() / DrawArcCommandPayload.new instead')
   static DrawArcCommandPayload create() => DrawArcCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawArcCommandPayload._();
   @$core.override
-  DrawArcCommandPayload createEmptyInstance() => create();
+  DrawArcCommandPayload createEmptyInstance() => DrawArcCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawArcCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawArcCommandPayload>(create);
+  static DrawArcCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawArcCommandPayload>(DrawArcCommandPayload.$_createMessage);
   static DrawArcCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5827,7 +5952,7 @@ class DrawBehindPaintCommandPayload extends $pb.GeneratedMessage {
   factory DrawBehindPaintCommandPayload({
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawBehindPaintCommandPayload._();
     if (paintIndex != null) result.paintIndex = paintIndex;
     return result;
   }
@@ -5836,14 +5961,14 @@ class DrawBehindPaintCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawBehindPaintCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawBehindPaintCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawBehindPaintCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawBehindPaintCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawBehindPaintCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawBehindPaintCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -5857,12 +5982,14 @@ class DrawBehindPaintCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawBehindPaintCommandPayload() / DrawBehindPaintCommandPayload.new instead')
   static DrawBehindPaintCommandPayload create() => DrawBehindPaintCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawBehindPaintCommandPayload._();
   @$core.override
-  DrawBehindPaintCommandPayload createEmptyInstance() => create();
+  DrawBehindPaintCommandPayload createEmptyInstance() => DrawBehindPaintCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawBehindPaintCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawBehindPaintCommandPayload>(create);
+  static DrawBehindPaintCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawBehindPaintCommandPayload>(DrawBehindPaintCommandPayload.$_createMessage);
   static DrawBehindPaintCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5881,7 +6008,7 @@ class DrawDRRectCommandPayload extends $pb.GeneratedMessage {
     Rect? inner,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawDRRectCommandPayload._();
     if (outer != null) result.outer = outer;
     if (inner != null) result.inner = inner;
     if (paintIndex != null) result.paintIndex = paintIndex;
@@ -5892,16 +6019,16 @@ class DrawDRRectCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawDRRectCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawDRRectCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawDRRectCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawDRRectCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawDRRectCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'outer', subBuilder: Rect.create)
-    ..aOM<Rect>(2, _omitFieldNames ? '' : 'inner', subBuilder: Rect.create)
+      createEmptyInstance: DrawDRRectCommandPayload.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'outer', subBuilder: Rect.$_createMessage)
+    ..aOM<Rect>(2, _omitFieldNames ? '' : 'inner', subBuilder: Rect.$_createMessage)
     ..aI(3, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -5915,12 +6042,14 @@ class DrawDRRectCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawDRRectCommandPayload() / DrawDRRectCommandPayload.new instead')
   static DrawDRRectCommandPayload create() => DrawDRRectCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawDRRectCommandPayload._();
   @$core.override
-  DrawDRRectCommandPayload createEmptyInstance() => create();
+  DrawDRRectCommandPayload createEmptyInstance() => DrawDRRectCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawDRRectCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawDRRectCommandPayload>(create);
+  static DrawDRRectCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawDRRectCommandPayload>(DrawDRRectCommandPayload.$_createMessage);
   static DrawDRRectCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5966,7 +6095,7 @@ class DrawImageCommandPayload extends $pb.GeneratedMessage {
     Color4f? maskedColor,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawImageCommandPayload._();
     if (x != null) result.x = x;
     if (y != null) result.y = y;
     if (imageIndex != null) result.imageIndex = imageIndex;
@@ -5982,21 +6111,21 @@ class DrawImageCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawImageCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawImageCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawImageCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawImageCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawImageCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawImageCommandPayload.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'x', fieldType: $pb.PbFieldType.OF)
     ..aD(2, _omitFieldNames ? '' : 'y', fieldType: $pb.PbFieldType.OF)
     ..aI(3, _omitFieldNames ? '' : 'imageIndex')
-    ..aOM<Sampling>(4, _omitFieldNames ? '' : 'sampling', subBuilder: Sampling.create)
+    ..aOM<Sampling>(4, _omitFieldNames ? '' : 'sampling', subBuilder: Sampling.$_createMessage)
     ..aI(5, _omitFieldNames ? '' : 'maskedWidth')
     ..aI(6, _omitFieldNames ? '' : 'maskedHeight')
-    ..aOM<Color4f>(7, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.create)
+    ..aOM<Color4f>(7, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.$_createMessage)
     ..aI(8, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -6010,12 +6139,14 @@ class DrawImageCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawImageCommandPayload() / DrawImageCommandPayload.new instead')
   static DrawImageCommandPayload create() => DrawImageCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawImageCommandPayload._();
   @$core.override
-  DrawImageCommandPayload createEmptyInstance() => create();
+  DrawImageCommandPayload createEmptyInstance() => DrawImageCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawImageCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawImageCommandPayload>(create);
+  static DrawImageCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawImageCommandPayload>(DrawImageCommandPayload.$_createMessage);
   static DrawImageCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6106,7 +6237,7 @@ class DrawImageLatticeCommandPayload extends $pb.GeneratedMessage {
     Color4f? maskedColor,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawImageLatticeCommandPayload._();
     if (lattice != null) result.lattice = lattice;
     if (dst != null) result.dst = dst;
     if (imageIndex != null) result.imageIndex = imageIndex;
@@ -6122,21 +6253,21 @@ class DrawImageLatticeCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawImageLatticeCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawImageLatticeCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawImageLatticeCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawImageLatticeCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawImageLatticeCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Lattice>(1, _omitFieldNames ? '' : 'lattice', subBuilder: Lattice.create)
-    ..aOM<Rect>(2, _omitFieldNames ? '' : 'dst', subBuilder: Rect.create)
+      createEmptyInstance: DrawImageLatticeCommandPayload.$_createMessage)
+    ..aOM<Lattice>(1, _omitFieldNames ? '' : 'lattice', subBuilder: Lattice.$_createMessage)
+    ..aOM<Rect>(2, _omitFieldNames ? '' : 'dst', subBuilder: Rect.$_createMessage)
     ..aI(3, _omitFieldNames ? '' : 'imageIndex')
     ..aD(4, _omitFieldNames ? '' : 'filterMode')
     ..aI(5, _omitFieldNames ? '' : 'maskedWidth')
     ..aI(6, _omitFieldNames ? '' : 'maskedHeight')
-    ..aOM<Color4f>(7, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.create)
+    ..aOM<Color4f>(7, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.$_createMessage)
     ..aI(8, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -6150,12 +6281,14 @@ class DrawImageLatticeCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawImageLatticeCommandPayload() / DrawImageLatticeCommandPayload.new instead')
   static DrawImageLatticeCommandPayload create() => DrawImageLatticeCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawImageLatticeCommandPayload._();
   @$core.override
-  DrawImageLatticeCommandPayload createEmptyInstance() => create();
+  DrawImageLatticeCommandPayload createEmptyInstance() => DrawImageLatticeCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawImageLatticeCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawImageLatticeCommandPayload>(create);
+  static DrawImageLatticeCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawImageLatticeCommandPayload>(DrawImageLatticeCommandPayload.$_createMessage);
   static DrawImageLatticeCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6247,7 +6380,7 @@ class DrawImageNineCommandPayload extends $pb.GeneratedMessage {
     Color4f? maskedColor,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawImageNineCommandPayload._();
     if (center != null) result.center = center;
     if (dst != null) result.dst = dst;
     if (imageIndex != null) result.imageIndex = imageIndex;
@@ -6262,20 +6395,20 @@ class DrawImageNineCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawImageNineCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawImageNineCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawImageNineCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawImageNineCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawImageNineCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'center', subBuilder: Rect.create)
-    ..aOM<Rect>(2, _omitFieldNames ? '' : 'dst', subBuilder: Rect.create)
+      createEmptyInstance: DrawImageNineCommandPayload.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'center', subBuilder: Rect.$_createMessage)
+    ..aOM<Rect>(2, _omitFieldNames ? '' : 'dst', subBuilder: Rect.$_createMessage)
     ..aI(3, _omitFieldNames ? '' : 'imageIndex')
     ..aI(4, _omitFieldNames ? '' : 'maskedWidth')
     ..aI(5, _omitFieldNames ? '' : 'maskedHeight')
-    ..aOM<Color4f>(6, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.create)
+    ..aOM<Color4f>(6, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.$_createMessage)
     ..aI(7, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -6289,12 +6422,14 @@ class DrawImageNineCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawImageNineCommandPayload() / DrawImageNineCommandPayload.new instead')
   static DrawImageNineCommandPayload create() => DrawImageNineCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawImageNineCommandPayload._();
   @$core.override
-  DrawImageNineCommandPayload createEmptyInstance() => create();
+  DrawImageNineCommandPayload createEmptyInstance() => DrawImageNineCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawImageNineCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawImageNineCommandPayload>(create);
+  static DrawImageNineCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawImageNineCommandPayload>(DrawImageNineCommandPayload.$_createMessage);
   static DrawImageNineCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6379,7 +6514,7 @@ class DrawImageRectCommandPayload extends $pb.GeneratedMessage {
     Color4f? maskedColor,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawImageRectCommandPayload._();
     if (src != null) result.src = src;
     if (dst != null) result.dst = dst;
     if (constraint != null) result.constraint = constraint;
@@ -6396,22 +6531,22 @@ class DrawImageRectCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawImageRectCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawImageRectCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawImageRectCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawImageRectCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawImageRectCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'src', subBuilder: Rect.create)
-    ..aOM<Rect>(2, _omitFieldNames ? '' : 'dst', subBuilder: Rect.create)
+      createEmptyInstance: DrawImageRectCommandPayload.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'src', subBuilder: Rect.$_createMessage)
+    ..aOM<Rect>(2, _omitFieldNames ? '' : 'dst', subBuilder: Rect.$_createMessage)
     ..aI(3, _omitFieldNames ? '' : 'constraint')
     ..aI(4, _omitFieldNames ? '' : 'imageIndex')
-    ..aOM<Sampling>(5, _omitFieldNames ? '' : 'sampling', subBuilder: Sampling.create)
+    ..aOM<Sampling>(5, _omitFieldNames ? '' : 'sampling', subBuilder: Sampling.$_createMessage)
     ..aI(6, _omitFieldNames ? '' : 'maskedWidth')
     ..aI(7, _omitFieldNames ? '' : 'maskedHeight')
-    ..aOM<Color4f>(8, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.create)
+    ..aOM<Color4f>(8, _omitFieldNames ? '' : 'maskedColor', subBuilder: Color4f.$_createMessage)
     ..aI(9, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -6425,12 +6560,14 @@ class DrawImageRectCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawImageRectCommandPayload() / DrawImageRectCommandPayload.new instead')
   static DrawImageRectCommandPayload create() => DrawImageRectCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawImageRectCommandPayload._();
   @$core.override
-  DrawImageRectCommandPayload createEmptyInstance() => create();
+  DrawImageRectCommandPayload createEmptyInstance() => DrawImageRectCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawImageRectCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawImageRectCommandPayload>(create);
+  static DrawImageRectCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawImageRectCommandPayload>(DrawImageRectCommandPayload.$_createMessage);
   static DrawImageRectCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6527,7 +6664,7 @@ class DrawPaintCommandPayload extends $pb.GeneratedMessage {
   factory DrawPaintCommandPayload({
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawPaintCommandPayload._();
     if (paintIndex != null) result.paintIndex = paintIndex;
     return result;
   }
@@ -6536,14 +6673,14 @@ class DrawPaintCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawPaintCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawPaintCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawPaintCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawPaintCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawPaintCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawPaintCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -6557,12 +6694,14 @@ class DrawPaintCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawPaintCommandPayload() / DrawPaintCommandPayload.new instead')
   static DrawPaintCommandPayload create() => DrawPaintCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawPaintCommandPayload._();
   @$core.override
-  DrawPaintCommandPayload createEmptyInstance() => create();
+  DrawPaintCommandPayload createEmptyInstance() => DrawPaintCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawPaintCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawPaintCommandPayload>(create);
+  static DrawPaintCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawPaintCommandPayload>(DrawPaintCommandPayload.$_createMessage);
   static DrawPaintCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6580,7 +6719,7 @@ class DrawPathCommandPayload extends $pb.GeneratedMessage {
     $core.int? pathIndex,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawPathCommandPayload._();
     if (pathIndex != null) result.pathIndex = pathIndex;
     if (paintIndex != null) result.paintIndex = paintIndex;
     return result;
@@ -6590,14 +6729,14 @@ class DrawPathCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawPathCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawPathCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawPathCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawPathCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawPathCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawPathCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'pathIndex')
     ..aI(2, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
@@ -6612,12 +6751,14 @@ class DrawPathCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawPathCommandPayload() / DrawPathCommandPayload.new instead')
   static DrawPathCommandPayload create() => DrawPathCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawPathCommandPayload._();
   @$core.override
-  DrawPathCommandPayload createEmptyInstance() => create();
+  DrawPathCommandPayload createEmptyInstance() => DrawPathCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawPathCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawPathCommandPayload>(create);
+  static DrawPathCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawPathCommandPayload>(DrawPathCommandPayload.$_createMessage);
   static DrawPathCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6644,7 +6785,7 @@ class DrawRectCommandPayload extends $pb.GeneratedMessage {
     Rect? rect,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawRectCommandPayload._();
     if (rect != null) result.rect = rect;
     if (paintIndex != null) result.paintIndex = paintIndex;
     return result;
@@ -6654,15 +6795,15 @@ class DrawRectCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawRectCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawRectCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawRectCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawRectCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawRectCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'rect', subBuilder: Rect.create)
+      createEmptyInstance: DrawRectCommandPayload.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'rect', subBuilder: Rect.$_createMessage)
     ..aI(2, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -6676,12 +6817,14 @@ class DrawRectCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawRectCommandPayload() / DrawRectCommandPayload.new instead')
   static DrawRectCommandPayload create() => DrawRectCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawRectCommandPayload._();
   @$core.override
-  DrawRectCommandPayload createEmptyInstance() => create();
+  DrawRectCommandPayload createEmptyInstance() => DrawRectCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawRectCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawRectCommandPayload>(create);
+  static DrawRectCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawRectCommandPayload>(DrawRectCommandPayload.$_createMessage);
   static DrawRectCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6710,7 +6853,7 @@ class TranslateCommandPayload extends $pb.GeneratedMessage {
     $core.double? left,
     $core.double? top,
   }) {
-    final result = create();
+    final result = TranslateCommandPayload._();
     if (left != null) result.left = left;
     if (top != null) result.top = top;
     return result;
@@ -6720,14 +6863,14 @@ class TranslateCommandPayload extends $pb.GeneratedMessage {
 
   factory TranslateCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      TranslateCommandPayload()..mergeFromBuffer(data, registry);
   factory TranslateCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      TranslateCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TranslateCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: TranslateCommandPayload.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'left', fieldType: $pb.PbFieldType.OF)
     ..aD(2, _omitFieldNames ? '' : 'top', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
@@ -6742,12 +6885,14 @@ class TranslateCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use TranslateCommandPayload() / TranslateCommandPayload.new instead')
   static TranslateCommandPayload create() => TranslateCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => TranslateCommandPayload._();
   @$core.override
-  TranslateCommandPayload createEmptyInstance() => create();
+  TranslateCommandPayload createEmptyInstance() => TranslateCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static TranslateCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TranslateCommandPayload>(create);
+  static TranslateCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TranslateCommandPayload>(TranslateCommandPayload.$_createMessage);
   static TranslateCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6774,7 +6919,7 @@ class DrawOvalCommandPayload extends $pb.GeneratedMessage {
     Rect? rect,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawOvalCommandPayload._();
     if (rect != null) result.rect = rect;
     if (paintIndex != null) result.paintIndex = paintIndex;
     return result;
@@ -6784,15 +6929,15 @@ class DrawOvalCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawOvalCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawOvalCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawOvalCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawOvalCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawOvalCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'rect', subBuilder: Rect.create)
+      createEmptyInstance: DrawOvalCommandPayload.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'rect', subBuilder: Rect.$_createMessage)
     ..aI(2, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -6806,12 +6951,14 @@ class DrawOvalCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawOvalCommandPayload() / DrawOvalCommandPayload.new instead')
   static DrawOvalCommandPayload create() => DrawOvalCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawOvalCommandPayload._();
   @$core.override
-  DrawOvalCommandPayload createEmptyInstance() => create();
+  DrawOvalCommandPayload createEmptyInstance() => DrawOvalCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawOvalCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawOvalCommandPayload>(create);
+  static DrawOvalCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawOvalCommandPayload>(DrawOvalCommandPayload.$_createMessage);
   static DrawOvalCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6841,7 +6988,7 @@ class DrawPointsCommandPayload extends $pb.GeneratedMessage {
     $core.Iterable<Point>? points,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawPointsCommandPayload._();
     if (pointMode != null) result.pointMode = pointMode;
     if (points != null) result.points.addAll(points);
     if (paintIndex != null) result.paintIndex = paintIndex;
@@ -6852,16 +6999,16 @@ class DrawPointsCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawPointsCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawPointsCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawPointsCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawPointsCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawPointsCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawPointsCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'pointMode')
-    ..pPM<Point>(2, _omitFieldNames ? '' : 'points', subBuilder: Point.create)
+    ..pPM<Point>(2, _omitFieldNames ? '' : 'points', subBuilder: Point.$_createMessage)
     ..aI(3, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -6875,12 +7022,14 @@ class DrawPointsCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawPointsCommandPayload() / DrawPointsCommandPayload.new instead')
   static DrawPointsCommandPayload create() => DrawPointsCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawPointsCommandPayload._();
   @$core.override
-  DrawPointsCommandPayload createEmptyInstance() => create();
+  DrawPointsCommandPayload createEmptyInstance() => DrawPointsCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawPointsCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawPointsCommandPayload>(create);
+  static DrawPointsCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawPointsCommandPayload>(DrawPointsCommandPayload.$_createMessage);
   static DrawPointsCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6910,7 +7059,7 @@ class DrawRRectCommandPayload extends $pb.GeneratedMessage {
     Rect? rrect,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawRRectCommandPayload._();
     if (rrect != null) result.rrect = rrect;
     if (paintIndex != null) result.paintIndex = paintIndex;
     return result;
@@ -6920,15 +7069,15 @@ class DrawRRectCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawRRectCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawRRectCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawRRectCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawRRectCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawRRectCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'rrect', subBuilder: Rect.create)
+      createEmptyInstance: DrawRRectCommandPayload.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'rrect', subBuilder: Rect.$_createMessage)
     ..aI(2, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -6942,12 +7091,14 @@ class DrawRRectCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawRRectCommandPayload() / DrawRRectCommandPayload.new instead')
   static DrawRRectCommandPayload create() => DrawRRectCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawRRectCommandPayload._();
   @$core.override
-  DrawRRectCommandPayload createEmptyInstance() => create();
+  DrawRRectCommandPayload createEmptyInstance() => DrawRRectCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawRRectCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawRRectCommandPayload>(create);
+  static DrawRRectCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawRRectCommandPayload>(DrawRRectCommandPayload.$_createMessage);
   static DrawRRectCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -6978,7 +7129,7 @@ class DrawTextBlobCommandPayload extends $pb.GeneratedMessage {
     $core.double? y,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawTextBlobCommandPayload._();
     if (blobIndex != null) result.blobIndex = blobIndex;
     if (x != null) result.x = x;
     if (y != null) result.y = y;
@@ -6990,14 +7141,14 @@ class DrawTextBlobCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawTextBlobCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawTextBlobCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawTextBlobCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawTextBlobCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawTextBlobCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawTextBlobCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'blobIndex')
     ..aD(2, _omitFieldNames ? '' : 'x', fieldType: $pb.PbFieldType.OF)
     ..aD(3, _omitFieldNames ? '' : 'y', fieldType: $pb.PbFieldType.OF)
@@ -7014,12 +7165,14 @@ class DrawTextBlobCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawTextBlobCommandPayload() / DrawTextBlobCommandPayload.new instead')
   static DrawTextBlobCommandPayload create() => DrawTextBlobCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawTextBlobCommandPayload._();
   @$core.override
-  DrawTextBlobCommandPayload createEmptyInstance() => create();
+  DrawTextBlobCommandPayload createEmptyInstance() => DrawTextBlobCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawTextBlobCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawTextBlobCommandPayload>(create);
+  static DrawTextBlobCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawTextBlobCommandPayload>(DrawTextBlobCommandPayload.$_createMessage);
   static DrawTextBlobCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7066,7 +7219,7 @@ class DrawVerticesCommandPayload extends $pb.GeneratedMessage {
     $core.Iterable<FloatList>? bones,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = DrawVerticesCommandPayload._();
     if (verticesIndex != null) result.verticesIndex = verticesIndex;
     if (mode != null) result.mode = mode;
     if (bones != null) result.bones.addAll(bones);
@@ -7078,17 +7231,17 @@ class DrawVerticesCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawVerticesCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawVerticesCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawVerticesCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawVerticesCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawVerticesCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawVerticesCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'verticesIndex')
     ..aD(2, _omitFieldNames ? '' : 'mode')
-    ..pPM<FloatList>(3, _omitFieldNames ? '' : 'bones', subBuilder: FloatList.create)
+    ..pPM<FloatList>(3, _omitFieldNames ? '' : 'bones', subBuilder: FloatList.$_createMessage)
     ..aI(4, _omitFieldNames ? '' : 'paintIndex')
     ..hasRequiredFields = false;
 
@@ -7102,12 +7255,14 @@ class DrawVerticesCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawVerticesCommandPayload() / DrawVerticesCommandPayload.new instead')
   static DrawVerticesCommandPayload create() => DrawVerticesCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawVerticesCommandPayload._();
   @$core.override
-  DrawVerticesCommandPayload createEmptyInstance() => create();
+  DrawVerticesCommandPayload createEmptyInstance() => DrawVerticesCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawVerticesCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawVerticesCommandPayload>(create);
+  static DrawVerticesCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawVerticesCommandPayload>(DrawVerticesCommandPayload.$_createMessage);
   static DrawVerticesCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7142,20 +7297,20 @@ class DrawVerticesCommandPayload extends $pb.GeneratedMessage {
 }
 
 class SaveCommandPayload extends $pb.GeneratedMessage {
-  factory SaveCommandPayload() => create();
+  factory SaveCommandPayload() => SaveCommandPayload._();
 
   SaveCommandPayload._();
 
   factory SaveCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      SaveCommandPayload()..mergeFromBuffer(data, registry);
   factory SaveCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      SaveCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SaveCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: SaveCommandPayload.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -7168,30 +7323,32 @@ class SaveCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use SaveCommandPayload() / SaveCommandPayload.new instead')
   static SaveCommandPayload create() => SaveCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => SaveCommandPayload._();
   @$core.override
-  SaveCommandPayload createEmptyInstance() => create();
+  SaveCommandPayload createEmptyInstance() => SaveCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static SaveCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveCommandPayload>(SaveCommandPayload.$_createMessage);
   static SaveCommandPayload? _defaultInstance;
 }
 
 class RestoreCommandPayload extends $pb.GeneratedMessage {
-  factory RestoreCommandPayload() => create();
+  factory RestoreCommandPayload() => RestoreCommandPayload._();
 
   RestoreCommandPayload._();
 
   factory RestoreCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      RestoreCommandPayload()..mergeFromBuffer(data, registry);
   factory RestoreCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      RestoreCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RestoreCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: RestoreCommandPayload.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -7204,12 +7361,14 @@ class RestoreCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use RestoreCommandPayload() / RestoreCommandPayload.new instead')
   static RestoreCommandPayload create() => RestoreCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => RestoreCommandPayload._();
   @$core.override
-  RestoreCommandPayload createEmptyInstance() => create();
+  RestoreCommandPayload createEmptyInstance() => RestoreCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static RestoreCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RestoreCommandPayload>(create);
+  static RestoreCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RestoreCommandPayload>(RestoreCommandPayload.$_createMessage);
   static RestoreCommandPayload? _defaultInstance;
 }
 
@@ -7218,7 +7377,7 @@ class SaveBehindCommandPayload extends $pb.GeneratedMessage {
     $core.int? flags,
     Rect? subset,
   }) {
-    final result = create();
+    final result = SaveBehindCommandPayload._();
     if (flags != null) result.flags = flags;
     if (subset != null) result.subset = subset;
     return result;
@@ -7228,16 +7387,16 @@ class SaveBehindCommandPayload extends $pb.GeneratedMessage {
 
   factory SaveBehindCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      SaveBehindCommandPayload()..mergeFromBuffer(data, registry);
   factory SaveBehindCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      SaveBehindCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SaveBehindCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: SaveBehindCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'flags')
-    ..aOM<Rect>(2, _omitFieldNames ? '' : 'subset', subBuilder: Rect.create)
+    ..aOM<Rect>(2, _omitFieldNames ? '' : 'subset', subBuilder: Rect.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -7250,12 +7409,14 @@ class SaveBehindCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use SaveBehindCommandPayload() / SaveBehindCommandPayload.new instead')
   static SaveBehindCommandPayload create() => SaveBehindCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => SaveBehindCommandPayload._();
   @$core.override
-  SaveBehindCommandPayload createEmptyInstance() => create();
+  SaveBehindCommandPayload createEmptyInstance() => SaveBehindCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static SaveBehindCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveBehindCommandPayload>(create);
+  static SaveBehindCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SaveBehindCommandPayload>(SaveBehindCommandPayload.$_createMessage);
   static SaveBehindCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7286,7 +7447,7 @@ class SaveLayerCommandPayload extends $pb.GeneratedMessage {
     $core.int? imageFilterPaint,
     $core.int? paintIndex,
   }) {
-    final result = create();
+    final result = SaveLayerCommandPayload._();
     if (bounds != null) result.bounds = bounds;
     if (flags != null) result.flags = flags;
     if (imageFilterPaint != null) result.imageFilterPaint = imageFilterPaint;
@@ -7298,15 +7459,15 @@ class SaveLayerCommandPayload extends $pb.GeneratedMessage {
 
   factory SaveLayerCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      SaveLayerCommandPayload()..mergeFromBuffer(data, registry);
   factory SaveLayerCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      SaveLayerCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SaveLayerCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Rect>(1, _omitFieldNames ? '' : 'bounds', subBuilder: Rect.create)
+      createEmptyInstance: SaveLayerCommandPayload.$_createMessage)
+    ..aOM<Rect>(1, _omitFieldNames ? '' : 'bounds', subBuilder: Rect.$_createMessage)
     ..aI(2, _omitFieldNames ? '' : 'flags')
     ..aI(3, _omitFieldNames ? '' : 'imageFilterPaint')
     ..aI(4, _omitFieldNames ? '' : 'paintIndex')
@@ -7322,12 +7483,14 @@ class SaveLayerCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use SaveLayerCommandPayload() / SaveLayerCommandPayload.new instead')
   static SaveLayerCommandPayload create() => SaveLayerCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => SaveLayerCommandPayload._();
   @$core.override
-  SaveLayerCommandPayload createEmptyInstance() => create();
+  SaveLayerCommandPayload createEmptyInstance() => SaveLayerCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static SaveLayerCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveLayerCommandPayload>(create);
+  static SaveLayerCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SaveLayerCommandPayload>(SaveLayerCommandPayload.$_createMessage);
   static SaveLayerCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7374,7 +7537,7 @@ class ScaleCommandPayload extends $pb.GeneratedMessage {
     $core.double? sx,
     $core.double? sy,
   }) {
-    final result = create();
+    final result = ScaleCommandPayload._();
     if (sx != null) result.sx = sx;
     if (sy != null) result.sy = sy;
     return result;
@@ -7384,14 +7547,14 @@ class ScaleCommandPayload extends $pb.GeneratedMessage {
 
   factory ScaleCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      ScaleCommandPayload()..mergeFromBuffer(data, registry);
   factory ScaleCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      ScaleCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ScaleCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: ScaleCommandPayload.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'sx', fieldType: $pb.PbFieldType.OF)
     ..aD(2, _omitFieldNames ? '' : 'sy', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
@@ -7406,12 +7569,14 @@ class ScaleCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use ScaleCommandPayload() / ScaleCommandPayload.new instead')
   static ScaleCommandPayload create() => ScaleCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => ScaleCommandPayload._();
   @$core.override
-  ScaleCommandPayload createEmptyInstance() => create();
+  ScaleCommandPayload createEmptyInstance() => ScaleCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static ScaleCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ScaleCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ScaleCommandPayload>(ScaleCommandPayload.$_createMessage);
   static ScaleCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7437,7 +7602,7 @@ class SetMatrixCommandPayload extends $pb.GeneratedMessage {
   factory SetMatrixCommandPayload({
     $core.Iterable<$core.double>? matrix,
   }) {
-    final result = create();
+    final result = SetMatrixCommandPayload._();
     if (matrix != null) result.matrix.addAll(matrix);
     return result;
   }
@@ -7446,14 +7611,14 @@ class SetMatrixCommandPayload extends $pb.GeneratedMessage {
 
   factory SetMatrixCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      SetMatrixCommandPayload()..mergeFromBuffer(data, registry);
   factory SetMatrixCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      SetMatrixCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetMatrixCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: SetMatrixCommandPayload.$_createMessage)
     ..p<$core.double>(1, _omitFieldNames ? '' : 'matrix', $pb.PbFieldType.KF)
     ..hasRequiredFields = false;
 
@@ -7467,12 +7632,14 @@ class SetMatrixCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use SetMatrixCommandPayload() / SetMatrixCommandPayload.new instead')
   static SetMatrixCommandPayload create() => SetMatrixCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => SetMatrixCommandPayload._();
   @$core.override
-  SetMatrixCommandPayload createEmptyInstance() => create();
+  SetMatrixCommandPayload createEmptyInstance() => SetMatrixCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static SetMatrixCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetMatrixCommandPayload>(create);
+  static SetMatrixCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SetMatrixCommandPayload>(SetMatrixCommandPayload.$_createMessage);
   static SetMatrixCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7483,7 +7650,7 @@ class SetMatrix44CommandPayload extends $pb.GeneratedMessage {
   factory SetMatrix44CommandPayload({
     $core.Iterable<$core.double>? matrix,
   }) {
-    final result = create();
+    final result = SetMatrix44CommandPayload._();
     if (matrix != null) result.matrix.addAll(matrix);
     return result;
   }
@@ -7492,14 +7659,14 @@ class SetMatrix44CommandPayload extends $pb.GeneratedMessage {
 
   factory SetMatrix44CommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      SetMatrix44CommandPayload()..mergeFromBuffer(data, registry);
   factory SetMatrix44CommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      SetMatrix44CommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetMatrix44CommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: SetMatrix44CommandPayload.$_createMessage)
     ..p<$core.double>(1, _omitFieldNames ? '' : 'matrix', $pb.PbFieldType.KF)
     ..hasRequiredFields = false;
 
@@ -7513,12 +7680,14 @@ class SetMatrix44CommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use SetMatrix44CommandPayload() / SetMatrix44CommandPayload.new instead')
   static SetMatrix44CommandPayload create() => SetMatrix44CommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => SetMatrix44CommandPayload._();
   @$core.override
-  SetMatrix44CommandPayload createEmptyInstance() => create();
+  SetMatrix44CommandPayload createEmptyInstance() => SetMatrix44CommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static SetMatrix44CommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetMatrix44CommandPayload>(create);
+  static SetMatrix44CommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SetMatrix44CommandPayload>(SetMatrix44CommandPayload.$_createMessage);
   static SetMatrix44CommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7531,7 +7700,7 @@ class ClipPathCommandPayload extends $pb.GeneratedMessage {
     $core.bool? antiAlias,
     $core.int? pathIndex,
   }) {
-    final result = create();
+    final result = ClipPathCommandPayload._();
     if (op != null) result.op = op;
     if (antiAlias != null) result.antiAlias = antiAlias;
     if (pathIndex != null) result.pathIndex = pathIndex;
@@ -7542,14 +7711,14 @@ class ClipPathCommandPayload extends $pb.GeneratedMessage {
 
   factory ClipPathCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      ClipPathCommandPayload()..mergeFromBuffer(data, registry);
   factory ClipPathCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      ClipPathCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ClipPathCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: ClipPathCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'op')
     ..aOB(2, _omitFieldNames ? '' : 'antiAlias')
     ..aI(3, _omitFieldNames ? '' : 'pathIndex')
@@ -7565,12 +7734,14 @@ class ClipPathCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use ClipPathCommandPayload() / ClipPathCommandPayload.new instead')
   static ClipPathCommandPayload create() => ClipPathCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => ClipPathCommandPayload._();
   @$core.override
-  ClipPathCommandPayload createEmptyInstance() => create();
+  ClipPathCommandPayload createEmptyInstance() => ClipPathCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static ClipPathCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ClipPathCommandPayload>(create);
+  static ClipPathCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ClipPathCommandPayload>(ClipPathCommandPayload.$_createMessage);
   static ClipPathCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7607,7 +7778,7 @@ class ClipRRectCommandPayload extends $pb.GeneratedMessage {
     $core.bool? antiAlias,
     Rect? rrect,
   }) {
-    final result = create();
+    final result = ClipRRectCommandPayload._();
     if (op != null) result.op = op;
     if (antiAlias != null) result.antiAlias = antiAlias;
     if (rrect != null) result.rrect = rrect;
@@ -7618,17 +7789,17 @@ class ClipRRectCommandPayload extends $pb.GeneratedMessage {
 
   factory ClipRRectCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      ClipRRectCommandPayload()..mergeFromBuffer(data, registry);
   factory ClipRRectCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      ClipRRectCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ClipRRectCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: ClipRRectCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'op')
     ..aOB(2, _omitFieldNames ? '' : 'antiAlias')
-    ..aOM<Rect>(3, _omitFieldNames ? '' : 'rrect', subBuilder: Rect.create)
+    ..aOM<Rect>(3, _omitFieldNames ? '' : 'rrect', subBuilder: Rect.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -7641,12 +7812,14 @@ class ClipRRectCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use ClipRRectCommandPayload() / ClipRRectCommandPayload.new instead')
   static ClipRRectCommandPayload create() => ClipRRectCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => ClipRRectCommandPayload._();
   @$core.override
-  ClipRRectCommandPayload createEmptyInstance() => create();
+  ClipRRectCommandPayload createEmptyInstance() => ClipRRectCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static ClipRRectCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ClipRRectCommandPayload>(create);
+  static ClipRRectCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ClipRRectCommandPayload>(ClipRRectCommandPayload.$_createMessage);
   static ClipRRectCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7683,7 +7856,7 @@ class DrawViewEndAnnotationCommandPayload extends $pb.GeneratedMessage {
   factory DrawViewEndAnnotationCommandPayload({
     $core.int? id,
   }) {
-    final result = create();
+    final result = DrawViewEndAnnotationCommandPayload._();
     if (id != null) result.id = id;
     return result;
   }
@@ -7692,14 +7865,14 @@ class DrawViewEndAnnotationCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawViewEndAnnotationCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawViewEndAnnotationCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawViewEndAnnotationCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawViewEndAnnotationCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawViewEndAnnotationCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawViewEndAnnotationCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'id')
     ..hasRequiredFields = false;
 
@@ -7714,12 +7887,15 @@ class DrawViewEndAnnotationCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawViewEndAnnotationCommandPayload() / DrawViewEndAnnotationCommandPayload.new instead')
   static DrawViewEndAnnotationCommandPayload create() => DrawViewEndAnnotationCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawViewEndAnnotationCommandPayload._();
   @$core.override
-  DrawViewEndAnnotationCommandPayload createEmptyInstance() => create();
+  DrawViewEndAnnotationCommandPayload createEmptyInstance() => DrawViewEndAnnotationCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static DrawViewEndAnnotationCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewEndAnnotationCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewEndAnnotationCommandPayload>(
+          DrawViewEndAnnotationCommandPayload.$_createMessage);
   static DrawViewEndAnnotationCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7736,7 +7912,7 @@ class DrawViewStartAnnotationCommandPayload extends $pb.GeneratedMessage {
   factory DrawViewStartAnnotationCommandPayload({
     $core.int? id,
   }) {
-    final result = create();
+    final result = DrawViewStartAnnotationCommandPayload._();
     if (id != null) result.id = id;
     return result;
   }
@@ -7745,14 +7921,14 @@ class DrawViewStartAnnotationCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawViewStartAnnotationCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawViewStartAnnotationCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawViewStartAnnotationCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawViewStartAnnotationCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawViewStartAnnotationCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawViewStartAnnotationCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'id')
     ..hasRequiredFields = false;
 
@@ -7767,12 +7943,15 @@ class DrawViewStartAnnotationCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawViewStartAnnotationCommandPayload() / DrawViewStartAnnotationCommandPayload.new instead')
   static DrawViewStartAnnotationCommandPayload create() => DrawViewStartAnnotationCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawViewStartAnnotationCommandPayload._();
   @$core.override
-  DrawViewStartAnnotationCommandPayload createEmptyInstance() => create();
+  DrawViewStartAnnotationCommandPayload createEmptyInstance() => DrawViewStartAnnotationCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static DrawViewStartAnnotationCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewStartAnnotationCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewStartAnnotationCommandPayload>(
+          DrawViewStartAnnotationCommandPayload.$_createMessage);
   static DrawViewStartAnnotationCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7789,7 +7968,7 @@ class DrawViewContentEndAnnotationCommandPayload extends $pb.GeneratedMessage {
   factory DrawViewContentEndAnnotationCommandPayload({
     $core.int? id,
   }) {
-    final result = create();
+    final result = DrawViewContentEndAnnotationCommandPayload._();
     if (id != null) result.id = id;
     return result;
   }
@@ -7798,15 +7977,15 @@ class DrawViewContentEndAnnotationCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawViewContentEndAnnotationCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawViewContentEndAnnotationCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawViewContentEndAnnotationCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawViewContentEndAnnotationCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'DrawViewContentEndAnnotationCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawViewContentEndAnnotationCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'id')
     ..hasRequiredFields = false;
 
@@ -7822,12 +8001,16 @@ class DrawViewContentEndAnnotationCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated(
+      'Use DrawViewContentEndAnnotationCommandPayload() / DrawViewContentEndAnnotationCommandPayload.new instead')
   static DrawViewContentEndAnnotationCommandPayload create() => DrawViewContentEndAnnotationCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawViewContentEndAnnotationCommandPayload._();
   @$core.override
-  DrawViewContentEndAnnotationCommandPayload createEmptyInstance() => create();
+  DrawViewContentEndAnnotationCommandPayload createEmptyInstance() => DrawViewContentEndAnnotationCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static DrawViewContentEndAnnotationCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewContentEndAnnotationCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewContentEndAnnotationCommandPayload>(
+          DrawViewContentEndAnnotationCommandPayload.$_createMessage);
   static DrawViewContentEndAnnotationCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7844,7 +8027,7 @@ class DrawViewContentStartAnnotationCommandPayload extends $pb.GeneratedMessage 
   factory DrawViewContentStartAnnotationCommandPayload({
     $core.int? id,
   }) {
-    final result = create();
+    final result = DrawViewContentStartAnnotationCommandPayload._();
     if (id != null) result.id = id;
     return result;
   }
@@ -7853,15 +8036,15 @@ class DrawViewContentStartAnnotationCommandPayload extends $pb.GeneratedMessage 
 
   factory DrawViewContentStartAnnotationCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawViewContentStartAnnotationCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawViewContentStartAnnotationCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawViewContentStartAnnotationCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'DrawViewContentStartAnnotationCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawViewContentStartAnnotationCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'id')
     ..hasRequiredFields = false;
 
@@ -7877,12 +8060,17 @@ class DrawViewContentStartAnnotationCommandPayload extends $pb.GeneratedMessage 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated(
+      'Use DrawViewContentStartAnnotationCommandPayload() / DrawViewContentStartAnnotationCommandPayload.new instead')
   static DrawViewContentStartAnnotationCommandPayload create() => DrawViewContentStartAnnotationCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawViewContentStartAnnotationCommandPayload._();
   @$core.override
-  DrawViewContentStartAnnotationCommandPayload createEmptyInstance() => create();
+  DrawViewContentStartAnnotationCommandPayload createEmptyInstance() =>
+      DrawViewContentStartAnnotationCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static DrawViewContentStartAnnotationCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewContentStartAnnotationCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawViewContentStartAnnotationCommandPayload>(
+          DrawViewContentStartAnnotationCommandPayload.$_createMessage);
   static DrawViewContentStartAnnotationCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7899,7 +8087,7 @@ class FillViewCommandsAnnotationCommandPayload extends $pb.GeneratedMessage {
   factory FillViewCommandsAnnotationCommandPayload({
     $core.int? id,
   }) {
-    final result = create();
+    final result = FillViewCommandsAnnotationCommandPayload._();
     if (id != null) result.id = id;
     return result;
   }
@@ -7908,14 +8096,14 @@ class FillViewCommandsAnnotationCommandPayload extends $pb.GeneratedMessage {
 
   factory FillViewCommandsAnnotationCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      FillViewCommandsAnnotationCommandPayload()..mergeFromBuffer(data, registry);
   factory FillViewCommandsAnnotationCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      FillViewCommandsAnnotationCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FillViewCommandsAnnotationCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: FillViewCommandsAnnotationCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'id')
     ..hasRequiredFields = false;
 
@@ -7930,12 +8118,16 @@ class FillViewCommandsAnnotationCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated(
+      'Use FillViewCommandsAnnotationCommandPayload() / FillViewCommandsAnnotationCommandPayload.new instead')
   static FillViewCommandsAnnotationCommandPayload create() => FillViewCommandsAnnotationCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => FillViewCommandsAnnotationCommandPayload._();
   @$core.override
-  FillViewCommandsAnnotationCommandPayload createEmptyInstance() => create();
+  FillViewCommandsAnnotationCommandPayload createEmptyInstance() => FillViewCommandsAnnotationCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static FillViewCommandsAnnotationCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FillViewCommandsAnnotationCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FillViewCommandsAnnotationCommandPayload>(
+          FillViewCommandsAnnotationCommandPayload.$_createMessage);
   static FillViewCommandsAnnotationCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -7957,7 +8149,7 @@ class DrawAtlasCommandPayload extends $pb.GeneratedMessage {
     $core.int? blendMode,
     $core.Iterable<$core.int>? colors,
   }) {
-    final result = create();
+    final result = DrawAtlasCommandPayload._();
     if (paintIndex != null) result.paintIndex = paintIndex;
     if (imageIndex != null) result.imageIndex = imageIndex;
     if (srcRects != null) result.srcRects.addAll(srcRects);
@@ -7971,18 +8163,18 @@ class DrawAtlasCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawAtlasCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawAtlasCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawAtlasCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawAtlasCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawAtlasCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawAtlasCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'paintIndex', protoName: 'paintIndex')
     ..aI(2, _omitFieldNames ? '' : 'imageIndex', protoName: 'imageIndex')
-    ..pPM<Rect>(3, _omitFieldNames ? '' : 'srcRects', protoName: 'srcRects', subBuilder: Rect.create)
-    ..pPM<RSXform>(4, _omitFieldNames ? '' : 'dstXforms', protoName: 'dstXforms', subBuilder: RSXform.create)
+    ..pPM<Rect>(3, _omitFieldNames ? '' : 'srcRects', protoName: 'srcRects', subBuilder: Rect.$_createMessage)
+    ..pPM<RSXform>(4, _omitFieldNames ? '' : 'dstXforms', protoName: 'dstXforms', subBuilder: RSXform.$_createMessage)
     ..aI(5, _omitFieldNames ? '' : 'blendMode', protoName: 'blendMode')
     ..p<$core.int>(6, _omitFieldNames ? '' : 'colors', $pb.PbFieldType.K3)
     ..hasRequiredFields = false;
@@ -7997,12 +8189,14 @@ class DrawAtlasCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawAtlasCommandPayload() / DrawAtlasCommandPayload.new instead')
   static DrawAtlasCommandPayload create() => DrawAtlasCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawAtlasCommandPayload._();
   @$core.override
-  DrawAtlasCommandPayload createEmptyInstance() => create();
+  DrawAtlasCommandPayload createEmptyInstance() => DrawAtlasCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawAtlasCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawAtlasCommandPayload>(create);
+  static DrawAtlasCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawAtlasCommandPayload>(DrawAtlasCommandPayload.$_createMessage);
   static DrawAtlasCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8048,7 +8242,7 @@ class DrawCircleCommandPayload extends $pb.GeneratedMessage {
     Point? point,
     $core.double? radius,
   }) {
-    final result = create();
+    final result = DrawCircleCommandPayload._();
     if (paintIndex != null) result.paintIndex = paintIndex;
     if (point != null) result.point = point;
     if (radius != null) result.radius = radius;
@@ -8059,16 +8253,16 @@ class DrawCircleCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawCircleCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawCircleCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawCircleCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawCircleCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawCircleCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawCircleCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'paintIndex', protoName: 'paintIndex')
-    ..aOM<Point>(2, _omitFieldNames ? '' : 'point', subBuilder: Point.create)
+    ..aOM<Point>(2, _omitFieldNames ? '' : 'point', subBuilder: Point.$_createMessage)
     ..aD(3, _omitFieldNames ? '' : 'radius')
     ..hasRequiredFields = false;
 
@@ -8082,12 +8276,14 @@ class DrawCircleCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawCircleCommandPayload() / DrawCircleCommandPayload.new instead')
   static DrawCircleCommandPayload create() => DrawCircleCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawCircleCommandPayload._();
   @$core.override
-  DrawCircleCommandPayload createEmptyInstance() => create();
+  DrawCircleCommandPayload createEmptyInstance() => DrawCircleCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawCircleCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawCircleCommandPayload>(create);
+  static DrawCircleCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawCircleCommandPayload>(DrawCircleCommandPayload.$_createMessage);
   static DrawCircleCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8125,7 +8321,7 @@ class DrawColorCommandPayload extends $pb.GeneratedMessage {
     Color4f? color,
     $core.int? blendMode,
   }) {
-    final result = create();
+    final result = DrawColorCommandPayload._();
     if (color != null) result.color = color;
     if (blendMode != null) result.blendMode = blendMode;
     return result;
@@ -8135,15 +8331,15 @@ class DrawColorCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawColorCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawColorCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawColorCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawColorCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawColorCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..aOM<Color4f>(1, _omitFieldNames ? '' : 'color', subBuilder: Color4f.create)
+      createEmptyInstance: DrawColorCommandPayload.$_createMessage)
+    ..aOM<Color4f>(1, _omitFieldNames ? '' : 'color', subBuilder: Color4f.$_createMessage)
     ..aI(2, _omitFieldNames ? '' : 'blendMode', protoName: 'blendMode')
     ..hasRequiredFields = false;
 
@@ -8157,12 +8353,14 @@ class DrawColorCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawColorCommandPayload() / DrawColorCommandPayload.new instead')
   static DrawColorCommandPayload create() => DrawColorCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawColorCommandPayload._();
   @$core.override
-  DrawColorCommandPayload createEmptyInstance() => create();
+  DrawColorCommandPayload createEmptyInstance() => DrawColorCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawColorCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawColorCommandPayload>(create);
+  static DrawColorCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawColorCommandPayload>(DrawColorCommandPayload.$_createMessage);
   static DrawColorCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8192,7 +8390,7 @@ class DrawLineCommandPayload extends $pb.GeneratedMessage {
     Point? point1,
     Point? point2,
   }) {
-    final result = create();
+    final result = DrawLineCommandPayload._();
     if (paintIndex != null) result.paintIndex = paintIndex;
     if (point1 != null) result.point1 = point1;
     if (point2 != null) result.point2 = point2;
@@ -8203,17 +8401,17 @@ class DrawLineCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawLineCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawLineCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawLineCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawLineCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawLineCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawLineCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'paintIndex', protoName: 'paintIndex')
-    ..aOM<Point>(2, _omitFieldNames ? '' : 'point1', subBuilder: Point.create)
-    ..aOM<Point>(3, _omitFieldNames ? '' : 'point2', subBuilder: Point.create)
+    ..aOM<Point>(2, _omitFieldNames ? '' : 'point1', subBuilder: Point.$_createMessage)
+    ..aOM<Point>(3, _omitFieldNames ? '' : 'point2', subBuilder: Point.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -8226,12 +8424,14 @@ class DrawLineCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawLineCommandPayload() / DrawLineCommandPayload.new instead')
   static DrawLineCommandPayload create() => DrawLineCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawLineCommandPayload._();
   @$core.override
-  DrawLineCommandPayload createEmptyInstance() => create();
+  DrawLineCommandPayload createEmptyInstance() => DrawLineCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static DrawLineCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawLineCommandPayload>(create);
+  static DrawLineCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DrawLineCommandPayload>(DrawLineCommandPayload.$_createMessage);
   static DrawLineCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8271,7 +8471,7 @@ class DrawRenderParagraphCommandPayload extends $pb.GeneratedMessage {
     RenderText? renderParagraph,
     Offset? offset,
   }) {
-    final result = create();
+    final result = DrawRenderParagraphCommandPayload._();
     if (renderParagraph != null) result.renderParagraph = renderParagraph;
     if (offset != null) result.offset = offset;
     return result;
@@ -8281,17 +8481,17 @@ class DrawRenderParagraphCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawRenderParagraphCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawRenderParagraphCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawRenderParagraphCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawRenderParagraphCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawRenderParagraphCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawRenderParagraphCommandPayload.$_createMessage)
     ..aOM<RenderText>(1, _omitFieldNames ? '' : 'renderParagraph',
-        protoName: 'renderParagraph', subBuilder: RenderText.create)
-    ..aOM<Offset>(2, _omitFieldNames ? '' : 'offset', subBuilder: Offset.create)
+        protoName: 'renderParagraph', subBuilder: RenderText.$_createMessage)
+    ..aOM<Offset>(2, _omitFieldNames ? '' : 'offset', subBuilder: Offset.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -8305,12 +8505,15 @@ class DrawRenderParagraphCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawRenderParagraphCommandPayload() / DrawRenderParagraphCommandPayload.new instead')
   static DrawRenderParagraphCommandPayload create() => DrawRenderParagraphCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawRenderParagraphCommandPayload._();
   @$core.override
-  DrawRenderParagraphCommandPayload createEmptyInstance() => create();
+  DrawRenderParagraphCommandPayload createEmptyInstance() => DrawRenderParagraphCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static DrawRenderParagraphCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawRenderParagraphCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawRenderParagraphCommandPayload>(
+          DrawRenderParagraphCommandPayload.$_createMessage);
   static DrawRenderParagraphCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8340,7 +8543,7 @@ class RestoreToCountCommandPayload extends $pb.GeneratedMessage {
   factory RestoreToCountCommandPayload({
     $core.int? count,
   }) {
-    final result = create();
+    final result = RestoreToCountCommandPayload._();
     if (count != null) result.count = count;
     return result;
   }
@@ -8349,14 +8552,14 @@ class RestoreToCountCommandPayload extends $pb.GeneratedMessage {
 
   factory RestoreToCountCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      RestoreToCountCommandPayload()..mergeFromBuffer(data, registry);
   factory RestoreToCountCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      RestoreToCountCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RestoreToCountCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: RestoreToCountCommandPayload.$_createMessage)
     ..aI(1, _omitFieldNames ? '' : 'count')
     ..hasRequiredFields = false;
 
@@ -8370,12 +8573,14 @@ class RestoreToCountCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use RestoreToCountCommandPayload() / RestoreToCountCommandPayload.new instead')
   static RestoreToCountCommandPayload create() => RestoreToCountCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => RestoreToCountCommandPayload._();
   @$core.override
-  RestoreToCountCommandPayload createEmptyInstance() => create();
+  RestoreToCountCommandPayload createEmptyInstance() => RestoreToCountCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static RestoreToCountCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RestoreToCountCommandPayload>(create);
+  static RestoreToCountCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RestoreToCountCommandPayload>(RestoreToCountCommandPayload.$_createMessage);
   static RestoreToCountCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8394,7 +8599,7 @@ class RotateCommandPayload extends $pb.GeneratedMessage {
     $core.double? rx,
     $core.double? ry,
   }) {
-    final result = create();
+    final result = RotateCommandPayload._();
     if (angleInDegrees != null) result.angleInDegrees = angleInDegrees;
     if (rx != null) result.rx = rx;
     if (ry != null) result.ry = ry;
@@ -8405,14 +8610,14 @@ class RotateCommandPayload extends $pb.GeneratedMessage {
 
   factory RotateCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      RotateCommandPayload()..mergeFromBuffer(data, registry);
   factory RotateCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      RotateCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RotateCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: RotateCommandPayload.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'angleInDegrees', protoName: 'angleInDegrees')
     ..aD(2, _omitFieldNames ? '' : 'rx')
     ..aD(3, _omitFieldNames ? '' : 'ry')
@@ -8428,12 +8633,14 @@ class RotateCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use RotateCommandPayload() / RotateCommandPayload.new instead')
   static RotateCommandPayload create() => RotateCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => RotateCommandPayload._();
   @$core.override
-  RotateCommandPayload createEmptyInstance() => create();
+  RotateCommandPayload createEmptyInstance() => RotateCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static RotateCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RotateCommandPayload>(create);
+  static RotateCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RotateCommandPayload>(RotateCommandPayload.$_createMessage);
   static RotateCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8469,7 +8676,7 @@ class SkewCommandPayload extends $pb.GeneratedMessage {
     $core.double? sx,
     $core.double? sy,
   }) {
-    final result = create();
+    final result = SkewCommandPayload._();
     if (sx != null) result.sx = sx;
     if (sy != null) result.sy = sy;
     return result;
@@ -8479,14 +8686,14 @@ class SkewCommandPayload extends $pb.GeneratedMessage {
 
   factory SkewCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      SkewCommandPayload()..mergeFromBuffer(data, registry);
   factory SkewCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      SkewCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SkewCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: SkewCommandPayload.$_createMessage)
     ..aD(1, _omitFieldNames ? '' : 'sx')
     ..aD(2, _omitFieldNames ? '' : 'sy')
     ..hasRequiredFields = false;
@@ -8501,12 +8708,14 @@ class SkewCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use SkewCommandPayload() / SkewCommandPayload.new instead')
   static SkewCommandPayload create() => SkewCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => SkewCommandPayload._();
   @$core.override
-  SkewCommandPayload createEmptyInstance() => create();
+  SkewCommandPayload createEmptyInstance() => SkewCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static SkewCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SkewCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SkewCommandPayload>(SkewCommandPayload.$_createMessage);
   static SkewCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8532,7 +8741,7 @@ class TransformCommandPayload extends $pb.GeneratedMessage {
   factory TransformCommandPayload({
     $core.Iterable<$core.double>? matrix,
   }) {
-    final result = create();
+    final result = TransformCommandPayload._();
     if (matrix != null) result.matrix.addAll(matrix);
     return result;
   }
@@ -8541,14 +8750,14 @@ class TransformCommandPayload extends $pb.GeneratedMessage {
 
   factory TransformCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      TransformCommandPayload()..mergeFromBuffer(data, registry);
   factory TransformCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      TransformCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TransformCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: TransformCommandPayload.$_createMessage)
     ..p<$core.double>(1, _omitFieldNames ? '' : 'matrix', $pb.PbFieldType.KD)
     ..hasRequiredFields = false;
 
@@ -8562,12 +8771,14 @@ class TransformCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use TransformCommandPayload() / TransformCommandPayload.new instead')
   static TransformCommandPayload create() => TransformCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => TransformCommandPayload._();
   @$core.override
-  TransformCommandPayload createEmptyInstance() => create();
+  TransformCommandPayload createEmptyInstance() => TransformCommandPayload._();
   @$core.pragma('dart2js:noInline')
-  static TransformCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TransformCommandPayload>(create);
+  static TransformCommandPayload getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TransformCommandPayload>(TransformCommandPayload.$_createMessage);
   static TransformCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8579,7 +8790,7 @@ class ErrorViewAnnotationCommandPayload extends $pb.GeneratedMessage {
     $core.String? viewType,
     $core.String? errorMessage,
   }) {
-    final result = create();
+    final result = ErrorViewAnnotationCommandPayload._();
     if (viewType != null) result.viewType = viewType;
     if (errorMessage != null) result.errorMessage = errorMessage;
     return result;
@@ -8589,14 +8800,14 @@ class ErrorViewAnnotationCommandPayload extends $pb.GeneratedMessage {
 
   factory ErrorViewAnnotationCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      ErrorViewAnnotationCommandPayload()..mergeFromBuffer(data, registry);
   factory ErrorViewAnnotationCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      ErrorViewAnnotationCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ErrorViewAnnotationCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: ErrorViewAnnotationCommandPayload.$_createMessage)
     ..aOS(1, _omitFieldNames ? '' : 'viewType', protoName: 'viewType')
     ..aOS(2, _omitFieldNames ? '' : 'errorMessage', protoName: 'errorMessage')
     ..hasRequiredFields = false;
@@ -8612,12 +8823,15 @@ class ErrorViewAnnotationCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use ErrorViewAnnotationCommandPayload() / ErrorViewAnnotationCommandPayload.new instead')
   static ErrorViewAnnotationCommandPayload create() => ErrorViewAnnotationCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => ErrorViewAnnotationCommandPayload._();
   @$core.override
-  ErrorViewAnnotationCommandPayload createEmptyInstance() => create();
+  ErrorViewAnnotationCommandPayload createEmptyInstance() => ErrorViewAnnotationCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static ErrorViewAnnotationCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ErrorViewAnnotationCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ErrorViewAnnotationCommandPayload>(
+          ErrorViewAnnotationCommandPayload.$_createMessage);
   static ErrorViewAnnotationCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8644,7 +8858,7 @@ class DrawRenderEditableCommandPayload extends $pb.GeneratedMessage {
     RenderText? renderEditable,
     Offset? offset,
   }) {
-    final result = create();
+    final result = DrawRenderEditableCommandPayload._();
     if (renderEditable != null) result.renderEditable = renderEditable;
     if (offset != null) result.offset = offset;
     return result;
@@ -8654,17 +8868,17 @@ class DrawRenderEditableCommandPayload extends $pb.GeneratedMessage {
 
   factory DrawRenderEditableCommandPayload.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DrawRenderEditableCommandPayload()..mergeFromBuffer(data, registry);
   factory DrawRenderEditableCommandPayload.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DrawRenderEditableCommandPayload()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DrawRenderEditableCommandPayload',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DrawRenderEditableCommandPayload.$_createMessage)
     ..aOM<RenderText>(1, _omitFieldNames ? '' : 'renderEditable',
-        protoName: 'renderEditable', subBuilder: RenderText.create)
-    ..aOM<Offset>(2, _omitFieldNames ? '' : 'offset', subBuilder: Offset.create)
+        protoName: 'renderEditable', subBuilder: RenderText.$_createMessage)
+    ..aOM<Offset>(2, _omitFieldNames ? '' : 'offset', subBuilder: Offset.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -8678,12 +8892,15 @@ class DrawRenderEditableCommandPayload extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DrawRenderEditableCommandPayload() / DrawRenderEditableCommandPayload.new instead')
   static DrawRenderEditableCommandPayload create() => DrawRenderEditableCommandPayload._();
+  static $pb.GeneratedMessage $_createMessage() => DrawRenderEditableCommandPayload._();
   @$core.override
-  DrawRenderEditableCommandPayload createEmptyInstance() => create();
+  DrawRenderEditableCommandPayload createEmptyInstance() => DrawRenderEditableCommandPayload._();
   @$core.pragma('dart2js:noInline')
   static DrawRenderEditableCommandPayload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawRenderEditableCommandPayload>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DrawRenderEditableCommandPayload>(
+          DrawRenderEditableCommandPayload.$_createMessage);
   static DrawRenderEditableCommandPayload? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -8805,7 +9022,7 @@ class DisplayCommandV2 extends $pb.GeneratedMessage {
     ErrorViewAnnotationCommandPayload? errorViewAnnotationPayload,
     DrawRenderEditableCommandPayload? drawRenderEditablePayload,
   }) {
-    final result = create();
+    final result = DisplayCommandV2._();
     if (type != null) result.type = type;
     if (clipRectPayload != null) result.clipRectPayload = clipRectPayload;
     if (concatPayload != null) result.concatPayload = concatPayload;
@@ -8861,10 +9078,10 @@ class DisplayCommandV2 extends $pb.GeneratedMessage {
 
   factory DisplayCommandV2.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DisplayCommandV2()..mergeFromBuffer(data, registry);
   factory DisplayCommandV2.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DisplayCommandV2()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, DisplayCommandV2_Payload> _DisplayCommandV2_PayloadByTag = {
     2: DisplayCommandV2_Payload.clipRectPayload,
@@ -8915,7 +9132,7 @@ class DisplayCommandV2 extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DisplayCommandV2',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
+      createEmptyInstance: DisplayCommandV2.$_createMessage)
     ..oo(0, [
       2,
       3,
@@ -8964,95 +9181,97 @@ class DisplayCommandV2 extends $pb.GeneratedMessage {
     ])
     ..aE<DisplayCommandType>(1, _omitFieldNames ? '' : 'type', enumValues: DisplayCommandType.values)
     ..aOM<ClipRectCommandPayload>(2, _omitFieldNames ? '' : 'clipRectPayload',
-        protoName: 'clipRectPayload', subBuilder: ClipRectCommandPayload.create)
+        protoName: 'clipRectPayload', subBuilder: ClipRectCommandPayload.$_createMessage)
     ..aOM<ConcatCommandPayload>(3, _omitFieldNames ? '' : 'concatPayload',
-        protoName: 'concatPayload', subBuilder: ConcatCommandPayload.create)
+        protoName: 'concatPayload', subBuilder: ConcatCommandPayload.$_createMessage)
     ..aOM<Concat44CommandPayload>(4, _omitFieldNames ? '' : 'concat44Payload',
-        protoName: 'concat44Payload', subBuilder: Concat44CommandPayload.create)
+        protoName: 'concat44Payload', subBuilder: Concat44CommandPayload.$_createMessage)
     ..aOM<DrawArcCommandPayload>(5, _omitFieldNames ? '' : 'drawArcPayload',
-        protoName: 'drawArcPayload', subBuilder: DrawArcCommandPayload.create)
+        protoName: 'drawArcPayload', subBuilder: DrawArcCommandPayload.$_createMessage)
     ..aOM<DrawBehindPaintCommandPayload>(6, _omitFieldNames ? '' : 'drawBehindPaintPayload',
-        protoName: 'drawBehindPaintPayload', subBuilder: DrawBehindPaintCommandPayload.create)
+        protoName: 'drawBehindPaintPayload', subBuilder: DrawBehindPaintCommandPayload.$_createMessage)
     ..aOM<DrawDRRectCommandPayload>(7, _omitFieldNames ? '' : 'drawDRRectPayload',
-        protoName: 'drawDRRectPayload', subBuilder: DrawDRRectCommandPayload.create)
+        protoName: 'drawDRRectPayload', subBuilder: DrawDRRectCommandPayload.$_createMessage)
     ..aOM<DrawImageCommandPayload>(8, _omitFieldNames ? '' : 'drawImagePayload',
-        protoName: 'drawImagePayload', subBuilder: DrawImageCommandPayload.create)
+        protoName: 'drawImagePayload', subBuilder: DrawImageCommandPayload.$_createMessage)
     ..aOM<DrawImageLatticeCommandPayload>(9, _omitFieldNames ? '' : 'drawImageLatticePayload',
-        protoName: 'drawImageLatticePayload', subBuilder: DrawImageLatticeCommandPayload.create)
+        protoName: 'drawImageLatticePayload', subBuilder: DrawImageLatticeCommandPayload.$_createMessage)
     ..aOM<DrawImageNineCommandPayload>(10, _omitFieldNames ? '' : 'drawImageNinePayload',
-        protoName: 'drawImageNinePayload', subBuilder: DrawImageNineCommandPayload.create)
+        protoName: 'drawImageNinePayload', subBuilder: DrawImageNineCommandPayload.$_createMessage)
     ..aOM<DrawImageRectCommandPayload>(11, _omitFieldNames ? '' : 'drawImageRectPayload',
-        protoName: 'drawImageRectPayload', subBuilder: DrawImageRectCommandPayload.create)
+        protoName: 'drawImageRectPayload', subBuilder: DrawImageRectCommandPayload.$_createMessage)
     ..aOM<DrawPaintCommandPayload>(12, _omitFieldNames ? '' : 'drawPaintPayload',
-        protoName: 'drawPaintPayload', subBuilder: DrawPaintCommandPayload.create)
+        protoName: 'drawPaintPayload', subBuilder: DrawPaintCommandPayload.$_createMessage)
     ..aOM<DrawPathCommandPayload>(13, _omitFieldNames ? '' : 'drawPathPayload',
-        protoName: 'drawPathPayload', subBuilder: DrawPathCommandPayload.create)
+        protoName: 'drawPathPayload', subBuilder: DrawPathCommandPayload.$_createMessage)
     ..aOM<DrawRectCommandPayload>(14, _omitFieldNames ? '' : 'drawRectPayload',
-        protoName: 'drawRectPayload', subBuilder: DrawRectCommandPayload.create)
+        protoName: 'drawRectPayload', subBuilder: DrawRectCommandPayload.$_createMessage)
     ..aOM<TranslateCommandPayload>(15, _omitFieldNames ? '' : 'translatePayload',
-        protoName: 'translatePayload', subBuilder: TranslateCommandPayload.create)
+        protoName: 'translatePayload', subBuilder: TranslateCommandPayload.$_createMessage)
     ..aOM<DrawOvalCommandPayload>(16, _omitFieldNames ? '' : 'drawOvalPayload',
-        protoName: 'drawOvalPayload', subBuilder: DrawOvalCommandPayload.create)
+        protoName: 'drawOvalPayload', subBuilder: DrawOvalCommandPayload.$_createMessage)
     ..aOM<DrawPointsCommandPayload>(17, _omitFieldNames ? '' : 'drawPointsPayload',
-        protoName: 'drawPointsPayload', subBuilder: DrawPointsCommandPayload.create)
+        protoName: 'drawPointsPayload', subBuilder: DrawPointsCommandPayload.$_createMessage)
     ..aOM<DrawRRectCommandPayload>(18, _omitFieldNames ? '' : 'drawRRectPayload',
-        protoName: 'drawRRectPayload', subBuilder: DrawRRectCommandPayload.create)
+        protoName: 'drawRRectPayload', subBuilder: DrawRRectCommandPayload.$_createMessage)
     ..aOM<DrawTextBlobCommandPayload>(19, _omitFieldNames ? '' : 'drawTextBlobPayload',
-        protoName: 'drawTextBlobPayload', subBuilder: DrawTextBlobCommandPayload.create)
+        protoName: 'drawTextBlobPayload', subBuilder: DrawTextBlobCommandPayload.$_createMessage)
     ..aOM<DrawVerticesCommandPayload>(20, _omitFieldNames ? '' : 'drawVerticesPayload',
-        protoName: 'drawVerticesPayload', subBuilder: DrawVerticesCommandPayload.create)
+        protoName: 'drawVerticesPayload', subBuilder: DrawVerticesCommandPayload.$_createMessage)
     ..aOM<SaveCommandPayload>(21, _omitFieldNames ? '' : 'savePayload',
-        protoName: 'savePayload', subBuilder: SaveCommandPayload.create)
+        protoName: 'savePayload', subBuilder: SaveCommandPayload.$_createMessage)
     ..aOM<RestoreCommandPayload>(22, _omitFieldNames ? '' : 'restorePayload',
-        protoName: 'restorePayload', subBuilder: RestoreCommandPayload.create)
+        protoName: 'restorePayload', subBuilder: RestoreCommandPayload.$_createMessage)
     ..aOM<SaveBehindCommandPayload>(23, _omitFieldNames ? '' : 'saveBehindPayload',
-        protoName: 'saveBehindPayload', subBuilder: SaveBehindCommandPayload.create)
+        protoName: 'saveBehindPayload', subBuilder: SaveBehindCommandPayload.$_createMessage)
     ..aOM<SaveLayerCommandPayload>(24, _omitFieldNames ? '' : 'saveLayerPayload',
-        protoName: 'saveLayerPayload', subBuilder: SaveLayerCommandPayload.create)
+        protoName: 'saveLayerPayload', subBuilder: SaveLayerCommandPayload.$_createMessage)
     ..aOM<ScaleCommandPayload>(25, _omitFieldNames ? '' : 'scalePayload',
-        protoName: 'scalePayload', subBuilder: ScaleCommandPayload.create)
+        protoName: 'scalePayload', subBuilder: ScaleCommandPayload.$_createMessage)
     ..aOM<SetMatrixCommandPayload>(26, _omitFieldNames ? '' : 'setMatrixPayload',
-        protoName: 'setMatrixPayload', subBuilder: SetMatrixCommandPayload.create)
+        protoName: 'setMatrixPayload', subBuilder: SetMatrixCommandPayload.$_createMessage)
     ..aOM<SetMatrix44CommandPayload>(27, _omitFieldNames ? '' : 'setMatrix44Payload',
-        protoName: 'setMatrix44Payload', subBuilder: SetMatrix44CommandPayload.create)
+        protoName: 'setMatrix44Payload', subBuilder: SetMatrix44CommandPayload.$_createMessage)
     ..aOM<ClipPathCommandPayload>(28, _omitFieldNames ? '' : 'clipPathPayload',
-        protoName: 'clipPathPayload', subBuilder: ClipPathCommandPayload.create)
+        protoName: 'clipPathPayload', subBuilder: ClipPathCommandPayload.$_createMessage)
     ..aOM<ClipRRectCommandPayload>(29, _omitFieldNames ? '' : 'clipRRectPayload',
-        protoName: 'clipRRectPayload', subBuilder: ClipRRectCommandPayload.create)
+        protoName: 'clipRRectPayload', subBuilder: ClipRRectCommandPayload.$_createMessage)
     ..aOM<DrawViewEndAnnotationCommandPayload>(30, _omitFieldNames ? '' : 'drawViewEndAnnotationPayload',
-        protoName: 'drawViewEndAnnotationPayload', subBuilder: DrawViewEndAnnotationCommandPayload.create)
+        protoName: 'drawViewEndAnnotationPayload', subBuilder: DrawViewEndAnnotationCommandPayload.$_createMessage)
     ..aOM<DrawViewStartAnnotationCommandPayload>(31, _omitFieldNames ? '' : 'drawViewStartAnnotationPayload',
-        protoName: 'drawViewStartAnnotationPayload', subBuilder: DrawViewStartAnnotationCommandPayload.create)
+        protoName: 'drawViewStartAnnotationPayload', subBuilder: DrawViewStartAnnotationCommandPayload.$_createMessage)
     ..aOM<DrawViewContentEndAnnotationCommandPayload>(32, _omitFieldNames ? '' : 'drawViewContentEndAnnotationPayload',
-        protoName: 'drawViewContentEndAnnotationPayload', subBuilder: DrawViewContentEndAnnotationCommandPayload.create)
+        protoName: 'drawViewContentEndAnnotationPayload',
+        subBuilder: DrawViewContentEndAnnotationCommandPayload.$_createMessage)
     ..aOM<DrawViewContentStartAnnotationCommandPayload>(
         33, _omitFieldNames ? '' : 'drawViewContentStartAnnotationPayload',
         protoName: 'drawViewContentStartAnnotationPayload',
-        subBuilder: DrawViewContentStartAnnotationCommandPayload.create)
+        subBuilder: DrawViewContentStartAnnotationCommandPayload.$_createMessage)
     ..aOM<FillViewCommandsAnnotationCommandPayload>(34, _omitFieldNames ? '' : 'fillViewCommandsAnnotationPayload',
-        protoName: 'fillViewCommandsAnnotationPayload', subBuilder: FillViewCommandsAnnotationCommandPayload.create)
+        protoName: 'fillViewCommandsAnnotationPayload',
+        subBuilder: FillViewCommandsAnnotationCommandPayload.$_createMessage)
     ..aOM<DrawAtlasCommandPayload>(35, _omitFieldNames ? '' : 'drawAtlasPayload',
-        protoName: 'drawAtlasPayload', subBuilder: DrawAtlasCommandPayload.create)
+        protoName: 'drawAtlasPayload', subBuilder: DrawAtlasCommandPayload.$_createMessage)
     ..aOM<DrawCircleCommandPayload>(36, _omitFieldNames ? '' : 'drawCirclePayload',
-        protoName: 'drawCirclePayload', subBuilder: DrawCircleCommandPayload.create)
+        protoName: 'drawCirclePayload', subBuilder: DrawCircleCommandPayload.$_createMessage)
     ..aOM<DrawColorCommandPayload>(37, _omitFieldNames ? '' : 'drawColorPayload',
-        protoName: 'drawColorPayload', subBuilder: DrawColorCommandPayload.create)
+        protoName: 'drawColorPayload', subBuilder: DrawColorCommandPayload.$_createMessage)
     ..aOM<DrawLineCommandPayload>(38, _omitFieldNames ? '' : 'drawLinePayload',
-        protoName: 'drawLinePayload', subBuilder: DrawLineCommandPayload.create)
+        protoName: 'drawLinePayload', subBuilder: DrawLineCommandPayload.$_createMessage)
     ..aOM<DrawRenderParagraphCommandPayload>(39, _omitFieldNames ? '' : 'drawRenderParagraphPayload',
-        protoName: 'drawRenderParagraphPayload', subBuilder: DrawRenderParagraphCommandPayload.create)
+        protoName: 'drawRenderParagraphPayload', subBuilder: DrawRenderParagraphCommandPayload.$_createMessage)
     ..aOM<RestoreToCountCommandPayload>(40, _omitFieldNames ? '' : 'restoreToCountPayload',
-        protoName: 'restoreToCountPayload', subBuilder: RestoreToCountCommandPayload.create)
+        protoName: 'restoreToCountPayload', subBuilder: RestoreToCountCommandPayload.$_createMessage)
     ..aOM<RotateCommandPayload>(41, _omitFieldNames ? '' : 'rotatePayload',
-        protoName: 'rotatePayload', subBuilder: RotateCommandPayload.create)
+        protoName: 'rotatePayload', subBuilder: RotateCommandPayload.$_createMessage)
     ..aOM<SkewCommandPayload>(42, _omitFieldNames ? '' : 'skewPayload',
-        protoName: 'skewPayload', subBuilder: SkewCommandPayload.create)
+        protoName: 'skewPayload', subBuilder: SkewCommandPayload.$_createMessage)
     ..aOM<TransformCommandPayload>(43, _omitFieldNames ? '' : 'transformPayload',
-        protoName: 'transformPayload', subBuilder: TransformCommandPayload.create)
+        protoName: 'transformPayload', subBuilder: TransformCommandPayload.$_createMessage)
     ..aOM<ErrorViewAnnotationCommandPayload>(44, _omitFieldNames ? '' : 'errorViewAnnotationPayload',
-        protoName: 'errorViewAnnotationPayload', subBuilder: ErrorViewAnnotationCommandPayload.create)
+        protoName: 'errorViewAnnotationPayload', subBuilder: ErrorViewAnnotationCommandPayload.$_createMessage)
     ..aOM<DrawRenderEditableCommandPayload>(45, _omitFieldNames ? '' : 'drawRenderEditablePayload',
-        protoName: 'drawRenderEditablePayload', subBuilder: DrawRenderEditableCommandPayload.create)
+        protoName: 'drawRenderEditablePayload', subBuilder: DrawRenderEditableCommandPayload.$_createMessage)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -9065,12 +9284,14 @@ class DisplayCommandV2 extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DisplayCommandV2() / DisplayCommandV2.new instead')
   static DisplayCommandV2 create() => DisplayCommandV2._();
+  static $pb.GeneratedMessage $_createMessage() => DisplayCommandV2._();
   @$core.override
-  DisplayCommandV2 createEmptyInstance() => create();
+  DisplayCommandV2 createEmptyInstance() => DisplayCommandV2._();
   @$core.pragma('dart2js:noInline')
   static DisplayCommandV2 getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayCommandV2>(create);
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayCommandV2>(DisplayCommandV2.$_createMessage);
   static DisplayCommandV2? _defaultInstance;
 
   @$pb.TagNumber(2)
@@ -9679,7 +9900,7 @@ class DisplayFrameV2 extends $pb.GeneratedMessage {
     $core.int? keyboardHeight,
     $core.int? systemBackgroundColor,
   }) {
-    final result = create();
+    final result = DisplayFrameV2._();
     if (commands != null) result.commands.addAll(commands);
     if (typefaces != null) result.typefaces.addAll(typefaces);
     if (images != null) result.images.addAll(images);
@@ -9704,22 +9925,22 @@ class DisplayFrameV2 extends $pb.GeneratedMessage {
 
   factory DisplayFrameV2.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
+      DisplayFrameV2()..mergeFromBuffer(data, registry);
   factory DisplayFrameV2.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
+      DisplayFrameV2()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DisplayFrameV2',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'com.microsoft.clarity.protomodels.mutationpayload'),
-      createEmptyInstance: create)
-    ..pPM<DisplayCommandV2>(1, _omitFieldNames ? '' : 'commands', subBuilder: DisplayCommandV2.create)
-    ..pPM<Typeface>(2, _omitFieldNames ? '' : 'typefaces', subBuilder: Typeface.create)
-    ..pPM<Image>(3, _omitFieldNames ? '' : 'images', subBuilder: Image.create)
-    ..pPM<TextBlob>(4, _omitFieldNames ? '' : 'textBlobs', subBuilder: TextBlob.create)
-    ..pPM<Vertices>(5, _omitFieldNames ? '' : 'vertices', subBuilder: Vertices.create)
-    ..pPM<Paint>(6, _omitFieldNames ? '' : 'paints', subBuilder: Paint.create)
-    ..pPM<Path>(7, _omitFieldNames ? '' : 'paths', subBuilder: Path.create)
-    ..pPM<DisplayFrameV2>(8, _omitFieldNames ? '' : 'subPictures', subBuilder: DisplayFrameV2.create)
-    ..aOM<ViewHierarchy>(9, _omitFieldNames ? '' : 'viewHierarchy', subBuilder: ViewHierarchy.create)
+      createEmptyInstance: DisplayFrameV2.$_createMessage)
+    ..pPM<DisplayCommandV2>(1, _omitFieldNames ? '' : 'commands', subBuilder: DisplayCommandV2.$_createMessage)
+    ..pPM<Typeface>(2, _omitFieldNames ? '' : 'typefaces', subBuilder: Typeface.$_createMessage)
+    ..pPM<Image>(3, _omitFieldNames ? '' : 'images', subBuilder: Image.$_createMessage)
+    ..pPM<TextBlob>(4, _omitFieldNames ? '' : 'textBlobs', subBuilder: TextBlob.$_createMessage)
+    ..pPM<Vertices>(5, _omitFieldNames ? '' : 'vertices', subBuilder: Vertices.$_createMessage)
+    ..pPM<Paint>(6, _omitFieldNames ? '' : 'paints', subBuilder: Paint.$_createMessage)
+    ..pPM<Path>(7, _omitFieldNames ? '' : 'paths', subBuilder: Path.$_createMessage)
+    ..pPM<DisplayFrameV2>(8, _omitFieldNames ? '' : 'subPictures', subBuilder: DisplayFrameV2.$_createMessage)
+    ..aOM<ViewHierarchy>(9, _omitFieldNames ? '' : 'viewHierarchy', subBuilder: ViewHierarchy.$_createMessage)
     ..aD(10, _omitFieldNames ? '' : 'timestamp')
     ..aOS(11, _omitFieldNames ? '' : 'activityName')
     ..aI(12, _omitFieldNames ? '' : 'activityId')
@@ -9740,11 +9961,14 @@ class DisplayFrameV2 extends $pb.GeneratedMessage {
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
+  @$core.Deprecated('Use DisplayFrameV2() / DisplayFrameV2.new instead')
   static DisplayFrameV2 create() => DisplayFrameV2._();
+  static $pb.GeneratedMessage $_createMessage() => DisplayFrameV2._();
   @$core.override
-  DisplayFrameV2 createEmptyInstance() => create();
+  DisplayFrameV2 createEmptyInstance() => DisplayFrameV2._();
   @$core.pragma('dart2js:noInline')
-  static DisplayFrameV2 getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayFrameV2>(create);
+  static DisplayFrameV2 getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisplayFrameV2>(DisplayFrameV2.$_createMessage);
   static DisplayFrameV2? _defaultInstance;
 
   @$pb.TagNumber(1)
