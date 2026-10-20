@@ -226,7 +226,7 @@ class UploadWorkerIsolate extends WorkerIsolate with EventQueueHandler, Telemetr
       sendSessionMetadata: sendSessionMetadata,
       sendPageMetadata: sendPageMetadata,
     );
-    return _ingestService.uploadSessionPayload(
+    return await _ingestService.uploadSessionPayload(
       SerializedPayload(
         analytics: filteredAnalytics,
         playback: playback,

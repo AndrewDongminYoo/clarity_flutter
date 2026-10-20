@@ -34,7 +34,7 @@ class EntryPoint {
       return await logic();
     } catch (e, st) {
       _handleException(e, st, catchLogic, throwExceptions);
-      return Future.value();
+      return await Future.value();
     } finally {
       finallyLogic?.call();
     }

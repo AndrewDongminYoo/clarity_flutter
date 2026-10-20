@@ -66,7 +66,7 @@ void main() {
 
     test('rethrows exception when throwExceptions is true', () async {
       expect(
-        () async => EntryPoint.runAsync(() async => throw Exception('test error'), throwExceptions: true),
+        () async => await EntryPoint.runAsync(() async => throw Exception('test error'), throwExceptions: true),
         throwsException,
       );
     });

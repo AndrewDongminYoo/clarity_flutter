@@ -37,7 +37,7 @@ class HttpUtils {
     List<int>? data,
     RetryPolicy<HttpClientResponse>? retryPolicy,
   }) async {
-    return _withClient((client) async {
+    return await _withClient((client) async {
       Logger.verbose?.out('Attempting Request $method, uri:$uri');
       final request = await _openHttpConnection(client, method, uri, headers: headers);
       final response = await _getHttpResponse(request, data);
@@ -76,7 +76,7 @@ class HttpUtils {
       final dataStream = Stream.fromIterable([data]);
       await request.addStream(dataStream);
     }
-    return request.close();
+    return await request.close();
   }
 
   static Future<HttpClientResponse> _withClient(
@@ -87,7 +87,7 @@ class HttpUtils {
       ..connectionTimeout = const Duration(milliseconds: ClarityConstants.connectionTimeoutInMs);
     try {
       if (retryPolicy != null) {
-        return await retryPolicy.tryAsync(() async => fn(client));
+        return await retryPolicy.tryAsync(() async => await fn(client));
       }
       return await fn(client);
     } finally {

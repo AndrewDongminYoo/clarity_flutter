@@ -52,7 +52,7 @@ class SettingsRepository {
   Future<String?> _readFileContent(String fileName) async {
     if (!(await settingsStore.fileExists(fileName))) return null;
 
-    return settingsStore.readFileToString(fileName);
+    return await settingsStore.readFileToString(fileName);
   }
 
   Future<void> _writeFileContent(String fileName, String content) async {

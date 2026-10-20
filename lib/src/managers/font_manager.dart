@@ -77,7 +77,7 @@ class FontManager {
       _pendingNewFonts.addAll(fonts);
       return [];
     }
-    return _registerFonts(fonts);
+    return await _registerFonts(fonts);
   }
 
   List<FontLoadRequest> consumePendingLoadRequests() {

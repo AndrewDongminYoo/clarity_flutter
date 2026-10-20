@@ -28,7 +28,7 @@ class FileStore {
   Future<List<FileSystemEntity>> getAllFilesRecursively({String prefix = '', bool includeDirectories = false}) async {
     final directory = Directory('$fullDirectory/$prefix');
     if (await directory.exists()) {
-      return directory.list(recursive: true).where((entity) => includeDirectories || entity is File).toList();
+      return await directory.list(recursive: true).where((entity) => includeDirectories || entity is File).toList();
     } else {
       return List.empty();
     }
@@ -37,7 +37,7 @@ class FileStore {
   Future<List<FileSystemEntity>> getAllDirectories({String prefix = ''}) async {
     final directory = Directory('$fullDirectory/$prefix');
     if (await directory.exists()) {
-      return directory.list().where((entity) => entity is Directory).toList();
+      return await directory.list().where((entity) => entity is Directory).toList();
     } else {
       return List.empty();
     }

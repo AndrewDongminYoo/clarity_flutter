@@ -44,7 +44,7 @@ class RetryPolicy<T> {
       }
     }
 
-    return operation();
+    return await operation();
   }
 }
 
